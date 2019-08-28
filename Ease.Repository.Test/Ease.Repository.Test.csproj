@@ -1,0 +1,23 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
+    <Version>0.0.0</Version>
+    <Authors>Tyler Austen</Authors>
+    <Description>C#/.Net building blocks supporting integration testing of concrete repository and unit of work implementations based on Ease.Repository. NOTE: You will need to do trivial overrides that call base implementation for abstract base class test methods to allow test runners to find those default tests - a bit smelly, but you'll get basic CRUD integration tests for your repository classes for free this way.</Description>
+    <Copyright>Copyright (c) 2019 Tyler Austen</Copyright>
+    <PackageLicenseFile>LICENSE</PackageLicenseFile>
+    <PackageProjectUrl>https://github.com/tausten/Ease.Repository</PackageProjectUrl>
+    <RepositoryUrl>https://github.com/tausten/Ease.Repository</RepositoryUrl>
+    <PackageTags>csharp, dotnet, repository, test</PackageTags>
+    <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Include="..\LICENSE">
+      <Pack>True</Pack>
+      <PackagePath></PackagePath>
+    </None>
+  </ItemGroup>
+
+</Project>
