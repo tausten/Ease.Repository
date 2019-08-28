@@ -15,6 +15,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\Ease.Repository.Test\Ease.Repository.Test.csproj" />
     <ProjectReference Include="..\Ease.Repository\Ease.Repository.csproj" />
   </ItemGroup>
 

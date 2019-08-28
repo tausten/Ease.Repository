@@ -3,9 +3,22 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.29215.179
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Ease.Repository", "Ease.Repository\Ease.Repository.csproj", "{C88DA881-EE81-4AB6-84F1-67BDBBB49CFB}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Ease.Repository", "Ease.Repository\Ease.Repository.csproj", "{C88DA881-EE81-4AB6-84F1-67BDBBB49CFB}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Ease.Repository.Tests", "Ease.Repository.Tests\Ease.Repository.Tests.csproj", "{197CEF83-D11D-406D-936B-9D76A3542BB4}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Ease.Repository.Tests", "Ease.Repository.Tests\Ease.Repository.Tests.csproj", "{197CEF83-D11D-406D-936B-9D76A3542BB4}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Ease.Repository.Test", "Ease.Repository.Test\Ease.Repository.Test.csproj", "{71DA7641-8515-4F57-8D0B-A9097BE30899}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{25175E4C-44AC-467A-821B-7EA5EC7A155D}"
+	ProjectSection(SolutionItems) = preProject
+		azure-pipelines-build-tagged.yml = azure-pipelines-build-tagged.yml
+		azure-pipelines-pull-requests.yml = azure-pipelines-pull-requests.yml
+		CHANGELOG.md = CHANGELOG.md
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Ease.Repository.AzureTable", "Ease.Repository.AzureTable\Ease.Repository.AzureTable.csproj", "{FE59764A-1131-4844-A9BA-C91E46683C4B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Ease.Repository.AzureTable.Tests", "Ease.Repository.AzureTable.Tests\Ease.Repository.AzureTable.Tests.csproj", "{59291789-519A-4332-AB5D-4339817B039E}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -21,6 +34,18 @@ Global
 		{197CEF83-D11D-406D-936B-9D76A3542BB4}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{197CEF83-D11D-406D-936B-9D76A3542BB4}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{197CEF83-D11D-406D-936B-9D76A3542BB4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{71DA7641-8515-4F57-8D0B-A9097BE30899}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{71DA7641-8515-4F57-8D0B-A9097BE30899}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{71DA7641-8515-4F57-8D0B-A9097BE30899}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{71DA7641-8515-4F57-8D0B-A9097BE30899}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FE59764A-1131-4844-A9BA-C91E46683C4B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FE59764A-1131-4844-A9BA-C91E46683C4B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FE59764A-1131-4844-A9BA-C91E46683C4B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FE59764A-1131-4844-A9BA-C91E46683C4B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{59291789-519A-4332-AB5D-4339817B039E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{59291789-519A-4332-AB5D-4339817B039E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{59291789-519A-4332-AB5D-4339817B039E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{59291789-519A-4332-AB5D-4339817B039E}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
