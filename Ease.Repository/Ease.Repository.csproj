@@ -11,6 +11,7 @@
     <RepositoryUrl>https://github.com/tausten/Ease.Repository</RepositoryUrl>
     <PackageTags>csharp, dotnet, repository</PackageTags>
     <Description>C#/.Net building blocks supporting implementation of the repository and unit of work patterns compatible with both NoSQL and SQL / session-aware stores. See Ease.Repository.* packages for concrete implementations.</Description>
+    <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
   </PropertyGroup>
 
   <ItemGroup>
