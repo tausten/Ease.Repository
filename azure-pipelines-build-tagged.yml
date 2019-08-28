@@ -37,7 +37,9 @@ steps:
 - task: Assembly-Info-NetCore@2
   inputs:
     Path: '$(Build.SourcesDirectory)'
-    FileNames: '**/*Ease.Repository.*.csproj;!**/*Ease.Repository.*.Tests.csproj'
+    FileNames: |
+      **/*Ease.Repository.*.csproj
+      !**/*Ease.Repository.*.Tests.csproj
     InsertAttributes: true
     GeneratePackageOnBuild: true
     PackageReleaseNotes: $(releaseNotesFlattened)
