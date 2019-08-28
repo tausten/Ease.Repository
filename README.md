@@ -1,0 +1,2 @@
+# Ease.Repository
+C#/.Net building blocks and concrete implementations of the repository and unit of work patterns compatible with both NoSQL and SQL / session-aware stores. Also includes base classes to aid in integration testing concrete repository classes, and provides default CRUD tests out-of-the-box when your concrete repository and corresponding unit test class inherit from the available abstract bases. Concrete implementations may be expanded over time, but will start with AzureTable, Redis, EntityFramework, and NHibernate (in that order).
