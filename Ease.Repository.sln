@@ -7,18 +7,19 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Ease.Repository", "Ease.Rep
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Ease.Repository.Tests", "Ease.Repository.Tests\Ease.Repository.Tests.csproj", "{197CEF83-D11D-406D-936B-9D76A3542BB4}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Ease.Repository.Test", "Ease.Repository.Test\Ease.Repository.Test.csproj", "{71DA7641-8515-4F57-8D0B-A9097BE30899}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Ease.Repository.Test", "Ease.Repository.Test\Ease.Repository.Test.csproj", "{71DA7641-8515-4F57-8D0B-A9097BE30899}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{25175E4C-44AC-467A-821B-7EA5EC7A155D}"
 	ProjectSection(SolutionItems) = preProject
 		azure-pipelines-build-tagged.yml = azure-pipelines-build-tagged.yml
 		azure-pipelines-pull-requests.yml = azure-pipelines-pull-requests.yml
 		CHANGELOG.md = CHANGELOG.md
+		Ease.Repository.sln.licenseheader = Ease.Repository.sln.licenseheader
 	EndProjectSection
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Ease.Repository.AzureTable", "Ease.Repository.AzureTable\Ease.Repository.AzureTable.csproj", "{FE59764A-1131-4844-A9BA-C91E46683C4B}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Ease.Repository.AzureTable", "Ease.Repository.AzureTable\Ease.Repository.AzureTable.csproj", "{FE59764A-1131-4844-A9BA-C91E46683C4B}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Ease.Repository.AzureTable.Tests", "Ease.Repository.AzureTable.Tests\Ease.Repository.AzureTable.Tests.csproj", "{59291789-519A-4332-AB5D-4339817B039E}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Ease.Repository.AzureTable.Tests", "Ease.Repository.AzureTable.Tests\Ease.Repository.AzureTable.Tests.csproj", "{59291789-519A-4332-AB5D-4339817B039E}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
