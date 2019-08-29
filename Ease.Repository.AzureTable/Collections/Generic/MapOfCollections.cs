@@ -4,9 +4,11 @@
 
 using System.Collections.Generic;
 
-namespace Ease.Repository.AzureTable
+namespace Ease.Repository.AzureTable.Collections.Generic
 {
     /// <summary>
+    /// TODO: Move this to Ease.Util  (keep `internal` until then)
+    /// 
     /// A mapping of keys to a collection of values. Takes care of ensuring that an empty collection is present,
     /// avoiding need for null checks and collection initialization per key prior to use. Eg:
     ///
@@ -23,7 +25,7 @@ namespace Ease.Repository.AzureTable
     /// <typeparam name="TKey">The lookup key type.</typeparam>
     /// <typeparam name="TCollection">The collection type to store the values in per key.</typeparam>
     /// <typeparam name="TValue">The value type.</typeparam>
-    public class MapOfCollections<TKey, TCollection, TValue>
+    internal class MapOfCollections<TKey, TCollection, TValue>
         where TCollection : ICollection<TValue>, new()
     {
         private readonly Dictionary<TKey, TCollection> _inner = new Dictionary<TKey, TCollection>();
@@ -63,7 +65,7 @@ namespace Ease.Repository.AzureTable
         }
     }
 
-    public class MapOfHashSets<TKey, TValue> : MapOfCollections<TKey, HashSet<TValue>, TValue> { }
+    internal class MapOfHashSets<TKey, TValue> : MapOfCollections<TKey, HashSet<TValue>, TValue> { }
 
-    public class MapOfLists<TKey, TValue> : MapOfCollections<TKey, List<TValue>, TValue> { }
+    internal class MapOfLists<TKey, TValue> : MapOfCollections<TKey, List<TValue>, TValue> { }
 }

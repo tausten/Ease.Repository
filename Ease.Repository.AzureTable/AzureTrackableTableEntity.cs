@@ -38,14 +38,17 @@ namespace Ease.Repository.AzureTable
             return result as IDictionary<string, EntityProperty>;
         }
 
+        static AzureTrackableTableEntity()
+        {
+            PrivateTableEntityReflectionReadMethod = typeof(TableEntity).GetMethod("ReflectionRead", BindingFlags.NonPublic | BindingFlags.Static);
+            PrivateTableEntityReflectionWriteMethod = typeof(TableEntity).GetMethod("ReflectionWrite", BindingFlags.NonPublic | BindingFlags.Static);
+        }
+
         /// <summary>
         /// Thanks to the library's excessive use of `internal` and `private`, we have to leap through hoops like this
         /// to reuse some utilities. :facepalm:
         /// </summary>
-        private static readonly MethodInfo PrivateTableEntityReflectionReadMethod
-            = typeof(TableEntity).GetMethod("ReflectionRead");
-
-        private static readonly MethodInfo PrivateTableEntityReflectionWriteMethod
-            = typeof(TableEntity).GetMethod("ReflectionWrite");
+        private static readonly MethodInfo PrivateTableEntityReflectionReadMethod;
+        private static readonly MethodInfo PrivateTableEntityReflectionWriteMethod;
     }
 }

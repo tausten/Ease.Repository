@@ -17,18 +17,19 @@ namespace Ease.Repository.AzureTable
     public interface IBestEffortUnitOfWork : IUnitOfWork
     {
         /// <summary>
+        /// Respositories must register the IStoreWriter to use for entity types that they wish the unit of work to manage.
+        /// </summary>
+        /// <typeparam name="TEntity">The entity Type the <paramref name="storeWriter"/> is for.</typeparam>
+        /// <param name="storeWriter">The `IStoreWriter` to use for updating the store.</param>
+        void RegisterStoreFor<TEntity>(IStoreWriter storeWriter);
+
+        /// <summary>
         /// Registers an Add of a new entity with the unit of work.
         /// </summary>
         /// <param name="entity">The new entity being added</param>
-        /// <param name="persistAction">The action to perform on a <typeparamref name="TEntity"/> to persist it to
-        /// the store</param>
-        /// <param name="undoPersistAction">The best-effort action to perform to undo
-        /// a successful <paramref name="persistAction"/></param>
         /// <typeparam name="TEntity">The entity type.</typeparam>
         /// <returns>The unit of work-tracked entity to return from repository.</returns>
-        TEntity RegisterAdd<TEntity>(
-            TEntity entity, Action<TEntity> persistAction, Action<TEntity> undoPersistAction)
-            where TEntity : class, ITableEntity, new();
+        TEntity RegisterAdd<TEntity>(TEntity entity) where TEntity : class, new();
 
         /// <summary>
         /// Registers a set of entities for update handling with the unit of work. Typically, you should call this
@@ -39,8 +40,7 @@ namespace Ease.Repository.AzureTable
         /// changes made to the store.</param>
         /// <typeparam name="TEntity">The entity type.</typeparam>
         /// <returns>The unit of work-tracked entities to return from repository.</returns>
-        IEnumerable<TEntity> RegisterForUpdates<TEntity>(IEnumerable<TEntity> entities, Action<TEntity> updateAction)
-            where TEntity : class, ITableEntity, new();
+        IEnumerable<TEntity> RegisterForUpdates<TEntity>(IEnumerable<TEntity> entities) where TEntity : class, new();
 
         /// <summary>
         /// Registers a Delete of an entity with the unit of work.
@@ -51,8 +51,6 @@ namespace Ease.Repository.AzureTable
         /// <param name="undoDeleteAction">The best-effort action to perform to undo
         /// a successful <paramref name="deleteAction"/></param>
         /// <typeparam name="TEntity">The entity type.</typeparam>
-        void RegisterDelete<TEntity>(
-            TEntity entity, Action<TEntity> deleteAction, Action<TEntity> undoDeleteAction)
-            where TEntity : class, ITableEntity, new();
+        void RegisterDelete<TEntity>(TEntity entity) where TEntity : class, new();
     }
 }

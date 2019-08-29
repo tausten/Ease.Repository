@@ -8,6 +8,7 @@ using System.Threading.Tasks;
 using AutoFixture;
 using AutoFixture.AutoFakeItEasy;
 using ChangeTracking;
+using Ease.Repository;
 using Ease.Repository.AzureTable;
 using FakeItEasy;
 using FluentAssertions;
@@ -29,26 +30,16 @@ namespace HelperAPIs.Impl.Test.Data
             }
         }
 
-        public interface ICanDoAndUndo
-        {
-            void Do(TestTableEntity entity);
-            void Undo(TestTableEntity entity);
-        }
-
         private enum Operation
         {
             Add,
-            UndoAdd,
-            UpdateOrUndoUpdate,
-            Delete,
-            UndoDelete
+            Update,
+            Delete
         }
         
         private IFixture _fixture;
         private AzureTableUnitOfWork<IAzureTableRepositoryContext> _sut;
-        private ICanDoAndUndo _mockAddHandler;
-        private ICanDoAndUndo _mockUpdateHandler;
-        private ICanDoAndUndo _mockDeleteHandler;
+        private IStoreWriter _storeWriter;
         private TestTableEntity _rawEntity;
 
         private List<KeyValuePair<TestTableEntity, Operation>> _orderedOperations;
@@ -60,51 +51,44 @@ namespace HelperAPIs.Impl.Test.Data
 
             _fixture = new Fixture().Customize(new AutoFakeItEasyCustomization());
             _fixture.Freeze<IAzureTableRepositoryContext>();
-
-            _mockAddHandler = MockHandler(Operation.Add, Operation.UndoAdd);
-            _mockUpdateHandler = MockHandler(Operation.UpdateOrUndoUpdate, Operation.UpdateOrUndoUpdate);
-            _mockDeleteHandler = MockHandler(Operation.Delete, Operation.UndoDelete);
-            
+            _storeWriter = MockStoreWriter();
             _sut = _fixture.Freeze<AzureTableUnitOfWork<IAzureTableRepositoryContext>>();
-            
+
+            _sut.RegisterStoreFor<TestTableEntity>(_storeWriter);
+
             _rawEntity = new TestTableEntity();
         }
 
-        private ICanDoAndUndo MockHandler(Operation doOperation, Operation undoOperation)
+        private IStoreWriter MockStoreWriter()
         {
-            var handler = A.Fake<ICanDoAndUndo>();
-            A.CallTo(() => handler.Do(A<TestTableEntity>._))
+            var storeWriter = A.Fake<IStoreWriter>();
+
+            A.CallTo(() => storeWriter.Add(A<TestTableEntity>._))
                 .Invokes((TestTableEntity e) => _orderedOperations.Add(
-                    new KeyValuePair<TestTableEntity, Operation>(e, doOperation)));
-            
-            A.CallTo(() => handler.Undo(A<TestTableEntity>._))
+                    new KeyValuePair<TestTableEntity, Operation>(e, Operation.Add)));
+
+            A.CallTo(() => storeWriter.Update(A<TestTableEntity>._))
                 .Invokes((TestTableEntity e) => _orderedOperations.Add(
-                    new KeyValuePair<TestTableEntity, Operation>(e, undoOperation)));
+                    new KeyValuePair<TestTableEntity, Operation>(e, Operation.Update)));
+
+            A.CallTo(() => storeWriter.Delete(A<TestTableEntity>._))
+                .Invokes((TestTableEntity e) => _orderedOperations.Add(
+                    new KeyValuePair<TestTableEntity, Operation>(e, Operation.Delete)));
             
-            return handler;
+            return storeWriter;
         }
 
-        private TestTableEntity RegisterAdd(TestTableEntity entity)
+        private TestTableEntity RegisterSingleForUpdates(TestTableEntity entity)
         {
-            return _sut.RegisterAdd(entity, _mockAddHandler.Do, _mockAddHandler.Undo);
-        }
-
-        private TestTableEntity RegisterForUpdates(TestTableEntity entity)
-        {
-            return _sut.RegisterForUpdates(new[]{entity}, _mockUpdateHandler.Do).SingleOrDefault();
-        }
-
-        private IEnumerable<TestTableEntity> RegisterForUpdates(params TestTableEntity[] entities)
-        {
-            return _sut.RegisterForUpdates(entities, _mockUpdateHandler.Do);
+            return _sut.RegisterForUpdates(new[] { entity }).First();
         }
 
         private TestTableEntity RegisterDelete(TestTableEntity entity)
         {
-            _sut.RegisterDelete(entity, _mockDeleteHandler.Do, _mockDeleteHandler.Undo);
+            _sut.RegisterDelete(entity);
             return entity;
         }
-        
+
         [TearDown]
         public void TearDown()
         {
@@ -126,28 +110,30 @@ namespace HelperAPIs.Impl.Test.Data
         public async Task Complete_When_Object_Deleted_Calls_DeleteAction()
         {
             // Arrange
-            RegisterDelete(_rawEntity);
+            _sut.RegisterDelete(_rawEntity);
             
             // Act
             await _sut.CompleteAsync();
             
             // Assert
-            A.CallTo(() => _mockDeleteHandler.Do(_rawEntity)).MustHaveHappenedOnceExactly();
-            A.CallTo(() => _mockDeleteHandler.Undo(_rawEntity)).MustNotHaveHappened();
+            A.CallTo(() => _storeWriter.Delete(_rawEntity)).MustHaveHappenedOnceExactly();
+            A.CallTo(() => _storeWriter.Add(A<TestTableEntity>._)).MustNotHaveHappened();
+            A.CallTo(() => _storeWriter.Update(A<TestTableEntity>._)).MustNotHaveHappened();
         }
-        
+
         [Test]
         public async Task Complete_When_Object_Added_Calls_PersistAction()
         {
             // Arrange
-            RegisterAdd(_rawEntity);
+            _sut.RegisterAdd(_rawEntity);
             
             // Act
             await _sut.CompleteAsync();
             
             // Assert
-            A.CallTo(() => _mockAddHandler.Do(_rawEntity)).MustHaveHappenedOnceExactly();
-            A.CallTo(() => _mockAddHandler.Undo(_rawEntity)).MustNotHaveHappened();
+            A.CallTo(() => _storeWriter.Add(_rawEntity)).MustHaveHappenedOnceExactly();
+            A.CallTo(() => _storeWriter.Delete(A<TestTableEntity>._)).MustNotHaveHappened();
+            A.CallTo(() => _storeWriter.Update(A<TestTableEntity>._)).MustNotHaveHappened();
         }
 
         [Test]
@@ -156,16 +142,17 @@ namespace HelperAPIs.Impl.Test.Data
             // Arrange
             _rawEntity.PartitionKey = "jiggy";
             _rawEntity.RowKey = "wiggy";
-            
-            RegisterForUpdates(_rawEntity);
+
+            _sut.RegisterForUpdates(new[] { _rawEntity });
             
             // Act
             await _sut.CompleteAsync();
             
             // Assert
             A.CallTo(() => _sut.Context.Client).MustNotHaveHappened();
-            A.CallTo(() => _mockUpdateHandler.Do(A<TestTableEntity>._)).MustNotHaveHappened();
-            A.CallTo(() => _mockUpdateHandler.Undo(A<TestTableEntity>._)).MustNotHaveHappened();
+            A.CallTo(() => _storeWriter.Add(A<TestTableEntity>._)).MustNotHaveHappened();
+            A.CallTo(() => _storeWriter.Update(A<TestTableEntity>._)).MustNotHaveHappened();
+            A.CallTo(() => _storeWriter.Delete(A<TestTableEntity>._)).MustNotHaveHappened();
         }
 
         [Test]
@@ -175,7 +162,7 @@ namespace HelperAPIs.Impl.Test.Data
             _rawEntity.PartitionKey = "jiggy";
             _rawEntity.RowKey = "wiggy";
             
-            var trackedEntity = RegisterForUpdates(_rawEntity);
+            var trackedEntity = RegisterSingleForUpdates(_rawEntity);
 
             trackedEntity.SomeString = "Wagga";
             trackedEntity.SomeInt = 12;
@@ -184,7 +171,7 @@ namespace HelperAPIs.Impl.Test.Data
             await _sut.CompleteAsync();
             
             // Assert
-            A.CallTo(() => _mockUpdateHandler.Do(A<TestTableEntity>.That.Matches(x => 
+            A.CallTo(() => _storeWriter.Update(A<TestTableEntity>.That.Matches(x => 
                     x.PartitionKey == _rawEntity.PartitionKey
                     && x.RowKey == _rawEntity.RowKey
                     && x.SomeString == "Wagga"
@@ -192,8 +179,10 @@ namespace HelperAPIs.Impl.Test.Data
                     && !(x is IChangeTrackable<TestTableEntity>)
                     )))
                 .MustHaveHappenedOnceExactly();
+            A.CallTo(() => _storeWriter.Add(A<TestTableEntity>._)).MustNotHaveHappened();
+            A.CallTo(() => _storeWriter.Delete(A<TestTableEntity>._)).MustNotHaveHappened();
         }
-        
+
         [Test]
         public async Task Complete_Honors_Order_When_Multiple_Operations()
         {
@@ -208,8 +197,8 @@ namespace HelperAPIs.Impl.Test.Data
             const string idOfSecondEntityToDelete = "second delete";
 
             // NOTE: The update registrations don't immediately - they get applied on actual edits of the returned entities
-            var firstEntityToUpdate = RegisterForUpdates(new TestTableEntity {RowKey = idOfFirstEntityToUpdate});
-            var secondEntityToUpdate = RegisterForUpdates(new TestTableEntity {RowKey = idOfSecondEntityToUpdate});
+            var firstEntityToUpdate = RegisterSingleForUpdates(new TestTableEntity {RowKey = idOfFirstEntityToUpdate});
+            var secondEntityToUpdate = RegisterSingleForUpdates(new TestTableEntity {RowKey = idOfSecondEntityToUpdate});
             
             // Act
             var expectedFirstDelete = RegisterDelete(new TestTableEntity {RowKey = idOfFirstEntityToDelete});
@@ -217,12 +206,12 @@ namespace HelperAPIs.Impl.Test.Data
             firstEntityToUpdate.SomeString = "Hello world!";
             var expectedFirstUpdate = firstEntityToUpdate.GetCurrentSnapshot();
             
-            var expectedFirstAdd = RegisterAdd(new TestTableEntity {RowKey = idOfFirstEntityToAdd}).GetCurrentSnapshot();
+            var expectedFirstAdd = _sut.RegisterAdd(new TestTableEntity {RowKey = idOfFirstEntityToAdd}).GetCurrentSnapshot();
 
             secondEntityToUpdate.SomeInt = 1234;
             var expectedSecondUpdate = secondEntityToUpdate.GetCurrentSnapshot();
             
-            var expectedSecondAdd = RegisterAdd(new TestTableEntity {RowKey = idOfSecondEntityToAdd}).GetCurrentSnapshot();
+            var expectedSecondAdd = _sut.RegisterAdd(new TestTableEntity {RowKey = idOfSecondEntityToAdd}).GetCurrentSnapshot();
             
             var expectedSecondDelete = RegisterDelete(new TestTableEntity {RowKey = idOfSecondEntityToDelete});
             
@@ -232,9 +221,9 @@ namespace HelperAPIs.Impl.Test.Data
             _orderedOperations.Count.Should().Be(6);
 
             AssertOperation(0, Operation.Delete, expectedFirstDelete);
-            AssertOperation(1, Operation.UpdateOrUndoUpdate, expectedFirstUpdate);
+            AssertOperation(1, Operation.Update, expectedFirstUpdate);
             AssertOperation(2, Operation.Add, expectedFirstAdd);
-            AssertOperation(3, Operation.UpdateOrUndoUpdate, expectedSecondUpdate);
+            AssertOperation(3, Operation.Update, expectedSecondUpdate);
             AssertOperation(4, Operation.Add, expectedSecondAdd);
             AssertOperation(5, Operation.Delete, expectedSecondDelete);
         }

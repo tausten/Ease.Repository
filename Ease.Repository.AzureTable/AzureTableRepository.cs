@@ -4,6 +4,7 @@
 
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using Microsoft.Azure.Cosmos.Table;
 
 namespace Ease.Repository.AzureTable
@@ -44,10 +45,15 @@ namespace Ease.Repository.AzureTable
 
         protected readonly Lazy<CloudTable> Table;
 
+        protected readonly AzureTableStoreWriter StoreWriter;
+
         protected AzureTableRepository(AzureTableUnitOfWork<TContext> unitOfWork)
         {
             UnitOfWork = unitOfWork;
             Table = UnitOfWork.Context.PrepareTable(() => TableName);
+            StoreWriter = new AzureTableStoreWriter(Table);
+
+            UnitOfWork.RegisterStoreFor<TEntity>(StoreWriter);
         }
 
         /// <summary>
@@ -78,49 +84,24 @@ namespace Ease.Repository.AzureTable
             return Guid.NewGuid();
         }
 
-        protected virtual void PersistToStore(TEntity entity)
-        {
-            var op = TableOperation.Insert(entity);
-            var result = Table.Value.Execute(op);
-            // TODO: What to do on failure to insert?
-        }
-
-        protected virtual TEntity GetFromStore(ITableEntity key)
-        {
-            var op = TableOperation.Retrieve<TEntity>(key.PartitionKey, key.RowKey);
-            var result = Table.Value.Execute(op);
-            return result.Result as TEntity;
-        }
-
-        protected virtual void UpdateInStore(TEntity entity)
-        {
-            // TODO: Look into versioned entities, and detecting concurrent editing.
-            var op = TableOperation.Replace(entity);
-            var result = Table.Value.Execute(op);
-            // TODO: What to do on failure to update?
-        }
-
-        protected virtual void DeleteFromStore(TEntity entity)
-        {
-            var op = TableOperation.Delete(entity);
-            var result = Table.Value.Execute(op);
-            // TODO: What to do on failure to delete?
-        }
-
-        public IEnumerable<TEntity> List()
+        public virtual IEnumerable<TEntity> List()
         {
             var query = new TableQuery<TEntity>();
             var entities = Table.Value.ExecuteQuery(query);
-            return entities;
+            return UnitOfWork.RegisterForUpdates(entities);
         }
 
-        public TEntity Get(ITableEntity key)
+        public virtual TEntity Get(ITableEntity key)
         {
-            // TODO: Register with UnitOfWork
-            return GetFromStore(key);
+            var op = TableOperation.Retrieve<TEntity>(key.PartitionKey, key.RowKey);
+            var result = Table.Value.Execute(op);
+
+            return result.Result is TEntity resultEntity
+                ? UnitOfWork.RegisterForUpdates(new[] { resultEntity }).FirstOrDefault()
+                : null;
         }
 
-        public TEntity Add(TEntity entity)
+        public virtual TEntity Add(TEntity entity)
         {
             if (string.IsNullOrWhiteSpace(entity.RowKey))
             {
@@ -132,20 +113,16 @@ namespace Ease.Repository.AzureTable
                 entity.PartitionKey = CalculatePartitionKeyFor(entity);
             }
 
-            // TODO: Register with UnitOfWork
-            PersistToStore(entity);
-
-            return entity;
+            return UnitOfWork.RegisterAdd(entity);
         }
 
-        public void Delete(ITableEntity key)
+        public virtual void Delete(ITableEntity key)
         {
             var entity = key as TEntity ?? Get(key);
 
             if (null != entity)
             {
-                // TODO: Register with UnitOfWork
-                DeleteFromStore(entity);
+                UnitOfWork.RegisterDelete(entity);
             }
         }
     }

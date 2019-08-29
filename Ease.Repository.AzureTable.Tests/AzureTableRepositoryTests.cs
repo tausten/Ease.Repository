@@ -4,6 +4,7 @@
 
 using System;
 using System.Linq;
+using System.Threading.Tasks;
 using AutoFixture;
 using Ease.Repository.AzureTable;
 using FluentAssertions;
@@ -23,6 +24,11 @@ namespace HelperAPIs.Impl.Test.Data
         protected AzureTableUnitOfWork<TContext> UnitOfWork { get; private set; }
 
         protected virtual void PrepareDependenciesForContext(IFixture fixture) { }
+
+        protected override async Task CompleteUnitOfWorkAsync()
+        {
+            await UnitOfWork.CompleteAsync();
+        }
 
         /// <summary>
         /// Override to explicitly `Freeze()` any necessary dependencies prior to the `Sut` being allocated.
@@ -77,7 +83,7 @@ namespace HelperAPIs.Impl.Test.Data
         }
         
         [Test]
-        public void Add_New_Entity_And_List_RoundTrip()
+        public async Task Add_New_Entity_And_List_RoundTrip()
         {
             // Arrange
             var newThing = NewEntity();
@@ -85,6 +91,7 @@ namespace HelperAPIs.Impl.Test.Data
 
             // Act
             Sut.Add(newThing);
+            await UnitOfWork.CompleteAsync();
             var result = Sut.List().ToList();
 
             // Assert
