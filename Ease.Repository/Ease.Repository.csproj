@@ -21,4 +21,9 @@
     </None>
   </ItemGroup>
 
+  <ItemGroup>
+    <PackageReference Include="ChangeTracking" Version="2.2.4" />
+    <PackageReference Include="Ease.Util" Version="0.2.0" />
+  </ItemGroup>
+
 </Project>
