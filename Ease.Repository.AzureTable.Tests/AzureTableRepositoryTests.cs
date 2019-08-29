@@ -6,7 +6,9 @@ using System;
 using System.Linq;
 using System.Threading.Tasks;
 using AutoFixture;
+using Ease.Repository;
 using Ease.Repository.AzureTable;
+using Ease.Repository.Tests;
 using FluentAssertions;
 using Microsoft.Azure.Cosmos.Table;
 using NUnit.Framework;
@@ -21,7 +23,7 @@ namespace HelperAPIs.Impl.Test.Data
     {
         protected string TestTableNamePrefix { get; private set; }
         
-        protected AzureTableUnitOfWork<TContext> UnitOfWork { get; private set; }
+        protected BestEffortUnitOfWork<TContext> UnitOfWork { get; private set; }
 
         protected virtual void PrepareDependenciesForContext(IFixture fixture) { }
 
@@ -41,7 +43,7 @@ namespace HelperAPIs.Impl.Test.Data
 
             PrepareDependenciesForContext(TheFixture);
 
-            UnitOfWork = fixture.Freeze<AzureTableUnitOfWork<TContext>>();
+            UnitOfWork = fixture.Freeze<BestEffortUnitOfWork<TContext>>();
         }
         
         protected override void NullifyKeyFields(TEntity entity)
@@ -72,7 +74,7 @@ namespace HelperAPIs.Impl.Test.Data
         }
 
         [Test]
-        public void List_Returns_Empty_For_No_Data()
+        public virtual void List_Returns_Empty_For_No_Data()
         {
             // Arrange
             // Act
@@ -83,7 +85,7 @@ namespace HelperAPIs.Impl.Test.Data
         }
         
         [Test]
-        public async Task Add_New_Entity_And_List_RoundTrip()
+        public virtual async Task Add_New_Entity_And_List_RoundTrip()
         {
             // Arrange
             var newThing = NewEntity();

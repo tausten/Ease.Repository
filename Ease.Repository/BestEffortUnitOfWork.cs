@@ -9,16 +9,121 @@ using System.ComponentModel;
 using System.Linq;
 using System.Threading.Tasks;
 using ChangeTracking;
-using Microsoft.Azure.Cosmos.Table;
-using Ease.Repository.AzureTable.Collections.Generic;
 using System.Collections.Concurrent;
 
-namespace Ease.Repository.AzureTable
+namespace Ease.Repository
 {
+    /// <summary>
+    /// TODO: Move this to Ease.Util  (keep `internal` until then)
+    /// 
+    /// A mapping of keys to a collection of values. Takes care of ensuring that an empty collection is present,
+    /// avoiding need for null checks and collection initialization per key prior to use. Eg:
+    ///
+    /// <code>
+    /// var families = new MapOfCollections&lt;string, HashSet&lt;string&gt;, string&gt;();
+    /// families["Doe"].Add("Jane");
+    /// families["Doe"].Add("John");
+    /// var theDoes = string.Join(", ", families["Doe"]);
+    /// </code>
+    ///
+    /// See <seealso cref="MapOfHashSets"/> and <seealso cref="MapOfLists"/> for convenient simplification for
+    /// common some cases.
+    /// </summary>
+    /// <typeparam name="TKey">The lookup key type.</typeparam>
+    /// <typeparam name="TCollection">The collection type to store the values in per key.</typeparam>
+    /// <typeparam name="TValue">The value type.</typeparam>
+    internal class MapOfCollections<TKey, TCollection, TValue>
+        where TCollection : ICollection<TValue>, new()
+    {
+        private readonly Dictionary<TKey, TCollection> _inner = new Dictionary<TKey, TCollection>();
+
+        private TCollection EnsureCollection(TKey key)
+        {
+            if (!_inner.TryGetValue(key, out var coll))
+            {
+                coll = new TCollection();
+                _inner[key] = coll;
+            }
+            return coll;
+        }
+
+        public void Add(TKey key, TValue value)
+        {
+            EnsureCollection(key).Add(value);
+        }
+
+        public void Remove(TKey key, TValue value)
+        {
+            if (_inner.TryGetValue(key, out var coll))
+            {
+                coll.Remove(value);
+            }
+        }
+
+        public TCollection this[TKey key]
+        {
+            get => EnsureCollection(key);
+            set => _inner[key] = value;
+        }
+
+        public void Clear()
+        {
+            _inner.Clear();
+        }
+    }
+
+    internal class MapOfHashSets<TKey, TValue> : MapOfCollections<TKey, HashSet<TValue>, TValue> { }
+
+    internal class MapOfLists<TKey, TValue> : MapOfCollections<TKey, List<TValue>, TValue> { }
+
+    /// <summary>
+    /// Interface for unit of work pattern where best-effort transaction is to be managed by hand rather than by
+    /// underlying store.
+    /// </summary>
+    public interface IBestEffortUnitOfWork : IUnitOfWork
+    {
+        /// <summary>
+        /// Respositories must register the IStoreWriter to use for entity types that they wish the unit of work to manage.
+        /// </summary>
+        /// <typeparam name="TEntity">The entity Type the <paramref name="storeWriter"/> is for.</typeparam>
+        /// <param name="storeWriter">The `IStoreWriter` to use for updating the store.</param>
+        void RegisterStoreFor<TEntity>(IStoreWriter storeWriter);
+
+        /// <summary>
+        /// Registers an Add of a new entity with the unit of work.
+        /// </summary>
+        /// <param name="entity">The new entity being added</param>
+        /// <typeparam name="TEntity">The entity type.</typeparam>
+        /// <returns>The unit of work-tracked entity to return from repository.</returns>
+        TEntity RegisterAdd<TEntity>(TEntity entity) where TEntity : class, new();
+
+        /// <summary>
+        /// Registers a set of entities for update handling with the unit of work. Typically, you should call this
+        /// in the repository's Add handler, and in the repository's read-related handlers.
+        /// </summary>
+        /// <param name="entities">The entities that have been fetched from the store.</param>
+        /// <param name="updateAction">The action to perform on a <typeparamref name="TEntity"/> to persist any
+        /// changes made to the store.</param>
+        /// <typeparam name="TEntity">The entity type.</typeparam>
+        /// <returns>The unit of work-tracked entities to return from repository.</returns>
+        IEnumerable<TEntity> RegisterForUpdates<TEntity>(IEnumerable<TEntity> entities) where TEntity : class, new();
+
+        /// <summary>
+        /// Registers a Delete of an entity with the unit of work.
+        /// </summary>
+        /// <param name="entity">The entity being deleted.</param>
+        /// <param name="deleteAction">The action to perform on a <typeparamref name="TEntity"/> to delete it from
+        /// the store.</param>
+        /// <param name="undoDeleteAction">The best-effort action to perform to undo
+        /// a successful <paramref name="deleteAction"/></param>
+        /// <typeparam name="TEntity">The entity type.</typeparam>
+        void RegisterDelete<TEntity>(TEntity entity) where TEntity : class, new();
+    }
+
     /// <summary>
     /// Implementation of the unit of work for AzureTable repository pattern.
     /// </summary>
-    public class AzureTableUnitOfWork<TContext> : SafeDisposable, IBestEffortUnitOfWork
+    public class BestEffortUnitOfWork<TContext> : SafeDisposable, IBestEffortUnitOfWork
     {
         private class EntityBookKeeping
         {
@@ -62,7 +167,7 @@ namespace Ease.Repository.AzureTable
 
         private readonly Dictionary<object, EntityBookKeeping> _bookKeeping = new Dictionary<object, EntityBookKeeping>();
 
-        public AzureTableUnitOfWork(TContext context)
+        public BestEffortUnitOfWork(TContext context)
         {
             Context = context;
         }
@@ -176,7 +281,7 @@ namespace Ease.Repository.AzureTable
         private IStoreWriter GetStoreWriterFor<TEntity>()
         {
             IStoreWriter storeWriter;
-            if(!_storeWriters.TryGetValue(typeof(TEntity), out storeWriter))
+            if (!_storeWriters.TryGetValue(typeof(TEntity), out storeWriter))
             {
                 throw new InvalidOperationException($"{nameof(IStoreWriter)} for Entity Type [{typeof(TEntity).Name}] is not registered.");
             }
@@ -195,11 +300,10 @@ namespace Ease.Repository.AzureTable
             // Don't double-register change event handling
             if (null == outerBookKeeping.ChangeEventHandler)
             {
-                outerBookKeeping.ChangeEventHandler = (changedObject, args) =>
+                outerBookKeeping.ChangeEventHandler = (changedEntity, args) =>
                 {
                     if (!IsChangeTrackingPropertyUpdate(args))
                     {
-                        var changedEntity = changedObject as ITableEntity;
                         GetBookKeepingFor(changedEntity).EditCount++;
 
                         // Track the update action

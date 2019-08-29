@@ -41,13 +41,13 @@ namespace Ease.Repository.AzureTable
         where TContext : class, IAzureTableRepositoryContext
         where TEntity : class, ITableEntity, new()
     {
-        protected AzureTableUnitOfWork<TContext> UnitOfWork { get; private set; }
+        protected BestEffortUnitOfWork<TContext> UnitOfWork { get; private set; }
 
         protected readonly Lazy<CloudTable> Table;
 
         protected readonly AzureTableStoreWriter StoreWriter;
 
-        protected AzureTableRepository(AzureTableUnitOfWork<TContext> unitOfWork)
+        protected AzureTableRepository(BestEffortUnitOfWork<TContext> unitOfWork)
         {
             UnitOfWork = unitOfWork;
             Table = UnitOfWork.Context.PrepareTable(() => TableName);

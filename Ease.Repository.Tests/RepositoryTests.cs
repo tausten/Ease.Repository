@@ -4,15 +4,14 @@
 
 using AutoFixture;
 using AutoFixture.AutoFakeItEasy;
-using Ease.Repository;
 using FluentAssertions;
 using NUnit.Framework;
 using System.Threading.Tasks;
 
-namespace HelperAPIs.Impl.Test.Data
+namespace Ease.Repository.Tests
 {
     /// <summary>
-    /// Baseline set of tests for any <see cref="HelperAPIs.Impl.Data.IRepository"/>.
+    /// Baseline set of tests for any <see cref="Impl.Data.IRepository"/>.
     /// </summary>
     /// <typeparam name="TKey">They type of the key.</typeparam>
     /// <typeparam name="TEntity">The type of the entity.</typeparam>
@@ -33,12 +32,12 @@ namespace HelperAPIs.Impl.Test.Data
         protected TRepository Sut { get; private set; }
 
         [SetUp]
-        public virtual void Setup()
+        public virtual void SetUp()
         {
             TheFixture = new Fixture().Customize(new AutoFakeItEasyCustomization());
 
             FreezeDependencies(TheFixture);
-            
+
             // Do this absolutely last (after "fixing" anything that may need to be mocked/faked)
             Sut = TheFixture.Create<TRepository>();
         }
@@ -53,7 +52,7 @@ namespace HelperAPIs.Impl.Test.Data
         /// </summary>
         /// <param name="fixture"></param>
         protected virtual void FreezeDependencies(IFixture fixture) { }
-        
+
         /// <summary>
         /// Allocate a new entity with its properties set to non-null non-empty data.
         /// </summary>
@@ -68,7 +67,7 @@ namespace HelperAPIs.Impl.Test.Data
         /// </summary>
         /// <param name="entity"></param>
         protected abstract void NullifyKeyFields(TEntity entity);
-        
+
         /// <summary>
         /// Make a detectable change to the entity, suitable for round-trip persistence testing.
         /// </summary>
@@ -105,7 +104,7 @@ namespace HelperAPIs.Impl.Test.Data
         /// Tests that the repository's Upsert method sets the key fields to something non-null non-empty.
         /// </summary>
         [Test]
-        public void Add_Sets_Keys()
+        public virtual void Add_Sets_Keys()
         {
             // Arrange
             var newThing = NewEntity();
@@ -122,7 +121,7 @@ namespace HelperAPIs.Impl.Test.Data
         /// Tests a round-trip of persisting a new entity and then fetching it by its key.
         /// </summary>
         [Test]
-        public async Task Add_New_Entity_And_Get_RoundTrip()
+        public virtual async Task Add_New_Entity_And_Get_RoundTrip()
         {
             // Arrange
             var newThing = NewEntity();
@@ -141,7 +140,7 @@ namespace HelperAPIs.Impl.Test.Data
         /// Tests 
         /// </summary>
         [Test]
-        public async Task Add_New_Entity_And_Get_By_Key_RoundTrip()
+        public virtual async Task Add_New_Entity_And_Get_By_Key_RoundTrip()
         {
             // Arrange
             var newThing = NewEntity();
@@ -159,7 +158,7 @@ namespace HelperAPIs.Impl.Test.Data
 
         [Test]
         [Ignore("TODO: Decide what general 'Add existing entity' behavior should be.")]
-        public async Task Add_Existing_Entity_And_Get_RoundTrip()
+        public virtual async Task Add_Existing_Entity_And_Get_RoundTrip()
         {
             // Arrange
             var newThing = NewEntity();
@@ -167,7 +166,7 @@ namespace HelperAPIs.Impl.Test.Data
             Sut.Add(newThing);
             var existing = Sut.Get(newThing);
             ModifyEntity(existing);
-            
+
             // Act
             Sut.Add(existing);
             await CompleteUnitOfWorkAsync();
@@ -176,9 +175,9 @@ namespace HelperAPIs.Impl.Test.Data
             // Assert
             AssertEntitiesAreEquivalent(result, existing);
         }
-        
+
         [Test]
-        public async Task Delete_And_Get_RoundTrip()
+        public virtual async Task Delete_And_Get_RoundTrip()
         {
             // Arrange
             var newThing = NewEntity();
@@ -192,10 +191,10 @@ namespace HelperAPIs.Impl.Test.Data
             // Assert
             result.Should().BeNull();
         }
-        
+
         [Test]
         [Ignore("TODO: Implement 1st-level cache lookups.")]
-        public async Task Delete_By_Key_And_Get_RoundTrip()
+        public virtual async Task Delete_By_Key_And_Get_RoundTrip()
         {
             // Arrange
             var newThing = NewEntity();

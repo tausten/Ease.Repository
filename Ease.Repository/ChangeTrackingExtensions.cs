@@ -1,9 +1,10 @@
-﻿using ChangeTracking;
-using System;
-using System.Collections.Generic;
-using System.Text;
+﻿//
+// Copyright (c) 2019 Tyler Austen. See LICENSE file at top of repository for details.
+//
 
-namespace Ease.Repository.AzureTable
+using ChangeTracking;
+
+namespace Ease.Repository
 {
     public static class ChangeTrackingExtensions
     {

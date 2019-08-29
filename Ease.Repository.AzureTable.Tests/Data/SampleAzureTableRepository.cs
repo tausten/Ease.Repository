@@ -1,12 +1,12 @@
-// 
-// Copyright (c) 2019 Austen-Steele Enterprises, LLC. All rights reserved.
-// 
+//
+// Copyright (c) 2019 Tyler Austen. See LICENSE file at top of repository for details.
+//
 
 namespace Ease.Repository.AzureTable.Tests.Data
 {
     public class SampleAzureTableRepository : AzureTableRepository<AzureTableRepositoryContext, SampleAzureTableEntity>
     {
-        public SampleAzureTableRepository(AzureTableUnitOfWork<AzureTableRepositoryContext> unitOfWork) : base(unitOfWork) { }
+        public SampleAzureTableRepository(BestEffortUnitOfWork<AzureTableRepositoryContext> unitOfWork) : base(unitOfWork) { }
 
         private const string DefaultPartitionKey = "DEFAULT";
         protected override string CalculatePartitionKeyFor(SampleAzureTableEntity entity)

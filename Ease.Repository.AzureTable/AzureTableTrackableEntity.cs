@@ -13,7 +13,7 @@ namespace Ease.Repository.AzureTable
     /// Entity base class required for use with AzureTableUnitOfWork... unfortunately the existing TableEntity
     /// class's properties are not virtual, and therefore can not be used with dynamic proxy.
     /// </summary>
-    public abstract class AzureTrackableTableEntity : ITableEntity
+    public abstract class AzureTableTrackableEntity : ITableEntity
     {
         public virtual string PartitionKey { get; set; }
         public virtual string RowKey { get; set; }
@@ -38,7 +38,7 @@ namespace Ease.Repository.AzureTable
             return result as IDictionary<string, EntityProperty>;
         }
 
-        static AzureTrackableTableEntity()
+        static AzureTableTrackableEntity()
         {
             PrivateTableEntityReflectionReadMethod = typeof(TableEntity).GetMethod("ReflectionRead", BindingFlags.NonPublic | BindingFlags.Static);
             PrivateTableEntityReflectionWriteMethod = typeof(TableEntity).GetMethod("ReflectionWrite", BindingFlags.NonPublic | BindingFlags.Static);

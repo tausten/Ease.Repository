@@ -1,6 +1,6 @@
-// 
-// Copyright (c) 2019 Austen-Steele Enterprises, LLC. All rights reserved.
-// 
+//
+// Copyright (c) 2019 Tyler Austen. See LICENSE file at top of repository for details.
+//
 
 using System;
 using AutoFixture;
