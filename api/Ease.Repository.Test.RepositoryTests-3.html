@@ -1,0 +1,954 @@
+﻿<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+  
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Class RepositoryTests&lt;TKey, TEntity, TRepository&gt;
+   </title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="title" content="Class RepositoryTests&lt;TKey, TEntity, TRepository&gt;
+   ">
+    <meta name="generator" content="docfx 2.45.0.0">
+    
+    <link rel="shortcut icon" href="../favicon.ico">
+    <link rel="stylesheet" href="../styles/docfx.vendor.css">
+    <link rel="stylesheet" href="../styles/docfx.css">
+    <link rel="stylesheet" href="../styles/main.css">
+    <meta property="docfx:navrel" content="../toc.html">
+    <meta property="docfx:tocrel" content="toc.html">
+    
+    
+    
+  </head>
+  <body data-spy="scroll" data-target="#affix" data-offset="120">
+    <div id="wrapper">
+      <header>
+        
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              
+              <a class="navbar-brand" href="../index.html">
+                <img id="logo" class="svg" src="../logo.svg" alt="">
+              </a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+        
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div role="main" class="container body-content hide-when-search">
+        
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="Ease.Repository.Test.RepositoryTests`3">
+  
+  
+  <h1 id="Ease_Repository_Test_RepositoryTests_3" data-uid="Ease.Repository.Test.RepositoryTests`3" class="text-break">Class RepositoryTests&lt;TKey, TEntity, TRepository&gt;
+  </h1>
+  <div class="markdown level0 summary"><p>Baseline set of tests for any <see cref="!:Impl.Data.IRepository"></see>. This test base class does not impost a particular test
+framework (eg. MSTest, NUnit, etc..). Instead, you inherit from this class, then implement the abstract methods as just
+delegate calls to the corresponding <code>base.*_Impl()</code> methods (unless you wish to provide your own alternative implementation
+for the corresponding baseline test). Don't forget to decorate the implemented test methods with your framework's
+test attributes to make them discoverable by the test runner.</p>
+</div>
+  <div class="markdown level0 conceptual"></div>
+  <div class="inheritance">
+    <h5>Inheritance</h5>
+    <div class="level0"><span class="xref">System.Object</span></div>
+    <div class="level1"><span class="xref">RepositoryTests&lt;TKey, TEntity, TRepository&gt;</span></div>
+  </div>
+  <div class="inheritedMembers">
+    <h5>Inherited Members</h5>
+    <div>
+      <span class="xref">System.Object.Equals(System.Object)</span>
+    </div>
+    <div>
+      <span class="xref">System.Object.Equals(System.Object, System.Object)</span>
+    </div>
+    <div>
+      <span class="xref">System.Object.GetHashCode()</span>
+    </div>
+    <div>
+      <span class="xref">System.Object.GetType()</span>
+    </div>
+    <div>
+      <span class="xref">System.Object.MemberwiseClone()</span>
+    </div>
+    <div>
+      <span class="xref">System.Object.ReferenceEquals(System.Object, System.Object)</span>
+    </div>
+    <div>
+      <span class="xref">System.Object.ToString()</span>
+    </div>
+  </div>
+  <h6><strong>Namespace</strong>: <a class="xref" href="Ease.Repository.Test.html">Ease.Repository.Test</a></h6>
+  <h6><strong>Assembly</strong>: Ease.Repository.Test.dll</h6>
+  <h5 id="Ease_Repository_Test_RepositoryTests_3_syntax">Syntax</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public abstract class RepositoryTests&lt;TKey, TEntity, TRepository&gt;
+    where TEntity : TKey, new()
+    where TRepository : IRepository&lt;TKey, TEntity&gt;</code></pre>
+  </div>
+  <h5 class="typeParameters">Type Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="parametername">TKey</span></td>
+        <td><p>They type of the key.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="parametername">TEntity</span></td>
+        <td><p>The type of the entity.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="parametername">TRepository</span></td>
+        <td><p>The type of the repository.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h3 id="properties">Properties
+  </h3>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/tausten/Ease.Repository/new/develop/apiSpec/new?filename=Ease_Repository_Test_RepositoryTests_3_Sut.md&amp;value=---%0Auid%3A%20Ease.Repository.Test.RepositoryTests%603.Sut%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/tausten/Ease.Repository/blob/develop/Ease.Repository.Test/RepositoryTests.cs/#L35">View Source</a>
+  </span>
+  <a id="Ease_Repository_Test_RepositoryTests_3_Sut_" data-uid="Ease.Repository.Test.RepositoryTests`3.Sut*"></a>
+  <h4 id="Ease_Repository_Test_RepositoryTests_3_Sut" data-uid="Ease.Repository.Test.RepositoryTests`3.Sut">Sut</h4>
+  <div class="markdown level1 summary"><p>The system under test (i.e. the repository) with its dependencies injected via <a class="xref" href="Ease.Repository.Test.RepositoryTests-3.html#Ease_Repository_Test_RepositoryTests_3_TheFixture">TheFixture</a>
+as <code>FakeItEasy</code> fakes.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected TRepository Sut { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">TRepository</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/tausten/Ease.Repository/new/develop/apiSpec/new?filename=Ease_Repository_Test_RepositoryTests_3_TheFixture.md&amp;value=---%0Auid%3A%20Ease.Repository.Test.RepositoryTests%603.TheFixture%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/tausten/Ease.Repository/blob/develop/Ease.Repository.Test/RepositoryTests.cs/#L29">View Source</a>
+  </span>
+  <a id="Ease_Repository_Test_RepositoryTests_3_TheFixture_" data-uid="Ease.Repository.Test.RepositoryTests`3.TheFixture*"></a>
+  <h4 id="Ease_Repository_Test_RepositoryTests_3_TheFixture" data-uid="Ease.Repository.Test.RepositoryTests`3.TheFixture">TheFixture</h4>
+  <div class="markdown level1 summary"><p>The AutoFixture for the tests.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected IFixture TheFixture { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">AutoFixture.IFixture</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h3 id="methods">Methods
+  </h3>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/tausten/Ease.Repository/new/develop/apiSpec/new?filename=Ease_Repository_Test_RepositoryTests_3_Add_Existing_Entity_And_Get_RoundTrip.md&amp;value=---%0Auid%3A%20Ease.Repository.Test.RepositoryTests%603.Add_Existing_Entity_And_Get_RoundTrip%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/tausten/Ease.Repository/blob/develop/Ease.Repository.Test/RepositoryTests.cs/#L182">View Source</a>
+  </span>
+  <a id="Ease_Repository_Test_RepositoryTests_3_Add_Existing_Entity_And_Get_RoundTrip_" data-uid="Ease.Repository.Test.RepositoryTests`3.Add_Existing_Entity_And_Get_RoundTrip*"></a>
+  <h4 id="Ease_Repository_Test_RepositoryTests_3_Add_Existing_Entity_And_Get_RoundTrip" data-uid="Ease.Repository.Test.RepositoryTests`3.Add_Existing_Entity_And_Get_RoundTrip">Add_Existing_Entity_And_Get_RoundTrip()</h4>
+  <div class="markdown level1 summary"><p>NOTE: For most cases, just implement this as a call to the corresponding <code>base.*_Impl()</code>, and don't forget
+to apply your test framework's appropriate attributes or other mechanism for decorating test methods.</p>
+<p>TODO: Solve the round-trip thing and then re-enable this... but don't force its implementation until then.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public virtual Task Add_Existing_Entity_And_Get_RoundTrip()</code></pre>
+  </div>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Threading.Tasks.Task</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/tausten/Ease.Repository/new/develop/apiSpec/new?filename=Ease_Repository_Test_RepositoryTests_3_Add_Existing_Entity_And_Get_RoundTrip_Impl.md&amp;value=---%0Auid%3A%20Ease.Repository.Test.RepositoryTests%603.Add_Existing_Entity_And_Get_RoundTrip_Impl%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/tausten/Ease.Repository/blob/develop/Ease.Repository.Test/RepositoryTests.cs/#L184">View Source</a>
+  </span>
+  <a id="Ease_Repository_Test_RepositoryTests_3_Add_Existing_Entity_And_Get_RoundTrip_Impl_" data-uid="Ease.Repository.Test.RepositoryTests`3.Add_Existing_Entity_And_Get_RoundTrip_Impl*"></a>
+  <h4 id="Ease_Repository_Test_RepositoryTests_3_Add_Existing_Entity_And_Get_RoundTrip_Impl" data-uid="Ease.Repository.Test.RepositoryTests`3.Add_Existing_Entity_And_Get_RoundTrip_Impl">Add_Existing_Entity_And_Get_RoundTrip_Impl()</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected virtual Task Add_Existing_Entity_And_Get_RoundTrip_Impl()</code></pre>
+  </div>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Threading.Tasks.Task</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/tausten/Ease.Repository/new/develop/apiSpec/new?filename=Ease_Repository_Test_RepositoryTests_3_Add_New_Entity_And_Get_By_Key_RoundTrip.md&amp;value=---%0Auid%3A%20Ease.Repository.Test.RepositoryTests%603.Add_New_Entity_And_Get_By_Key_RoundTrip%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/tausten/Ease.Repository/blob/develop/Ease.Repository.Test/RepositoryTests.cs/#L158">View Source</a>
+  </span>
+  <a id="Ease_Repository_Test_RepositoryTests_3_Add_New_Entity_And_Get_By_Key_RoundTrip_" data-uid="Ease.Repository.Test.RepositoryTests`3.Add_New_Entity_And_Get_By_Key_RoundTrip*"></a>
+  <h4 id="Ease_Repository_Test_RepositoryTests_3_Add_New_Entity_And_Get_By_Key_RoundTrip" data-uid="Ease.Repository.Test.RepositoryTests`3.Add_New_Entity_And_Get_By_Key_RoundTrip">Add_New_Entity_And_Get_By_Key_RoundTrip()</h4>
+  <div class="markdown level1 summary"><p>NOTE: For most cases, just implement this as a call to the corresponding <code>base.*_Impl()</code>, and don't forget
+to apply your test framework's appropriate attributes or other mechanism for decorating test methods.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public abstract Task Add_New_Entity_And_Get_By_Key_RoundTrip()</code></pre>
+  </div>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Threading.Tasks.Task</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/tausten/Ease.Repository/new/develop/apiSpec/new?filename=Ease_Repository_Test_RepositoryTests_3_Add_New_Entity_And_Get_By_Key_RoundTrip_Impl.md&amp;value=---%0Auid%3A%20Ease.Repository.Test.RepositoryTests%603.Add_New_Entity_And_Get_By_Key_RoundTrip_Impl%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/tausten/Ease.Repository/blob/develop/Ease.Repository.Test/RepositoryTests.cs/#L160">View Source</a>
+  </span>
+  <a id="Ease_Repository_Test_RepositoryTests_3_Add_New_Entity_And_Get_By_Key_RoundTrip_Impl_" data-uid="Ease.Repository.Test.RepositoryTests`3.Add_New_Entity_And_Get_By_Key_RoundTrip_Impl*"></a>
+  <h4 id="Ease_Repository_Test_RepositoryTests_3_Add_New_Entity_And_Get_By_Key_RoundTrip_Impl" data-uid="Ease.Repository.Test.RepositoryTests`3.Add_New_Entity_And_Get_By_Key_RoundTrip_Impl">Add_New_Entity_And_Get_By_Key_RoundTrip_Impl()</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected virtual Task Add_New_Entity_And_Get_By_Key_RoundTrip_Impl()</code></pre>
+  </div>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Threading.Tasks.Task</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/tausten/Ease.Repository/new/develop/apiSpec/new?filename=Ease_Repository_Test_RepositoryTests_3_Add_New_Entity_And_Get_RoundTrip.md&amp;value=---%0Auid%3A%20Ease.Repository.Test.RepositoryTests%603.Add_New_Entity_And_Get_RoundTrip%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/tausten/Ease.Repository/blob/develop/Ease.Repository.Test/RepositoryTests.cs/#L137">View Source</a>
+  </span>
+  <a id="Ease_Repository_Test_RepositoryTests_3_Add_New_Entity_And_Get_RoundTrip_" data-uid="Ease.Repository.Test.RepositoryTests`3.Add_New_Entity_And_Get_RoundTrip*"></a>
+  <h4 id="Ease_Repository_Test_RepositoryTests_3_Add_New_Entity_And_Get_RoundTrip" data-uid="Ease.Repository.Test.RepositoryTests`3.Add_New_Entity_And_Get_RoundTrip">Add_New_Entity_And_Get_RoundTrip()</h4>
+  <div class="markdown level1 summary"><p>Tests a round-trip of persisting a new entity and then fetching it by its key.
+NOTE: For most cases, just implement this as a call to the corresponding <code>base.*_Impl()</code>, and don't forget
+to apply your test framework's appropriate attributes or other mechanism for decorating test methods.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public abstract Task Add_New_Entity_And_Get_RoundTrip()</code></pre>
+  </div>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Threading.Tasks.Task</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/tausten/Ease.Repository/new/develop/apiSpec/new?filename=Ease_Repository_Test_RepositoryTests_3_Add_New_Entity_And_Get_RoundTrip_Impl.md&amp;value=---%0Auid%3A%20Ease.Repository.Test.RepositoryTests%603.Add_New_Entity_And_Get_RoundTrip_Impl%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/tausten/Ease.Repository/blob/develop/Ease.Repository.Test/RepositoryTests.cs/#L139">View Source</a>
+  </span>
+  <a id="Ease_Repository_Test_RepositoryTests_3_Add_New_Entity_And_Get_RoundTrip_Impl_" data-uid="Ease.Repository.Test.RepositoryTests`3.Add_New_Entity_And_Get_RoundTrip_Impl*"></a>
+  <h4 id="Ease_Repository_Test_RepositoryTests_3_Add_New_Entity_And_Get_RoundTrip_Impl" data-uid="Ease.Repository.Test.RepositoryTests`3.Add_New_Entity_And_Get_RoundTrip_Impl">Add_New_Entity_And_Get_RoundTrip_Impl()</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected Task Add_New_Entity_And_Get_RoundTrip_Impl()</code></pre>
+  </div>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Threading.Tasks.Task</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/tausten/Ease.Repository/new/develop/apiSpec/new?filename=Ease_Repository_Test_RepositoryTests_3_Add_Sets_Keys.md&amp;value=---%0Auid%3A%20Ease.Repository.Test.RepositoryTests%603.Add_Sets_Keys%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/tausten/Ease.Repository/blob/develop/Ease.Repository.Test/RepositoryTests.cs/#L117">View Source</a>
+  </span>
+  <a id="Ease_Repository_Test_RepositoryTests_3_Add_Sets_Keys_" data-uid="Ease.Repository.Test.RepositoryTests`3.Add_Sets_Keys*"></a>
+  <h4 id="Ease_Repository_Test_RepositoryTests_3_Add_Sets_Keys" data-uid="Ease.Repository.Test.RepositoryTests`3.Add_Sets_Keys">Add_Sets_Keys()</h4>
+  <div class="markdown level1 summary"><p>Tests that the repository's Upsert method sets the key fields to something non-null non-empty.
+NOTE: For most cases, just implement this as a call to the corresponding <code>base.*_Impl()</code>, and don't forget
+to apply your test framework's appropriate attributes or other mechanism for decorating test methods.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public abstract void Add_Sets_Keys()</code></pre>
+  </div>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/tausten/Ease.Repository/new/develop/apiSpec/new?filename=Ease_Repository_Test_RepositoryTests_3_Add_Sets_Keys_Impl.md&amp;value=---%0Auid%3A%20Ease.Repository.Test.RepositoryTests%603.Add_Sets_Keys_Impl%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/tausten/Ease.Repository/blob/develop/Ease.Repository.Test/RepositoryTests.cs/#L119">View Source</a>
+  </span>
+  <a id="Ease_Repository_Test_RepositoryTests_3_Add_Sets_Keys_Impl_" data-uid="Ease.Repository.Test.RepositoryTests`3.Add_Sets_Keys_Impl*"></a>
+  <h4 id="Ease_Repository_Test_RepositoryTests_3_Add_Sets_Keys_Impl" data-uid="Ease.Repository.Test.RepositoryTests`3.Add_Sets_Keys_Impl">Add_Sets_Keys_Impl()</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected void Add_Sets_Keys_Impl()</code></pre>
+  </div>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/tausten/Ease.Repository/new/develop/apiSpec/new?filename=Ease_Repository_Test_RepositoryTests_3_AssertEntitiesAreEquivalent__1__1_.md&amp;value=---%0Auid%3A%20Ease.Repository.Test.RepositoryTests%603.AssertEntitiesAreEquivalent(%601%2C%601)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/tausten/Ease.Repository/blob/develop/Ease.Repository.Test/RepositoryTests.cs/#L92">View Source</a>
+  </span>
+  <a id="Ease_Repository_Test_RepositoryTests_3_AssertEntitiesAreEquivalent_" data-uid="Ease.Repository.Test.RepositoryTests`3.AssertEntitiesAreEquivalent*"></a>
+  <h4 id="Ease_Repository_Test_RepositoryTests_3_AssertEntitiesAreEquivalent__1__1_" data-uid="Ease.Repository.Test.RepositoryTests`3.AssertEntitiesAreEquivalent(`1,`1)">AssertEntitiesAreEquivalent(TEntity, TEntity)</h4>
+  <div class="markdown level1 summary"><p>Assert that the result entity is &quot;equivalent&quot; to the reference entity (i.e. ignore non-essential properties
+during comparison, etc... so that just the &quot;important&quot; properties for equivalence are tested).</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected abstract void AssertEntitiesAreEquivalent(TEntity result, TEntity reference)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">TEntity</span></td>
+        <td><span class="parametername">result</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">TEntity</span></td>
+        <td><span class="parametername">reference</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/tausten/Ease.Repository/new/develop/apiSpec/new?filename=Ease_Repository_Test_RepositoryTests_3_AssertKeyFieldsNotNull__1_.md&amp;value=---%0Auid%3A%20Ease.Repository.Test.RepositoryTests%603.AssertKeyFieldsNotNull(%601)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/tausten/Ease.Repository/blob/develop/Ease.Repository.Test/RepositoryTests.cs/#L98">View Source</a>
+  </span>
+  <a id="Ease_Repository_Test_RepositoryTests_3_AssertKeyFieldsNotNull_" data-uid="Ease.Repository.Test.RepositoryTests`3.AssertKeyFieldsNotNull*"></a>
+  <h4 id="Ease_Repository_Test_RepositoryTests_3_AssertKeyFieldsNotNull__1_" data-uid="Ease.Repository.Test.RepositoryTests`3.AssertKeyFieldsNotNull(`1)">AssertKeyFieldsNotNull(TEntity)</h4>
+  <div class="markdown level1 summary"><p>Assert that the key fields in the entity aren't null or in &quot;not set&quot; state.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected abstract void AssertKeyFieldsNotNull(TEntity entity)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">TEntity</span></td>
+        <td><span class="parametername">entity</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/tausten/Ease.Repository/new/develop/apiSpec/new?filename=Ease_Repository_Test_RepositoryTests_3_AssertRepositoryHasNumEntities_System_Int32_.md&amp;value=---%0Auid%3A%20Ease.Repository.Test.RepositoryTests%603.AssertRepositoryHasNumEntities(System.Int32)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/tausten/Ease.Repository/blob/develop/Ease.Repository.Test/RepositoryTests.cs/#L103">View Source</a>
+  </span>
+  <a id="Ease_Repository_Test_RepositoryTests_3_AssertRepositoryHasNumEntities_" data-uid="Ease.Repository.Test.RepositoryTests`3.AssertRepositoryHasNumEntities*"></a>
+  <h4 id="Ease_Repository_Test_RepositoryTests_3_AssertRepositoryHasNumEntities_System_Int32_" data-uid="Ease.Repository.Test.RepositoryTests`3.AssertRepositoryHasNumEntities(System.Int32)">AssertRepositoryHasNumEntities(Int32)</h4>
+  <div class="markdown level1 summary"><p>Assert that there are <code data-dev-comment-type="paramref" class="paramref">num</code> entities stored in the repository.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected abstract void AssertRepositoryHasNumEntities(int num = 0)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Int32</span></td>
+        <td><span class="parametername">num</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/tausten/Ease.Repository/new/develop/apiSpec/new?filename=Ease_Repository_Test_RepositoryTests_3_CompleteUnitOfWorkAsync.md&amp;value=---%0Auid%3A%20Ease.Repository.Test.RepositoryTests%603.CompleteUnitOfWorkAsync%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/tausten/Ease.Repository/blob/develop/Ease.Repository.Test/RepositoryTests.cs/#L57">View Source</a>
+  </span>
+  <a id="Ease_Repository_Test_RepositoryTests_3_CompleteUnitOfWorkAsync_" data-uid="Ease.Repository.Test.RepositoryTests`3.CompleteUnitOfWorkAsync*"></a>
+  <h4 id="Ease_Repository_Test_RepositoryTests_3_CompleteUnitOfWorkAsync" data-uid="Ease.Repository.Test.RepositoryTests`3.CompleteUnitOfWorkAsync">CompleteUnitOfWorkAsync()</h4>
+  <div class="markdown level1 summary"><p>Override and complete the test unit of work.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected abstract Task CompleteUnitOfWorkAsync()</code></pre>
+  </div>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Threading.Tasks.Task</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/tausten/Ease.Repository/new/develop/apiSpec/new?filename=Ease_Repository_Test_RepositoryTests_3_Delete_And_Get_RoundTrip.md&amp;value=---%0Auid%3A%20Ease.Repository.Test.RepositoryTests%603.Delete_And_Get_RoundTrip%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/tausten/Ease.Repository/blob/develop/Ease.Repository.Test/RepositoryTests.cs/#L206">View Source</a>
+  </span>
+  <a id="Ease_Repository_Test_RepositoryTests_3_Delete_And_Get_RoundTrip_" data-uid="Ease.Repository.Test.RepositoryTests`3.Delete_And_Get_RoundTrip*"></a>
+  <h4 id="Ease_Repository_Test_RepositoryTests_3_Delete_And_Get_RoundTrip" data-uid="Ease.Repository.Test.RepositoryTests`3.Delete_And_Get_RoundTrip">Delete_And_Get_RoundTrip()</h4>
+  <div class="markdown level1 summary"><p>NOTE: For most cases, just implement this as a call to the corresponding <code>base.*_Impl()</code>, and don't forget
+to apply your test framework's appropriate attributes or other mechanism for decorating test methods.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public abstract Task Delete_And_Get_RoundTrip()</code></pre>
+  </div>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Threading.Tasks.Task</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/tausten/Ease.Repository/new/develop/apiSpec/new?filename=Ease_Repository_Test_RepositoryTests_3_Delete_And_Get_RoundTrip_Impl.md&amp;value=---%0Auid%3A%20Ease.Repository.Test.RepositoryTests%603.Delete_And_Get_RoundTrip_Impl%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/tausten/Ease.Repository/blob/develop/Ease.Repository.Test/RepositoryTests.cs/#L208">View Source</a>
+  </span>
+  <a id="Ease_Repository_Test_RepositoryTests_3_Delete_And_Get_RoundTrip_Impl_" data-uid="Ease.Repository.Test.RepositoryTests`3.Delete_And_Get_RoundTrip_Impl*"></a>
+  <h4 id="Ease_Repository_Test_RepositoryTests_3_Delete_And_Get_RoundTrip_Impl" data-uid="Ease.Repository.Test.RepositoryTests`3.Delete_And_Get_RoundTrip_Impl">Delete_And_Get_RoundTrip_Impl()</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected virtual Task Delete_And_Get_RoundTrip_Impl()</code></pre>
+  </div>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Threading.Tasks.Task</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/tausten/Ease.Repository/new/develop/apiSpec/new?filename=Ease_Repository_Test_RepositoryTests_3_Delete_By_Key_And_Get_RoundTrip.md&amp;value=---%0Auid%3A%20Ease.Repository.Test.RepositoryTests%603.Delete_By_Key_And_Get_RoundTrip%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/tausten/Ease.Repository/blob/develop/Ease.Repository.Test/RepositoryTests.cs/#L229">View Source</a>
+  </span>
+  <a id="Ease_Repository_Test_RepositoryTests_3_Delete_By_Key_And_Get_RoundTrip_" data-uid="Ease.Repository.Test.RepositoryTests`3.Delete_By_Key_And_Get_RoundTrip*"></a>
+  <h4 id="Ease_Repository_Test_RepositoryTests_3_Delete_By_Key_And_Get_RoundTrip" data-uid="Ease.Repository.Test.RepositoryTests`3.Delete_By_Key_And_Get_RoundTrip">Delete_By_Key_And_Get_RoundTrip()</h4>
+  <div class="markdown level1 summary"><p>NOTE: For most cases, just implement this as a call to the corresponding <code>base.*_Impl()</code>, and don't forget
+to apply your test framework's appropriate attributes or other mechanism for decorating test methods.</p>
+<p>TODO: Solve the round-trip thing and then re-enable this... but don't force its implementation until then.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public virtual Task Delete_By_Key_And_Get_RoundTrip()</code></pre>
+  </div>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Threading.Tasks.Task</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/tausten/Ease.Repository/new/develop/apiSpec/new?filename=Ease_Repository_Test_RepositoryTests_3_Delete_By_Key_And_Get_RoundTrip_Impl.md&amp;value=---%0Auid%3A%20Ease.Repository.Test.RepositoryTests%603.Delete_By_Key_And_Get_RoundTrip_Impl%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/tausten/Ease.Repository/blob/develop/Ease.Repository.Test/RepositoryTests.cs/#L231">View Source</a>
+  </span>
+  <a id="Ease_Repository_Test_RepositoryTests_3_Delete_By_Key_And_Get_RoundTrip_Impl_" data-uid="Ease.Repository.Test.RepositoryTests`3.Delete_By_Key_And_Get_RoundTrip_Impl*"></a>
+  <h4 id="Ease_Repository_Test_RepositoryTests_3_Delete_By_Key_And_Get_RoundTrip_Impl" data-uid="Ease.Repository.Test.RepositoryTests`3.Delete_By_Key_And_Get_RoundTrip_Impl">Delete_By_Key_And_Get_RoundTrip_Impl()</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected virtual Task Delete_By_Key_And_Get_RoundTrip_Impl()</code></pre>
+  </div>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Threading.Tasks.Task</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/tausten/Ease.Repository/new/develop/apiSpec/new?filename=Ease_Repository_Test_RepositoryTests_3_FreezeDependencies_AutoFixture_IFixture_.md&amp;value=---%0Auid%3A%20Ease.Repository.Test.RepositoryTests%603.FreezeDependencies(AutoFixture.IFixture)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/tausten/Ease.Repository/blob/develop/Ease.Repository.Test/RepositoryTests.cs/#L63">View Source</a>
+  </span>
+  <a id="Ease_Repository_Test_RepositoryTests_3_FreezeDependencies_" data-uid="Ease.Repository.Test.RepositoryTests`3.FreezeDependencies*"></a>
+  <h4 id="Ease_Repository_Test_RepositoryTests_3_FreezeDependencies_AutoFixture_IFixture_" data-uid="Ease.Repository.Test.RepositoryTests`3.FreezeDependencies(AutoFixture.IFixture)">FreezeDependencies(IFixture)</h4>
+  <div class="markdown level1 summary"><p>Freeze any constructor-injected dependencies here so that they may be safely obtained later.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected virtual void FreezeDependencies(IFixture fixture)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">AutoFixture.IFixture</span></td>
+        <td><span class="parametername">fixture</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/tausten/Ease.Repository/new/develop/apiSpec/new?filename=Ease_Repository_Test_RepositoryTests_3_ModifyEntity__1_.md&amp;value=---%0Auid%3A%20Ease.Repository.Test.RepositoryTests%603.ModifyEntity(%601)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/tausten/Ease.Repository/blob/develop/Ease.Repository.Test/RepositoryTests.cs/#L84">View Source</a>
+  </span>
+  <a id="Ease_Repository_Test_RepositoryTests_3_ModifyEntity_" data-uid="Ease.Repository.Test.RepositoryTests`3.ModifyEntity*"></a>
+  <h4 id="Ease_Repository_Test_RepositoryTests_3_ModifyEntity__1_" data-uid="Ease.Repository.Test.RepositoryTests`3.ModifyEntity(`1)">ModifyEntity(TEntity)</h4>
+  <div class="markdown level1 summary"><p>Make a detectable change to the entity, suitable for round-trip persistence testing.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected abstract void ModifyEntity(TEntity entityToModify)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">TEntity</span></td>
+        <td><span class="parametername">entityToModify</span></td>
+        <td><p>The entity to be modified in-place.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/tausten/Ease.Repository/new/develop/apiSpec/new?filename=Ease_Repository_Test_RepositoryTests_3_NewEntity.md&amp;value=---%0Auid%3A%20Ease.Repository.Test.RepositoryTests%603.NewEntity%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/tausten/Ease.Repository/blob/develop/Ease.Repository.Test/RepositoryTests.cs/#L69">View Source</a>
+  </span>
+  <a id="Ease_Repository_Test_RepositoryTests_3_NewEntity_" data-uid="Ease.Repository.Test.RepositoryTests`3.NewEntity*"></a>
+  <h4 id="Ease_Repository_Test_RepositoryTests_3_NewEntity" data-uid="Ease.Repository.Test.RepositoryTests`3.NewEntity">NewEntity()</h4>
+  <div class="markdown level1 summary"><p>Allocate a new entity with its properties set to non-null non-empty data.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected virtual TEntity NewEntity()</code></pre>
+  </div>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">TEntity</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/tausten/Ease.Repository/new/develop/apiSpec/new?filename=Ease_Repository_Test_RepositoryTests_3_NewSimpleKeyFromEntity__1_.md&amp;value=---%0Auid%3A%20Ease.Repository.Test.RepositoryTests%603.NewSimpleKeyFromEntity(%601)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/tausten/Ease.Repository/blob/develop/Ease.Repository.Test/RepositoryTests.cs/#L110">View Source</a>
+  </span>
+  <a id="Ease_Repository_Test_RepositoryTests_3_NewSimpleKeyFromEntity_" data-uid="Ease.Repository.Test.RepositoryTests`3.NewSimpleKeyFromEntity*"></a>
+  <h4 id="Ease_Repository_Test_RepositoryTests_3_NewSimpleKeyFromEntity__1_" data-uid="Ease.Repository.Test.RepositoryTests`3.NewSimpleKeyFromEntity(`1)">NewSimpleKeyFromEntity(TEntity)</h4>
+  <div class="markdown level1 summary"><p>Return a simple (i.e. not full-entity type) key given an entity to start with.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected abstract TKey NewSimpleKeyFromEntity(TEntity entity)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">TEntity</span></td>
+        <td><span class="parametername">entity</span></td>
+        <td><p>The entity from which to allocate a new simple key instance.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">TKey</span></td>
+        <td><p>The new simple key - NOT just the entity returned.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/tausten/Ease.Repository/new/develop/apiSpec/new?filename=Ease_Repository_Test_RepositoryTests_3_NullifyKeyFields__1_.md&amp;value=---%0Auid%3A%20Ease.Repository.Test.RepositoryTests%603.NullifyKeyFields(%601)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/tausten/Ease.Repository/blob/develop/Ease.Repository.Test/RepositoryTests.cs/#L78">View Source</a>
+  </span>
+  <a id="Ease_Repository_Test_RepositoryTests_3_NullifyKeyFields_" data-uid="Ease.Repository.Test.RepositoryTests`3.NullifyKeyFields*"></a>
+  <h4 id="Ease_Repository_Test_RepositoryTests_3_NullifyKeyFields__1_" data-uid="Ease.Repository.Test.RepositoryTests`3.NullifyKeyFields(`1)">NullifyKeyFields(TEntity)</h4>
+  <div class="markdown level1 summary"><p>Nullify the <code data-dev-comment-type="typeparamref" class="typeparamref">TKey</code> fields of the <code data-dev-comment-type="paramref" class="paramref">entity</code>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected abstract void NullifyKeyFields(TEntity entity)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">TEntity</span></td>
+        <td><span class="parametername">entity</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/tausten/Ease.Repository/new/develop/apiSpec/new?filename=Ease_Repository_Test_RepositoryTests_3_SetUp.md&amp;value=---%0Auid%3A%20Ease.Repository.Test.RepositoryTests%603.SetUp%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/tausten/Ease.Repository/blob/develop/Ease.Repository.Test/RepositoryTests.cs/#L42">View Source</a>
+  </span>
+  <a id="Ease_Repository_Test_RepositoryTests_3_SetUp_" data-uid="Ease.Repository.Test.RepositoryTests`3.SetUp*"></a>
+  <h4 id="Ease_Repository_Test_RepositoryTests_3_SetUp" data-uid="Ease.Repository.Test.RepositoryTests`3.SetUp">SetUp()</h4>
+  <div class="markdown level1 summary"><p>A setup step is necessary.
+NOTE: For most cases, just implement this as a call to the corresponding <code>base.*_Impl()</code>, and don't forget
+to apply your test framework's appropriate attributes or other mechanism for decorating SetUp methods.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public abstract void SetUp()</code></pre>
+  </div>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/tausten/Ease.Repository/new/develop/apiSpec/new?filename=Ease_Repository_Test_RepositoryTests_3_SetUp_Impl.md&amp;value=---%0Auid%3A%20Ease.Repository.Test.RepositoryTests%603.SetUp_Impl%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/tausten/Ease.Repository/blob/develop/Ease.Repository.Test/RepositoryTests.cs/#L44">View Source</a>
+  </span>
+  <a id="Ease_Repository_Test_RepositoryTests_3_SetUp_Impl_" data-uid="Ease.Repository.Test.RepositoryTests`3.SetUp_Impl*"></a>
+  <h4 id="Ease_Repository_Test_RepositoryTests_3_SetUp_Impl" data-uid="Ease.Repository.Test.RepositoryTests`3.SetUp_Impl">SetUp_Impl()</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected virtual void SetUp_Impl()</code></pre>
+  </div>
+  <h3 id="extensionmethods">Extension Methods</h3>
+  <div>
+      <a class="xref" href="Ease.Repository.ChangeTrackingExtensions.html#Ease_Repository_ChangeTrackingExtensions_CurrentState__1___0_">ChangeTrackingExtensions.CurrentState&lt;T&gt;(T)</a>
+  </div>
+</article>
+          </div>
+          
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <div class="contribution">
+                <ul class="nav">
+                  <li>
+                    <a href="https://github.com/tausten/Ease.Repository/new/develop/apiSpec/new?filename=Ease_Repository_Test_RepositoryTests_3.md&amp;value=---%0Auid%3A%20Ease.Repository.Test.RepositoryTests%603%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" class="contribution-link">Improve this Doc</a>
+                  </li>
+                  <li>
+                    <a href="https://github.com/tausten/Ease.Repository/blob/develop/Ease.Repository.Test/RepositoryTests.cs/#L22" class="contribution-link">View Source</a>
+                  </li>
+                </ul>
+              </div>
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+              <!-- <p><a class="back-to-top" href="#top">Back to top</a><p> -->
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+            
+            <span>Generated by <strong>DocFX</strong></span>
+          </div>
+        </div>
+      </footer>
+    </div>
+    
+    <script type="text/javascript" src="../styles/docfx.vendor.js"></script>
+    <script type="text/javascript" src="../styles/docfx.js"></script>
+    <script type="text/javascript" src="../styles/main.js"></script>
+  </body>
+</html>

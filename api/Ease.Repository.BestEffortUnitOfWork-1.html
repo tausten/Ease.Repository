@@ -1,0 +1,559 @@
+﻿<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+  
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Class BestEffortUnitOfWork&lt;TContext&gt;
+   </title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="title" content="Class BestEffortUnitOfWork&lt;TContext&gt;
+   ">
+    <meta name="generator" content="docfx 2.45.0.0">
+    
+    <link rel="shortcut icon" href="../favicon.ico">
+    <link rel="stylesheet" href="../styles/docfx.vendor.css">
+    <link rel="stylesheet" href="../styles/docfx.css">
+    <link rel="stylesheet" href="../styles/main.css">
+    <meta property="docfx:navrel" content="../toc.html">
+    <meta property="docfx:tocrel" content="toc.html">
+    
+    
+    
+  </head>
+  <body data-spy="scroll" data-target="#affix" data-offset="120">
+    <div id="wrapper">
+      <header>
+        
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              
+              <a class="navbar-brand" href="../index.html">
+                <img id="logo" class="svg" src="../logo.svg" alt="">
+              </a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+        
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div role="main" class="container body-content hide-when-search">
+        
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="Ease.Repository.BestEffortUnitOfWork`1">
+  
+  
+  <h1 id="Ease_Repository_BestEffortUnitOfWork_1" data-uid="Ease.Repository.BestEffortUnitOfWork`1" class="text-break">Class BestEffortUnitOfWork&lt;TContext&gt;
+  </h1>
+  <div class="markdown level0 summary"><p>Implementation of the unit of work for AzureTable repository pattern.</p>
+</div>
+  <div class="markdown level0 conceptual"></div>
+  <div class="inheritance">
+    <h5>Inheritance</h5>
+    <div class="level0"><span class="xref">System.Object</span></div>
+    <div class="level1"><span class="xref">Ease.Util.Disposably.SafeDisposable</span></div>
+    <div class="level2"><span class="xref">BestEffortUnitOfWork&lt;TContext&gt;</span></div>
+  </div>
+  <div classs="implements">
+    <h5>Implements</h5>
+    <div><a class="xref" href="Ease.Repository.IBestEffortUnitOfWork.html">IBestEffortUnitOfWork</a></div>
+    <div><a class="xref" href="Ease.Repository.IUnitOfWork.html">IUnitOfWork</a></div>
+    <div><span class="xref">System.IDisposable</span></div>
+  </div>
+  <div class="inheritedMembers">
+    <h5>Inherited Members</h5>
+    <div>
+      <span class="xref">Ease.Util.Disposably.SafeDisposable.CheckDisposed()</span>
+    </div>
+    <div>
+      <span class="xref">Ease.Util.Disposably.SafeDisposable.Dispose(System.Boolean)</span>
+    </div>
+    <div>
+      <span class="xref">Ease.Util.Disposably.SafeDisposable.Dispose()</span>
+    </div>
+    <div>
+      <span class="xref">Ease.Util.Disposably.SafeDisposable.IsDisposed</span>
+    </div>
+    <div>
+      <span class="xref">Ease.Util.Disposably.SafeDisposable.Lock</span>
+    </div>
+    <div>
+      <span class="xref">System.Object.Equals(System.Object)</span>
+    </div>
+    <div>
+      <span class="xref">System.Object.Equals(System.Object, System.Object)</span>
+    </div>
+    <div>
+      <span class="xref">System.Object.GetHashCode()</span>
+    </div>
+    <div>
+      <span class="xref">System.Object.GetType()</span>
+    </div>
+    <div>
+      <span class="xref">System.Object.MemberwiseClone()</span>
+    </div>
+    <div>
+      <span class="xref">System.Object.ReferenceEquals(System.Object, System.Object)</span>
+    </div>
+    <div>
+      <span class="xref">System.Object.ToString()</span>
+    </div>
+  </div>
+  <h6><strong>Namespace</strong>: <a class="xref" href="Ease.Repository.html">Ease.Repository</a></h6>
+  <h6><strong>Assembly</strong>: Ease.Repository.dll</h6>
+  <h5 id="Ease_Repository_BestEffortUnitOfWork_1_syntax">Syntax</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public class BestEffortUnitOfWork&lt;TContext&gt; : SafeDisposable, IBestEffortUnitOfWork, IUnitOfWork, IDisposable</code></pre>
+  </div>
+  <h5 class="typeParameters">Type Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="parametername">TContext</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h3 id="constructors">Constructors
+  </h3>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/tausten/Ease.Repository/new/develop/apiSpec/new?filename=Ease_Repository_BestEffortUnitOfWork_1__ctor__0_.md&amp;value=---%0Auid%3A%20Ease.Repository.BestEffortUnitOfWork%601.%23ctor(%600)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/tausten/Ease.Repository/blob/develop/Ease.Repository/BestEffortUnitOfWork.cs/#L170">View Source</a>
+  </span>
+  <a id="Ease_Repository_BestEffortUnitOfWork_1__ctor_" data-uid="Ease.Repository.BestEffortUnitOfWork`1.#ctor*"></a>
+  <h4 id="Ease_Repository_BestEffortUnitOfWork_1__ctor__0_" data-uid="Ease.Repository.BestEffortUnitOfWork`1.#ctor(`0)">BestEffortUnitOfWork(TContext)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public BestEffortUnitOfWork(TContext context)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">TContext</span></td>
+        <td><span class="parametername">context</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h3 id="properties">Properties
+  </h3>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/tausten/Ease.Repository/new/develop/apiSpec/new?filename=Ease_Repository_BestEffortUnitOfWork_1_Context.md&amp;value=---%0Auid%3A%20Ease.Repository.BestEffortUnitOfWork%601.Context%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/tausten/Ease.Repository/blob/develop/Ease.Repository/BestEffortUnitOfWork.cs/#L175">View Source</a>
+  </span>
+  <a id="Ease_Repository_BestEffortUnitOfWork_1_Context_" data-uid="Ease.Repository.BestEffortUnitOfWork`1.Context*"></a>
+  <h4 id="Ease_Repository_BestEffortUnitOfWork_1_Context" data-uid="Ease.Repository.BestEffortUnitOfWork`1.Context">Context</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public TContext Context { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">TContext</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h3 id="methods">Methods
+  </h3>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/tausten/Ease.Repository/new/develop/apiSpec/new?filename=Ease_Repository_BestEffortUnitOfWork_1_CompleteAsync.md&amp;value=---%0Auid%3A%20Ease.Repository.BestEffortUnitOfWork%601.CompleteAsync%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/tausten/Ease.Repository/blob/develop/Ease.Repository/BestEffortUnitOfWork.cs/#L218">View Source</a>
+  </span>
+  <a id="Ease_Repository_BestEffortUnitOfWork_1_CompleteAsync_" data-uid="Ease.Repository.BestEffortUnitOfWork`1.CompleteAsync*"></a>
+  <h4 id="Ease_Repository_BestEffortUnitOfWork_1_CompleteAsync" data-uid="Ease.Repository.BestEffortUnitOfWork`1.CompleteAsync">CompleteAsync()</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Task CompleteAsync()</code></pre>
+  </div>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Threading.Tasks.Task</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/tausten/Ease.Repository/new/develop/apiSpec/new?filename=Ease_Repository_BestEffortUnitOfWork_1_DisposeManagedObjects.md&amp;value=---%0Auid%3A%20Ease.Repository.BestEffortUnitOfWork%601.DisposeManagedObjects%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/tausten/Ease.Repository/blob/develop/Ease.Repository/BestEffortUnitOfWork.cs/#L351">View Source</a>
+  </span>
+  <a id="Ease_Repository_BestEffortUnitOfWork_1_DisposeManagedObjects_" data-uid="Ease.Repository.BestEffortUnitOfWork`1.DisposeManagedObjects*"></a>
+  <h4 id="Ease_Repository_BestEffortUnitOfWork_1_DisposeManagedObjects" data-uid="Ease.Repository.BestEffortUnitOfWork`1.DisposeManagedObjects">DisposeManagedObjects()</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected override void DisposeManagedObjects()</code></pre>
+  </div>
+  <h5 class="overrides">Overrides</h5>
+  <div><span class="xref">Ease.Util.Disposably.SafeDisposable.DisposeManagedObjects()</span></div>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/tausten/Ease.Repository/new/develop/apiSpec/new?filename=Ease_Repository_BestEffortUnitOfWork_1_NullifyLargeFields.md&amp;value=---%0Auid%3A%20Ease.Repository.BestEffortUnitOfWork%601.NullifyLargeFields%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/tausten/Ease.Repository/blob/develop/Ease.Repository/BestEffortUnitOfWork.cs/#L353">View Source</a>
+  </span>
+  <a id="Ease_Repository_BestEffortUnitOfWork_1_NullifyLargeFields_" data-uid="Ease.Repository.BestEffortUnitOfWork`1.NullifyLargeFields*"></a>
+  <h4 id="Ease_Repository_BestEffortUnitOfWork_1_NullifyLargeFields" data-uid="Ease.Repository.BestEffortUnitOfWork`1.NullifyLargeFields">NullifyLargeFields()</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected override void NullifyLargeFields()</code></pre>
+  </div>
+  <h5 class="overrides">Overrides</h5>
+  <div><span class="xref">Ease.Util.Disposably.SafeDisposable.NullifyLargeFields()</span></div>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/tausten/Ease.Repository/new/develop/apiSpec/new?filename=Ease_Repository_BestEffortUnitOfWork_1_RegisterAdd__1___0_.md&amp;value=---%0Auid%3A%20Ease.Repository.BestEffortUnitOfWork%601.RegisterAdd%60%601(%60%600)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/tausten/Ease.Repository/blob/develop/Ease.Repository/BestEffortUnitOfWork.cs/#L182">View Source</a>
+  </span>
+  <a id="Ease_Repository_BestEffortUnitOfWork_1_RegisterAdd_" data-uid="Ease.Repository.BestEffortUnitOfWork`1.RegisterAdd*"></a>
+  <h4 id="Ease_Repository_BestEffortUnitOfWork_1_RegisterAdd__1___0_" data-uid="Ease.Repository.BestEffortUnitOfWork`1.RegisterAdd``1(``0)">RegisterAdd&lt;TEntity&gt;(TEntity)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public TEntity RegisterAdd&lt;TEntity&gt;(TEntity entity)
+    where TEntity : class, new()</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">TEntity</span></td>
+        <td><span class="parametername">entity</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">TEntity</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="typeParameters">Type Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="parametername">TEntity</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/tausten/Ease.Repository/new/develop/apiSpec/new?filename=Ease_Repository_BestEffortUnitOfWork_1_RegisterDelete__1___0_.md&amp;value=---%0Auid%3A%20Ease.Repository.BestEffortUnitOfWork%601.RegisterDelete%60%601(%60%600)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/tausten/Ease.Repository/blob/develop/Ease.Repository/BestEffortUnitOfWork.cs/#L208">View Source</a>
+  </span>
+  <a id="Ease_Repository_BestEffortUnitOfWork_1_RegisterDelete_" data-uid="Ease.Repository.BestEffortUnitOfWork`1.RegisterDelete*"></a>
+  <h4 id="Ease_Repository_BestEffortUnitOfWork_1_RegisterDelete__1___0_" data-uid="Ease.Repository.BestEffortUnitOfWork`1.RegisterDelete``1(``0)">RegisterDelete&lt;TEntity&gt;(TEntity)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void RegisterDelete&lt;TEntity&gt;(TEntity entity)
+    where TEntity : class, new()</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">TEntity</span></td>
+        <td><span class="parametername">entity</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="typeParameters">Type Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="parametername">TEntity</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/tausten/Ease.Repository/new/develop/apiSpec/new?filename=Ease_Repository_BestEffortUnitOfWork_1_RegisterForUpdates__1_System_Collections_Generic_IEnumerable___0__.md&amp;value=---%0Auid%3A%20Ease.Repository.BestEffortUnitOfWork%601.RegisterForUpdates%60%601(System.Collections.Generic.IEnumerable%7B%60%600%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/tausten/Ease.Repository/blob/develop/Ease.Repository/BestEffortUnitOfWork.cs/#L197">View Source</a>
+  </span>
+  <a id="Ease_Repository_BestEffortUnitOfWork_1_RegisterForUpdates_" data-uid="Ease.Repository.BestEffortUnitOfWork`1.RegisterForUpdates*"></a>
+  <h4 id="Ease_Repository_BestEffortUnitOfWork_1_RegisterForUpdates__1_System_Collections_Generic_IEnumerable___0__" data-uid="Ease.Repository.BestEffortUnitOfWork`1.RegisterForUpdates``1(System.Collections.Generic.IEnumerable{``0})">RegisterForUpdates&lt;TEntity&gt;(IEnumerable&lt;TEntity&gt;)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public IEnumerable&lt;TEntity&gt; RegisterForUpdates&lt;TEntity&gt;(IEnumerable&lt;TEntity&gt; entities)
+    where TEntity : class, new()</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Collections.Generic.IEnumerable</span>&lt;TEntity&gt;</td>
+        <td><span class="parametername">entities</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Collections.Generic.IEnumerable</span>&lt;TEntity&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="typeParameters">Type Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="parametername">TEntity</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/tausten/Ease.Repository/new/develop/apiSpec/new?filename=Ease_Repository_BestEffortUnitOfWork_1_RegisterStoreFor__1_Ease_Repository_IStoreWriter_.md&amp;value=---%0Auid%3A%20Ease.Repository.BestEffortUnitOfWork%601.RegisterStoreFor%60%601(Ease.Repository.IStoreWriter)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/tausten/Ease.Repository/blob/develop/Ease.Repository/BestEffortUnitOfWork.cs/#L177">View Source</a>
+  </span>
+  <a id="Ease_Repository_BestEffortUnitOfWork_1_RegisterStoreFor_" data-uid="Ease.Repository.BestEffortUnitOfWork`1.RegisterStoreFor*"></a>
+  <h4 id="Ease_Repository_BestEffortUnitOfWork_1_RegisterStoreFor__1_Ease_Repository_IStoreWriter_" data-uid="Ease.Repository.BestEffortUnitOfWork`1.RegisterStoreFor``1(Ease.Repository.IStoreWriter)">RegisterStoreFor&lt;TEntity&gt;(IStoreWriter)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void RegisterStoreFor&lt;TEntity&gt;(IStoreWriter storeWriter)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Ease.Repository.IStoreWriter.html">IStoreWriter</a></td>
+        <td><span class="parametername">storeWriter</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="typeParameters">Type Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="parametername">TEntity</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h3 id="implements">Implements</h3>
+  <div>
+      <a class="xref" href="Ease.Repository.IBestEffortUnitOfWork.html">IBestEffortUnitOfWork</a>
+  </div>
+  <div>
+      <a class="xref" href="Ease.Repository.IUnitOfWork.html">IUnitOfWork</a>
+  </div>
+  <div>
+      <span class="xref">System.IDisposable</span>
+  </div>
+  <h3 id="extensionmethods">Extension Methods</h3>
+  <div>
+      <a class="xref" href="Ease.Repository.ChangeTrackingExtensions.html#Ease_Repository_ChangeTrackingExtensions_CurrentState__1___0_">ChangeTrackingExtensions.CurrentState&lt;T&gt;(T)</a>
+  </div>
+</article>
+          </div>
+          
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <div class="contribution">
+                <ul class="nav">
+                  <li>
+                    <a href="https://github.com/tausten/Ease.Repository/new/develop/apiSpec/new?filename=Ease_Repository_BestEffortUnitOfWork_1.md&amp;value=---%0Auid%3A%20Ease.Repository.BestEffortUnitOfWork%601%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" class="contribution-link">Improve this Doc</a>
+                  </li>
+                  <li>
+                    <a href="https://github.com/tausten/Ease.Repository/blob/develop/Ease.Repository/BestEffortUnitOfWork.cs/#L126" class="contribution-link">View Source</a>
+                  </li>
+                </ul>
+              </div>
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+              <!-- <p><a class="back-to-top" href="#top">Back to top</a><p> -->
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+            
+            <span>Generated by <strong>DocFX</strong></span>
+          </div>
+        </div>
+      </footer>
+    </div>
+    
+    <script type="text/javascript" src="../styles/docfx.vendor.js"></script>
+    <script type="text/javascript" src="../styles/docfx.js"></script>
+    <script type="text/javascript" src="../styles/main.js"></script>
+  </body>
+</html>
