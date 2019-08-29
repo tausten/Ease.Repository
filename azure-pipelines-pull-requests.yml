@@ -42,8 +42,8 @@ steps:
       sqllocaldb info MSSQLLocalDB
       "C:\Program Files (x86)\Microsoft SDKs\Azure\Storage Emulator\AzureStorageEmulator.exe" start
 
-- task: VSTest@2
-  displayName: 'Test solution'
+- task: DotNetCoreCLI@2
   inputs:
-    platform: '$(buildPlatform)'
-    configuration: '$(buildConfiguration)'
+    command: 'test'
+    projects: '**/*.Tests.csproj'
+    testRunTitle: 'Test solution'
