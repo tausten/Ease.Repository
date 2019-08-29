@@ -35,6 +35,7 @@ steps:
     pwsh: true
 
 - task: Assembly-Info-NetCore@2
+  displayName: 'Update Version Stamps'
   inputs:
     Path: '$(Build.SourcesDirectory)'
     FileNames: '**/Ease.Repository*.csproj'
@@ -71,6 +72,7 @@ steps:
       "C:\Program Files (x86)\Microsoft SDKs\Azure\Storage Emulator\AzureStorageEmulator.exe" start
 
 - task: DotNetCoreCLI@2
+  displayName: 'Run Tests'
   inputs:
     command: 'test'
     projects: '**/*.Tests.csproj'
@@ -86,6 +88,7 @@ steps:
 
 # DocFx building
 - task: DocFxTask@0
+  displayName: 'Generate DocFx Documentation'
   inputs:
     solution: 'docfx_project/docfx.json'
 

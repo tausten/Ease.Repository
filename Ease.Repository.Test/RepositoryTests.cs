@@ -5,13 +5,16 @@
 using AutoFixture;
 using AutoFixture.AutoFakeItEasy;
 using FluentAssertions;
-using NUnit.Framework;
 using System.Threading.Tasks;
 
-namespace Ease.Repository.Tests
+namespace Ease.Repository.Test
 {
     /// <summary>
-    /// Baseline set of tests for any <see cref="Impl.Data.IRepository"/>.
+    /// Baseline set of tests for any <see cref="Impl.Data.IRepository"/>. This test base class does not impost a particular test 
+    /// framework (eg. MSTest, NUnit, etc..). Instead, you inherit from this class, then implement the abstract methods as just 
+    /// delegate calls to the corresponding `base.*_Impl()` methods (unless you wish to provide your own alternative implementation
+    /// for the corresponding baseline test). Don't forget to decorate the implemented test methods with your framework's 
+    /// test attributes to make them discoverable by the test runner.
     /// </summary>
     /// <typeparam name="TKey">They type of the key.</typeparam>
     /// <typeparam name="TEntity">The type of the entity.</typeparam>
@@ -31,8 +34,14 @@ namespace Ease.Repository.Tests
         /// </summary>
         protected TRepository Sut { get; private set; }
 
-        [SetUp]
-        public virtual void SetUp()
+        /// <summary>
+        /// A setup step is necessary.
+        /// NOTE: For most cases, just implement this as a call to the corresponding `base.*_Impl()`, and don't forget
+        /// to apply your test framework's appropriate attributes or other mechanism for decorating SetUp methods.
+        /// </summary>
+        public abstract void SetUp();
+
+        protected virtual void SetUp_Impl()
         {
             TheFixture = new Fixture().Customize(new AutoFakeItEasyCustomization());
 
@@ -102,9 +111,12 @@ namespace Ease.Repository.Tests
 
         /// <summary>
         /// Tests that the repository's Upsert method sets the key fields to something non-null non-empty.
+        /// NOTE: For most cases, just implement this as a call to the corresponding `base.*_Impl()`, and don't forget
+        /// to apply your test framework's appropriate attributes or other mechanism for decorating test methods.
         /// </summary>
-        [Test]
-        public virtual void Add_Sets_Keys()
+        public abstract void Add_Sets_Keys();
+
+        protected void Add_Sets_Keys_Impl()
         {
             // Arrange
             var newThing = NewEntity();
@@ -119,9 +131,12 @@ namespace Ease.Repository.Tests
 
         /// <summary>
         /// Tests a round-trip of persisting a new entity and then fetching it by its key.
+        /// NOTE: For most cases, just implement this as a call to the corresponding `base.*_Impl()`, and don't forget
+        /// to apply your test framework's appropriate attributes or other mechanism for decorating test methods.
         /// </summary>
-        [Test]
-        public virtual async Task Add_New_Entity_And_Get_RoundTrip()
+        public abstract Task Add_New_Entity_And_Get_RoundTrip();
+
+        protected async Task Add_New_Entity_And_Get_RoundTrip_Impl()
         {
             // Arrange
             var newThing = NewEntity();
@@ -137,10 +152,12 @@ namespace Ease.Repository.Tests
         }
 
         /// <summary>
-        /// Tests 
+        /// NOTE: For most cases, just implement this as a call to the corresponding `base.*_Impl()`, and don't forget
+        /// to apply your test framework's appropriate attributes or other mechanism for decorating test methods.
         /// </summary>
-        [Test]
-        public virtual async Task Add_New_Entity_And_Get_By_Key_RoundTrip()
+        public abstract Task Add_New_Entity_And_Get_By_Key_RoundTrip();
+
+        protected virtual async Task Add_New_Entity_And_Get_By_Key_RoundTrip_Impl()
         {
             // Arrange
             var newThing = NewEntity();
@@ -156,9 +173,15 @@ namespace Ease.Repository.Tests
             AssertEntitiesAreEquivalent(result, newThing);
         }
 
-        [Test]
-        [Ignore("TODO: Decide what general 'Add existing entity' behavior should be.")]
-        public virtual async Task Add_Existing_Entity_And_Get_RoundTrip()
+        /// <summary>
+        /// NOTE: For most cases, just implement this as a call to the corresponding `base.*_Impl()`, and don't forget
+        /// to apply your test framework's appropriate attributes or other mechanism for decorating test methods.
+        /// 
+        /// TODO: Solve the round-trip thing and then re-enable this... but don't force its implementation until then.
+        /// </summary>
+        public virtual Task Add_Existing_Entity_And_Get_RoundTrip() { return Task.CompletedTask; }
+
+        protected virtual async Task Add_Existing_Entity_And_Get_RoundTrip_Impl()
         {
             // Arrange
             var newThing = NewEntity();
@@ -176,8 +199,13 @@ namespace Ease.Repository.Tests
             AssertEntitiesAreEquivalent(result, existing);
         }
 
-        [Test]
-        public virtual async Task Delete_And_Get_RoundTrip()
+        /// <summary>
+        /// NOTE: For most cases, just implement this as a call to the corresponding `base.*_Impl()`, and don't forget
+        /// to apply your test framework's appropriate attributes or other mechanism for decorating test methods.
+        /// </summary>
+        public abstract Task Delete_And_Get_RoundTrip();
+
+        protected virtual async Task Delete_And_Get_RoundTrip_Impl()
         {
             // Arrange
             var newThing = NewEntity();
@@ -192,9 +220,15 @@ namespace Ease.Repository.Tests
             result.Should().BeNull();
         }
 
-        [Test]
-        [Ignore("TODO: Implement 1st-level cache lookups.")]
-        public virtual async Task Delete_By_Key_And_Get_RoundTrip()
+        /// <summary>
+        /// NOTE: For most cases, just implement this as a call to the corresponding `base.*_Impl()`, and don't forget
+        /// to apply your test framework's appropriate attributes or other mechanism for decorating test methods.
+        /// 
+        /// TODO: Solve the round-trip thing and then re-enable this... but don't force its implementation until then.
+        /// </summary>
+        public virtual Task Delete_By_Key_And_Get_RoundTrip() { return Task.CompletedTask; }
+
+        protected virtual async Task Delete_By_Key_And_Get_RoundTrip_Impl()
         {
             // Arrange
             var newThing = NewEntity();

@@ -8,10 +8,9 @@ using System.Threading.Tasks;
 using AutoFixture;
 using Ease.Repository;
 using Ease.Repository.AzureTable;
-using Ease.Repository.Tests;
+using Ease.Repository.Test;
 using FluentAssertions;
 using Microsoft.Azure.Cosmos.Table;
-using NUnit.Framework;
 
 namespace HelperAPIs.Impl.Test.Data
 {
@@ -62,9 +61,15 @@ namespace HelperAPIs.Impl.Test.Data
         {
             Sut.List().Count().Should().Be(num);
         }
-        
-        [TearDown]
-        public virtual void TearDown()
+
+        /// <summary>
+        /// A tear-down step is necessary.
+        /// NOTE: For most cases, just implement this as a call to the corresponding `base.*_Impl()`, and don't forget
+        /// to apply your test framework's appropriate attributes or other mechanism for decorating TearDown methods.
+        /// </summary>
+        public abstract void TearDown();
+
+        protected virtual void TearDown_Impl()
         {
             var tables = UnitOfWork.Context.Client.ListTables(TestTableNamePrefix);
             foreach (var table in tables)
@@ -73,8 +78,13 @@ namespace HelperAPIs.Impl.Test.Data
             }
         }
 
-        [Test]
-        public virtual void List_Returns_Empty_For_No_Data()
+        /// <summary>
+        /// NOTE: For most cases, just implement this as a call to the corresponding `base.*_Impl()`, and don't forget
+        /// to apply your test framework's appropriate attributes or other mechanism for decorating test methods.
+        /// </summary>
+        public abstract void List_Returns_Empty_For_No_Data();
+
+        protected virtual void List_Returns_Empty_For_No_Data_Impl()
         {
             // Arrange
             // Act
@@ -83,9 +93,14 @@ namespace HelperAPIs.Impl.Test.Data
             // Assert
             result.Should().BeEmpty();
         }
-        
-        [Test]
-        public virtual async Task Add_New_Entity_And_List_RoundTrip()
+
+        /// <summary>
+        /// NOTE: For most cases, just implement this as a call to the corresponding `base.*_Impl()`, and don't forget
+        /// to apply your test framework's appropriate attributes or other mechanism for decorating test methods.
+        /// </summary>
+        public abstract Task Add_New_Entity_And_List_RoundTrip();
+
+        protected virtual async Task Add_New_Entity_And_List_RoundTrip_Impl()
         {
             // Arrange
             var newThing = NewEntity();
