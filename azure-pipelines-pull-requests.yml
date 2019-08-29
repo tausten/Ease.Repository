@@ -43,6 +43,7 @@ steps:
       "C:\Program Files (x86)\Microsoft SDKs\Azure\Storage Emulator\AzureStorageEmulator.exe" start
 
 - task: DotNetCoreCLI@2
+  displayName: 'Run Tests'
   inputs:
     command: 'test'
     projects: '**/*.Tests.csproj'

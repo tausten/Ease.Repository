@@ -19,6 +19,10 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Ease.Repository.AzureTable"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Ease.Repository.AzureTable.Tests", "Ease.Repository.AzureTable.Tests\Ease.Repository.AzureTable.Tests.csproj", "{59291789-519A-4332-AB5D-4339817B039E}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Ease.Repository.Test", "Ease.Repository.Test\Ease.Repository.Test.csproj", "{B51EFE47-D973-47B7-8BF9-46A7698FC262}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Ease.Repository.AzureTable.Test", "Ease.Repository.AzureTable.Test\Ease.Repository.AzureTable.Test.csproj", "{926C2D21-B57C-4CF8-ABED-AB0C1DFD3B33}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -41,6 +45,14 @@ Global
 		{59291789-519A-4332-AB5D-4339817B039E}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{59291789-519A-4332-AB5D-4339817B039E}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{59291789-519A-4332-AB5D-4339817B039E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B51EFE47-D973-47B7-8BF9-46A7698FC262}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B51EFE47-D973-47B7-8BF9-46A7698FC262}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B51EFE47-D973-47B7-8BF9-46A7698FC262}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B51EFE47-D973-47B7-8BF9-46A7698FC262}.Release|Any CPU.Build.0 = Release|Any CPU
+		{926C2D21-B57C-4CF8-ABED-AB0C1DFD3B33}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{926C2D21-B57C-4CF8-ABED-AB0C1DFD3B33}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{926C2D21-B57C-4CF8-ABED-AB0C1DFD3B33}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{926C2D21-B57C-4CF8-ABED-AB0C1DFD3B33}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

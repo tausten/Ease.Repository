@@ -2,24 +2,10 @@
 
   <PropertyGroup>
     <TargetFramework>netcoreapp2.2</TargetFramework>
-
     <IsPackable>false</IsPackable>
-
-    <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
-
+    <GeneratePackageOnBuild>false</GeneratePackageOnBuild>
     <Version>0.0.0</Version>
-
-    <Authors>Tyler Austen</Authors>
-
-    <Description>C#/.Net building blocks supporting integration testing of concrete repository and unit of work implementations based on Ease.Repository.AzureTable. The base classes are instrumented for NUnit but you may leverage other frameworks. NOTE: You may need to do trivial overrides that call base implementation for abstract base class test methods to allow some test runners to find those default tests - a bit smelly, but you'll get basic CRUD integration tests for your repository classes for free this way.</Description>
-
-    <PackageLicenseFile>LICENSE</PackageLicenseFile>
-
-    <PackageProjectUrl>https://github.com/tausten/Ease.Repository</PackageProjectUrl>
-
-    <RepositoryUrl>https://github.com/tausten/Ease.Repository</RepositoryUrl>
-
-    <PackageTags>csharp, dotnet, repository, azure, table, test</PackageTags>
+    <StartupObject />
   </PropertyGroup>
 
   <ItemGroup>
@@ -31,6 +17,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\Ease.Repository.AzureTable.Test\Ease.Repository.AzureTable.Test.csproj" />
     <ProjectReference Include="..\Ease.Repository.AzureTable\Ease.Repository.AzureTable.csproj" />
     <ProjectReference Include="..\Ease.Repository.Tests\Ease.Repository.Tests.csproj" />
   </ItemGroup>
