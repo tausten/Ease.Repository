@@ -25,7 +25,7 @@
 
   <ItemGroup>
     <PackageReference Include="ChangeTracking" Version="2.2.4" />
-    <PackageReference Include="Ease.Util" Version="0.2.0" />
+    <PackageReference Include="Ease.Util" Version="0.3.0-alpha.4" />
     <PackageReference Include="Microsoft.Azure.Cosmos.Table" Version="1.0.4" />
     <PackageReference Include="Microsoft.Extensions.Configuration.Abstractions" Version="2.2.0" />
   </ItemGroup>

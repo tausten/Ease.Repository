@@ -23,7 +23,7 @@
 
   <ItemGroup>
     <PackageReference Include="ChangeTracking" Version="2.2.4" />
-    <PackageReference Include="Ease.Util" Version="0.2.0" />
+    <PackageReference Include="Ease.Util" Version="0.3.0-alpha.4" />
   </ItemGroup>
 
 </Project>
