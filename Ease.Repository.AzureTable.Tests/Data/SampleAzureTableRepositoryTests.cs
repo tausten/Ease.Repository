@@ -102,5 +102,28 @@ namespace Ease.Repository.AzureTable.Tests.Data
         {
             return Delete_By_Key_And_Get_RoundTrip_Impl();
         }
+
+        private class Bug_12_Repository : AzureTableRepository<AzureTableRepositoryContext, SampleAzureTableEntity>
+        {
+            public string TheTableName => TableName;
+
+            public Bug_12_Repository(BestEffortUnitOfWork<AzureTableRepositoryContext> unitOfWork) : base(unitOfWork) { }
+
+            protected override string CalculatePartitionKeyFor(SampleAzureTableEntity entity)
+            {
+                throw new NotImplementedException();
+            }
+        }
+
+        [Test]
+        public void Bug_12_Default_Table_Name_Should_Be_TypeOf_Entity_Name()
+        {
+            // Arrange
+            var sut = TheFixture.Freeze<Bug_12_Repository>();
+
+            // Act
+            // Assert
+            sut.TheTableName.Should().Be(typeof(SampleAzureTableEntity).Name);
+        }
     }
 }
