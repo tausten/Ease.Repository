@@ -57,12 +57,12 @@ namespace Ease.Repository.AzureTable
         }
 
         /// <summary>
-        /// By default, TableName will be the `nameof(TEntity)` (which means the table name will change if you rename
+        /// By default, TableName will be the `typeof(TEntity).Name` (which means the table name will change if you rename
         /// the entity class). If you wish to have a stable name, then override and return the desired name.
         /// Either way, the actual table name may include a prefix as governed by the `TContext` when it prepares the
         /// table.
         /// </summary>
-        protected virtual string TableName => nameof(TEntity);
+        protected virtual string TableName => typeof(TEntity).Name;
 
         /// <summary>
         /// Override to return a suitable `PartitionKey` derived from the entity. This should be a function of
