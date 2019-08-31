@@ -36,17 +36,20 @@ namespace Ease.Repository.AzureTable
         #endregion
     }
 
+    /// <summary>
+    /// Base class for AzureTable-backed repositories.
+    /// </summary>
+    /// <typeparam name="TContext">The repository context Type this repository will operate on.</typeparam>
+    /// <typeparam name="TEntity">The entity Type managed by the repository.</typeparam>
     public abstract class AzureTableRepository<TContext, TEntity>
         : IRepository<ITableEntity, TEntity>
         where TContext : class, IAzureTableRepositoryContext
         where TEntity : class, ITableEntity, new()
     {
-        protected BestEffortUnitOfWork<TContext> UnitOfWork { get; private set; }
-
-        protected readonly Lazy<CloudTable> Table;
-
-        protected readonly AzureTableStoreWriter StoreWriter;
-
+        /// <summary>
+        /// Construct the repository instance to operate with the passed <paramref name="unitOfWork"/>.
+        /// </summary>
+        /// <param name="unitOfWork">The `UnitOfWork` this repository's operations will fall within.</param>
         protected AzureTableRepository(BestEffortUnitOfWork<TContext> unitOfWork)
         {
             UnitOfWork = unitOfWork;
@@ -55,6 +58,22 @@ namespace Ease.Repository.AzureTable
 
             UnitOfWork.RegisterStoreFor<TEntity>(StoreWriter);
         }
+
+        /// <summary>
+        /// The active unit of work.
+        /// </summary>
+        protected BestEffortUnitOfWork<TContext> UnitOfWork { get; private set; }
+
+        /// <summary>
+        /// The Azure `CloudTable` in which the entities will be stored. Repositories can use this property to implement
+        /// the read operations beyond the simple <see cref="Get(ITableEntity)"/> and <see cref="List"/> methods.
+        /// </summary>
+        protected readonly Lazy<CloudTable> Table;
+
+        /// <summary>
+        /// Used for write operations to the <see cref="Table"/>.
+        /// </summary>
+        protected readonly AzureTableStoreWriter StoreWriter;
 
         /// <summary>
         /// By default, TableName will be the `typeof(TEntity).Name` (which means the table name will change if you rename
@@ -77,11 +96,13 @@ namespace Ease.Repository.AzureTable
         /// <summary>
         /// Override to provide some other means of generating unique IDs. Default is using Guid.NewGuid() to 
         /// reduce 3rd-party dependencies, but consider overriding and using a CombGuid algorithm or something similar.
+        /// Do be sure this will generate a unique identifier within the scope of this <typeparamref name="TEntity"/>'s
+        /// persistent store.
         /// </summary>
         /// <returns></returns>
-        protected virtual Guid NewUniqueId()
+        protected virtual string NewUniqueId()
         {
-            return Guid.NewGuid();
+            return Guid.NewGuid().ToString().ToUpperInvariant();
         }
 
         public virtual IEnumerable<TEntity> List()
@@ -105,7 +126,7 @@ namespace Ease.Repository.AzureTable
         {
             if (string.IsNullOrWhiteSpace(entity.RowKey))
             {
-                entity.RowKey = NewUniqueId().ToString().ToUpperInvariant();
+                entity.RowKey = NewUniqueId();
             }
 
             if (string.IsNullOrWhiteSpace(entity.PartitionKey))

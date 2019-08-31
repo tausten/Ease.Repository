@@ -5,16 +5,16 @@
 using System;
 using System.Threading.Tasks;
 using AutoFixture;
+using Ease.Repository.AzureTable.Test;
 using FakeItEasy;
 using FluentAssertions;
-using HelperAPIs.Impl.Test.Data;
 using Microsoft.Azure.Cosmos.Table;
 using NUnit.Framework;
 
-namespace Ease.Repository.AzureTable.Tests.Data
+namespace Ease.Repository.AzureTable.Tests
 {
-    public class SampleAzureTableRepositoryTests
-        : AzureTableRepositoryTests<AzureTableRepositoryContext, SampleAzureTableEntity, SampleAzureTableRepository>
+    public class SomeAzureTableRepositoryTests
+        : AzureTableRepositoryTests<AzureTableRepositoryContext, SomeAzureTableEntity, SomeAzureTableRepository>
     {
         protected override void PrepareDependenciesForContext(IFixture fixture)
         {
@@ -25,20 +25,20 @@ namespace Ease.Repository.AzureTable.Tests.Data
             A.CallTo(() => config.TableNamePrefix).Returns(TestTableNamePrefix);
         }
 
-        protected override void ModifyEntity(SampleAzureTableEntity entityToModify)
+        protected override void ModifyEntity(SomeAzureTableEntity entityToModify)
         {
             var newSuffix = Guid.NewGuid().ToString();
             entityToModify.FirstName.Should().NotEndWith(newSuffix);
             entityToModify.FirstName += newSuffix;
         }
 
-        protected override void AssertEntitiesAreEquivalent(SampleAzureTableEntity result, SampleAzureTableEntity reference)
+        protected override void AssertEntitiesAreEquivalent(SomeAzureTableEntity result, SomeAzureTableEntity reference)
         {
             result.CurrentState().Should().BeEquivalentTo(reference.CurrentState(), options => options
                 .Excluding(x => x.Timestamp));
         }
 
-        protected override ITableEntity NewSimpleKeyFromEntity(SampleAzureTableEntity entity)
+        protected override ITableEntity NewSimpleKeyFromEntity(SomeAzureTableEntity entity)
         {
             return new AzureTableEntityKey { PartitionKey = entity.PartitionKey, RowKey = entity.RowKey };
         }
@@ -55,6 +55,7 @@ namespace Ease.Repository.AzureTable.Tests.Data
             TearDown_Impl();
         }
 
+        #region Base Tests
         [Test]
         public override void List_Returns_Empty_For_No_Data()
         {
@@ -62,9 +63,9 @@ namespace Ease.Repository.AzureTable.Tests.Data
         }
 
         [Test]
-        public override Task Add_New_Entity_And_List_RoundTrip()
+        public override async Task Add_New_Entity_And_List_RoundTrip()
         {
-            return Add_New_Entity_And_Get_By_Key_RoundTrip_Impl();
+            await Add_New_Entity_And_Get_By_Key_RoundTrip_Impl();
         }
 
         [Test]
@@ -74,42 +75,44 @@ namespace Ease.Repository.AzureTable.Tests.Data
         }
 
         [Test]
-        public override Task Add_New_Entity_And_Get_RoundTrip()
+        public override async Task Add_New_Entity_And_Get_RoundTrip()
         {
-            return Add_New_Entity_And_Get_RoundTrip_Impl();
+            await Add_New_Entity_And_Get_RoundTrip_Impl();
         }
 
         [Test]
-        public override Task Add_New_Entity_And_Get_By_Key_RoundTrip()
+        public override async Task Add_New_Entity_And_Get_By_Key_RoundTrip()
         {
-            return Add_New_Entity_And_Get_By_Key_RoundTrip_Impl();
+            await Add_New_Entity_And_Get_By_Key_RoundTrip_Impl();
         }
 
         [Test, Ignore("TODO: Need to make this work in light of the transactional unit of work implementation.")]
-        public override Task Add_Existing_Entity_And_Get_RoundTrip()
+        public override async Task Add_Existing_Entity_And_Get_RoundTrip()
         {
-            return Add_Existing_Entity_And_Get_RoundTrip_Impl();
+            await Add_Existing_Entity_And_Get_RoundTrip_Impl();
         }
 
         [Test]
-        public override Task Delete_And_Get_RoundTrip()
+        public override async Task Delete_And_Get_RoundTrip()
         {
-            return Delete_And_Get_RoundTrip_Impl();
+            await Delete_And_Get_RoundTrip_Impl();
         }
 
         [Test, Ignore("TODO: Need to make this work in light of the transactional unit of work implementation.")]
-        public override Task Delete_By_Key_And_Get_RoundTrip()
+        public override async Task Delete_By_Key_And_Get_RoundTrip()
         {
-            return Delete_By_Key_And_Get_RoundTrip_Impl();
+            await Delete_By_Key_And_Get_RoundTrip_Impl();
         }
 
-        private class Bug_12_Repository : AzureTableRepository<AzureTableRepositoryContext, SampleAzureTableEntity>
+        #endregion // Base Tests
+
+        private class Bug_12_Repository : AzureTableRepository<AzureTableRepositoryContext, SomeAzureTableEntity>
         {
             public string TheTableName => TableName;
 
             public Bug_12_Repository(BestEffortUnitOfWork<AzureTableRepositoryContext> unitOfWork) : base(unitOfWork) { }
 
-            protected override string CalculatePartitionKeyFor(SampleAzureTableEntity entity)
+            protected override string CalculatePartitionKeyFor(SomeAzureTableEntity entity)
             {
                 throw new NotImplementedException();
             }
@@ -123,7 +126,7 @@ namespace Ease.Repository.AzureTable.Tests.Data
 
             // Act
             // Assert
-            sut.TheTableName.Should().Be(typeof(SampleAzureTableEntity).Name);
+            sut.TheTableName.Should().Be(typeof(SomeAzureTableEntity).Name);
         }
     }
 }

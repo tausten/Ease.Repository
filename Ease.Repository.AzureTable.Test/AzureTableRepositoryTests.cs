@@ -6,13 +6,11 @@ using System;
 using System.Linq;
 using System.Threading.Tasks;
 using AutoFixture;
-using Ease.Repository;
-using Ease.Repository.AzureTable;
 using Ease.Repository.Test;
 using FluentAssertions;
 using Microsoft.Azure.Cosmos.Table;
 
-namespace HelperAPIs.Impl.Test.Data
+namespace Ease.Repository.AzureTable.Test
 {
     public abstract class AzureTableRepositoryTests<TContext, TEntity, TRepository>
         : RepositoryTests<ITableEntity, TEntity, TRepository>
@@ -21,7 +19,7 @@ namespace HelperAPIs.Impl.Test.Data
         where TRepository : AzureTableRepository<TContext, TEntity>
     {
         protected string TestTableNamePrefix { get; private set; }
-        
+
         protected BestEffortUnitOfWork<TContext> UnitOfWork { get; private set; }
 
         protected virtual void PrepareDependenciesForContext(IFixture fixture) { }
@@ -44,7 +42,7 @@ namespace HelperAPIs.Impl.Test.Data
 
             UnitOfWork = fixture.Freeze<BestEffortUnitOfWork<TContext>>();
         }
-        
+
         protected override void NullifyKeyFields(TEntity entity)
         {
             entity.PartitionKey = null;
@@ -56,7 +54,7 @@ namespace HelperAPIs.Impl.Test.Data
             entity.PartitionKey.Should().NotBeNullOrWhiteSpace();
             entity.RowKey.Should().NotBeNullOrWhiteSpace();
         }
-        
+
         protected override void AssertRepositoryHasNumEntities(int num = 0)
         {
             Sut.List().Count().Should().Be(num);
