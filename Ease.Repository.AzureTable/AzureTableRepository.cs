@@ -50,19 +50,11 @@ namespace Ease.Repository.AzureTable
         /// Construct the repository instance to operate with the passed <paramref name="unitOfWork"/>.
         /// </summary>
         /// <param name="unitOfWork">The `UnitOfWork` this repository's operations will fall within.</param>
-        protected AzureTableRepository(BestEffortUnitOfWork<TContext> unitOfWork)
+        protected AzureTableRepository(TContext context)
         {
-            UnitOfWork = unitOfWork;
-            Table = UnitOfWork.Context.PrepareTable(() => TableName);
-            StoreWriter = new AzureTableStoreWriter(Table);
-
-            UnitOfWork.RegisterStoreFor<TEntity>(StoreWriter);
+            Table = context.RegisterTableForEntityType<TEntity>(() => TableName);
+            Context = context;
         }
-
-        /// <summary>
-        /// The active unit of work.
-        /// </summary>
-        protected BestEffortUnitOfWork<TContext> UnitOfWork { get; private set; }
 
         /// <summary>
         /// The Azure `CloudTable` in which the entities will be stored. Repositories can use this property to implement
@@ -71,17 +63,17 @@ namespace Ease.Repository.AzureTable
         protected readonly Lazy<CloudTable> Table;
 
         /// <summary>
-        /// Used for write operations to the <see cref="Table"/>.
-        /// </summary>
-        protected readonly AzureTableStoreWriter StoreWriter;
-
-        /// <summary>
         /// By default, TableName will be the `typeof(TEntity).Name` (which means the table name will change if you rename
         /// the entity class). If you wish to have a stable name, then override and return the desired name.
         /// Either way, the actual table name may include a prefix as governed by the `TContext` when it prepares the
         /// table.
         /// </summary>
         protected virtual string TableName => typeof(TEntity).Name;
+
+        /// <summary>
+        /// The RepositoryContext.
+        /// </summary>
+        protected TContext Context { get; }
 
         /// <summary>
         /// Override to return a suitable `PartitionKey` derived from the entity. This should be a function of
@@ -109,7 +101,7 @@ namespace Ease.Repository.AzureTable
         {
             var query = new TableQuery<TEntity>();
             var entities = Table.Value.ExecuteQuery(query);
-            return UnitOfWork.RegisterForUpdates(entities);
+            return Context.RegisterForUpdates(entities);
         }
 
         public virtual TEntity Get(ITableEntity key)
@@ -118,7 +110,7 @@ namespace Ease.Repository.AzureTable
             var result = Table.Value.Execute(op);
 
             return result.Result is TEntity resultEntity
-                ? UnitOfWork.RegisterForUpdates(new[] { resultEntity }).FirstOrDefault()
+                ? Context.RegisterForUpdates(new[] { resultEntity }).FirstOrDefault()
                 : null;
         }
 
@@ -134,7 +126,7 @@ namespace Ease.Repository.AzureTable
                 entity.PartitionKey = CalculatePartitionKeyFor(entity);
             }
 
-            return UnitOfWork.RegisterAdd(entity);
+            return Context.RegisterAdd(entity);
         }
 
         public virtual void Delete(ITableEntity key)
@@ -143,7 +135,7 @@ namespace Ease.Repository.AzureTable
 
             if (null != entity)
             {
-                UnitOfWork.RegisterDelete(entity);
+                Context.RegisterDelete(entity);
             }
         }
     }

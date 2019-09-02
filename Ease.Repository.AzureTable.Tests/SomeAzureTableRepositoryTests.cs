@@ -110,7 +110,7 @@ namespace Ease.Repository.AzureTable.Tests
         {
             public string TheTableName => TableName;
 
-            public Bug_12_Repository(BestEffortUnitOfWork<AzureTableRepositoryContext> unitOfWork) : base(unitOfWork) { }
+            public Bug_12_Repository(AzureTableRepositoryContext context) : base(context) { }
 
             protected override string CalculatePartitionKeyFor(SomeAzureTableEntity entity)
             {

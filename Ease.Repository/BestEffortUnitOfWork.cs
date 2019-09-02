@@ -18,7 +18,7 @@ namespace Ease.Repository
     /// Interface for unit of work pattern where best-effort transaction is to be managed by hand rather than by
     /// underlying store.
     /// </summary>
-    public interface IBestEffortUnitOfWork : IUnitOfWork
+    public interface IBestEffortUnitOfWork : IUnitOfWork, IRegisterEntities
     {
         /// <summary>
         /// Respositories must register the IStoreWriter to use for entity types that they wish the unit of work to manage.
@@ -26,42 +26,13 @@ namespace Ease.Repository
         /// <typeparam name="TEntity">The entity Type the <paramref name="storeWriter"/> is for.</typeparam>
         /// <param name="storeWriter">The `IStoreWriter` to use for updating the store.</param>
         void RegisterStoreFor<TEntity>(IStoreWriter storeWriter);
-
-        /// <summary>
-        /// Registers an Add of a new entity with the unit of work.
-        /// </summary>
-        /// <param name="entity">The new entity being added</param>
-        /// <typeparam name="TEntity">The entity type.</typeparam>
-        /// <returns>The unit of work-tracked entity to return from repository.</returns>
-        TEntity RegisterAdd<TEntity>(TEntity entity) where TEntity : class, new();
-
-        /// <summary>
-        /// Registers a set of entities for update handling with the unit of work. Typically, you should call this
-        /// in the repository's Add handler, and in the repository's read-related handlers.
-        /// </summary>
-        /// <param name="entities">The entities that have been fetched from the store.</param>
-        /// <param name="updateAction">The action to perform on a <typeparamref name="TEntity"/> to persist any
-        /// changes made to the store.</param>
-        /// <typeparam name="TEntity">The entity type.</typeparam>
-        /// <returns>The unit of work-tracked entities to return from repository.</returns>
-        IEnumerable<TEntity> RegisterForUpdates<TEntity>(IEnumerable<TEntity> entities) where TEntity : class, new();
-
-        /// <summary>
-        /// Registers a Delete of an entity with the unit of work.
-        /// </summary>
-        /// <param name="entity">The entity being deleted.</param>
-        /// <param name="deleteAction">The action to perform on a <typeparamref name="TEntity"/> to delete it from
-        /// the store.</param>
-        /// <param name="undoDeleteAction">The best-effort action to perform to undo
-        /// a successful <paramref name="deleteAction"/></param>
-        /// <typeparam name="TEntity">The entity type.</typeparam>
-        void RegisterDelete<TEntity>(TEntity entity) where TEntity : class, new();
     }
 
     /// <summary>
-    /// Implementation of the unit of work for AzureTable repository pattern.
+    /// Implementation of the unit of work supporting co-mingling of operations across multiple backing stores (including
+    /// potential for a mix of transactional and non-transactional stores).
     /// </summary>
-    public class BestEffortUnitOfWork<TContext> : SafeDisposable, IBestEffortUnitOfWork
+    public class BestEffortUnitOfWork : SafeDisposable, IBestEffortUnitOfWork
     {
         private class EntityBookKeeping
         {
@@ -104,13 +75,6 @@ namespace Ease.Repository
         private readonly Stack<Func<Task>> _undoActions = new Stack<Func<Task>>();
 
         private readonly Dictionary<object, EntityBookKeeping> _bookKeeping = new Dictionary<object, EntityBookKeeping>();
-
-        public BestEffortUnitOfWork(TContext context)
-        {
-            Context = context;
-        }
-
-        public TContext Context { get; private set; }
 
         public void RegisterStoreFor<TEntity>(IStoreWriter storeWriter)
         {

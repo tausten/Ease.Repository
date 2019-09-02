@@ -20,7 +20,9 @@ namespace Ease.Repository.AzureTable.Test
     {
         protected string TestTableNamePrefix { get; private set; }
 
-        protected BestEffortUnitOfWork<TContext> UnitOfWork { get; private set; }
+        protected BestEffortUnitOfWork UnitOfWork { get; private set; }
+
+        protected TContext Context { get; private set; }
 
         protected virtual void PrepareDependenciesForContext(IFixture fixture) { }
 
@@ -40,7 +42,11 @@ namespace Ease.Repository.AzureTable.Test
 
             PrepareDependenciesForContext(TheFixture);
 
-            UnitOfWork = fixture.Freeze<BestEffortUnitOfWork<TContext>>();
+            fixture.Inject<IAzureTableStoreFactory>(new AzureTableStoreFactory());
+            UnitOfWork = new BestEffortUnitOfWork();
+            fixture.Inject<IBestEffortUnitOfWork>(UnitOfWork);
+
+            Context = fixture.Freeze<TContext>();
         }
 
         protected override void NullifyKeyFields(TEntity entity)
@@ -69,7 +75,7 @@ namespace Ease.Repository.AzureTable.Test
 
         protected virtual void TearDown_Impl()
         {
-            var tables = UnitOfWork.Context.Client.ListTables(TestTableNamePrefix);
+            var tables = Context.Client.ListTables(TestTableNamePrefix);
             foreach (var table in tables)
             {
                 table.Delete();

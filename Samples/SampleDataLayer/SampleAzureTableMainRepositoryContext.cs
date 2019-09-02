@@ -2,6 +2,7 @@
 // Copyright (c) 2019 Tyler Austen. See LICENSE file at top of repository for details.
 //
 
+using Ease.Repository;
 using Ease.Repository.AzureTable;
 using Microsoft.Extensions.Configuration;
 
@@ -25,6 +26,8 @@ namespace SampleDataLayer
             public StorageConfig(IConfiguration config) : base(config, "Main") { }
         }
 
-        public SampleAzureTableMainRepositoryContext(StorageConfig config) : base(config) { }
+        public SampleAzureTableMainRepositoryContext(StorageConfig config, IBestEffortUnitOfWork unitOfWork, IAzureTableStoreFactory storeFactory) 
+            : base(config, unitOfWork, storeFactory)
+        { }
     }
 }

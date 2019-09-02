@@ -2,14 +2,13 @@
 // Copyright (c) 2019 Tyler Austen. See LICENSE file at top of repository for details.
 //
 
-using Ease.Repository;
 using Ease.Repository.AzureTable;
 
 namespace SampleDataLayer
 {
     public class CustomerAzureTableRepository : AzureTableRepository<SampleAzureTableMainRepositoryContext, CustomerAzureTableEntity>
     {
-        public CustomerAzureTableRepository(BestEffortUnitOfWork<SampleAzureTableMainRepositoryContext> unitOfWork) : base(unitOfWork) { }
+        public CustomerAzureTableRepository(SampleAzureTableMainRepositoryContext context) : base(context) { }
 
         private const string DefaultPartitionKey = "DEFAULT";
         protected override string CalculatePartitionKeyFor(CustomerAzureTableEntity entity)

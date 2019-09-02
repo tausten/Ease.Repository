@@ -6,7 +6,7 @@ namespace Ease.Repository.AzureTable.Tests
 {
     public class SomeAzureTableRepository : AzureTableRepository<AzureTableRepositoryContext, SomeAzureTableEntity>
     {
-        public SomeAzureTableRepository(BestEffortUnitOfWork<AzureTableRepositoryContext> unitOfWork) : base(unitOfWork) { }
+        public SomeAzureTableRepository(AzureTableRepositoryContext context) : base(context) { }
 
         private const string DefaultPartitionKey = "DEFAULT";
         protected override string CalculatePartitionKeyFor(SomeAzureTableEntity entity)

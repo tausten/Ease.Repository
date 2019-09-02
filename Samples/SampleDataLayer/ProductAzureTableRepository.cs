@@ -2,14 +2,13 @@
 // Copyright (c) 2019 Tyler Austen. See LICENSE file at top of repository for details.
 //
 
-using Ease.Repository;
 using Ease.Repository.AzureTable;
 
 namespace SampleDataLayer
 {
     public class ProductAzureTableRepository : AzureTableRepository<SampleAzureTableMainRepositoryContext, ProductAzureTableEntity>
     {
-        public ProductAzureTableRepository(BestEffortUnitOfWork<SampleAzureTableMainRepositoryContext> unitOfWork) : base(unitOfWork) { }
+        public ProductAzureTableRepository(SampleAzureTableMainRepositoryContext context) : base(context) { }
 
         /// <summary>
         /// For this sample, we're pretending that we're confident we won't have so many products that partitioning 

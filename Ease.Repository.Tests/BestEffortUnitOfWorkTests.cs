@@ -37,7 +37,7 @@ namespace Ease.Repository.Tests
         }
 
         private IFixture _fixture;
-        private BestEffortUnitOfWork<object> _sut;
+        private BestEffortUnitOfWork _sut;
         private IStoreWriter _storeWriter;
         private TestEntity _rawEntity;
 
@@ -50,7 +50,7 @@ namespace Ease.Repository.Tests
 
             _fixture = new Fixture().Customize(new AutoFakeItEasyCustomization());
             _storeWriter = MockStoreWriter();
-            _sut = _fixture.Freeze<BestEffortUnitOfWork<object>>();
+            _sut = _fixture.Freeze<BestEffortUnitOfWork>();
 
             _sut.RegisterStoreFor<TestEntity>(_storeWriter);
 
