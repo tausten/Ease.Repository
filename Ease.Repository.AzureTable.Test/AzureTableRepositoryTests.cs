@@ -40,11 +40,11 @@ namespace Ease.Repository.AzureTable.Test
             TestTableNamePrefix = $"TEST{Guid.NewGuid().ToString().Replace("-", string.Empty)}"
                 .ToUpperInvariant();
 
-            PrepareDependenciesForContext(TheFixture);
-
             fixture.Inject<IAzureTableStoreFactory>(new AzureTableStoreFactory());
             UnitOfWork = new BestEffortUnitOfWork();
             fixture.Inject<IBestEffortUnitOfWork>(UnitOfWork);
+
+            PrepareDependenciesForContext(TheFixture);
 
             Context = fixture.Freeze<TContext>();
         }

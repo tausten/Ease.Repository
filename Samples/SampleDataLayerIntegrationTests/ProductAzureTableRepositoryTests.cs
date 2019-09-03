@@ -18,7 +18,7 @@ using System.Threading.Tasks;
 namespace SampleDataLayerIntegrationTests
 {
     public class ProductAzureTableRepositoryTests
-        : AzureTableRepositoryTests<SampleAzureTableMainRepositoryContext, ProductAzureTableEntity, ProductAzureTableRepository>
+        : AzureTableRepositoryTests<IAzureTableRepositoryContext, ProductAzureTableEntity, ProductAzureTableRepository>
     {
         protected override void PrepareDependenciesForContext(IFixture fixture)
         {
@@ -27,6 +27,11 @@ namespace SampleDataLayerIntegrationTests
             var config = fixture.Freeze<IConfiguration>();
             A.CallTo(() => config["Main:Azure:StorageConnectionString"]).Returns("UseDevelopmentStorage=true");
             A.CallTo(() => config["Main:Azure:TableNamePrefix"]).Returns(TestTableNamePrefix);
+
+            // We dance this little jig for the case where we'd be registering a particular concrete implementation of 
+            // a service with the DI container.
+            var context = fixture.Freeze<SampleAzureTableMainRepositoryContext>();
+            fixture.Inject<IAzureTableRepositoryContext>(context);
         }
 
         protected override void ModifyEntity(ProductAzureTableEntity entityToModify)

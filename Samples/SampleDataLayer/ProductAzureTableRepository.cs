@@ -6,9 +6,9 @@ using Ease.Repository.AzureTable;
 
 namespace SampleDataLayer
 {
-    public class ProductAzureTableRepository : AzureTableRepository<SampleAzureTableMainRepositoryContext, ProductAzureTableEntity>
+    public class ProductAzureTableRepository : AzureTableRepository<IAzureTableRepositoryContext, ProductAzureTableEntity>
     {
-        public ProductAzureTableRepository(SampleAzureTableMainRepositoryContext context) : base(context) { }
+        public ProductAzureTableRepository(IAzureTableRepositoryContext context) : base(context) { }
 
         /// <summary>
         /// For this sample, we're pretending that we're confident we won't have so many products that partitioning 
