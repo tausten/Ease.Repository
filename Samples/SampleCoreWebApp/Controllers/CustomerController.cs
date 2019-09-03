@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Ease.Repository;
+using Ease.Repository.AzureTable;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using SampleCoreWebApp.Models;
@@ -21,51 +22,94 @@ namespace SampleCoreWebApp.Controllers
             _customerRepository = customerRepository;
         }
 
-        // GET: Customer
         public IActionResult Index()
         {
             var c = _customerRepository.List();
-
-            var mapped = c.Select(x => new CustomerDto
-            {
-                Id = Guid.Parse(x.RowKey),
-                FirstName = x.FirstName,
-                LastName = x.LastName,
-                Birthday = x.Birthday,
-                FavoriteProductId = string.IsNullOrWhiteSpace(x.FavoriteProduct) ? default(Guid?) : Guid.Parse(x.FavoriteProduct)
-            }).ToList();
-
+            var mapped = c.Select(x => MapEntityToDto(x)).ToList();
             return View(mapped);
         }
 
-        // GET: Customer/Details/5
-        public IActionResult Details(Guid id /*NOTE: Need the PartitionKey for Azure too...*/)
+        #region Model mapping - put this wherever you'd normally gather your mapping code
+        private static string GuidToStringId(Guid? id)
         {
+            string result = null;
+            if (id.HasValue && default != id.Value)
+            {
+                result = id?.ToString().ToUpperInvariant();
+            }
 
-            return View();
+            return result;
         }
 
-        // GET: Customer/Create
+        private static Guid? StringToGuidId(string id)
+        {
+            return string.IsNullOrWhiteSpace(id) ? default(Guid?) : Guid.Parse(id);
+        }
+
+        private static CustomerDto MapEntityToDto(CustomerAzureTableEntity entity, CustomerDto dto = null)
+        {
+            dto = dto ?? new CustomerDto();
+
+            dto.PartitionKey = entity.PartitionKey;
+            dto.Id = StringToGuidId(entity.RowKey).Value;
+            dto.FirstName = entity.FirstName;
+            dto.LastName = entity.LastName;
+            dto.Birthday = entity.Birthday;
+            dto.FavoriteProductId = StringToGuidId(entity.FavoriteProduct);
+
+            return dto;
+        }
+
+        private static CustomerAzureTableEntity MapDtoToEntity(CustomerDto dto, CustomerAzureTableEntity entity = null)
+        {
+            entity = entity ?? new CustomerAzureTableEntity();
+
+            entity.PartitionKey = dto.PartitionKey;
+            entity.RowKey = GuidToStringId(dto.Id);
+            entity.FirstName = dto.FirstName;
+            entity.LastName = dto.LastName;
+            entity.Birthday = dto.Birthday;
+            entity.FavoriteProduct = GuidToStringId(dto.FavoriteProductId);
+
+            return entity;
+        }
+        #endregion Model mapping
+
+        public IActionResult Details(string partitionKey, Guid id)
+        {
+            var mapped = GetCustomerDtoByIds(partitionKey, id);
+            return View(mapped);
+        }
+
+        private static AzureTableEntityKey KeyFromIds(string partitionKey, Guid id)
+        {
+            return new AzureTableEntityKey { PartitionKey = partitionKey, RowKey = GuidToStringId(id) };
+        }
+
+        private CustomerDto GetCustomerDtoByIds(string partitionKey, Guid id)
+        {
+            var c = _customerRepository.Get(KeyFromIds(partitionKey, id));
+            var mapped = MapEntityToDto(c);
+            return mapped;
+        }
+        private CustomerAzureTableEntity GetCustomerEntityByIds(string partitionKey, Guid id)
+        {
+            return _customerRepository.Get(KeyFromIds(partitionKey, id));
+        }
+
         public IActionResult Create()
         {
             var defaultCustomer = new CustomerDto();
             return View(defaultCustomer);
         }
 
-        // POST: Customer/Create
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Create(CustomerDto customer)
         {
             try
             {
-                var c = new CustomerAzureTableEntity
-                {
-                    FirstName = customer.FirstName,
-                    LastName = customer.LastName,
-                    Birthday = customer.Birthday,
-                    FavoriteProduct = customer.FavoriteProductId.ToString()
-                };
+                var c = MapDtoToEntity(customer);
 
                 _customerRepository.Add(c);
 
@@ -82,49 +126,58 @@ namespace SampleCoreWebApp.Controllers
             }
         }
 
-        // GET: Customer/Edit/5
-        public IActionResult Edit(Guid id /*NOTE: Need the PartitionKey for Azure too...*/)
+        public IActionResult Edit(string partitionKey, Guid id)
         {
-            return View();
+            var mapped = GetCustomerDtoByIds(partitionKey, id);
+            return View(mapped);
         }
 
-        // POST: Customer/Edit/5
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit(Guid id /*NOTE: Need the PartitionKey for Azure too...*/, IFormCollection collection)
+        public async Task<IActionResult> Edit(CustomerDto customer)
         {
             try
             {
-                // TODO: Add update logic here
+                var entity = GetCustomerEntityByIds(customer.PartitionKey, customer.Id);
+                if (null != entity)
+                {
+                    MapDtoToEntity(customer, entity);
+                }
+                else
+                {
+                    ModelState.AddModelError(string.Empty, "Customer not found.");
+                    throw new InvalidOperationException();
+                }
+
+                await _unitOfWork.CompleteAsync();
+                return RedirectToAction(nameof(Index));
+            }
+            catch
+            {
+                return View(customer);
+            }
+        }
+
+        public IActionResult Delete(string partitionKey, Guid id)
+        {
+            var dto = GetCustomerDtoByIds(partitionKey, id);
+            return View(dto);
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> Delete(CustomerDto customerIds)
+        {
+            try
+            {
+                _customerRepository.Delete(KeyFromIds(customerIds.PartitionKey, customerIds.Id));
+                await _unitOfWork.CompleteAsync();
 
                 return RedirectToAction(nameof(Index));
             }
             catch
             {
-                return View();
-            }
-        }
-
-        // GET: Customer/Delete/5
-        public IActionResult Delete(Guid id /*NOTE: Need the PartitionKey for Azure too...*/)
-        {
-            return View();
-        }
-
-        // POST: Customer/Delete/5
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public IActionResult Delete(int id /*NOTE: Need the PartitionKey for Azure too...*/, IFormCollection collection)
-        {
-            try
-            {
-                // TODO: Add delete logic here
-
                 return RedirectToAction(nameof(Index));
-            }
-            catch
-            {
-                return View();
             }
         }
     }
