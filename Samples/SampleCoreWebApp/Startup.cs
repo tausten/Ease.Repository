@@ -2,6 +2,8 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Ease.Repository;
+using Ease.Repository.AzureTable;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
@@ -9,6 +11,7 @@ using Microsoft.AspNetCore.HttpsPolicy;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using SampleDataLayer;
 
 namespace SampleCoreWebApp
 {
@@ -31,6 +34,26 @@ namespace SampleCoreWebApp
                 options.MinimumSameSitePolicy = SameSiteMode.None;
             });
 
+            #region Repository pattern registration
+            // Make sure we get a new instance of the unit of work per "Scope", but allow that instance to be obtained by 
+            // either interface.
+            services.AddScoped<IBestEffortUnitOfWork, BestEffortUnitOfWork>();
+            services.AddScoped<IUnitOfWork>(x => x.GetRequiredService<IBestEffortUnitOfWork>());
+
+            // The AzureTable storage config provider
+            services.AddSingleton<SampleAzureTableMainRepositoryContext.StorageConfig>();
+
+            // The StoreFactory
+            services.AddSingleton<IAzureTableStoreFactory, AzureTableStoreFactory>();
+
+            // Make sure we get a new instance of the context per "Scope" with same trick for multi-interface registration as before.
+            services.AddScoped<SampleAzureTableMainRepositoryContext>();
+            services.AddScoped<IAzureTableRepositoryContext>(x => x.GetRequiredService<SampleAzureTableMainRepositoryContext>());
+
+            // Register our repositories (again, "Scoped")
+            services.AddScoped<CustomerAzureTableRepository>();
+            services.AddScoped<ProductAzureTableRepository>();
+            #endregion // Repository pattern
 
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
         }
