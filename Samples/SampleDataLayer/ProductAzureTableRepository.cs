@@ -6,7 +6,9 @@ using Ease.Repository.AzureTable;
 
 namespace SampleDataLayer
 {
-    public class ProductAzureTableRepository : AzureTableRepository<IAzureTableRepositoryContext, ProductAzureTableEntity>
+    public interface IProductAzureTableRepository : IAzureTableRepository<ProductAzureTableEntity> { }
+
+    public class ProductAzureTableRepository : AzureTableRepository<IAzureTableRepositoryContext, ProductAzureTableEntity>, IProductAzureTableRepository
     {
         public ProductAzureTableRepository(IAzureTableRepositoryContext context) : base(context) { }
 

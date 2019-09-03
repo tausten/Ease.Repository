@@ -36,13 +36,18 @@ namespace Ease.Repository.AzureTable
         #endregion
     }
 
+    public interface IAzureTableRepository<TEntity> : IRepository<ITableEntity, TEntity>
+        where TEntity : class, ITableEntity, new()
+    {
+        IEnumerable<TEntity> List();
+    }
+
     /// <summary>
     /// Base class for AzureTable-backed repositories.
     /// </summary>
     /// <typeparam name="TContext">The repository context Type this repository will operate on.</typeparam>
     /// <typeparam name="TEntity">The entity Type managed by the repository.</typeparam>
-    public abstract class AzureTableRepository<TContext, TEntity>
-        : IRepository<ITableEntity, TEntity>
+    public abstract class AzureTableRepository<TContext, TEntity> : IAzureTableRepository<TEntity>
         where TContext : class, IAzureTableRepositoryContext
         where TEntity : class, ITableEntity, new()
     {

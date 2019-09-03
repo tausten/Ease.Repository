@@ -51,8 +51,8 @@ namespace SampleCoreWebApp
             services.AddScoped<IAzureTableRepositoryContext>(x => x.GetRequiredService<SampleAzureTableMainRepositoryContext>());
 
             // Register our repositories (again, "Scoped")
-            services.AddScoped<CustomerAzureTableRepository>();
-            services.AddScoped<ProductAzureTableRepository>();
+            services.AddScoped<ICustomerAzureTableRepository, CustomerAzureTableRepository>();
+            services.AddScoped<IProductAzureTableRepository, ProductAzureTableRepository>();
             #endregion // Repository pattern
 
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2);

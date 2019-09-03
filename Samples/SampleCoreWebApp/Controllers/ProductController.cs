@@ -8,49 +8,45 @@ using SampleDataLayer;
 
 namespace SampleCoreWebApp.Controllers
 {
-    public class CustomerController : Controller
+    public class ProductController : Controller
     {
         private readonly IUnitOfWork _unitOfWork;
-        private readonly ICustomerAzureTableRepository _customerRepository;
+        private readonly IProductAzureTableRepository _productRepository;
 
-        public CustomerController(IUnitOfWork unitOfWork, ICustomerAzureTableRepository customerRepository)
+        public ProductController(IUnitOfWork unitOfWork, IProductAzureTableRepository productRepository)
         {
             _unitOfWork = unitOfWork;
-            _customerRepository = customerRepository;
+            _productRepository = productRepository;
         }
 
         public IActionResult Index()
         {
-            var c = _customerRepository.List();
+            var c = _productRepository.List();
             var mapped = c.Select(x => MapEntityToDto(x)).ToList();
             return View(mapped);
         }
 
         #region Model mapping - put this wherever you'd normally gather your mapping code
-        private static CustomerDto MapEntityToDto(CustomerAzureTableEntity entity, CustomerDto dto = null)
+        private static ProductDto MapEntityToDto(ProductAzureTableEntity entity, ProductDto dto = null)
         {
-            dto = dto ?? new CustomerDto();
+            dto = dto ?? new ProductDto();
 
             dto.PartitionKey = entity.PartitionKey;
             dto.Id = entity.RowKey.ToGuidId().Value;
-            dto.FirstName = entity.FirstName;
-            dto.LastName = entity.LastName;
-            dto.Birthday = entity.Birthday;
-            dto.FavoriteProductId = entity.FavoriteProduct.ToGuidId();
+            dto.ProductName = entity.ProductName;
+            dto.ProductDescription = entity.ProductDescription;
 
             return dto;
         }
 
-        private static CustomerAzureTableEntity MapDtoToEntity(CustomerDto dto, CustomerAzureTableEntity entity = null)
+        private static ProductAzureTableEntity MapDtoToEntity(ProductDto dto, ProductAzureTableEntity entity = null)
         {
-            entity = entity ?? new CustomerAzureTableEntity();
+            entity = entity ?? new ProductAzureTableEntity();
 
             entity.PartitionKey = dto.PartitionKey;
             entity.RowKey = dto.Id.ToStringId();
-            entity.FirstName = dto.FirstName;
-            entity.LastName = dto.LastName;
-            entity.Birthday = dto.Birthday;
-            entity.FavoriteProduct = dto.FavoriteProductId.ToStringId();
+            entity.ProductName = dto.ProductName;
+            entity.ProductDescription = dto.ProductDescription;
 
             return entity;
         }
@@ -58,36 +54,36 @@ namespace SampleCoreWebApp.Controllers
 
         public IActionResult Details(string partitionKey, Guid id)
         {
-            var mapped = GetCustomerDtoByIds(partitionKey, id);
+            var mapped = GetProductDtoByIds(partitionKey, id);
             return View(mapped);
         }
 
-        private CustomerDto GetCustomerDtoByIds(string partitionKey, Guid id)
+        private ProductDto GetProductDtoByIds(string partitionKey, Guid id)
         {
-            var c = _customerRepository.Get(id.ToCompositeKeyFor(partitionKey));
+            var c = _productRepository.Get(id.ToCompositeKeyFor(partitionKey));
             var mapped = MapEntityToDto(c);
             return mapped;
         }
-        private CustomerAzureTableEntity GetCustomerEntityByIds(string partitionKey, Guid id)
+        private ProductAzureTableEntity GetproductEntityByIds(string partitionKey, Guid id)
         {
-            return _customerRepository.Get(id.ToCompositeKeyFor(partitionKey));
+            return _productRepository.Get(id.ToCompositeKeyFor(partitionKey));
         }
 
         public IActionResult Create()
         {
-            var defaultCustomer = new CustomerDto();
-            return View(defaultCustomer);
+            var defaultproduct = new ProductDto();
+            return View(defaultproduct);
         }
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create(CustomerDto customer)
+        public async Task<IActionResult> Create(ProductDto product)
         {
             try
             {
-                var c = MapDtoToEntity(customer);
+                var c = MapDtoToEntity(product);
 
-                _customerRepository.Add(c);
+                _productRepository.Add(c);
 
                 // NOTE: There're many other ways of managing the completion / rollback of the unit of work..  
                 // Use your favorite method here (whether this is some hook into the request pipeline, or wrapping the body of the action 
@@ -104,24 +100,24 @@ namespace SampleCoreWebApp.Controllers
 
         public IActionResult Edit(string partitionKey, Guid id)
         {
-            var mapped = GetCustomerDtoByIds(partitionKey, id);
+            var mapped = GetProductDtoByIds(partitionKey, id);
             return View(mapped);
         }
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(CustomerDto customer)
+        public async Task<IActionResult> Edit(ProductDto product)
         {
             try
             {
-                var entity = GetCustomerEntityByIds(customer.PartitionKey, customer.Id);
+                var entity = GetproductEntityByIds(product.PartitionKey, product.Id);
                 if (null != entity)
                 {
-                    MapDtoToEntity(customer, entity);
+                    MapDtoToEntity(product, entity);
                 }
                 else
                 {
-                    ModelState.AddModelError(string.Empty, "Customer not found.");
+                    ModelState.AddModelError(string.Empty, "product not found.");
                     throw new InvalidOperationException();
                 }
 
@@ -130,23 +126,23 @@ namespace SampleCoreWebApp.Controllers
             }
             catch
             {
-                return View(customer);
+                return View(product);
             }
         }
 
         public IActionResult Delete(string partitionKey, Guid id)
         {
-            var dto = GetCustomerDtoByIds(partitionKey, id);
+            var dto = GetProductDtoByIds(partitionKey, id);
             return View(dto);
         }
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Delete(CustomerDto customerIds)
+        public async Task<IActionResult> Delete(ProductDto productIds)
         {
             try
             {
-                _customerRepository.Delete(customerIds.Id.ToCompositeKeyFor(customerIds.PartitionKey));
+                _productRepository.Delete(productIds.Id.ToCompositeKeyFor(productIds.PartitionKey));
                 await _unitOfWork.CompleteAsync();
 
                 return RedirectToAction(nameof(Index));
