@@ -4,17 +4,15 @@
 
 using Microsoft.Azure.Cosmos.Table;
 using System;
-using System.Collections.Generic;
-using System.Text;
 using System.Threading.Tasks;
 
 namespace Ease.Repository.AzureTable
 {
     public class AzureTableStoreWriter : IStoreWriterAsync
     {
-        private readonly Lazy<CloudTable> _table;
+        private readonly CloudTable _table;
 
-        public AzureTableStoreWriter(Lazy<CloudTable> table)
+        public AzureTableStoreWriter(CloudTable table)
         {
             _table = table;
         }
@@ -27,7 +25,7 @@ namespace Ease.Repository.AzureTable
         public void Add<TEntity>(TEntity entity) where TEntity : class, new()
         {
             var op = TableOperation.Insert(EnsureIsTableEntity(entity));
-            var result = _table.Value.Execute(op);
+            var result = _table.Execute(op);
             // TODO: What to do on failure to insert?
         }
 
@@ -39,7 +37,7 @@ namespace Ease.Repository.AzureTable
         public void Delete<TEntity>(TEntity entity) where TEntity : class, new()
         {
             var op = TableOperation.Delete(EnsureIsTableEntity(entity));
-            var result = _table.Value.Execute(op);
+            var result = _table.Execute(op);
             // TODO: What to do on failure to delete?
         }
 
@@ -52,7 +50,7 @@ namespace Ease.Repository.AzureTable
         {
             // TODO: Look into versioned entities, and detecting concurrent editing.
             var op = TableOperation.Replace(EnsureIsTableEntity(entity));
-            var result = _table.Value.Execute(op);
+            var result = _table.Execute(op);
             // TODO: What to do on failure to update?
         }
 

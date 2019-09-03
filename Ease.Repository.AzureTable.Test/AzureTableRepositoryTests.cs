@@ -6,13 +6,11 @@ using System;
 using System.Linq;
 using System.Threading.Tasks;
 using AutoFixture;
-using Ease.Repository;
-using Ease.Repository.AzureTable;
 using Ease.Repository.Test;
 using FluentAssertions;
 using Microsoft.Azure.Cosmos.Table;
 
-namespace HelperAPIs.Impl.Test.Data
+namespace Ease.Repository.AzureTable.Test
 {
     public abstract class AzureTableRepositoryTests<TContext, TEntity, TRepository>
         : RepositoryTests<ITableEntity, TEntity, TRepository>
@@ -21,8 +19,10 @@ namespace HelperAPIs.Impl.Test.Data
         where TRepository : AzureTableRepository<TContext, TEntity>
     {
         protected string TestTableNamePrefix { get; private set; }
-        
-        protected BestEffortUnitOfWork<TContext> UnitOfWork { get; private set; }
+
+        protected BestEffortUnitOfWork UnitOfWork { get; private set; }
+
+        protected TContext Context { get; private set; }
 
         protected virtual void PrepareDependenciesForContext(IFixture fixture) { }
 
@@ -40,11 +40,15 @@ namespace HelperAPIs.Impl.Test.Data
             TestTableNamePrefix = $"TEST{Guid.NewGuid().ToString().Replace("-", string.Empty)}"
                 .ToUpperInvariant();
 
+            fixture.Inject<IAzureTableStoreFactory>(new AzureTableStoreFactory());
+            UnitOfWork = new BestEffortUnitOfWork();
+            fixture.Inject<IBestEffortUnitOfWork>(UnitOfWork);
+
             PrepareDependenciesForContext(TheFixture);
 
-            UnitOfWork = fixture.Freeze<BestEffortUnitOfWork<TContext>>();
+            Context = fixture.Freeze<TContext>();
         }
-        
+
         protected override void NullifyKeyFields(TEntity entity)
         {
             entity.PartitionKey = null;
@@ -56,7 +60,7 @@ namespace HelperAPIs.Impl.Test.Data
             entity.PartitionKey.Should().NotBeNullOrWhiteSpace();
             entity.RowKey.Should().NotBeNullOrWhiteSpace();
         }
-        
+
         protected override void AssertRepositoryHasNumEntities(int num = 0)
         {
             Sut.List().Count().Should().Be(num);
@@ -71,7 +75,7 @@ namespace HelperAPIs.Impl.Test.Data
 
         protected virtual void TearDown_Impl()
         {
-            var tables = UnitOfWork.Context.Client.ListTables(TestTableNamePrefix);
+            var tables = Context.Client.ListTables(TestTableNamePrefix);
             foreach (var table in tables)
             {
                 table.Delete();

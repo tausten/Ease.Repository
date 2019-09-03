@@ -1,2 +1,2 @@
-# PLACEHOLDER
-TODO: Add .NET projects to the *src* folder and run `docfx` to generate **REAL** *API Documentation*!
+# Ease.Repository API Documentation
+Please navigate the documentation tree at the left to explore the detailed class documentation.
