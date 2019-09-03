@@ -22,7 +22,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <PackageReference Include="ChangeTracking" Version="2.2.4" />
+    <PackageReference Include="ChangeTracking" Version="2.2.13" />
     <PackageReference Include="Ease.Util" Version="0.3.0-alpha.4" />
   </ItemGroup>
 

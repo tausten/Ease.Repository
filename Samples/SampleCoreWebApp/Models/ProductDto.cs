@@ -1,12 +1,11 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+﻿using Microsoft.AspNetCore.Mvc;
+using System;
 
 namespace SampleCoreWebApp.Models
 {
     public class ProductDto
     {
+        [HiddenInput]
         public string PartitionKey { get; set; }
         public Guid Id { get; set; }
         public virtual string ProductName { get; set; }
