@@ -259,6 +259,8 @@ Here is a sample of a simple `Repository` integration test:
             await Delete_And_Get_RoundTrip_Impl();
         }
 
+        // ... more tests may be required and provided by the base class ...
+
         #endregion Base Tests
 
         // TODO: Add your repository-specific tests here (eg. for extra query-related functionality, etc...)
@@ -267,8 +269,7 @@ Here is a sample of a simple `Repository` integration test:
 
 Some observations:
 
-* The [`AzureTableRepositoryTests`]() base class uses [AutoFixture](https://www.nuget.org/packages/AutoFixture) and [FakeItEasy](https://www.nuget.org/packages/FakeItEasy/) for mocking and an "auto-mock" pattern implementation
+* The [`AzureTableRepositoryTests`](xref:Ease.Repository.AzureTable.Test.AzureTableRepositoryTests`3) base class uses [AutoFixture](https://www.nuget.org/packages/AutoFixture) and [FakeItEasy](https://www.nuget.org/packages/FakeItEasy/) for mocking and an "auto-mock" pattern implementation
 * There are a set of tests that are _required_ to be implemented (by the `abstract`) keyword, but default implementations are provided in the base class by `{theRequiredTest_Impl}`
     * this is done instead of just using `virtual` in order to ensure that test runners can actually find the tests by forcing you to provide a method with appropriate attribute or other such runner registration for each
 * The set of required tests may grow over time (i.e. be warned when upgrading to newer versions of the package), though the needed changes will be similarly trivial
-* 

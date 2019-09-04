@@ -96,7 +96,7 @@ The same orchestration workflow as before applies with the following minor adjus
 
 ## Concrete Implementations
 Most, if not all, of the orchestration above is taken care of by the classes provided in the `Ease.Repository.*` packages for the corresponding underlying *Store*. The bootstrapping articles for each is listed below:
-* Ease.Repository.AzureTable
+* [`Ease.Repository.AzureTable`](azureTable.md)
 * [planned] Ease.Repository.EntityFramework
 * [planned] Ease.Repository.Redis
 * [planned] Ease.Repository.NHibernate
