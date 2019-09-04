@@ -82,10 +82,26 @@
 for operations that just need the key values.</p>
 </section>
       <h4><a class="xref" href="Ease.Repository.AzureTable.AzureTableRepository-2.html">AzureTableRepository&lt;TContext, TEntity&gt;</a></h4>
-      <section></section>
+      <section><p>Base class for AzureTable-backed repositories.</p>
+</section>
       <h4><a class="xref" href="Ease.Repository.AzureTable.AzureTableRepositoryConfig.html">AzureTableRepositoryConfig</a></h4>
-      <section></section>
+      <section><p>May use directly, or use as a convenient base class for capturing config of a data model that spans multiple
+Azure Storage accounts. For example:</p>
+<pre><code>public class MainStorageRepositoryConfig : AzureTableRepositoryConfig
+{
+    MainStorageRepositoryConfig(IConfiguration config) : base(config, &quot;Main&quot;) { }
+}
+
+public class SecondaryStorageRepositoryConfig : AzureTableRepositoryConfig
+{
+    MainStorageRepositoryConfig(IConfiguration config) : base(config, &quot;Secondary&quot;) { }
+}</code></pre>
+<p>Then your repositories can be differentiated by repository config, and the configuration properties themselves
+will be in separate sections, one under &quot;Main:Azure:{stuff}&quot; and one under &quot;Secondary:Azure:{stuff}&quot;.</p>
+</section>
       <h4><a class="xref" href="Ease.Repository.AzureTable.AzureTableRepositoryContext.html">AzureTableRepositoryContext</a></h4>
+      <section></section>
+      <h4><a class="xref" href="Ease.Repository.AzureTable.AzureTableStoreFactory.html">AzureTableStoreFactory</a></h4>
       <section></section>
       <h4><a class="xref" href="Ease.Repository.AzureTable.AzureTableStoreWriter.html">AzureTableStoreWriter</a></h4>
       <section></section>
@@ -95,9 +111,15 @@ class's properties are not virtual, and therefore can not be used with dynamic p
 </section>
     <h3 id="interfaces">Interfaces
   </h3>
+      <h4><a class="xref" href="Ease.Repository.AzureTable.IAzureTableRepository-1.html">IAzureTableRepository&lt;TEntity&gt;</a></h4>
+      <section><p>AzureTable-backed repository classes should define their own interfaces in terms of this simplified interface.</p>
+</section>
       <h4><a class="xref" href="Ease.Repository.AzureTable.IAzureTableRepositoryConfig.html">IAzureTableRepositoryConfig</a></h4>
-      <section></section>
+      <section><p>Interface for configuration for the underlying Azure Table store to be used by repositories.</p>
+</section>
       <h4><a class="xref" href="Ease.Repository.AzureTable.IAzureTableRepositoryContext.html">IAzureTableRepositoryContext</a></h4>
+      <section></section>
+      <h4><a class="xref" href="Ease.Repository.AzureTable.IAzureTableStoreFactory.html">IAzureTableStoreFactory</a></h4>
       <section></section>
 </article>
           </div>

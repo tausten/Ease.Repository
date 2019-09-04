@@ -9,7 +9,7 @@
       "output": {
         ".html": {
           "relative_path": "api/Ease.Repository.AzureTable.AzureTableEntityKey.html",
-          "hash": "6F8fNnbI55hNskUkAHEceQ=="
+          "hash": "DIFPCDW41UCeW01Nzs2Mag=="
         }
       },
       "is_incremental": false,
@@ -21,7 +21,7 @@
       "output": {
         ".html": {
           "relative_path": "api/Ease.Repository.AzureTable.AzureTableRepository-2.html",
-          "hash": "W0wChXJIgGBxYC2CUEVwDA=="
+          "hash": "SEUOcUQylxV38ZILtdRvSg=="
         }
       },
       "is_incremental": false,
@@ -33,7 +33,7 @@
       "output": {
         ".html": {
           "relative_path": "api/Ease.Repository.AzureTable.AzureTableRepositoryConfig.html",
-          "hash": "U3vlVFyiXi2V1xpBMupoSg=="
+          "hash": "s4P57nqW8sFmd27x6lXyLA=="
         }
       },
       "is_incremental": false,
@@ -45,7 +45,19 @@
       "output": {
         ".html": {
           "relative_path": "api/Ease.Repository.AzureTable.AzureTableRepositoryContext.html",
-          "hash": "HUy59sinnqzNhb9PK95xmg=="
+          "hash": "fDyfsr9AIDxXHu7kLOQB2g=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Ease.Repository.AzureTable.AzureTableStoreFactory.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Ease.Repository.AzureTable.AzureTableStoreFactory.html",
+          "hash": "+CqZrO4U6SC+h98nUaWqRw=="
         }
       },
       "is_incremental": false,
@@ -57,7 +69,7 @@
       "output": {
         ".html": {
           "relative_path": "api/Ease.Repository.AzureTable.AzureTableStoreWriter.html",
-          "hash": "CoR99R/4cnZg2CvXUTvGaA=="
+          "hash": "EVDcrfkoiF+odavkKXE/CA=="
         }
       },
       "is_incremental": false,
@@ -69,7 +81,19 @@
       "output": {
         ".html": {
           "relative_path": "api/Ease.Repository.AzureTable.AzureTableTrackableEntity.html",
-          "hash": "DGhqLGtueLzs84n2SoXgCw=="
+          "hash": "EmiGaJUFXyCEudtuZgyr1g=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Ease.Repository.AzureTable.IAzureTableRepository-1.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Ease.Repository.AzureTable.IAzureTableRepository-1.html",
+          "hash": "xBcpy22cEWByLzf/IXUHHw=="
         }
       },
       "is_incremental": false,
@@ -81,7 +105,7 @@
       "output": {
         ".html": {
           "relative_path": "api/Ease.Repository.AzureTable.IAzureTableRepositoryConfig.html",
-          "hash": "Hwlf69m2UNWfUxEewMmmqQ=="
+          "hash": "0rmABDyhyqhRBm5TzUiZbg=="
         }
       },
       "is_incremental": false,
@@ -93,7 +117,43 @@
       "output": {
         ".html": {
           "relative_path": "api/Ease.Repository.AzureTable.IAzureTableRepositoryContext.html",
-          "hash": "fnrm4W3V7qBczJLRfYS7Aw=="
+          "hash": "FT43xe4Qp3+M+Z2DYjWzDA=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Ease.Repository.AzureTable.IAzureTableStoreFactory.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Ease.Repository.AzureTable.IAzureTableStoreFactory.html",
+          "hash": "mcH1IVW0/jAy5PyZZ5kkkQ=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Ease.Repository.AzureTable.Test.AzureTableRepositoryTests-3.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Ease.Repository.AzureTable.Test.AzureTableRepositoryTests-3.html",
+          "hash": "A+2iiVqQAgv0HWc+LjtJ5Q=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Ease.Repository.AzureTable.Test.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Ease.Repository.AzureTable.Test.html",
+          "hash": "GNeq9s7di2cvrNf/VMTWjA=="
         }
       },
       "is_incremental": false,
@@ -105,7 +165,7 @@
       "output": {
         ".html": {
           "relative_path": "api/Ease.Repository.AzureTable.html",
-          "hash": "KiHK+851YN8AEdtWHC4Vfg=="
+          "hash": "RgPXzsVCNN8aSGZQYbpKqQ=="
         }
       },
       "is_incremental": false,
@@ -113,11 +173,11 @@
     },
     {
       "type": "ManagedReference",
-      "source_relative_path": "api/Ease.Repository.BestEffortUnitOfWork-1.yml",
+      "source_relative_path": "api/Ease.Repository.BestEffortUnitOfWork.yml",
       "output": {
         ".html": {
-          "relative_path": "api/Ease.Repository.BestEffortUnitOfWork-1.html",
-          "hash": "2xVg5o/1Fy7oAc4Zxk6i2w=="
+          "relative_path": "api/Ease.Repository.BestEffortUnitOfWork.html",
+          "hash": "D+bMMewoPxnLPOs9izYNog=="
         }
       },
       "is_incremental": false,
@@ -129,7 +189,7 @@
       "output": {
         ".html": {
           "relative_path": "api/Ease.Repository.ChangeTrackingExtensions.html",
-          "hash": "uysQ0BEL6s2zQsNW2nYILg=="
+          "hash": "kkrz32DhJXEfp0rb/1OSAA=="
         }
       },
       "is_incremental": false,
@@ -141,7 +201,19 @@
       "output": {
         ".html": {
           "relative_path": "api/Ease.Repository.IBestEffortUnitOfWork.html",
-          "hash": "vG5LdjVTmXvEzNF8j8ol7g=="
+          "hash": "CiawLCQNuh1vJQhvp1y9bg=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Ease.Repository.IRegisterEntities.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Ease.Repository.IRegisterEntities.html",
+          "hash": "nsney+82U9hTf9cAcaNvkQ=="
         }
       },
       "is_incremental": false,
@@ -153,7 +225,7 @@
       "output": {
         ".html": {
           "relative_path": "api/Ease.Repository.IRepository-2.html",
-          "hash": "kc9Bg1yhizI8KxECfma3Iw=="
+          "hash": "hI/sFeN+C1E5DZPpeQ5v+w=="
         }
       },
       "is_incremental": false,
@@ -165,7 +237,7 @@
       "output": {
         ".html": {
           "relative_path": "api/Ease.Repository.IStoreBatchWriter.html",
-          "hash": "VZ/XkY0H9HnRb/k2lHY3kg=="
+          "hash": "qoqcURNXV0Zps9QPungfag=="
         }
       },
       "is_incremental": false,
@@ -177,7 +249,7 @@
       "output": {
         ".html": {
           "relative_path": "api/Ease.Repository.IStoreBatchWriterAsync.html",
-          "hash": "vDocZXNpoUNSIl74SRbQJQ=="
+          "hash": "4Fhcrfjfal5io6lMNaZVUA=="
         }
       },
       "is_incremental": false,
@@ -189,7 +261,7 @@
       "output": {
         ".html": {
           "relative_path": "api/Ease.Repository.IStoreWriter.html",
-          "hash": "R4jviRnkVxvHvwsc3A2XvQ=="
+          "hash": "xRd7OVMcU/JOE6WtYNaEiw=="
         }
       },
       "is_incremental": false,
@@ -201,7 +273,7 @@
       "output": {
         ".html": {
           "relative_path": "api/Ease.Repository.IStoreWriterAsync.html",
-          "hash": "5quGKqMS2pam/qhpC4L23A=="
+          "hash": "7ClzLe/V4bXKymFTzkPSOQ=="
         }
       },
       "is_incremental": false,
@@ -213,7 +285,7 @@
       "output": {
         ".html": {
           "relative_path": "api/Ease.Repository.IUnitOfWork.html",
-          "hash": "shprEU2sWwe5ua88cIqTzw=="
+          "hash": "/ETFEJWAQrggaOmQH45gGA=="
         }
       },
       "is_incremental": false,
@@ -225,7 +297,7 @@
       "output": {
         ".html": {
           "relative_path": "api/Ease.Repository.MemoryStore.html",
-          "hash": "8upsK+r6drFE1YuYnfKEew=="
+          "hash": "gtOdRQQvtr1/tleK9DduqQ=="
         }
       },
       "is_incremental": false,
@@ -237,7 +309,7 @@
       "output": {
         ".html": {
           "relative_path": "api/Ease.Repository.Test.RepositoryTests-3.html",
-          "hash": "yTCaFTJ3CXtOl6Xl9sL9Rw=="
+          "hash": "J05rL+u1DlqTBlWMtx3Sxg=="
         }
       },
       "is_incremental": false,
@@ -249,7 +321,7 @@
       "output": {
         ".html": {
           "relative_path": "api/Ease.Repository.Test.html",
-          "hash": "zpclZB0UOx7i6zsIoDe9aw=="
+          "hash": "EWRtoTsdkZ22s7FfeWuCfQ=="
         }
       },
       "is_incremental": false,
@@ -261,7 +333,7 @@
       "output": {
         ".html": {
           "relative_path": "api/Ease.Repository.html",
-          "hash": "384IZTlWL2+4mpghL0KjAQ=="
+          "hash": "39CC1+w6zkKh4Y/elTI1oQ=="
         }
       },
       "is_incremental": false,
@@ -273,7 +345,7 @@
       "output": {
         ".html": {
           "relative_path": "api/index.html",
-          "hash": "hBuNqNp58uDSwW5yZrohwg=="
+          "hash": "raDQzr9CleW17hr0RAX7uQ=="
         }
       },
       "is_incremental": false,
@@ -285,7 +357,19 @@
       "output": {
         ".html": {
           "relative_path": "api/toc.html",
-          "hash": "ApwJ68R2D4vjCPt0w5T7tQ=="
+          "hash": "xSBrQxwlvJj6T8cvRA0LBQ=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "articles/azureTable.md",
+      "output": {
+        ".html": {
+          "relative_path": "articles/azureTable.html",
+          "hash": "P56hCsp9/dJmRtMoKl/hzQ=="
         }
       },
       "is_incremental": false,
@@ -297,7 +381,7 @@
       "output": {
         ".html": {
           "relative_path": "articles/intro.html",
-          "hash": "sw+I2D2GNsWYZooxMeNXNw=="
+          "hash": "YfCc/swCcv85+nMIDeRZAw=="
         }
       },
       "is_incremental": false,
@@ -309,7 +393,7 @@
       "output": {
         ".html": {
           "relative_path": "articles/toc.html",
-          "hash": "t7iiFrmuYmrKWisdq+lN6Q=="
+          "hash": "6/OC24pbO7FAHBNshWFetA=="
         }
       },
       "is_incremental": false,
@@ -321,7 +405,7 @@
       "output": {
         ".html": {
           "relative_path": "index.html",
-          "hash": "zlBJeRlbh5ZIzsqQr9bdSA=="
+          "hash": "qrD9aCnnU+TkSg/TQXnTHw=="
         }
       },
       "is_incremental": false,
@@ -351,16 +435,16 @@
         "full_build_reason_code": "NoAvailableBuildCache"
       },
       "processors": {
-        "ManagedReferenceDocumentProcessor": {
-          "can_incremental": false,
-          "incrementalPhase": "build",
-          "total_file_count": 22,
-          "skipped_file_count": 0
-        },
         "ConceptualDocumentProcessor": {
           "can_incremental": false,
           "incrementalPhase": "build",
-          "total_file_count": 3,
+          "total_file_count": 4,
+          "skipped_file_count": 0
+        },
+        "ManagedReferenceDocumentProcessor": {
+          "can_incremental": false,
+          "incrementalPhase": "build",
+          "total_file_count": 28,
           "skipped_file_count": 0
         },
         "TocDocumentProcessor": {

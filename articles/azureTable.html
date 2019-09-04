@@ -1,0 +1,394 @@
+﻿<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+  
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Ease.Repository.AzureTable </title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="title" content="Ease.Repository.AzureTable ">
+    <meta name="generator" content="docfx 2.45.0.0">
+    
+    <link rel="shortcut icon" href="../favicon.ico">
+    <link rel="stylesheet" href="../styles/docfx.vendor.css">
+    <link rel="stylesheet" href="../styles/docfx.css">
+    <link rel="stylesheet" href="../styles/main.css">
+    <meta property="docfx:navrel" content="../toc.html">
+    <meta property="docfx:tocrel" content="toc.html">
+    
+    
+    
+  </head>
+  <body data-spy="scroll" data-target="#affix" data-offset="120">
+    <div id="wrapper">
+      <header>
+        
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              
+              <a class="navbar-brand" href="../index.html">
+                <img id="logo" class="svg" src="../logo.svg" alt="">
+              </a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+        
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div role="main" class="container body-content hide-when-search">
+        
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="">
+<h1 id="easerepositoryazuretable">Ease.Repository.AzureTable</h1>
+
+<p>Concrete implementation of <code>Ease.Repository</code> for AzureTable as the underlying <em>Store</em>. Below is a discussion of how to leverage the package.</p>
+<p>This implementation relies upon the <a href="https://www.nuget.org/packages/Microsoft.Azure.Cosmos.Table">Microsoft.Azure.Cosmos.Table</a> NuGet package, and as such, your concrete implementations of <code>Repositories</code> will be working with things like <code>CloudTable</code>, and your <code>Entity</code> classes must implement <code>ITableEntity</code> (base class provided to make this easier).</p>
+<h2 id="the-building-blocks">The Building Blocks</h2>
+<p>The following sections describe the AzureTable-specific implementations of the building blocks for the patterns.</p>
+<h3 id="store--storefactory"><code>Store</code> + <code>StoreFactory</code></h3>
+<ul>
+<li>The <code>Store</code> is implemented by <a class="xref" href="../api/Ease.Repository.AzureTable.AzureTableStoreWriter.html"><code>AzureTableStoreWriter</code></a></li>
+<li>The <code>StoreFactory</code> is implemented by <a class="xref" href="../api/Ease.Repository.AzureTable.AzureTableStoreFactory.html"><code>AzureTableStoreFactory</code></a></li>
+</ul>
+<h3 id="repositorycontext"><code>RepositoryContext</code></h3>
+<ul>
+<li>Interface is <a class="xref" href="../api/Ease.Repository.AzureTable.IAzureTableRepositoryContext.html"><code>IAzureTableRepositoryContext</code></a></li>
+<li>Concrete implementation / base class is <a class="xref" href="../api/Ease.Repository.AzureTable.AzureTableRepositoryContext.html"><code>AzureTableRepositoryContext</code></a></li>
+<li>In the trivial single underlying store configuration case, you can use the concrete implementation as-is</li>
+<li>In a configuration where you may wish to work with multiple underlying AzureTable storage accounts, you can create multiple child classes that provide the appropriate different <a class="xref" href="../api/Ease.Repository.AzureTable.IAzureTableRepositoryConfig.html"><code>IAzureTableRepositoryConfig</code></a> implementations</li>
+</ul>
+<h3 id="entity"><code>Entity</code></h3>
+<ul>
+<li>All entities should inherit from <a class="xref" href="../api/Ease.Repository.AzureTable.AzureTableTrackableEntity.html"><code>AzureTableTrackableEntity</code></a></li>
+<li>This base class implements the requirements of the  <code>ITableEntity</code></li>
+<li>All public properties must be virtual to permit the dynamic proxy-based change tracking</li>
+<li>Keep these as brain-dead simple POCOs</li>
+</ul>
+<h3 id="repository"><code>Repository</code></h3>
+<ul>
+<li>Concrete repository classes should inherit from <a class="xref" href="../api/Ease.Repository.AzureTable.AzureTableRepository-2.html"><code>AzureTableRepository</code></a></li>
+</ul>
+<h3 id="unitofwork"><code>UnitOfWork</code></h3>
+<ul>
+<li>Must be the <a class="xref" href="../api/Ease.Repository.IBestEffortUnitOfWork.html"><code>IBestEffortUnitOfWork</code></a> (implemented by <a class="xref" href="../api/Ease.Repository.BestEffortUnitOfWork.html"><code>BestEffortUnitOfWork</code></a>)</li>
+<li>Relies upon a dynamic proxy implementation, and therefor the concrete <code>Repository</code> implementations must remember to call <a class="xref" href="../api/Ease.Repository.AzureTable.AzureTableRepositoryContext.html#Ease_Repository_AzureTable_AzureTableRepositoryContext_RegisterForUpdates__1_System_Collections_Generic_IEnumerable___0__"><code>IAzureTableRepositoryContext.RegisterForUpdates(...)</code></a> to wrap any retrieved entities in dynamic proxy and return those instead of the entities directly</li>
+</ul>
+<h2 id="integrating-with-your-application">Integrating With Your Application</h2>
+<h3 id="dependency-injection-framework-registration">Dependency Injection framework registration</h3>
+<ul>
+<li>Identify the appropriate <code>Scope</code> / life cycle of the <code>UnitOfWork</code></li>
+<li>All of the following services should be tied to this <code>Scoped</code> life cycle:
+<ul>
+<li><a class="xref" href="../api/Ease.Repository.IBestEffortUnitOfWork.html"><code>IBestEffortUnitOfWork</code></a> (the same registration should also be a provider of <a class="xref" href="../api/Ease.Repository.IUnitOfWork.html"><code>IUnitOfWork</code></a>)</li>
+<li><a class="xref" href="../api/Ease.Repository.AzureTable.IAzureTableRepositoryContext.html"><code>IAzureTableRepositoryContext</code></a></li>
+<li>All of your concrete <code>Repository</code> implementations</li>
+</ul>
+</li>
+<li>The following services can have a longer life cycle (including <em>Singleton</em>):
+<ul>
+<li>Implementations of <a class="xref" href="../api/Ease.Repository.AzureTable.IAzureTableRepositoryConfig.html"><code>IAzureTableRepositoryConfig</code></a></li>
+<li><a class="xref" href="../api/Ease.Repository.AzureTable.AzureTableStoreFactory.html"><code>IAzureTableStoreFactory</code></a></li>
+</ul>
+</li>
+</ul>
+<h3 id="data-model">Data Model</h3>
+<ul>
+<li>Can (and should) be something as simple as:</li>
+</ul>
+<pre><code class="lang-csharp">    public interface MyEntity : AzureTableTrackableEntity
+    {
+        public virtual int SomeInt { get; set; }
+        public virtual string SomeString { get; set; }
+    }
+</code></pre>
+<h3 id="concrete-repository-implementations">Concrete <code>Repository</code> Implementations</h3>
+<ul>
+<li>Should define their own interface, and then implement that (allows unit-testing of domain classes that depend on the repositories)... eg:</li>
+</ul>
+<pre><code class="lang-csharp">    public interface IMyRepo : IAzureTableRepository&lt;MyEntity&gt; 
+    {
+        // TODO: Declare any extra methods beyond basic CRUD here
+    }
+</code></pre>
+<ul>
+<li>Should inherit from the base class to automatically implement CRUD including entity registration for change tracking of those operations... eg:</li>
+</ul>
+<pre><code class="lang-csharp">    public class MyRepo : 
+        AzureTableRepository&lt;AzureTableRepositoryContext, MyEntity&gt;,
+        IMyRepo
+    {
+        public MyRepo(AzureTableRepositoryContext context) : base(context) { }
+
+        protected override string CalculatePartitionKeyFor(MyEntity entity)
+        {
+            return ??? // TODO: Provide some kind of computed PartitionKey string
+        }
+    }
+</code></pre>
+<ul>
+<li>If <code>IMyRepo</code> includes additional methods, then implement those, and make use of the base class's <a class="xref" href="../api/Ease.Repository.AzureTable.AzureTableRepository-2.html#Ease_Repository_AzureTable_AzureTableRepository_2_Table"><code>.Table</code></a> property as needed...  to perform queries / operations for the entity
+<ul>
+<li>You  <em><strong>must</strong></em>  call <a class="xref" href="../api/Ease.Repository.AzureTable.AzureTableRepositoryContext.html#Ease_Repository_AzureTable_AzureTableRepositoryContext_RegisterForUpdates__1_System_Collections_Generic_IEnumerable___0__"><code>.Context.RegisterForUpdates(...)</code></a> to wrap any <code>MyEntity</code> instances obtained from the queries, and only return the wrapped entities in order for change tracking to work</li>
+</ul>
+</li>
+</ul>
+<pre><code class="lang-csharp">    public class MyRepo : // the inheritence bits
+    {
+        // The ctor and CalculatePartitionKeyFor(...) implementation
+
+        public IEnumerable&lt;MyEntity&gt; MyGreatQuery(/* some query parameters */)
+        {
+            var query = new TableQuery&lt;MyEntity&gt;();
+            // TODO: parameterize the query however you need...
+            var entities = Table.Value.ExecuteQuery(query);
+            return Context.RegisterForUpdates(entities);
+        }
+    }
+</code></pre>
+<ul>
+<li>If you don't want the table name to be the entity Type name, then override the <a class="xref" href="../api/Ease.Repository.AzureTable.AzureTableRepository-2.html#Ease_Repository_AzureTable_AzureTableRepository_2_TableName"><code>.TableName</code></a> property
+<ul>
+<li>NOTE: The <a class="xref" href="../api/Ease.Repository.AzureTable.IAzureTableRepositoryConfig.html#Ease_Repository_AzureTable_IAzureTableRepositoryConfig_TableNamePrefix"><code>IAzureTableRepositoryConfig.TableNamePrefix</code></a> will be prepended to your <code>TableName</code></li>
+</ul>
+</li>
+</ul>
+<h3 id="azuretable-storage-configuration">AzureTable Storage Configuration</h3>
+<p>The default implementation of <a class="xref" href="../api/Ease.Repository.AzureTable.AzureTableRepositoryConfig.html">IAzureTableRepositoryConfig</a> builds on (and depends upon) the <code>Microsoft.Extensions.Configuration.IConfiguration</code> and expects to find the following config parameters:</p>
+<ul>
+<li><code>{configSectionPrefix}Azure:StorageConnectionString</code>
+<ul>
+<li>default: <code>&quot;UseDevelopmentStorage=true&quot;</code></li>
+</ul>
+</li>
+<li><code>{configSectionPrefix}Azure:TableNamePrefix</code>
+<ul>
+<li>default: <code>&quot;Dev&quot;</code></li>
+</ul>
+</li>
+</ul>
+<p>By default, there is no <code>{configSectionPrefix}</code>, but the extra constructor parameter may be used to provide one such that multiple storage configs can coexist, and be used to</p>
+<h3 id="using-the-repositories-and-iunitofwork">Using the <code>Repositories</code> and <code>IUnitOfWork</code></h3>
+<p>Now that you've gotten all the players implemented and registered with your DI framework, it's time to actually use them.</p>
+<ol>
+<li><p>Any domain classes can simply depend on your <code>Repository</code> interfaces (eg. <code>IMyRepo</code>)</p>
+</li>
+<li><p>Whatever component is managing the completion of the <code>UnitOfWork</code> should depend on <a class="xref" href="../api/Ease.Repository.IUnitOfWork.html"><code>IUnitOfWork</code></a></p>
+<ul>
+<li>if / when all has gone well and the component wants the operations to be executed (eg. made persistent against the underlying <code>Store</code>), then call <a class="xref" href="../api/Ease.Repository.IUnitOfWork.html#Ease_Repository_IUnitOfWork_CompleteAsync"><code>await IUnitOfWork.CompleteAsync()</code></a></li>
+<li>regardless of success or failure, the <code>IUnitOfWork</code> must be <code>Disposed</code> when done with it...
+<ul>
+<li>if <code>CompleteAsync</code> was not called before <code>Dispose</code>, then this amounts to a <em>rollback</em>-like operation on the business transaction (eg. all pending updates tracked by the <code>IUnitOfWork</code> will be discarded)</li>
+<li>if <code>CompleteAsync</code> was called successfully, then <code>Dispose</code> just releases any cached objects (the changes have already been persisted to the <code>Store</code>)</li>
+</ul>
+</li>
+</ul>
+</li>
+</ol>
+<p>In its simplest (though not necessarily prettiest) form, this orchestration could amount to something like:</p>
+<pre><code class="lang-csharp">    public class MyDomainService 
+    {
+        private readonly IUnitOfWork _unitOfWork;
+        private readonly IMyRepo _repo;
+
+        public MyDomainService(IUnitOfWork unitOfWork, IMyRepo repo)
+        { 
+            _unitOfWork = unitOfWork;
+            _repo = repo;
+        }
+
+        public async Task DoSomethingTo(ITableEntity compositeKey)
+        {
+            // NOTE: compositeKey could be provided as an instance of `AzureTableEntityKey`
+            var entity = _repo.Get(compositeKey);
+            entity.SomeString = someNewValue;
+            // TODO: other operations that may affect the entity
+
+            // When we're finally done and ready to complete the unit of work...
+            await _unitOfWork.CompleteAsync();
+        }
+    }
+</code></pre>
+<p>Often times, you'll have created some infrastructural helper components for managing exceptions, retries, etc...  and that component may be the one to decide if / when to call <code>CompleteAsync</code>. In still more sophisticated infrastructure scenarios, such a manager component could be the thing determining the scope of the IUnitOfWork and related components, enabling retries and other fault tolerant mechanisms. Such infrastructure is not provided directly by <code>Ease.Repository.*</code>, but should be possible.</p>
+<h3 id="integration-testing-the-data-layer">Integration Testing the Data Layer</h3>
+<p>Even basic CRUD operations can be troublesome, and it is useful to make sure they actually work against a real underlying <code>Store</code> before relying upon the <code>Repositories</code> in your domain logic. As the queries and operations against the store increase in complexity beyond basic CRUD, this becomes even more critical.</p>
+<p>To support integration testing of your repositories, several base classes and infrastructure are available in the <code>Ease.Repository*.Test</code> packages. To remain test framework-agnostic, some gymnastics are required, but it should prove to be a low-cost tradeoff for the benefits.</p>
+<p>The main requirement for these integration tests is that an AzureStorage account be available. By default, the local dev AzureStorage emulator connection string is used, so the tests would require the emulator to be running.</p>
+<p>Here is a sample of a simple <code>Repository</code> integration test:</p>
+<pre><code class="lang-csharp">    public class MyRepoTests
+        : AzureTableRepositoryTests&lt;IAzureTableRepositoryContext, MyEntity, MyRepo&gt;
+    {
+        protected override void PrepareDependenciesForContext(IFixture fixture)
+        {
+            base.PrepareDependenciesForContext(fixture);
+
+            var config = fixture.Freeze&lt;IConfiguration&gt;();
+            A.CallTo(() =&gt; config[&quot;Main:Azure:StorageConnectionString&quot;])
+                .Returns(&quot;UseDevelopmentStorage=true&quot;);
+            
+            A.CallTo(() =&gt; config[&quot;Main:Azure:TableNamePrefix&quot;])
+                .Returns(TestTableNamePrefix);
+
+            // We dance this little jig for the case where we'd be registering 
+            // a particular concrete implementation of a service with the DI container.
+            var context = fixture.Freeze&lt;AzureTableRepositoryContext&gt;();
+            fixture.Inject&lt;IAzureTableRepositoryContext&gt;(context);
+        }
+
+        protected override void ModifyEntity(MyEntity entityToModify)
+        {
+            var newSuffix = Guid.NewGuid().ToString();
+            entityToModify.SomeString.Should().NotEndWith(newSuffix);
+            entityToModify.SomeString += newSuffix;
+        }
+
+        protected override void AssertEntitiesAreEquivalent(MyEntity result, MyEntity reference)
+        {
+            result.CurrentState().Should().BeEquivalentTo(
+                reference.CurrentState(), options =&gt; options
+                    .Excluding(x =&gt; x.Timestamp)
+                );
+        }
+
+        protected override ITableEntity NewSimpleKeyFromEntity(MyEntity entity)
+        {
+            return new AzureTableEntityKey 
+            { 
+                PartitionKey = entity.PartitionKey, 
+                RowKey = entity.RowKey 
+            };
+        }
+
+        [SetUp]
+        public override void SetUp()
+        {
+            SetUp_Impl();
+        }
+
+        [TearDown]
+        public override void TearDown()
+        {
+            TearDown_Impl();
+        }
+
+        #region Base Tests
+
+        [Test]
+        public override void List_Returns_Empty_For_No_Data()
+        {
+            List_Returns_Empty_For_No_Data_Impl();
+        }
+
+        [Test]
+        public override async Task Add_New_Entity_And_List_RoundTrip()
+        {
+            await Add_New_Entity_And_Get_By_Key_RoundTrip_Impl();
+        }
+
+        [Test]
+        public override void Add_Sets_Keys()
+        {
+            Add_Sets_Keys_Impl();
+        }
+
+        [Test]
+        public override async Task Add_New_Entity_And_Get_RoundTrip()
+        {
+            await Add_New_Entity_And_Get_RoundTrip_Impl();
+        }
+
+        [Test]
+        public override async Task Add_New_Entity_And_Get_By_Key_RoundTrip()
+        {
+            await Add_New_Entity_And_Get_By_Key_RoundTrip_Impl();
+        }
+
+        [Test]
+        public override async Task Delete_And_Get_RoundTrip()
+        {
+            await Delete_And_Get_RoundTrip_Impl();
+        }
+
+        // ... more tests may be required and provided by the base class ...
+
+        #endregion Base Tests
+
+        // TODO: Add your repository-specific tests here (eg. for extra query-related functionality, etc...)
+    }
+</code></pre>
+<p>Some observations:</p>
+<ul>
+<li>The <a class="xref" href="../api/Ease.Repository.AzureTable.Test.AzureTableRepositoryTests-3.html"><code>AzureTableRepositoryTests</code></a> base class uses <a href="https://www.nuget.org/packages/AutoFixture">AutoFixture</a> and <a href="https://www.nuget.org/packages/FakeItEasy/">FakeItEasy</a> for mocking and an &quot;auto-mock&quot; pattern implementation</li>
+<li>There are a set of tests that are <em>required</em> to be implemented (by the <code>abstract</code>) keyword, but default implementations are provided in the base class by <code>{theRequiredTest_Impl}</code>
+<ul>
+<li>this is done instead of just using <code>virtual</code> in order to ensure that test runners can actually find the tests by forcing you to provide a method with appropriate attribute or other such runner registration for each</li>
+</ul>
+</li>
+<li>The set of required tests may grow over time (i.e. be warned when upgrading to newer versions of the package), though the needed changes will be similarly trivial</li>
+</ul>
+</article>
+          </div>
+          
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <div class="contribution">
+                <ul class="nav">
+                  <li>
+                    <a href="https://github.com/tausten/Ease.Repository/blob/master/docfx_project/articles/azureTable.md/#L1" class="contribution-link">Improve this Doc</a>
+                  </li>
+                </ul>
+              </div>
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+              <!-- <p><a class="back-to-top" href="#top">Back to top</a><p> -->
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+            
+            <span>Generated by <strong>DocFX</strong></span>
+          </div>
+        </div>
+      </footer>
+    </div>
+    
+    <script type="text/javascript" src="../styles/docfx.vendor.js"></script>
+    <script type="text/javascript" src="../styles/docfx.js"></script>
+    <script type="text/javascript" src="../styles/main.js"></script>
+  </body>
+</html>

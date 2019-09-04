@@ -73,7 +73,20 @@
   
   <h1 id="Ease_Repository_AzureTable_AzureTableRepositoryConfig" data-uid="Ease.Repository.AzureTable.AzureTableRepositoryConfig" class="text-break">Class AzureTableRepositoryConfig
   </h1>
-  <div class="markdown level0 summary"></div>
+  <div class="markdown level0 summary"><p>May use directly, or use as a convenient base class for capturing config of a data model that spans multiple
+Azure Storage accounts. For example:</p>
+<pre><code>public class MainStorageRepositoryConfig : AzureTableRepositoryConfig
+{
+    MainStorageRepositoryConfig(IConfiguration config) : base(config, &quot;Main&quot;) { }
+}
+
+public class SecondaryStorageRepositoryConfig : AzureTableRepositoryConfig
+{
+    MainStorageRepositoryConfig(IConfiguration config) : base(config, &quot;Secondary&quot;) { }
+}</code></pre>
+<p>Then your repositories can be differentiated by repository config, and the configuration properties themselves
+will be in separate sections, one under &quot;Main:Azure:{stuff}&quot; and one under &quot;Secondary:Azure:{stuff}&quot;.</p>
+</div>
   <div class="markdown level0 conceptual"></div>
   <div class="inheritance">
     <h5>Inheritance</h5>
@@ -118,18 +131,19 @@
   </h3>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/tausten/Ease.Repository/new/develop/apiSpec/new?filename=Ease_Repository_AzureTable_AzureTableRepositoryConfig__ctor_Microsoft_Extensions_Configuration_IConfiguration_.md&amp;value=---%0Auid%3A%20Ease.Repository.AzureTable.AzureTableRepositoryConfig.%23ctor(Microsoft.Extensions.Configuration.IConfiguration)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/tausten/Ease.Repository/new/master/apiSpec/new?filename=Ease_Repository_AzureTable_AzureTableRepositoryConfig__ctor_Microsoft_Extensions_Configuration_IConfiguration_System_String_.md&amp;value=---%0Auid%3A%20Ease.Repository.AzureTable.AzureTableRepositoryConfig.%23ctor(Microsoft.Extensions.Configuration.IConfiguration%2CSystem.String)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/tausten/Ease.Repository/blob/develop/Ease.Repository.AzureTable/AzureTableRepositoryConfig.cs/#L20">View Source</a>
+    <a href="https://github.com/tausten/Ease.Repository/blob/master/Ease.Repository.AzureTable/AzureTableRepositoryConfig.cs/#L48">View Source</a>
   </span>
   <a id="Ease_Repository_AzureTable_AzureTableRepositoryConfig__ctor_" data-uid="Ease.Repository.AzureTable.AzureTableRepositoryConfig.#ctor*"></a>
-  <h4 id="Ease_Repository_AzureTable_AzureTableRepositoryConfig__ctor_Microsoft_Extensions_Configuration_IConfiguration_" data-uid="Ease.Repository.AzureTable.AzureTableRepositoryConfig.#ctor(Microsoft.Extensions.Configuration.IConfiguration)">AzureTableRepositoryConfig(IConfiguration)</h4>
-  <div class="markdown level1 summary"></div>
+  <h4 id="Ease_Repository_AzureTable_AzureTableRepositoryConfig__ctor_Microsoft_Extensions_Configuration_IConfiguration_System_String_" data-uid="Ease.Repository.AzureTable.AzureTableRepositoryConfig.#ctor(Microsoft.Extensions.Configuration.IConfiguration,System.String)">AzureTableRepositoryConfig(IConfiguration, String)</h4>
+  <div class="markdown level1 summary"><p>Initialize the config.</p>
+</div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public AzureTableRepositoryConfig(IConfiguration config)</code></pre>
+    <pre><code class="lang-csharp hljs">public AzureTableRepositoryConfig(IConfiguration config, string configSectionPrefix = null)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -144,7 +158,14 @@
       <tr>
         <td><span class="xref">Microsoft.Extensions.Configuration.IConfiguration</span></td>
         <td><span class="parametername">config</span></td>
-        <td></td>
+        <td><p>The underlying config abstraction to fetch from.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">configSectionPrefix</span></td>
+        <td><p>[optional] The prefix to add to the config keys during lookup (permits multiple config sections to coexist).</p>
+</td>
       </tr>
     </tbody>
   </table>
@@ -152,10 +173,10 @@
   </h3>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/tausten/Ease.Repository/new/develop/apiSpec/new?filename=Ease_Repository_AzureTable_AzureTableRepositoryConfig_ConnectionString.md&amp;value=---%0Auid%3A%20Ease.Repository.AzureTable.AzureTableRepositoryConfig.ConnectionString%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/tausten/Ease.Repository/new/master/apiSpec/new?filename=Ease_Repository_AzureTable_AzureTableRepositoryConfig_ConnectionString.md&amp;value=---%0Auid%3A%20Ease.Repository.AzureTable.AzureTableRepositoryConfig.ConnectionString%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/tausten/Ease.Repository/blob/develop/Ease.Repository.AzureTable/AzureTableRepositoryConfig.cs/#L25">View Source</a>
+    <a href="https://github.com/tausten/Ease.Repository/blob/master/Ease.Repository.AzureTable/AzureTableRepositoryConfig.cs/#L54">View Source</a>
   </span>
   <a id="Ease_Repository_AzureTable_AzureTableRepositoryConfig_ConnectionString_" data-uid="Ease.Repository.AzureTable.AzureTableRepositoryConfig.ConnectionString*"></a>
   <h4 id="Ease_Repository_AzureTable_AzureTableRepositoryConfig_ConnectionString" data-uid="Ease.Repository.AzureTable.AzureTableRepositoryConfig.ConnectionString">ConnectionString</h4>
@@ -163,7 +184,7 @@
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public string ConnectionString { get; }</code></pre>
+    <pre><code class="lang-csharp hljs">public virtual string ConnectionString { get; }</code></pre>
   </div>
   <h5 class="propertyValue">Property Value</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -182,10 +203,10 @@
   </table>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/tausten/Ease.Repository/new/develop/apiSpec/new?filename=Ease_Repository_AzureTable_AzureTableRepositoryConfig_TableNamePrefix.md&amp;value=---%0Auid%3A%20Ease.Repository.AzureTable.AzureTableRepositoryConfig.TableNamePrefix%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/tausten/Ease.Repository/new/master/apiSpec/new?filename=Ease_Repository_AzureTable_AzureTableRepositoryConfig_TableNamePrefix.md&amp;value=---%0Auid%3A%20Ease.Repository.AzureTable.AzureTableRepositoryConfig.TableNamePrefix%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/tausten/Ease.Repository/blob/develop/Ease.Repository.AzureTable/AzureTableRepositoryConfig.cs/#L26">View Source</a>
+    <a href="https://github.com/tausten/Ease.Repository/blob/master/Ease.Repository.AzureTable/AzureTableRepositoryConfig.cs/#L55">View Source</a>
   </span>
   <a id="Ease_Repository_AzureTable_AzureTableRepositoryConfig_TableNamePrefix_" data-uid="Ease.Repository.AzureTable.AzureTableRepositoryConfig.TableNamePrefix*"></a>
   <h4 id="Ease_Repository_AzureTable_AzureTableRepositoryConfig_TableNamePrefix" data-uid="Ease.Repository.AzureTable.AzureTableRepositoryConfig.TableNamePrefix">TableNamePrefix</h4>
@@ -193,7 +214,7 @@
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public string TableNamePrefix { get; }</code></pre>
+    <pre><code class="lang-csharp hljs">public virtual string TableNamePrefix { get; }</code></pre>
   </div>
   <h5 class="propertyValue">Property Value</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -226,10 +247,10 @@
               <div class="contribution">
                 <ul class="nav">
                   <li>
-                    <a href="https://github.com/tausten/Ease.Repository/new/develop/apiSpec/new?filename=Ease_Repository_AzureTable_AzureTableRepositoryConfig.md&amp;value=---%0Auid%3A%20Ease.Repository.AzureTable.AzureTableRepositoryConfig%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" class="contribution-link">Improve this Doc</a>
+                    <a href="https://github.com/tausten/Ease.Repository/new/master/apiSpec/new?filename=Ease_Repository_AzureTable_AzureTableRepositoryConfig.md&amp;value=---%0Auid%3A%20Ease.Repository.AzureTable.AzureTableRepositoryConfig%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" class="contribution-link">Improve this Doc</a>
                   </li>
                   <li>
-                    <a href="https://github.com/tausten/Ease.Repository/blob/develop/Ease.Repository.AzureTable/AzureTableRepositoryConfig.cs/#L16" class="contribution-link">View Source</a>
+                    <a href="https://github.com/tausten/Ease.Repository/blob/master/Ease.Repository.AzureTable/AzureTableRepositoryConfig.cs/#L38" class="contribution-link">View Source</a>
                   </li>
                 </ul>
               </div>

@@ -5,9 +5,9 @@
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-    <title>Add your introductions here! </title>
+    <title>Repository + Unit of Work Pattern Implementation </title>
     <meta name="viewport" content="width=device-width">
-    <meta name="title" content="Add your introductions here! ">
+    <meta name="title" content="Repository + Unit of Work Pattern Implementation ">
     <meta name="generator" content="docfx 2.45.0.0">
     
     <link rel="shortcut icon" href="../favicon.ico">
@@ -67,8 +67,158 @@
         <div class="article row grid-right">
           <div class="col-md-10">
             <article class="content wrap" id="_content" data-uid="">
-<h1 id="add-your-introductions-here">Add your introductions here!</h1>
+<h1 id="repository--unit-of-work-pattern-implementation">Repository + Unit of Work Pattern Implementation</h1>
 
+<p>The <em>Repository Pattern</em> provides an abstraction of operations against an underlying data store. General descriptions, benefits, disadvantages, and religious wars can easily be found online:</p>
+<ul>
+<li><a href="https://docs.microsoft.com/en-us/dotnet/architecture/microservices/microservice-ddd-cqrs-patterns/infrastructure-persistence-layer-design">https://docs.microsoft.com/en-us/dotnet/architecture/microservices/microservice-ddd-cqrs-patterns/infrastructure-persistence-layer-design</a></li>
+<li><a href="https://programmingwithmosh.com/net/common-mistakes-with-the-repository-pattern/">https://programmingwithmosh.com/net/common-mistakes-with-the-repository-pattern/</a></li>
+<li><a href="https://dev.to/kylegalbraith/getting-familiar-with-the-awesome-repository-pattern--1ao3">https://dev.to/kylegalbraith/getting-familiar-with-the-awesome-repository-pattern--1ao3</a></li>
+<li><a href="https://www.infoworld.com/article/3117713/design-patterns-that-i-often-avoid-repository-pattern.html">https://www.infoworld.com/article/3117713/design-patterns-that-i-often-avoid-repository-pattern.html</a></li>
+</ul>
+<p>And the <em>Unit of Work Pattern</em> provides an abstraction around gathering multiple operations into a logical business transaction:</p>
+<ul>
+<li><a href="https://martinfowler.com/eaaCatalog/unitOfWork.html">https://martinfowler.com/eaaCatalog/unitOfWork.html</a></li>
+</ul>
+<p>The combination of these two patterns can limit the proliferation of data-store / persistence-specific code across domain logic. Instead, these details can be constrained to a small family of classes.</p>
+<h2 id="easerepository-goals">Ease.Repository Goals</h2>
+<p>The following are the set of goals / pressures being balanced in this particular incarnation and orchestration of these patterns:</p>
+<ul>
+<li>boilerplate CRUD operations should be taken care of by infrastructure
+<ul>
+<li>this includes support for automated integration testing of concrete Repository class implementations</li>
+</ul>
+</li>
+<li>no explicit <code>Update</code> method is required or exposed
+<ul>
+<li>the infrastructure should automatically know if/when entities returned by the repository have been modified, and subsequently orchestrate the ultimate writing back to the underlying store</li>
+</ul>
+</li>
+<li>the <em>UnitOfWork</em> should be able to manage a transaction that consists of a mix of entites spanning multiple repositories, repository types, and underlying store types
+<ul>
+<li>eg. my business transaction should be able to combine operations against an EntityFramework-backed store as well as updates to a Redis store, AzureTable, etc..</li>
+</ul>
+</li>
+<li>the framework should be extensible so that additional underlying stores can be supported easily by end-users as well as library maintainers</li>
+</ul>
+<h2 id="the-building-blocks">The Building Blocks</h2>
+<p>In the <code>Ease.Repository</code> implementation of these patterns, the primary conceptual building blocks are:</p>
+<h3 id="store--storefactory"><code>Store</code> + <code>StoreFactory</code></h3>
+<ul>
+<li>a thin facade over an actual underlying data store, ORM, etc... (eg. AzureTable, Redis, EntityFramework, NHibernate, in-memory dictionaries...)</li>
+<li>should be paired with a <em>StoreFactory</em> that the <em>RepositoryContext</em> can use to obtain a store initialized with the appropriate connection / session for it to do its work</li>
+</ul>
+<h3 id="repositorycontext"><code>RepositoryContext</code></h3>
+<ul>
+<li>tied directly to a specific set of configuration parameters</li>
+<li>manages a connection to a specific instance of the underlying store.</li>
+<li>depends on a <em>UnitOfWork</em> (i.e. has one injected, and can register operations with it)</li>
+<li><del>may act as a factory for <em>Repositories</em></del>  DO NOT make the context a factory for <em>Repositories</em></li>
+<li>should act as a factory for the corresponding <em>Store</em> (because it'll need to inject the managed connection / client abstraction into the <em>Store</em>)</li>
+<li>for transaction-aware <em>Stores</em>:
+<ul>
+<li>begin the underlying store transaction</li>
+<li>configure the <em>UnitOfWork</em>'s corresponding operations for completion / rollback of underlying store transaction</li>
+</ul>
+</li>
+</ul>
+<h3 id="entity"><code>Entity</code></h3>
+<ul>
+<li>the <em>Store</em>'s representation of a domain class</li>
+<li>eg. a &quot;CustomerEntity&quot;, &quot;ProductEntity&quot;, etc...</li>
+<li>the thing managed by a particular <em>Repository</em> class</li>
+</ul>
+<h3 id="repository"><code>Repository</code></h3>
+<ul>
+<li>one per <em>Entity</em> type (perhaps including extra &quot;book-keeping&quot;-like adjunct entities) to be managed within a particular type of underlying store</li>
+<li>knows how to use an underlying <em>Store</em> to perform the CRUD operations for the managed <em>Entity</em> type</li>
+<li>registers these CRUD-related handlers with the <em>UnitOfWork</em> so that the UoW can know what to do when the time comes to either commit the business transaction, or roll it back</li>
+</ul>
+<h3 id="optional-repositoryfactory">[Optional] <code>RepositoryFactory</code></h3>
+<ul>
+<li>in scenario where the same <em>Repository</em> type may need to be able to talk to different underlying <em>Store</em>s, the application may choose to use a factory pattern to accomplish this</li>
+<li>alternatively, concrete repositories could be made generically templatized on specially-typed <em>RepositoryContext</em> or tag interfaces if the differentiation is compile-time resolvable</li>
+</ul>
+<h3 id="unitofwork"><code>UnitOfWork</code></h3>
+<ul>
+<li>general-purpose business transaction not tied to any particular fixed set of <em>Repositories</em>, underlying <em>Stores</em>, etc...</li>
+<li>it does not know how to use a <em>Store</em> to perform an operation... instead, it knows how to track fundamental operations (<em>Add</em>, <em>Update</em>, <em>Remove</em>) and then perform the appropriate operations on affected <em>Entity</em> instances once the <em>UnitOfWork</em> is being <em>Completed</em></li>
+<li>it knows how to orchestrate undo of updates if the <em>UnitOfWork</em> is being discarded without completion (i.e. an effective <em>Rollback</em> of the business transaction)</li>
+</ul>
+<h2 id="orchestration-direct-repository-injection">Orchestration (Direct Repository Injection)</h2>
+<ol>
+<li>Begin Scope (i.e. the thing governing lifetime of the <em>UnitOfWork</em>)</li>
+<li><em>UnitOfWork</em> is allocated (implicitly beginning it)</li>
+<li>For each kind of underlying store that would be involved (driven by DI resolution):
+<ol>
+<li>Allocate corresponding <em>RepositoryContext</em>, injecting the <em>UnitOfWork</em>, underlying <em>Store</em></li>
+<li>[optional] If underlying <em>Store</em> is transactional:
+<ol>
+<li>Begin underlying <em>Store</em> transaction</li>
+<li>Register <em>Commit</em> and <em>Rollback</em> actions with <em>UnitOfWork</em></li>
+</ol>
+</li>
+</ol>
+</li>
+<li>On resolving a <em>Repository</em>
+<ol>
+<li>the <em>Repository</em> has the <em>RepositoryContext</em> injected</li>
+<li>the <em>Repository</em> registers its managed <em>Entity</em> type(s) with the <em>RepositoryContext</em></li>
+<li>the <em>RepositoryContext</em> registers the appropriate <em>Store</em> implementations of <em>Add</em>, <em>Update</em>, and <em>Remove</em> with the <em>UnitOfWork</em></li>
+</ol>
+</li>
+<li>In the <em>Repository</em>'s CRUD implementations
+<ol>
+<li>the <em>Repository</em> accesses the <em>current</em> session / client abstraction via the <em>RepositoryContext</em> in order to implement fetch / query operations</li>
+<li>the <em>Repository</em> registers any newly <em>Add</em>ed, <em>Retrieve</em>d, or <em>Remove</em>d entity with the <em>RepositoryContext</em></li>
+<li>the <em>RepositoryContext</em> delegates such registrations to its <em>UnitOfWork</em>
+<ul>
+<li>this means that technically, the context could operate across multiple consecutive <em>UnitsOfWork</em> if so desired</li>
+</ul>
+</li>
+</ol>
+</li>
+<li>On Scope ending, consider the state of the <em>UnitOfWork</em>
+<ol>
+<li>if it was a success, this Scope-managing component calls the <em>UnitOfWork</em>'s Complete method
+<ul>
+<li><em>UnitOfWork</em> walks through the tracked operations in sequence, using the registered handlers to perform each</li>
+<li>if all operations completed successfully consider completion finished</li>
+<li>if an operation fails, then work backward through the appropriate undo actions, including any transactional rollbacks possible</li>
+</ul>
+</li>
+<li>if it was a failure, then the component calls <em>Dispose</em> on the <em>UnitOfWork</em> without calling the Complete method
+<ul>
+<li><em>UnitOfWork</em> rolls back any registered transactions</li>
+</ul>
+</li>
+</ol>
+</li>
+</ol>
+<h2 id="orchestration-adjusted-for-repositoryfactory">Orchestration (Adjusted for RepositoryFactory)</h2>
+<p>The same orchestration workflow as before applies with the following minor adjustments:</p>
+<ul>
+<li>instead of domain class directly depending on <em>Repository</em>, have a <em>RepositoryFactory</em> injected</li>
+<li>the domain knows how to select among multiple <em>RepositoryContext</em>s for a given underlying <em>Store</em> type</li>
+<li>when the domain behavior needs a particular <em>Repository</em>:
+<ul>
+<li><em>RepositoryFactory.Get{TRepository}(RepositoryContext)</em></li>
+</ul>
+</li>
+<li>when done with the <em>Repository</em>:
+<ul>
+<li><em>RepositoryFactory.Release(Repository)</em></li>
+</ul>
+</li>
+</ul>
+<h2 id="concrete-implementations">Concrete Implementations</h2>
+<p>Most, if not all, of the orchestration above is taken care of by the classes provided in the <code>Ease.Repository.*</code> packages for the corresponding underlying <em>Store</em>. The bootstrapping articles for each is listed below:</p>
+<ul>
+<li><a href="azureTable.html"><code>Ease.Repository.AzureTable</code></a></li>
+<li>[planned] Ease.Repository.EntityFramework</li>
+<li>[planned] Ease.Repository.Redis</li>
+<li>[planned] Ease.Repository.NHibernate</li>
+</ul>
 </article>
           </div>
           
@@ -77,7 +227,7 @@
               <div class="contribution">
                 <ul class="nav">
                   <li>
-                    <a href="https://github.com/tausten/Ease.Repository/blob/develop/docfx_project/articles/intro.md/#L1" class="contribution-link">Improve this Doc</a>
+                    <a href="https://github.com/tausten/Ease.Repository/blob/master/docfx_project/articles/intro.md/#L1" class="contribution-link">Improve this Doc</a>
                   </li>
                 </ul>
               </div>

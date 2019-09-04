@@ -5,10 +5,10 @@
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-    <title>Interface IAzureTableRepositoryConfig
+    <title>Interface IAzureTableStoreFactory
    </title>
     <meta name="viewport" content="width=device-width">
-    <meta name="title" content="Interface IAzureTableRepositoryConfig
+    <meta name="title" content="Interface IAzureTableStoreFactory
    ">
     <meta name="generator" content="docfx 2.45.0.0">
     
@@ -68,68 +68,54 @@
         </div>
         <div class="article row grid-right">
           <div class="col-md-10">
-            <article class="content wrap" id="_content" data-uid="Ease.Repository.AzureTable.IAzureTableRepositoryConfig">
+            <article class="content wrap" id="_content" data-uid="Ease.Repository.AzureTable.IAzureTableStoreFactory">
   
   
-  <h1 id="Ease_Repository_AzureTable_IAzureTableRepositoryConfig" data-uid="Ease.Repository.AzureTable.IAzureTableRepositoryConfig" class="text-break">Interface IAzureTableRepositoryConfig
+  <h1 id="Ease_Repository_AzureTable_IAzureTableStoreFactory" data-uid="Ease.Repository.AzureTable.IAzureTableStoreFactory" class="text-break">Interface IAzureTableStoreFactory
   </h1>
-  <div class="markdown level0 summary"><p>Interface for configuration for the underlying Azure Table store to be used by repositories.</p>
-</div>
+  <div class="markdown level0 summary"></div>
   <div class="markdown level0 conceptual"></div>
   <h6><strong>Namespace</strong>: <a class="xref" href="Ease.Repository.AzureTable.html">Ease.Repository.AzureTable</a></h6>
   <h6><strong>Assembly</strong>: Ease.Repository.AzureTable.dll</h6>
-  <h5 id="Ease_Repository_AzureTable_IAzureTableRepositoryConfig_syntax">Syntax</h5>
+  <h5 id="Ease_Repository_AzureTable_IAzureTableStoreFactory_syntax">Syntax</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public interface IAzureTableRepositoryConfig</code></pre>
+    <pre><code class="lang-csharp hljs">public interface IAzureTableStoreFactory</code></pre>
   </div>
-  <h3 id="properties">Properties
+  <h3 id="methods">Methods
   </h3>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/tausten/Ease.Repository/new/master/apiSpec/new?filename=Ease_Repository_AzureTable_IAzureTableRepositoryConfig_ConnectionString.md&amp;value=---%0Auid%3A%20Ease.Repository.AzureTable.IAzureTableRepositoryConfig.ConnectionString%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/tausten/Ease.Repository/new/master/apiSpec/new?filename=Ease_Repository_AzureTable_IAzureTableStoreFactory_GetStoreWriter_Microsoft_Azure_Cosmos_Table_CloudTable_.md&amp;value=---%0Auid%3A%20Ease.Repository.AzureTable.IAzureTableStoreFactory.GetStoreWriter(Microsoft.Azure.Cosmos.Table.CloudTable)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/tausten/Ease.Repository/blob/master/Ease.Repository.AzureTable/AzureTableRepositoryConfig.cs/#L15">View Source</a>
+    <a href="https://github.com/tausten/Ease.Repository/blob/master/Ease.Repository.AzureTable/AzureTableStoreFactory.cs/#L11">View Source</a>
   </span>
-  <a id="Ease_Repository_AzureTable_IAzureTableRepositoryConfig_ConnectionString_" data-uid="Ease.Repository.AzureTable.IAzureTableRepositoryConfig.ConnectionString*"></a>
-  <h4 id="Ease_Repository_AzureTable_IAzureTableRepositoryConfig_ConnectionString" data-uid="Ease.Repository.AzureTable.IAzureTableRepositoryConfig.ConnectionString">ConnectionString</h4>
+  <a id="Ease_Repository_AzureTable_IAzureTableStoreFactory_GetStoreWriter_" data-uid="Ease.Repository.AzureTable.IAzureTableStoreFactory.GetStoreWriter*"></a>
+  <h4 id="Ease_Repository_AzureTable_IAzureTableStoreFactory_GetStoreWriter_Microsoft_Azure_Cosmos_Table_CloudTable_" data-uid="Ease.Repository.AzureTable.IAzureTableStoreFactory.GetStoreWriter(Microsoft.Azure.Cosmos.Table.CloudTable)">GetStoreWriter(CloudTable)</h4>
   <div class="markdown level1 summary"></div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">string ConnectionString { get; }</code></pre>
+    <pre><code class="lang-csharp hljs">IStoreWriter GetStoreWriter(CloudTable table)</code></pre>
   </div>
-  <h5 class="propertyValue">Property Value</h5>
+  <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-striped table-condensed">
     <thead>
       <tr>
         <th>Type</th>
+        <th>Name</th>
         <th>Description</th>
       </tr>
     </thead>
     <tbody>
       <tr>
-        <td><span class="xref">System.String</span></td>
+        <td><span class="xref">Microsoft.Azure.Cosmos.Table.CloudTable</span></td>
+        <td><span class="parametername">table</span></td>
         <td></td>
       </tr>
     </tbody>
   </table>
-  <span class="small pull-right mobile-hide">
-    <span class="divider">|</span>
-    <a href="https://github.com/tausten/Ease.Repository/new/master/apiSpec/new?filename=Ease_Repository_AzureTable_IAzureTableRepositoryConfig_TableNamePrefix.md&amp;value=---%0Auid%3A%20Ease.Repository.AzureTable.IAzureTableRepositoryConfig.TableNamePrefix%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
-  </span>
-  <span class="small pull-right mobile-hide">
-    <a href="https://github.com/tausten/Ease.Repository/blob/master/Ease.Repository.AzureTable/AzureTableRepositoryConfig.cs/#L16">View Source</a>
-  </span>
-  <a id="Ease_Repository_AzureTable_IAzureTableRepositoryConfig_TableNamePrefix_" data-uid="Ease.Repository.AzureTable.IAzureTableRepositoryConfig.TableNamePrefix*"></a>
-  <h4 id="Ease_Repository_AzureTable_IAzureTableRepositoryConfig_TableNamePrefix" data-uid="Ease.Repository.AzureTable.IAzureTableRepositoryConfig.TableNamePrefix">TableNamePrefix</h4>
-  <div class="markdown level1 summary"></div>
-  <div class="markdown level1 conceptual"></div>
-  <h5 class="decalaration">Declaration</h5>
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">string TableNamePrefix { get; }</code></pre>
-  </div>
-  <h5 class="propertyValue">Property Value</h5>
+  <h5 class="returns">Returns</h5>
   <table class="table table-bordered table-striped table-condensed">
     <thead>
       <tr>
@@ -139,7 +125,7 @@
     </thead>
     <tbody>
       <tr>
-        <td><span class="xref">System.String</span></td>
+        <td><a class="xref" href="Ease.Repository.IStoreWriter.html">IStoreWriter</a></td>
         <td></td>
       </tr>
     </tbody>
@@ -156,10 +142,10 @@
               <div class="contribution">
                 <ul class="nav">
                   <li>
-                    <a href="https://github.com/tausten/Ease.Repository/new/master/apiSpec/new?filename=Ease_Repository_AzureTable_IAzureTableRepositoryConfig.md&amp;value=---%0Auid%3A%20Ease.Repository.AzureTable.IAzureTableRepositoryConfig%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" class="contribution-link">Improve this Doc</a>
+                    <a href="https://github.com/tausten/Ease.Repository/new/master/apiSpec/new?filename=Ease_Repository_AzureTable_IAzureTableStoreFactory.md&amp;value=---%0Auid%3A%20Ease.Repository.AzureTable.IAzureTableStoreFactory%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" class="contribution-link">Improve this Doc</a>
                   </li>
                   <li>
-                    <a href="https://github.com/tausten/Ease.Repository/blob/master/Ease.Repository.AzureTable/AzureTableRepositoryConfig.cs/#L13" class="contribution-link">View Source</a>
+                    <a href="https://github.com/tausten/Ease.Repository/blob/master/Ease.Repository.AzureTable/AzureTableStoreFactory.cs/#L9" class="contribution-link">View Source</a>
                   </li>
                 </ul>
               </div>

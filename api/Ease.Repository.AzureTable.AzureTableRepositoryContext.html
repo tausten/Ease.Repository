@@ -83,6 +83,7 @@
   <div classs="implements">
     <h5>Implements</h5>
     <div><a class="xref" href="Ease.Repository.AzureTable.IAzureTableRepositoryContext.html">IAzureTableRepositoryContext</a></div>
+    <div><a class="xref" href="Ease.Repository.IRegisterEntities.html">IRegisterEntities</a></div>
   </div>
   <div class="inheritedMembers">
     <h5>Inherited Members</h5>
@@ -112,24 +113,24 @@
   <h6><strong>Assembly</strong>: Ease.Repository.AzureTable.dll</h6>
   <h5 id="Ease_Repository_AzureTable_AzureTableRepositoryContext_syntax">Syntax</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public class AzureTableRepositoryContext : IAzureTableRepositoryContext</code></pre>
+    <pre><code class="lang-csharp hljs">public class AzureTableRepositoryContext : IAzureTableRepositoryContext, IRegisterEntities</code></pre>
   </div>
   <h3 id="constructors">Constructors
   </h3>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/tausten/Ease.Repository/new/develop/apiSpec/new?filename=Ease_Repository_AzureTable_AzureTableRepositoryContext__ctor_Ease_Repository_AzureTable_IAzureTableRepositoryConfig_.md&amp;value=---%0Auid%3A%20Ease.Repository.AzureTable.AzureTableRepositoryContext.%23ctor(Ease.Repository.AzureTable.IAzureTableRepositoryConfig)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/tausten/Ease.Repository/new/master/apiSpec/new?filename=Ease_Repository_AzureTable_AzureTableRepositoryContext__ctor_Ease_Repository_AzureTable_IAzureTableRepositoryConfig_Ease_Repository_IBestEffortUnitOfWork_Ease_Repository_AzureTable_IAzureTableStoreFactory_.md&amp;value=---%0Auid%3A%20Ease.Repository.AzureTable.AzureTableRepositoryContext.%23ctor(Ease.Repository.AzureTable.IAzureTableRepositoryConfig%2CEase.Repository.IBestEffortUnitOfWork%2CEase.Repository.AzureTable.IAzureTableStoreFactory)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/tausten/Ease.Repository/blob/develop/Ease.Repository.AzureTable/AzureTableRepositoryContext.cs/#L18">View Source</a>
+    <a href="https://github.com/tausten/Ease.Repository/blob/master/Ease.Repository.AzureTable/AzureTableRepositoryContext.cs/#L27">View Source</a>
   </span>
   <a id="Ease_Repository_AzureTable_AzureTableRepositoryContext__ctor_" data-uid="Ease.Repository.AzureTable.AzureTableRepositoryContext.#ctor*"></a>
-  <h4 id="Ease_Repository_AzureTable_AzureTableRepositoryContext__ctor_Ease_Repository_AzureTable_IAzureTableRepositoryConfig_" data-uid="Ease.Repository.AzureTable.AzureTableRepositoryContext.#ctor(Ease.Repository.AzureTable.IAzureTableRepositoryConfig)">AzureTableRepositoryContext(IAzureTableRepositoryConfig)</h4>
+  <h4 id="Ease_Repository_AzureTable_AzureTableRepositoryContext__ctor_Ease_Repository_AzureTable_IAzureTableRepositoryConfig_Ease_Repository_IBestEffortUnitOfWork_Ease_Repository_AzureTable_IAzureTableStoreFactory_" data-uid="Ease.Repository.AzureTable.AzureTableRepositoryContext.#ctor(Ease.Repository.AzureTable.IAzureTableRepositoryConfig,Ease.Repository.IBestEffortUnitOfWork,Ease.Repository.AzureTable.IAzureTableStoreFactory)">AzureTableRepositoryContext(IAzureTableRepositoryConfig, IBestEffortUnitOfWork, IAzureTableStoreFactory)</h4>
   <div class="markdown level1 summary"></div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public AzureTableRepositoryContext(IAzureTableRepositoryConfig config)</code></pre>
+    <pre><code class="lang-csharp hljs">public AzureTableRepositoryContext(IAzureTableRepositoryConfig config, IBestEffortUnitOfWork unitOfWork, IAzureTableStoreFactory storeFactory)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -146,16 +147,26 @@
         <td><span class="parametername">config</span></td>
         <td></td>
       </tr>
+      <tr>
+        <td><a class="xref" href="Ease.Repository.IBestEffortUnitOfWork.html">IBestEffortUnitOfWork</a></td>
+        <td><span class="parametername">unitOfWork</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="Ease.Repository.AzureTable.IAzureTableStoreFactory.html">IAzureTableStoreFactory</a></td>
+        <td><span class="parametername">storeFactory</span></td>
+        <td></td>
+      </tr>
     </tbody>
   </table>
   <h3 id="properties">Properties
   </h3>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/tausten/Ease.Repository/new/develop/apiSpec/new?filename=Ease_Repository_AzureTable_AzureTableRepositoryContext_Client.md&amp;value=---%0Auid%3A%20Ease.Repository.AzureTable.AzureTableRepositoryContext.Client%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/tausten/Ease.Repository/new/master/apiSpec/new?filename=Ease_Repository_AzureTable_AzureTableRepositoryContext_Client.md&amp;value=---%0Auid%3A%20Ease.Repository.AzureTable.AzureTableRepositoryContext.Client%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/tausten/Ease.Repository/blob/develop/Ease.Repository.AzureTable/AzureTableRepositoryContext.cs/#L26">View Source</a>
+    <a href="https://github.com/tausten/Ease.Repository/blob/master/Ease.Repository.AzureTable/AzureTableRepositoryContext.cs/#L40">View Source</a>
   </span>
   <a id="Ease_Repository_AzureTable_AzureTableRepositoryContext_Client_" data-uid="Ease.Repository.AzureTable.AzureTableRepositoryContext.Client*"></a>
   <h4 id="Ease_Repository_AzureTable_AzureTableRepositoryContext_Client" data-uid="Ease.Repository.AzureTable.AzureTableRepositoryContext.Client">Client</h4>
@@ -182,10 +193,10 @@
   </table>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/tausten/Ease.Repository/new/develop/apiSpec/new?filename=Ease_Repository_AzureTable_AzureTableRepositoryContext_Config.md&amp;value=---%0Auid%3A%20Ease.Repository.AzureTable.AzureTableRepositoryContext.Config%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/tausten/Ease.Repository/new/master/apiSpec/new?filename=Ease_Repository_AzureTable_AzureTableRepositoryContext_Config.md&amp;value=---%0Auid%3A%20Ease.Repository.AzureTable.AzureTableRepositoryContext.Config%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/tausten/Ease.Repository/blob/develop/Ease.Repository.AzureTable/AzureTableRepositoryContext.cs/#L25">View Source</a>
+    <a href="https://github.com/tausten/Ease.Repository/blob/master/Ease.Repository.AzureTable/AzureTableRepositoryContext.cs/#L39">View Source</a>
   </span>
   <a id="Ease_Repository_AzureTable_AzureTableRepositoryContext_Config_" data-uid="Ease.Repository.AzureTable.AzureTableRepositoryContext.Config*"></a>
   <h4 id="Ease_Repository_AzureTable_AzureTableRepositoryContext_Config" data-uid="Ease.Repository.AzureTable.AzureTableRepositoryContext.Config">Config</h4>
@@ -214,20 +225,194 @@
   </h3>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/tausten/Ease.Repository/new/develop/apiSpec/new?filename=Ease_Repository_AzureTable_AzureTableRepositoryContext_PrepareTable_System_Func_System_String__.md&amp;value=---%0Auid%3A%20Ease.Repository.AzureTable.AzureTableRepositoryContext.PrepareTable(System.Func%7BSystem.String%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/tausten/Ease.Repository/new/master/apiSpec/new?filename=Ease_Repository_AzureTable_AzureTableRepositoryContext_RegisterAdd__1___0_.md&amp;value=---%0Auid%3A%20Ease.Repository.AzureTable.AzureTableRepositoryContext.RegisterAdd%60%601(%60%600)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/tausten/Ease.Repository/blob/develop/Ease.Repository.AzureTable/AzureTableRepositoryContext.cs/#L34">View Source</a>
+    <a href="https://github.com/tausten/Ease.Repository/blob/master/Ease.Repository.AzureTable/AzureTableRepositoryContext.cs/#L45">View Source</a>
   </span>
-  <a id="Ease_Repository_AzureTable_AzureTableRepositoryContext_PrepareTable_" data-uid="Ease.Repository.AzureTable.AzureTableRepositoryContext.PrepareTable*"></a>
-  <h4 id="Ease_Repository_AzureTable_AzureTableRepositoryContext_PrepareTable_System_Func_System_String__" data-uid="Ease.Repository.AzureTable.AzureTableRepositoryContext.PrepareTable(System.Func{System.String})">PrepareTable(Func&lt;String&gt;)</h4>
+  <a id="Ease_Repository_AzureTable_AzureTableRepositoryContext_RegisterAdd_" data-uid="Ease.Repository.AzureTable.AzureTableRepositoryContext.RegisterAdd*"></a>
+  <h4 id="Ease_Repository_AzureTable_AzureTableRepositoryContext_RegisterAdd__1___0_" data-uid="Ease.Repository.AzureTable.AzureTableRepositoryContext.RegisterAdd``1(``0)">RegisterAdd&lt;TEntity&gt;(TEntity)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public TEntity RegisterAdd&lt;TEntity&gt;(TEntity entity)
+    where TEntity : class, new()</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">TEntity</span></td>
+        <td><span class="parametername">entity</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">TEntity</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="typeParameters">Type Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="parametername">TEntity</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/tausten/Ease.Repository/new/master/apiSpec/new?filename=Ease_Repository_AzureTable_AzureTableRepositoryContext_RegisterDelete__1___0_.md&amp;value=---%0Auid%3A%20Ease.Repository.AzureTable.AzureTableRepositoryContext.RegisterDelete%60%601(%60%600)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/tausten/Ease.Repository/blob/master/Ease.Repository.AzureTable/AzureTableRepositoryContext.cs/#L51">View Source</a>
+  </span>
+  <a id="Ease_Repository_AzureTable_AzureTableRepositoryContext_RegisterDelete_" data-uid="Ease.Repository.AzureTable.AzureTableRepositoryContext.RegisterDelete*"></a>
+  <h4 id="Ease_Repository_AzureTable_AzureTableRepositoryContext_RegisterDelete__1___0_" data-uid="Ease.Repository.AzureTable.AzureTableRepositoryContext.RegisterDelete``1(``0)">RegisterDelete&lt;TEntity&gt;(TEntity)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void RegisterDelete&lt;TEntity&gt;(TEntity entity)
+    where TEntity : class, new()</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">TEntity</span></td>
+        <td><span class="parametername">entity</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="typeParameters">Type Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="parametername">TEntity</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/tausten/Ease.Repository/new/master/apiSpec/new?filename=Ease_Repository_AzureTable_AzureTableRepositoryContext_RegisterForUpdates__1_System_Collections_Generic_IEnumerable___0__.md&amp;value=---%0Auid%3A%20Ease.Repository.AzureTable.AzureTableRepositoryContext.RegisterForUpdates%60%601(System.Collections.Generic.IEnumerable%7B%60%600%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/tausten/Ease.Repository/blob/master/Ease.Repository.AzureTable/AzureTableRepositoryContext.cs/#L57">View Source</a>
+  </span>
+  <a id="Ease_Repository_AzureTable_AzureTableRepositoryContext_RegisterForUpdates_" data-uid="Ease.Repository.AzureTable.AzureTableRepositoryContext.RegisterForUpdates*"></a>
+  <h4 id="Ease_Repository_AzureTable_AzureTableRepositoryContext_RegisterForUpdates__1_System_Collections_Generic_IEnumerable___0__" data-uid="Ease.Repository.AzureTable.AzureTableRepositoryContext.RegisterForUpdates``1(System.Collections.Generic.IEnumerable{``0})">RegisterForUpdates&lt;TEntity&gt;(IEnumerable&lt;TEntity&gt;)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public IEnumerable&lt;TEntity&gt; RegisterForUpdates&lt;TEntity&gt;(IEnumerable&lt;TEntity&gt; entities)
+    where TEntity : class, new()</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Collections.Generic.IEnumerable</span>&lt;TEntity&gt;</td>
+        <td><span class="parametername">entities</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Collections.Generic.IEnumerable</span>&lt;TEntity&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="typeParameters">Type Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="parametername">TEntity</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/tausten/Ease.Repository/new/master/apiSpec/new?filename=Ease_Repository_AzureTable_AzureTableRepositoryContext_RegisterTableForEntityType__1_System_Func_System_String__.md&amp;value=---%0Auid%3A%20Ease.Repository.AzureTable.AzureTableRepositoryContext.RegisterTableForEntityType%60%601(System.Func%7BSystem.String%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/tausten/Ease.Repository/blob/master/Ease.Repository.AzureTable/AzureTableRepositoryContext.cs/#L71">View Source</a>
+  </span>
+  <a id="Ease_Repository_AzureTable_AzureTableRepositoryContext_RegisterTableForEntityType_" data-uid="Ease.Repository.AzureTable.AzureTableRepositoryContext.RegisterTableForEntityType*"></a>
+  <h4 id="Ease_Repository_AzureTable_AzureTableRepositoryContext_RegisterTableForEntityType__1_System_Func_System_String__" data-uid="Ease.Repository.AzureTable.AzureTableRepositoryContext.RegisterTableForEntityType``1(System.Func{System.String})">RegisterTableForEntityType&lt;TEntity&gt;(Func&lt;String&gt;)</h4>
   <div class="markdown level1 summary"><p>Return a Lazy of CloudTable that will fetch the table reference, honoring any configured TableNamePrefix
 and auto-create if not exist.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public Lazy&lt;CloudTable&gt; PrepareTable(Func&lt;string&gt; tableNameFunc)</code></pre>
+    <pre><code class="lang-csharp hljs">public Lazy&lt;CloudTable&gt; RegisterTableForEntityType&lt;TEntity&gt;(Func&lt;string&gt; tableNameFunc)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -242,7 +427,9 @@ and auto-create if not exist.</p>
       <tr>
         <td><span class="xref">System.Func</span>&lt;<span class="xref">System.String</span>&gt;</td>
         <td><span class="parametername">tableNameFunc</span></td>
-        <td></td>
+        <td><p>Needs to be a func instead of direct access to virtual because this is wired up (into Lazy objects)
+in the constructor where virtual calls are troublesome.</p>
+</td>
       </tr>
     </tbody>
   </table>
@@ -261,9 +448,27 @@ and auto-create if not exist.</p>
       </tr>
     </tbody>
   </table>
+  <h5 class="typeParameters">Type Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="parametername">TEntity</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
   <h3 id="implements">Implements</h3>
   <div>
       <a class="xref" href="Ease.Repository.AzureTable.IAzureTableRepositoryContext.html">IAzureTableRepositoryContext</a>
+  </div>
+  <div>
+      <a class="xref" href="Ease.Repository.IRegisterEntities.html">IRegisterEntities</a>
   </div>
   <h3 id="extensionmethods">Extension Methods</h3>
   <div>
@@ -277,10 +482,10 @@ and auto-create if not exist.</p>
               <div class="contribution">
                 <ul class="nav">
                   <li>
-                    <a href="https://github.com/tausten/Ease.Repository/new/develop/apiSpec/new?filename=Ease_Repository_AzureTable_AzureTableRepositoryContext.md&amp;value=---%0Auid%3A%20Ease.Repository.AzureTable.AzureTableRepositoryContext%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" class="contribution-link">Improve this Doc</a>
+                    <a href="https://github.com/tausten/Ease.Repository/new/master/apiSpec/new?filename=Ease_Repository_AzureTable_AzureTableRepositoryContext.md&amp;value=---%0Auid%3A%20Ease.Repository.AzureTable.AzureTableRepositoryContext%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" class="contribution-link">Improve this Doc</a>
                   </li>
                   <li>
-                    <a href="https://github.com/tausten/Ease.Repository/blob/develop/Ease.Repository.AzureTable/AzureTableRepositoryContext.cs/#L16" class="contribution-link">View Source</a>
+                    <a href="https://github.com/tausten/Ease.Repository/blob/master/Ease.Repository.AzureTable/AzureTableRepositoryContext.cs/#L18" class="contribution-link">View Source</a>
                   </li>
                 </ul>
               </div>

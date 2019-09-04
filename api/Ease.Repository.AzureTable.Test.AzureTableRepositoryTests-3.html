@@ -1,0 +1,686 @@
+﻿<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+  
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Class AzureTableRepositoryTests&lt;TContext, TEntity, TRepository&gt;
+   </title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="title" content="Class AzureTableRepositoryTests&lt;TContext, TEntity, TRepository&gt;
+   ">
+    <meta name="generator" content="docfx 2.45.0.0">
+    
+    <link rel="shortcut icon" href="../favicon.ico">
+    <link rel="stylesheet" href="../styles/docfx.vendor.css">
+    <link rel="stylesheet" href="../styles/docfx.css">
+    <link rel="stylesheet" href="../styles/main.css">
+    <meta property="docfx:navrel" content="../toc.html">
+    <meta property="docfx:tocrel" content="toc.html">
+    
+    
+    
+  </head>
+  <body data-spy="scroll" data-target="#affix" data-offset="120">
+    <div id="wrapper">
+      <header>
+        
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              
+              <a class="navbar-brand" href="../index.html">
+                <img id="logo" class="svg" src="../logo.svg" alt="">
+              </a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+        
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div role="main" class="container body-content hide-when-search">
+        
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="Ease.Repository.AzureTable.Test.AzureTableRepositoryTests`3">
+  
+  
+  <h1 id="Ease_Repository_AzureTable_Test_AzureTableRepositoryTests_3" data-uid="Ease.Repository.AzureTable.Test.AzureTableRepositoryTests`3" class="text-break">Class AzureTableRepositoryTests&lt;TContext, TEntity, TRepository&gt;
+  </h1>
+  <div class="markdown level0 summary"><p>Base class for providing a baseline set of tests covering operations common to all AzureTable-backed
+repositories, along with infrastructure to build additional special-purpose tests to cover any extended
+repository-specific additions.</p>
+</div>
+  <div class="markdown level0 conceptual"></div>
+  <div class="inheritance">
+    <h5>Inheritance</h5>
+    <div class="level0"><span class="xref">System.Object</span></div>
+    <div class="level1"><a class="xref" href="Ease.Repository.Test.RepositoryTests-3.html">RepositoryTests</a>&lt;<span class="xref">Microsoft.Azure.Cosmos.Table.ITableEntity</span>, TEntity, TRepository&gt;</div>
+    <div class="level2"><span class="xref">AzureTableRepositoryTests&lt;TContext, TEntity, TRepository&gt;</span></div>
+  </div>
+  <div class="inheritedMembers">
+    <h5>Inherited Members</h5>
+    <div>
+      <a class="xref" href="Ease.Repository.Test.RepositoryTests-3.html#Ease_Repository_Test_RepositoryTests_3_TheFixture">RepositoryTests&lt;ITableEntity, TEntity, TRepository&gt;.TheFixture</a>
+    </div>
+    <div>
+      <a class="xref" href="Ease.Repository.Test.RepositoryTests-3.html#Ease_Repository_Test_RepositoryTests_3_Sut">RepositoryTests&lt;ITableEntity, TEntity, TRepository&gt;.Sut</a>
+    </div>
+    <div>
+      <a class="xref" href="Ease.Repository.Test.RepositoryTests-3.html#Ease_Repository_Test_RepositoryTests_3_SetUp">RepositoryTests&lt;ITableEntity, TEntity, TRepository&gt;.SetUp()</a>
+    </div>
+    <div>
+      <a class="xref" href="Ease.Repository.Test.RepositoryTests-3.html#Ease_Repository_Test_RepositoryTests_3_SetUp_Impl">RepositoryTests&lt;ITableEntity, TEntity, TRepository&gt;.SetUp_Impl()</a>
+    </div>
+    <div>
+      <a class="xref" href="Ease.Repository.Test.RepositoryTests-3.html#Ease_Repository_Test_RepositoryTests_3_CompleteUnitOfWorkAsync">RepositoryTests&lt;ITableEntity, TEntity, TRepository&gt;.CompleteUnitOfWorkAsync()</a>
+    </div>
+    <div>
+      <a class="xref" href="Ease.Repository.Test.RepositoryTests-3.html#Ease_Repository_Test_RepositoryTests_3_FreezeDependencies_AutoFixture_IFixture_">RepositoryTests&lt;ITableEntity, TEntity, TRepository&gt;.FreezeDependencies(IFixture)</a>
+    </div>
+    <div>
+      <a class="xref" href="Ease.Repository.Test.RepositoryTests-3.html#Ease_Repository_Test_RepositoryTests_3_NewEntity">RepositoryTests&lt;ITableEntity, TEntity, TRepository&gt;.NewEntity()</a>
+    </div>
+    <div>
+      <a class="xref" href="Ease.Repository.Test.RepositoryTests-3.html#Ease_Repository_Test_RepositoryTests_3_NullifyKeyFields__1_">RepositoryTests&lt;ITableEntity, TEntity, TRepository&gt;.NullifyKeyFields(TEntity)</a>
+    </div>
+    <div>
+      <a class="xref" href="Ease.Repository.Test.RepositoryTests-3.html#Ease_Repository_Test_RepositoryTests_3_ModifyEntity__1_">RepositoryTests&lt;ITableEntity, TEntity, TRepository&gt;.ModifyEntity(TEntity)</a>
+    </div>
+    <div>
+      <a class="xref" href="Ease.Repository.Test.RepositoryTests-3.html#Ease_Repository_Test_RepositoryTests_3_AssertEntitiesAreEquivalent__1__1_">RepositoryTests&lt;ITableEntity, TEntity, TRepository&gt;.AssertEntitiesAreEquivalent(TEntity, TEntity)</a>
+    </div>
+    <div>
+      <a class="xref" href="Ease.Repository.Test.RepositoryTests-3.html#Ease_Repository_Test_RepositoryTests_3_AssertKeyFieldsNotNull__1_">RepositoryTests&lt;ITableEntity, TEntity, TRepository&gt;.AssertKeyFieldsNotNull(TEntity)</a>
+    </div>
+    <div>
+      <a class="xref" href="Ease.Repository.Test.RepositoryTests-3.html#Ease_Repository_Test_RepositoryTests_3_AssertRepositoryHasNumEntities_System_Int32_">RepositoryTests&lt;ITableEntity, TEntity, TRepository&gt;.AssertRepositoryHasNumEntities(Int32)</a>
+    </div>
+    <div>
+      <a class="xref" href="Ease.Repository.Test.RepositoryTests-3.html#Ease_Repository_Test_RepositoryTests_3_NewSimpleKeyFromEntity__1_">RepositoryTests&lt;ITableEntity, TEntity, TRepository&gt;.NewSimpleKeyFromEntity(TEntity)</a>
+    </div>
+    <div>
+      <a class="xref" href="Ease.Repository.Test.RepositoryTests-3.html#Ease_Repository_Test_RepositoryTests_3_Add_Sets_Keys">RepositoryTests&lt;ITableEntity, TEntity, TRepository&gt;.Add_Sets_Keys()</a>
+    </div>
+    <div>
+      <a class="xref" href="Ease.Repository.Test.RepositoryTests-3.html#Ease_Repository_Test_RepositoryTests_3_Add_Sets_Keys_Impl">RepositoryTests&lt;ITableEntity, TEntity, TRepository&gt;.Add_Sets_Keys_Impl()</a>
+    </div>
+    <div>
+      <a class="xref" href="Ease.Repository.Test.RepositoryTests-3.html#Ease_Repository_Test_RepositoryTests_3_Add_New_Entity_And_Get_RoundTrip">RepositoryTests&lt;ITableEntity, TEntity, TRepository&gt;.Add_New_Entity_And_Get_RoundTrip()</a>
+    </div>
+    <div>
+      <a class="xref" href="Ease.Repository.Test.RepositoryTests-3.html#Ease_Repository_Test_RepositoryTests_3_Add_New_Entity_And_Get_RoundTrip_Impl">RepositoryTests&lt;ITableEntity, TEntity, TRepository&gt;.Add_New_Entity_And_Get_RoundTrip_Impl()</a>
+    </div>
+    <div>
+      <a class="xref" href="Ease.Repository.Test.RepositoryTests-3.html#Ease_Repository_Test_RepositoryTests_3_Add_New_Entity_And_Get_By_Key_RoundTrip">RepositoryTests&lt;ITableEntity, TEntity, TRepository&gt;.Add_New_Entity_And_Get_By_Key_RoundTrip()</a>
+    </div>
+    <div>
+      <a class="xref" href="Ease.Repository.Test.RepositoryTests-3.html#Ease_Repository_Test_RepositoryTests_3_Add_New_Entity_And_Get_By_Key_RoundTrip_Impl">RepositoryTests&lt;ITableEntity, TEntity, TRepository&gt;.Add_New_Entity_And_Get_By_Key_RoundTrip_Impl()</a>
+    </div>
+    <div>
+      <a class="xref" href="Ease.Repository.Test.RepositoryTests-3.html#Ease_Repository_Test_RepositoryTests_3_Add_Existing_Entity_And_Get_RoundTrip">RepositoryTests&lt;ITableEntity, TEntity, TRepository&gt;.Add_Existing_Entity_And_Get_RoundTrip()</a>
+    </div>
+    <div>
+      <a class="xref" href="Ease.Repository.Test.RepositoryTests-3.html#Ease_Repository_Test_RepositoryTests_3_Add_Existing_Entity_And_Get_RoundTrip_Impl">RepositoryTests&lt;ITableEntity, TEntity, TRepository&gt;.Add_Existing_Entity_And_Get_RoundTrip_Impl()</a>
+    </div>
+    <div>
+      <a class="xref" href="Ease.Repository.Test.RepositoryTests-3.html#Ease_Repository_Test_RepositoryTests_3_Delete_And_Get_RoundTrip">RepositoryTests&lt;ITableEntity, TEntity, TRepository&gt;.Delete_And_Get_RoundTrip()</a>
+    </div>
+    <div>
+      <a class="xref" href="Ease.Repository.Test.RepositoryTests-3.html#Ease_Repository_Test_RepositoryTests_3_Delete_And_Get_RoundTrip_Impl">RepositoryTests&lt;ITableEntity, TEntity, TRepository&gt;.Delete_And_Get_RoundTrip_Impl()</a>
+    </div>
+    <div>
+      <a class="xref" href="Ease.Repository.Test.RepositoryTests-3.html#Ease_Repository_Test_RepositoryTests_3_Delete_By_Key_And_Get_RoundTrip">RepositoryTests&lt;ITableEntity, TEntity, TRepository&gt;.Delete_By_Key_And_Get_RoundTrip()</a>
+    </div>
+    <div>
+      <a class="xref" href="Ease.Repository.Test.RepositoryTests-3.html#Ease_Repository_Test_RepositoryTests_3_Delete_By_Key_And_Get_RoundTrip_Impl">RepositoryTests&lt;ITableEntity, TEntity, TRepository&gt;.Delete_By_Key_And_Get_RoundTrip_Impl()</a>
+    </div>
+    <div>
+      <span class="xref">System.Object.Equals(System.Object)</span>
+    </div>
+    <div>
+      <span class="xref">System.Object.Equals(System.Object, System.Object)</span>
+    </div>
+    <div>
+      <span class="xref">System.Object.GetHashCode()</span>
+    </div>
+    <div>
+      <span class="xref">System.Object.GetType()</span>
+    </div>
+    <div>
+      <span class="xref">System.Object.MemberwiseClone()</span>
+    </div>
+    <div>
+      <span class="xref">System.Object.ReferenceEquals(System.Object, System.Object)</span>
+    </div>
+    <div>
+      <span class="xref">System.Object.ToString()</span>
+    </div>
+  </div>
+  <h6><strong>Namespace</strong>: <a class="xref" href="Ease.Repository.AzureTable.Test.html">Ease.Repository.AzureTable.Test</a></h6>
+  <h6><strong>Assembly</strong>: Ease.Repository.AzureTable.Test.dll</h6>
+  <h5 id="Ease_Repository_AzureTable_Test_AzureTableRepositoryTests_3_syntax">Syntax</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public abstract class AzureTableRepositoryTests&lt;TContext, TEntity, TRepository&gt; : RepositoryTests&lt;ITableEntity, TEntity, TRepository&gt; where TContext : class, IAzureTableRepositoryContext where TEntity : class, ITableEntity, new()
+    where TRepository : AzureTableRepository&lt;TContext, TEntity&gt;</code></pre>
+  </div>
+  <h5 class="typeParameters">Type Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="parametername">TContext</span></td>
+        <td><p>The <code>IAzureTableRepositoryContext</code> wanted by the repository</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="parametername">TEntity</span></td>
+        <td><p>The entity Type managed by the repository</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="parametername">TRepository</span></td>
+        <td><p>The repository Type</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h3 id="properties">Properties
+  </h3>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/tausten/Ease.Repository/new/master/apiSpec/new?filename=Ease_Repository_AzureTable_Test_AzureTableRepositoryTests_3_Context.md&amp;value=---%0Auid%3A%20Ease.Repository.AzureTable.Test.AzureTableRepositoryTests%603.Context%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/tausten/Ease.Repository/blob/master/Ease.Repository.AzureTable.Test/AzureTableRepositoryTests.cs/#L33">View Source</a>
+  </span>
+  <a id="Ease_Repository_AzureTable_Test_AzureTableRepositoryTests_3_Context_" data-uid="Ease.Repository.AzureTable.Test.AzureTableRepositoryTests`3.Context*"></a>
+  <h4 id="Ease_Repository_AzureTable_Test_AzureTableRepositoryTests_3_Context" data-uid="Ease.Repository.AzureTable.Test.AzureTableRepositoryTests`3.Context">Context</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected TContext Context { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">TContext</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/tausten/Ease.Repository/new/master/apiSpec/new?filename=Ease_Repository_AzureTable_Test_AzureTableRepositoryTests_3_TestTableNamePrefix.md&amp;value=---%0Auid%3A%20Ease.Repository.AzureTable.Test.AzureTableRepositoryTests%603.TestTableNamePrefix%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/tausten/Ease.Repository/blob/master/Ease.Repository.AzureTable.Test/AzureTableRepositoryTests.cs/#L29">View Source</a>
+  </span>
+  <a id="Ease_Repository_AzureTable_Test_AzureTableRepositoryTests_3_TestTableNamePrefix_" data-uid="Ease.Repository.AzureTable.Test.AzureTableRepositoryTests`3.TestTableNamePrefix*"></a>
+  <h4 id="Ease_Repository_AzureTable_Test_AzureTableRepositoryTests_3_TestTableNamePrefix" data-uid="Ease.Repository.AzureTable.Test.AzureTableRepositoryTests`3.TestTableNamePrefix">TestTableNamePrefix</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected string TestTableNamePrefix { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/tausten/Ease.Repository/new/master/apiSpec/new?filename=Ease_Repository_AzureTable_Test_AzureTableRepositoryTests_3_UnitOfWork.md&amp;value=---%0Auid%3A%20Ease.Repository.AzureTable.Test.AzureTableRepositoryTests%603.UnitOfWork%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/tausten/Ease.Repository/blob/master/Ease.Repository.AzureTable.Test/AzureTableRepositoryTests.cs/#L31">View Source</a>
+  </span>
+  <a id="Ease_Repository_AzureTable_Test_AzureTableRepositoryTests_3_UnitOfWork_" data-uid="Ease.Repository.AzureTable.Test.AzureTableRepositoryTests`3.UnitOfWork*"></a>
+  <h4 id="Ease_Repository_AzureTable_Test_AzureTableRepositoryTests_3_UnitOfWork" data-uid="Ease.Repository.AzureTable.Test.AzureTableRepositoryTests`3.UnitOfWork">UnitOfWork</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected BestEffortUnitOfWork UnitOfWork { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Ease.Repository.BestEffortUnitOfWork.html">BestEffortUnitOfWork</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h3 id="methods">Methods
+  </h3>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/tausten/Ease.Repository/new/master/apiSpec/new?filename=Ease_Repository_AzureTable_Test_AzureTableRepositoryTests_3_Add_New_Entity_And_List_RoundTrip.md&amp;value=---%0Auid%3A%20Ease.Repository.AzureTable.Test.AzureTableRepositoryTests%603.Add_New_Entity_And_List_RoundTrip%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/tausten/Ease.Repository/blob/master/Ease.Repository.AzureTable.Test/AzureTableRepositoryTests.cs/#L113">View Source</a>
+  </span>
+  <a id="Ease_Repository_AzureTable_Test_AzureTableRepositoryTests_3_Add_New_Entity_And_List_RoundTrip_" data-uid="Ease.Repository.AzureTable.Test.AzureTableRepositoryTests`3.Add_New_Entity_And_List_RoundTrip*"></a>
+  <h4 id="Ease_Repository_AzureTable_Test_AzureTableRepositoryTests_3_Add_New_Entity_And_List_RoundTrip" data-uid="Ease.Repository.AzureTable.Test.AzureTableRepositoryTests`3.Add_New_Entity_And_List_RoundTrip">Add_New_Entity_And_List_RoundTrip()</h4>
+  <div class="markdown level1 summary"><p>NOTE: For most cases, just implement this as a call to the corresponding <code>base.*_Impl()</code>, and don't forget
+to apply your test framework's appropriate attributes or other mechanism for decorating test methods.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public abstract Task Add_New_Entity_And_List_RoundTrip()</code></pre>
+  </div>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Threading.Tasks.Task</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/tausten/Ease.Repository/new/master/apiSpec/new?filename=Ease_Repository_AzureTable_Test_AzureTableRepositoryTests_3_Add_New_Entity_And_List_RoundTrip_Impl.md&amp;value=---%0Auid%3A%20Ease.Repository.AzureTable.Test.AzureTableRepositoryTests%603.Add_New_Entity_And_List_RoundTrip_Impl%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/tausten/Ease.Repository/blob/master/Ease.Repository.AzureTable.Test/AzureTableRepositoryTests.cs/#L115">View Source</a>
+  </span>
+  <a id="Ease_Repository_AzureTable_Test_AzureTableRepositoryTests_3_Add_New_Entity_And_List_RoundTrip_Impl_" data-uid="Ease.Repository.AzureTable.Test.AzureTableRepositoryTests`3.Add_New_Entity_And_List_RoundTrip_Impl*"></a>
+  <h4 id="Ease_Repository_AzureTable_Test_AzureTableRepositoryTests_3_Add_New_Entity_And_List_RoundTrip_Impl" data-uid="Ease.Repository.AzureTable.Test.AzureTableRepositoryTests`3.Add_New_Entity_And_List_RoundTrip_Impl">Add_New_Entity_And_List_RoundTrip_Impl()</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected virtual Task Add_New_Entity_And_List_RoundTrip_Impl()</code></pre>
+  </div>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Threading.Tasks.Task</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/tausten/Ease.Repository/new/master/apiSpec/new?filename=Ease_Repository_AzureTable_Test_AzureTableRepositoryTests_3_AssertKeyFieldsNotNull__1_.md&amp;value=---%0Auid%3A%20Ease.Repository.AzureTable.Test.AzureTableRepositoryTests%603.AssertKeyFieldsNotNull(%601)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/tausten/Ease.Repository/blob/master/Ease.Repository.AzureTable.Test/AzureTableRepositoryTests.cs/#L66">View Source</a>
+  </span>
+  <a id="Ease_Repository_AzureTable_Test_AzureTableRepositoryTests_3_AssertKeyFieldsNotNull_" data-uid="Ease.Repository.AzureTable.Test.AzureTableRepositoryTests`3.AssertKeyFieldsNotNull*"></a>
+  <h4 id="Ease_Repository_AzureTable_Test_AzureTableRepositoryTests_3_AssertKeyFieldsNotNull__1_" data-uid="Ease.Repository.AzureTable.Test.AzureTableRepositoryTests`3.AssertKeyFieldsNotNull(`1)">AssertKeyFieldsNotNull(TEntity)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected override void AssertKeyFieldsNotNull(TEntity entity)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">TEntity</span></td>
+        <td><span class="parametername">entity</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="overrides">Overrides</h5>
+  <div><span class="xref">Ease.Repository.Test.RepositoryTests&lt;Microsoft.Azure.Cosmos.Table.ITableEntity, TEntity, TRepository&gt;.AssertKeyFieldsNotNull(TEntity)</span></div>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/tausten/Ease.Repository/new/master/apiSpec/new?filename=Ease_Repository_AzureTable_Test_AzureTableRepositoryTests_3_AssertRepositoryHasNumEntities_System_Int32_.md&amp;value=---%0Auid%3A%20Ease.Repository.AzureTable.Test.AzureTableRepositoryTests%603.AssertRepositoryHasNumEntities(System.Int32)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/tausten/Ease.Repository/blob/master/Ease.Repository.AzureTable.Test/AzureTableRepositoryTests.cs/#L72">View Source</a>
+  </span>
+  <a id="Ease_Repository_AzureTable_Test_AzureTableRepositoryTests_3_AssertRepositoryHasNumEntities_" data-uid="Ease.Repository.AzureTable.Test.AzureTableRepositoryTests`3.AssertRepositoryHasNumEntities*"></a>
+  <h4 id="Ease_Repository_AzureTable_Test_AzureTableRepositoryTests_3_AssertRepositoryHasNumEntities_System_Int32_" data-uid="Ease.Repository.AzureTable.Test.AzureTableRepositoryTests`3.AssertRepositoryHasNumEntities(System.Int32)">AssertRepositoryHasNumEntities(Int32)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected override void AssertRepositoryHasNumEntities(int num = 0)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Int32</span></td>
+        <td><span class="parametername">num</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="overrides">Overrides</h5>
+  <div><span class="xref">Ease.Repository.Test.RepositoryTests&lt;Microsoft.Azure.Cosmos.Table.ITableEntity, TEntity, TRepository&gt;.AssertRepositoryHasNumEntities(System.Int32)</span></div>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/tausten/Ease.Repository/new/master/apiSpec/new?filename=Ease_Repository_AzureTable_Test_AzureTableRepositoryTests_3_CompleteUnitOfWorkAsync.md&amp;value=---%0Auid%3A%20Ease.Repository.AzureTable.Test.AzureTableRepositoryTests%603.CompleteUnitOfWorkAsync%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/tausten/Ease.Repository/blob/master/Ease.Repository.AzureTable.Test/AzureTableRepositoryTests.cs/#L37">View Source</a>
+  </span>
+  <a id="Ease_Repository_AzureTable_Test_AzureTableRepositoryTests_3_CompleteUnitOfWorkAsync_" data-uid="Ease.Repository.AzureTable.Test.AzureTableRepositoryTests`3.CompleteUnitOfWorkAsync*"></a>
+  <h4 id="Ease_Repository_AzureTable_Test_AzureTableRepositoryTests_3_CompleteUnitOfWorkAsync" data-uid="Ease.Repository.AzureTable.Test.AzureTableRepositoryTests`3.CompleteUnitOfWorkAsync">CompleteUnitOfWorkAsync()</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected override Task CompleteUnitOfWorkAsync()</code></pre>
+  </div>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Threading.Tasks.Task</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="overrides">Overrides</h5>
+  <div><span class="xref">Ease.Repository.Test.RepositoryTests&lt;Microsoft.Azure.Cosmos.Table.ITableEntity, TEntity, TRepository&gt;.CompleteUnitOfWorkAsync()</span></div>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/tausten/Ease.Repository/new/master/apiSpec/new?filename=Ease_Repository_AzureTable_Test_AzureTableRepositoryTests_3_FreezeDependencies_AutoFixture_IFixture_.md&amp;value=---%0Auid%3A%20Ease.Repository.AzureTable.Test.AzureTableRepositoryTests%603.FreezeDependencies(AutoFixture.IFixture)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/tausten/Ease.Repository/blob/master/Ease.Repository.AzureTable.Test/AzureTableRepositoryTests.cs/#L46">View Source</a>
+  </span>
+  <a id="Ease_Repository_AzureTable_Test_AzureTableRepositoryTests_3_FreezeDependencies_" data-uid="Ease.Repository.AzureTable.Test.AzureTableRepositoryTests`3.FreezeDependencies*"></a>
+  <h4 id="Ease_Repository_AzureTable_Test_AzureTableRepositoryTests_3_FreezeDependencies_AutoFixture_IFixture_" data-uid="Ease.Repository.AzureTable.Test.AzureTableRepositoryTests`3.FreezeDependencies(AutoFixture.IFixture)">FreezeDependencies(IFixture)</h4>
+  <div class="markdown level1 summary"><p>Override to explicitly <code>Freeze()</code> any necessary dependencies prior to the <code>Sut</code> being allocated.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected override void FreezeDependencies(IFixture fixture)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">AutoFixture.IFixture</span></td>
+        <td><span class="parametername">fixture</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="overrides">Overrides</h5>
+  <div><span class="xref">Ease.Repository.Test.RepositoryTests&lt;Microsoft.Azure.Cosmos.Table.ITableEntity, TEntity, TRepository&gt;.FreezeDependencies(AutoFixture.IFixture)</span></div>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/tausten/Ease.Repository/new/master/apiSpec/new?filename=Ease_Repository_AzureTable_Test_AzureTableRepositoryTests_3_List_Returns_Empty_For_No_Data.md&amp;value=---%0Auid%3A%20Ease.Repository.AzureTable.Test.AzureTableRepositoryTests%603.List_Returns_Empty_For_No_Data%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/tausten/Ease.Repository/blob/master/Ease.Repository.AzureTable.Test/AzureTableRepositoryTests.cs/#L97">View Source</a>
+  </span>
+  <a id="Ease_Repository_AzureTable_Test_AzureTableRepositoryTests_3_List_Returns_Empty_For_No_Data_" data-uid="Ease.Repository.AzureTable.Test.AzureTableRepositoryTests`3.List_Returns_Empty_For_No_Data*"></a>
+  <h4 id="Ease_Repository_AzureTable_Test_AzureTableRepositoryTests_3_List_Returns_Empty_For_No_Data" data-uid="Ease.Repository.AzureTable.Test.AzureTableRepositoryTests`3.List_Returns_Empty_For_No_Data">List_Returns_Empty_For_No_Data()</h4>
+  <div class="markdown level1 summary"><p>NOTE: For most cases, just implement this as a call to the corresponding <code>base.*_Impl()</code>, and don't forget
+to apply your test framework's appropriate attributes or other mechanism for decorating test methods.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public abstract void List_Returns_Empty_For_No_Data()</code></pre>
+  </div>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/tausten/Ease.Repository/new/master/apiSpec/new?filename=Ease_Repository_AzureTable_Test_AzureTableRepositoryTests_3_List_Returns_Empty_For_No_Data_Impl.md&amp;value=---%0Auid%3A%20Ease.Repository.AzureTable.Test.AzureTableRepositoryTests%603.List_Returns_Empty_For_No_Data_Impl%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/tausten/Ease.Repository/blob/master/Ease.Repository.AzureTable.Test/AzureTableRepositoryTests.cs/#L99">View Source</a>
+  </span>
+  <a id="Ease_Repository_AzureTable_Test_AzureTableRepositoryTests_3_List_Returns_Empty_For_No_Data_Impl_" data-uid="Ease.Repository.AzureTable.Test.AzureTableRepositoryTests`3.List_Returns_Empty_For_No_Data_Impl*"></a>
+  <h4 id="Ease_Repository_AzureTable_Test_AzureTableRepositoryTests_3_List_Returns_Empty_For_No_Data_Impl" data-uid="Ease.Repository.AzureTable.Test.AzureTableRepositoryTests`3.List_Returns_Empty_For_No_Data_Impl">List_Returns_Empty_For_No_Data_Impl()</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected virtual void List_Returns_Empty_For_No_Data_Impl()</code></pre>
+  </div>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/tausten/Ease.Repository/new/master/apiSpec/new?filename=Ease_Repository_AzureTable_Test_AzureTableRepositoryTests_3_NullifyKeyFields__1_.md&amp;value=---%0Auid%3A%20Ease.Repository.AzureTable.Test.AzureTableRepositoryTests%603.NullifyKeyFields(%601)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/tausten/Ease.Repository/blob/master/Ease.Repository.AzureTable.Test/AzureTableRepositoryTests.cs/#L60">View Source</a>
+  </span>
+  <a id="Ease_Repository_AzureTable_Test_AzureTableRepositoryTests_3_NullifyKeyFields_" data-uid="Ease.Repository.AzureTable.Test.AzureTableRepositoryTests`3.NullifyKeyFields*"></a>
+  <h4 id="Ease_Repository_AzureTable_Test_AzureTableRepositoryTests_3_NullifyKeyFields__1_" data-uid="Ease.Repository.AzureTable.Test.AzureTableRepositoryTests`3.NullifyKeyFields(`1)">NullifyKeyFields(TEntity)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected override void NullifyKeyFields(TEntity entity)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">TEntity</span></td>
+        <td><span class="parametername">entity</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="overrides">Overrides</h5>
+  <div><span class="xref">Ease.Repository.Test.RepositoryTests&lt;Microsoft.Azure.Cosmos.Table.ITableEntity, TEntity, TRepository&gt;.NullifyKeyFields(TEntity)</span></div>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/tausten/Ease.Repository/new/master/apiSpec/new?filename=Ease_Repository_AzureTable_Test_AzureTableRepositoryTests_3_PrepareDependenciesForContext_AutoFixture_IFixture_.md&amp;value=---%0Auid%3A%20Ease.Repository.AzureTable.Test.AzureTableRepositoryTests%603.PrepareDependenciesForContext(AutoFixture.IFixture)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/tausten/Ease.Repository/blob/master/Ease.Repository.AzureTable.Test/AzureTableRepositoryTests.cs/#L35">View Source</a>
+  </span>
+  <a id="Ease_Repository_AzureTable_Test_AzureTableRepositoryTests_3_PrepareDependenciesForContext_" data-uid="Ease.Repository.AzureTable.Test.AzureTableRepositoryTests`3.PrepareDependenciesForContext*"></a>
+  <h4 id="Ease_Repository_AzureTable_Test_AzureTableRepositoryTests_3_PrepareDependenciesForContext_AutoFixture_IFixture_" data-uid="Ease.Repository.AzureTable.Test.AzureTableRepositoryTests`3.PrepareDependenciesForContext(AutoFixture.IFixture)">PrepareDependenciesForContext(IFixture)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected virtual void PrepareDependenciesForContext(IFixture fixture)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">AutoFixture.IFixture</span></td>
+        <td><span class="parametername">fixture</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/tausten/Ease.Repository/new/master/apiSpec/new?filename=Ease_Repository_AzureTable_Test_AzureTableRepositoryTests_3_TearDown.md&amp;value=---%0Auid%3A%20Ease.Repository.AzureTable.Test.AzureTableRepositoryTests%603.TearDown%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/tausten/Ease.Repository/blob/master/Ease.Repository.AzureTable.Test/AzureTableRepositoryTests.cs/#L82">View Source</a>
+  </span>
+  <a id="Ease_Repository_AzureTable_Test_AzureTableRepositoryTests_3_TearDown_" data-uid="Ease.Repository.AzureTable.Test.AzureTableRepositoryTests`3.TearDown*"></a>
+  <h4 id="Ease_Repository_AzureTable_Test_AzureTableRepositoryTests_3_TearDown" data-uid="Ease.Repository.AzureTable.Test.AzureTableRepositoryTests`3.TearDown">TearDown()</h4>
+  <div class="markdown level1 summary"><p>A tear-down step is necessary.
+NOTE: For most cases, just implement this as a call to the corresponding <code>base.*_Impl()</code>, and don't forget
+to apply your test framework's appropriate attributes or other mechanism for decorating TearDown methods.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public abstract void TearDown()</code></pre>
+  </div>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/tausten/Ease.Repository/new/master/apiSpec/new?filename=Ease_Repository_AzureTable_Test_AzureTableRepositoryTests_3_TearDown_Impl.md&amp;value=---%0Auid%3A%20Ease.Repository.AzureTable.Test.AzureTableRepositoryTests%603.TearDown_Impl%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/tausten/Ease.Repository/blob/master/Ease.Repository.AzureTable.Test/AzureTableRepositoryTests.cs/#L84">View Source</a>
+  </span>
+  <a id="Ease_Repository_AzureTable_Test_AzureTableRepositoryTests_3_TearDown_Impl_" data-uid="Ease.Repository.AzureTable.Test.AzureTableRepositoryTests`3.TearDown_Impl*"></a>
+  <h4 id="Ease_Repository_AzureTable_Test_AzureTableRepositoryTests_3_TearDown_Impl" data-uid="Ease.Repository.AzureTable.Test.AzureTableRepositoryTests`3.TearDown_Impl">TearDown_Impl()</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected virtual void TearDown_Impl()</code></pre>
+  </div>
+  <h3 id="extensionmethods">Extension Methods</h3>
+  <div>
+      <a class="xref" href="Ease.Repository.ChangeTrackingExtensions.html#Ease_Repository_ChangeTrackingExtensions_CurrentState__1___0_">ChangeTrackingExtensions.CurrentState&lt;T&gt;(T)</a>
+  </div>
+</article>
+          </div>
+          
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <div class="contribution">
+                <ul class="nav">
+                  <li>
+                    <a href="https://github.com/tausten/Ease.Repository/new/master/apiSpec/new?filename=Ease_Repository_AzureTable_Test_AzureTableRepositoryTests_3.md&amp;value=---%0Auid%3A%20Ease.Repository.AzureTable.Test.AzureTableRepositoryTests%603%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" class="contribution-link">Improve this Doc</a>
+                  </li>
+                  <li>
+                    <a href="https://github.com/tausten/Ease.Repository/blob/master/Ease.Repository.AzureTable.Test/AzureTableRepositoryTests.cs/#L23" class="contribution-link">View Source</a>
+                  </li>
+                </ul>
+              </div>
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+              <!-- <p><a class="back-to-top" href="#top">Back to top</a><p> -->
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+            
+            <span>Generated by <strong>DocFX</strong></span>
+          </div>
+        </div>
+      </footer>
+    </div>
+    
+    <script type="text/javascript" src="../styles/docfx.vendor.js"></script>
+    <script type="text/javascript" src="../styles/docfx.js"></script>
+    <script type="text/javascript" src="../styles/main.js"></script>
+  </body>
+</html>

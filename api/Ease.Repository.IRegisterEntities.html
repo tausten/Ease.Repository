@@ -5,10 +5,10 @@
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-    <title>Interface IStoreBatchWriter
+    <title>Interface IRegisterEntities
    </title>
     <meta name="viewport" content="width=device-width">
-    <meta name="title" content="Interface IStoreBatchWriter
+    <meta name="title" content="Interface IRegisterEntities
    ">
     <meta name="generator" content="docfx 2.45.0.0">
     
@@ -68,49 +68,36 @@
         </div>
         <div class="article row grid-right">
           <div class="col-md-10">
-            <article class="content wrap" id="_content" data-uid="Ease.Repository.IStoreBatchWriter">
+            <article class="content wrap" id="_content" data-uid="Ease.Repository.IRegisterEntities">
   
   
-  <h1 id="Ease_Repository_IStoreBatchWriter" data-uid="Ease.Repository.IStoreBatchWriter" class="text-break">Interface IStoreBatchWriter
+  <h1 id="Ease_Repository_IRegisterEntities" data-uid="Ease.Repository.IRegisterEntities" class="text-break">Interface IRegisterEntities
   </h1>
-  <div class="markdown level0 summary"><p>Synchronous batch write abstraction for Stores.</p>
-</div>
+  <div class="markdown level0 summary"></div>
   <div class="markdown level0 conceptual"></div>
-  <div class="inheritedMembers">
-    <h5>Inherited Members</h5>
-    <div>
-      <a class="xref" href="Ease.Repository.IStoreWriter.html#Ease_Repository_IStoreWriter_Add__1___0_">IStoreWriter.Add&lt;TEntity&gt;(TEntity)</a>
-    </div>
-    <div>
-      <a class="xref" href="Ease.Repository.IStoreWriter.html#Ease_Repository_IStoreWriter_Update__1___0_">IStoreWriter.Update&lt;TEntity&gt;(TEntity)</a>
-    </div>
-    <div>
-      <a class="xref" href="Ease.Repository.IStoreWriter.html#Ease_Repository_IStoreWriter_Delete__1___0_">IStoreWriter.Delete&lt;TEntity&gt;(TEntity)</a>
-    </div>
-  </div>
   <h6><strong>Namespace</strong>: <a class="xref" href="Ease.Repository.html">Ease.Repository</a></h6>
   <h6><strong>Assembly</strong>: Ease.Repository.dll</h6>
-  <h5 id="Ease_Repository_IStoreBatchWriter_syntax">Syntax</h5>
+  <h5 id="Ease_Repository_IRegisterEntities_syntax">Syntax</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public interface IStoreBatchWriter : IStoreWriter</code></pre>
+    <pre><code class="lang-csharp hljs">public interface IRegisterEntities</code></pre>
   </div>
   <h3 id="methods">Methods
   </h3>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/tausten/Ease.Repository/new/master/apiSpec/new?filename=Ease_Repository_IStoreBatchWriter_Add__1_System_Collections_Generic_IEnumerable___0__.md&amp;value=---%0Auid%3A%20Ease.Repository.IStoreBatchWriter.Add%60%601(System.Collections.Generic.IEnumerable%7B%60%600%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/tausten/Ease.Repository/new/master/apiSpec/new?filename=Ease_Repository_IRegisterEntities_RegisterAdd__1___0_.md&amp;value=---%0Auid%3A%20Ease.Repository.IRegisterEntities.RegisterAdd%60%601(%60%600)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/tausten/Ease.Repository/blob/master/Ease.Repository/IStoreWriter.cs/#L47">View Source</a>
+    <a href="https://github.com/tausten/Ease.Repository/blob/master/Ease.Repository/IRegisterEntities.cs/#L17">View Source</a>
   </span>
-  <a id="Ease_Repository_IStoreBatchWriter_Add_" data-uid="Ease.Repository.IStoreBatchWriter.Add*"></a>
-  <h4 id="Ease_Repository_IStoreBatchWriter_Add__1_System_Collections_Generic_IEnumerable___0__" data-uid="Ease.Repository.IStoreBatchWriter.Add``1(System.Collections.Generic.IEnumerable{``0})">Add&lt;TEntity&gt;(IEnumerable&lt;TEntity&gt;)</h4>
-  <div class="markdown level1 summary"><p>Add the new entities to the store.</p>
+  <a id="Ease_Repository_IRegisterEntities_RegisterAdd_" data-uid="Ease.Repository.IRegisterEntities.RegisterAdd*"></a>
+  <h4 id="Ease_Repository_IRegisterEntities_RegisterAdd__1___0_" data-uid="Ease.Repository.IRegisterEntities.RegisterAdd``1(``0)">RegisterAdd&lt;TEntity&gt;(TEntity)</h4>
+  <div class="markdown level1 summary"><p>Registers an Add of a new entity with the unit of work.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">void Add&lt;TEntity&gt;(IEnumerable&lt;TEntity&gt; entities)
+    <pre><code class="lang-csharp hljs">TEntity RegisterAdd&lt;TEntity&gt;(TEntity entity)
     where TEntity : class, new()</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
@@ -124,9 +111,25 @@
     </thead>
     <tbody>
       <tr>
-        <td><span class="xref">System.Collections.Generic.IEnumerable</span>&lt;TEntity&gt;</td>
-        <td><span class="parametername">entities</span></td>
-        <td><p>The entities to add</p>
+        <td><span class="xref">TEntity</span></td>
+        <td><span class="parametername">entity</span></td>
+        <td><p>The new entity being added</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">TEntity</span></td>
+        <td><p>The unit of work-tracked entity to return from repository.</p>
 </td>
       </tr>
     </tbody>
@@ -142,26 +145,26 @@
     <tbody>
       <tr>
         <td><span class="parametername">TEntity</span></td>
-        <td><p>The entity Type</p>
+        <td><p>The entity type.</p>
 </td>
       </tr>
     </tbody>
   </table>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/tausten/Ease.Repository/new/master/apiSpec/new?filename=Ease_Repository_IStoreBatchWriter_Delete__1_System_Collections_Generic_IEnumerable___0__.md&amp;value=---%0Auid%3A%20Ease.Repository.IStoreBatchWriter.Delete%60%601(System.Collections.Generic.IEnumerable%7B%60%600%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/tausten/Ease.Repository/new/master/apiSpec/new?filename=Ease_Repository_IRegisterEntities_RegisterDelete__1___0_.md&amp;value=---%0Auid%3A%20Ease.Repository.IRegisterEntities.RegisterDelete%60%601(%60%600)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/tausten/Ease.Repository/blob/master/Ease.Repository/IStoreWriter.cs/#L61">View Source</a>
+    <a href="https://github.com/tausten/Ease.Repository/blob/master/Ease.Repository/IRegisterEntities.cs/#L39">View Source</a>
   </span>
-  <a id="Ease_Repository_IStoreBatchWriter_Delete_" data-uid="Ease.Repository.IStoreBatchWriter.Delete*"></a>
-  <h4 id="Ease_Repository_IStoreBatchWriter_Delete__1_System_Collections_Generic_IEnumerable___0__" data-uid="Ease.Repository.IStoreBatchWriter.Delete``1(System.Collections.Generic.IEnumerable{``0})">Delete&lt;TEntity&gt;(IEnumerable&lt;TEntity&gt;)</h4>
-  <div class="markdown level1 summary"><p>Delete the entities from the store.</p>
+  <a id="Ease_Repository_IRegisterEntities_RegisterDelete_" data-uid="Ease.Repository.IRegisterEntities.RegisterDelete*"></a>
+  <h4 id="Ease_Repository_IRegisterEntities_RegisterDelete__1___0_" data-uid="Ease.Repository.IRegisterEntities.RegisterDelete``1(``0)">RegisterDelete&lt;TEntity&gt;(TEntity)</h4>
+  <div class="markdown level1 summary"><p>Registers a Delete of an entity with the unit of work.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">void Delete&lt;TEntity&gt;(IEnumerable&lt;TEntity&gt; entities)
+    <pre><code class="lang-csharp hljs">void RegisterDelete&lt;TEntity&gt;(TEntity entity)
     where TEntity : class, new()</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
@@ -175,9 +178,9 @@
     </thead>
     <tbody>
       <tr>
-        <td><span class="xref">System.Collections.Generic.IEnumerable</span>&lt;TEntity&gt;</td>
-        <td><span class="parametername">entities</span></td>
-        <td><p>The entities to delete</p>
+        <td><span class="xref">TEntity</span></td>
+        <td><span class="parametername">entity</span></td>
+        <td><p>The entity being deleted.</p>
 </td>
       </tr>
     </tbody>
@@ -193,26 +196,27 @@
     <tbody>
       <tr>
         <td><span class="parametername">TEntity</span></td>
-        <td><p>The entity Type</p>
+        <td><p>The entity type.</p>
 </td>
       </tr>
     </tbody>
   </table>
   <span class="small pull-right mobile-hide">
     <span class="divider">|</span>
-    <a href="https://github.com/tausten/Ease.Repository/new/master/apiSpec/new?filename=Ease_Repository_IStoreBatchWriter_Update__1_System_Collections_Generic_IEnumerable___0__.md&amp;value=---%0Auid%3A%20Ease.Repository.IStoreBatchWriter.Update%60%601(System.Collections.Generic.IEnumerable%7B%60%600%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+    <a href="https://github.com/tausten/Ease.Repository/new/master/apiSpec/new?filename=Ease_Repository_IRegisterEntities_RegisterForUpdates__1_System_Collections_Generic_IEnumerable___0__.md&amp;value=---%0Auid%3A%20Ease.Repository.IRegisterEntities.RegisterForUpdates%60%601(System.Collections.Generic.IEnumerable%7B%60%600%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/tausten/Ease.Repository/blob/master/Ease.Repository/IStoreWriter.cs/#L54">View Source</a>
+    <a href="https://github.com/tausten/Ease.Repository/blob/master/Ease.Repository/IRegisterEntities.cs/#L28">View Source</a>
   </span>
-  <a id="Ease_Repository_IStoreBatchWriter_Update_" data-uid="Ease.Repository.IStoreBatchWriter.Update*"></a>
-  <h4 id="Ease_Repository_IStoreBatchWriter_Update__1_System_Collections_Generic_IEnumerable___0__" data-uid="Ease.Repository.IStoreBatchWriter.Update``1(System.Collections.Generic.IEnumerable{``0})">Update&lt;TEntity&gt;(IEnumerable&lt;TEntity&gt;)</h4>
-  <div class="markdown level1 summary"><p>Update the entities in the store.</p>
+  <a id="Ease_Repository_IRegisterEntities_RegisterForUpdates_" data-uid="Ease.Repository.IRegisterEntities.RegisterForUpdates*"></a>
+  <h4 id="Ease_Repository_IRegisterEntities_RegisterForUpdates__1_System_Collections_Generic_IEnumerable___0__" data-uid="Ease.Repository.IRegisterEntities.RegisterForUpdates``1(System.Collections.Generic.IEnumerable{``0})">RegisterForUpdates&lt;TEntity&gt;(IEnumerable&lt;TEntity&gt;)</h4>
+  <div class="markdown level1 summary"><p>Registers a set of entities for update handling with the unit of work. Typically, you should call this
+in the repository's Add handler, and in the repository's read-related handlers.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">void Update&lt;TEntity&gt;(IEnumerable&lt;TEntity&gt; entities)
+    <pre><code class="lang-csharp hljs">IEnumerable&lt;TEntity&gt; RegisterForUpdates&lt;TEntity&gt;(IEnumerable&lt;TEntity&gt; entities)
     where TEntity : class, new()</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
@@ -228,7 +232,23 @@
       <tr>
         <td><span class="xref">System.Collections.Generic.IEnumerable</span>&lt;TEntity&gt;</td>
         <td><span class="parametername">entities</span></td>
-        <td><p>The entities to update</p>
+        <td><p>The entities that have been fetched from the store.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Collections.Generic.IEnumerable</span>&lt;TEntity&gt;</td>
+        <td><p>The unit of work-tracked entities to return from repository.</p>
 </td>
       </tr>
     </tbody>
@@ -244,7 +264,7 @@
     <tbody>
       <tr>
         <td><span class="parametername">TEntity</span></td>
-        <td><p>Tye entity Type</p>
+        <td><p>The entity type.</p>
 </td>
       </tr>
     </tbody>
@@ -261,10 +281,10 @@
               <div class="contribution">
                 <ul class="nav">
                   <li>
-                    <a href="https://github.com/tausten/Ease.Repository/new/master/apiSpec/new?filename=Ease_Repository_IStoreBatchWriter.md&amp;value=---%0Auid%3A%20Ease.Repository.IStoreBatchWriter%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" class="contribution-link">Improve this Doc</a>
+                    <a href="https://github.com/tausten/Ease.Repository/new/master/apiSpec/new?filename=Ease_Repository_IRegisterEntities.md&amp;value=---%0Auid%3A%20Ease.Repository.IRegisterEntities%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" class="contribution-link">Improve this Doc</a>
                   </li>
                   <li>
-                    <a href="https://github.com/tausten/Ease.Repository/blob/master/Ease.Repository/IStoreWriter.cs/#L40" class="contribution-link">View Source</a>
+                    <a href="https://github.com/tausten/Ease.Repository/blob/master/Ease.Repository/IRegisterEntities.cs/#L9" class="contribution-link">View Source</a>
                   </li>
                 </ul>
               </div>

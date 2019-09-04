@@ -109,15 +109,14 @@ references:
   fullName.vb: Ease.Repository.AzureTable.AzureTableRepository(Of TContext, TEntity)
   nameWithType: AzureTableRepository<TContext, TEntity>
   nameWithType.vb: AzureTableRepository(Of TContext, TEntity)
-- uid: Ease.Repository.AzureTable.AzureTableRepository`2.#ctor(Ease.Repository.BestEffortUnitOfWork{`0})
-  name: AzureTableRepository(BestEffortUnitOfWork<TContext>)
-  href: api/Ease.Repository.AzureTable.AzureTableRepository-2.html#Ease_Repository_AzureTable_AzureTableRepository_2__ctor_Ease_Repository_BestEffortUnitOfWork__0__
-  commentId: M:Ease.Repository.AzureTable.AzureTableRepository`2.#ctor(Ease.Repository.BestEffortUnitOfWork{`0})
-  name.vb: AzureTableRepository(BestEffortUnitOfWork(Of TContext))
-  fullName: Ease.Repository.AzureTable.AzureTableRepository<TContext, TEntity>.AzureTableRepository(Ease.Repository.BestEffortUnitOfWork<TContext>)
-  fullName.vb: Ease.Repository.AzureTable.AzureTableRepository(Of TContext, TEntity).AzureTableRepository(Ease.Repository.BestEffortUnitOfWork(Of TContext))
-  nameWithType: AzureTableRepository<TContext, TEntity>.AzureTableRepository(BestEffortUnitOfWork<TContext>)
-  nameWithType.vb: AzureTableRepository(Of TContext, TEntity).AzureTableRepository(BestEffortUnitOfWork(Of TContext))
+- uid: Ease.Repository.AzureTable.AzureTableRepository`2.#ctor(`0)
+  name: AzureTableRepository(TContext)
+  href: api/Ease.Repository.AzureTable.AzureTableRepository-2.html#Ease_Repository_AzureTable_AzureTableRepository_2__ctor__0_
+  commentId: M:Ease.Repository.AzureTable.AzureTableRepository`2.#ctor(`0)
+  fullName: Ease.Repository.AzureTable.AzureTableRepository<TContext, TEntity>.AzureTableRepository(TContext)
+  fullName.vb: Ease.Repository.AzureTable.AzureTableRepository(Of TContext, TEntity).AzureTableRepository(TContext)
+  nameWithType: AzureTableRepository<TContext, TEntity>.AzureTableRepository(TContext)
+  nameWithType.vb: AzureTableRepository(Of TContext, TEntity).AzureTableRepository(TContext)
 - uid: Ease.Repository.AzureTable.AzureTableRepository`2.#ctor*
   name: AzureTableRepository
   href: api/Ease.Repository.AzureTable.AzureTableRepository-2.html#Ease_Repository_AzureTable_AzureTableRepository_2__ctor_
@@ -161,6 +160,23 @@ references:
   fullName.vb: Ease.Repository.AzureTable.AzureTableRepository(Of TContext, TEntity).CalculatePartitionKeyFor
   nameWithType: AzureTableRepository<TContext, TEntity>.CalculatePartitionKeyFor
   nameWithType.vb: AzureTableRepository(Of TContext, TEntity).CalculatePartitionKeyFor
+- uid: Ease.Repository.AzureTable.AzureTableRepository`2.Context
+  name: Context
+  href: api/Ease.Repository.AzureTable.AzureTableRepository-2.html#Ease_Repository_AzureTable_AzureTableRepository_2_Context
+  commentId: P:Ease.Repository.AzureTable.AzureTableRepository`2.Context
+  fullName: Ease.Repository.AzureTable.AzureTableRepository<TContext, TEntity>.Context
+  fullName.vb: Ease.Repository.AzureTable.AzureTableRepository(Of TContext, TEntity).Context
+  nameWithType: AzureTableRepository<TContext, TEntity>.Context
+  nameWithType.vb: AzureTableRepository(Of TContext, TEntity).Context
+- uid: Ease.Repository.AzureTable.AzureTableRepository`2.Context*
+  name: Context
+  href: api/Ease.Repository.AzureTable.AzureTableRepository-2.html#Ease_Repository_AzureTable_AzureTableRepository_2_Context_
+  commentId: Overload:Ease.Repository.AzureTable.AzureTableRepository`2.Context
+  isSpec: "True"
+  fullName: Ease.Repository.AzureTable.AzureTableRepository<TContext, TEntity>.Context
+  fullName.vb: Ease.Repository.AzureTable.AzureTableRepository(Of TContext, TEntity).Context
+  nameWithType: AzureTableRepository<TContext, TEntity>.Context
+  nameWithType.vb: AzureTableRepository(Of TContext, TEntity).Context
 - uid: Ease.Repository.AzureTable.AzureTableRepository`2.Delete(Microsoft.Azure.Cosmos.Table.ITableEntity)
   name: Delete(ITableEntity)
   href: api/Ease.Repository.AzureTable.AzureTableRepository-2.html#Ease_Repository_AzureTable_AzureTableRepository_2_Delete_Microsoft_Azure_Cosmos_Table_ITableEntity_
@@ -229,14 +245,6 @@ references:
   fullName.vb: Ease.Repository.AzureTable.AzureTableRepository(Of TContext, TEntity).NewUniqueId
   nameWithType: AzureTableRepository<TContext, TEntity>.NewUniqueId
   nameWithType.vb: AzureTableRepository(Of TContext, TEntity).NewUniqueId
-- uid: Ease.Repository.AzureTable.AzureTableRepository`2.StoreWriter
-  name: StoreWriter
-  href: api/Ease.Repository.AzureTable.AzureTableRepository-2.html#Ease_Repository_AzureTable_AzureTableRepository_2_StoreWriter
-  commentId: F:Ease.Repository.AzureTable.AzureTableRepository`2.StoreWriter
-  fullName: Ease.Repository.AzureTable.AzureTableRepository<TContext, TEntity>.StoreWriter
-  fullName.vb: Ease.Repository.AzureTable.AzureTableRepository(Of TContext, TEntity).StoreWriter
-  nameWithType: AzureTableRepository<TContext, TEntity>.StoreWriter
-  nameWithType.vb: AzureTableRepository(Of TContext, TEntity).StoreWriter
 - uid: Ease.Repository.AzureTable.AzureTableRepository`2.Table
   name: Table
   href: api/Ease.Repository.AzureTable.AzureTableRepository-2.html#Ease_Repository_AzureTable_AzureTableRepository_2_Table
@@ -262,35 +270,18 @@ references:
   fullName.vb: Ease.Repository.AzureTable.AzureTableRepository(Of TContext, TEntity).TableName
   nameWithType: AzureTableRepository<TContext, TEntity>.TableName
   nameWithType.vb: AzureTableRepository(Of TContext, TEntity).TableName
-- uid: Ease.Repository.AzureTable.AzureTableRepository`2.UnitOfWork
-  name: UnitOfWork
-  href: api/Ease.Repository.AzureTable.AzureTableRepository-2.html#Ease_Repository_AzureTable_AzureTableRepository_2_UnitOfWork
-  commentId: P:Ease.Repository.AzureTable.AzureTableRepository`2.UnitOfWork
-  fullName: Ease.Repository.AzureTable.AzureTableRepository<TContext, TEntity>.UnitOfWork
-  fullName.vb: Ease.Repository.AzureTable.AzureTableRepository(Of TContext, TEntity).UnitOfWork
-  nameWithType: AzureTableRepository<TContext, TEntity>.UnitOfWork
-  nameWithType.vb: AzureTableRepository(Of TContext, TEntity).UnitOfWork
-- uid: Ease.Repository.AzureTable.AzureTableRepository`2.UnitOfWork*
-  name: UnitOfWork
-  href: api/Ease.Repository.AzureTable.AzureTableRepository-2.html#Ease_Repository_AzureTable_AzureTableRepository_2_UnitOfWork_
-  commentId: Overload:Ease.Repository.AzureTable.AzureTableRepository`2.UnitOfWork
-  isSpec: "True"
-  fullName: Ease.Repository.AzureTable.AzureTableRepository<TContext, TEntity>.UnitOfWork
-  fullName.vb: Ease.Repository.AzureTable.AzureTableRepository(Of TContext, TEntity).UnitOfWork
-  nameWithType: AzureTableRepository<TContext, TEntity>.UnitOfWork
-  nameWithType.vb: AzureTableRepository(Of TContext, TEntity).UnitOfWork
 - uid: Ease.Repository.AzureTable.AzureTableRepositoryConfig
   name: AzureTableRepositoryConfig
   href: api/Ease.Repository.AzureTable.AzureTableRepositoryConfig.html
   commentId: T:Ease.Repository.AzureTable.AzureTableRepositoryConfig
   fullName: Ease.Repository.AzureTable.AzureTableRepositoryConfig
   nameWithType: AzureTableRepositoryConfig
-- uid: Ease.Repository.AzureTable.AzureTableRepositoryConfig.#ctor(Microsoft.Extensions.Configuration.IConfiguration)
-  name: AzureTableRepositoryConfig(IConfiguration)
-  href: api/Ease.Repository.AzureTable.AzureTableRepositoryConfig.html#Ease_Repository_AzureTable_AzureTableRepositoryConfig__ctor_Microsoft_Extensions_Configuration_IConfiguration_
-  commentId: M:Ease.Repository.AzureTable.AzureTableRepositoryConfig.#ctor(Microsoft.Extensions.Configuration.IConfiguration)
-  fullName: Ease.Repository.AzureTable.AzureTableRepositoryConfig.AzureTableRepositoryConfig(Microsoft.Extensions.Configuration.IConfiguration)
-  nameWithType: AzureTableRepositoryConfig.AzureTableRepositoryConfig(IConfiguration)
+- uid: Ease.Repository.AzureTable.AzureTableRepositoryConfig.#ctor(Microsoft.Extensions.Configuration.IConfiguration,System.String)
+  name: AzureTableRepositoryConfig(IConfiguration, String)
+  href: api/Ease.Repository.AzureTable.AzureTableRepositoryConfig.html#Ease_Repository_AzureTable_AzureTableRepositoryConfig__ctor_Microsoft_Extensions_Configuration_IConfiguration_System_String_
+  commentId: M:Ease.Repository.AzureTable.AzureTableRepositoryConfig.#ctor(Microsoft.Extensions.Configuration.IConfiguration,System.String)
+  fullName: Ease.Repository.AzureTable.AzureTableRepositoryConfig.AzureTableRepositoryConfig(Microsoft.Extensions.Configuration.IConfiguration, System.String)
+  nameWithType: AzureTableRepositoryConfig.AzureTableRepositoryConfig(IConfiguration, String)
 - uid: Ease.Repository.AzureTable.AzureTableRepositoryConfig.#ctor*
   name: AzureTableRepositoryConfig
   href: api/Ease.Repository.AzureTable.AzureTableRepositoryConfig.html#Ease_Repository_AzureTable_AzureTableRepositoryConfig__ctor_
@@ -330,12 +321,12 @@ references:
   commentId: T:Ease.Repository.AzureTable.AzureTableRepositoryContext
   fullName: Ease.Repository.AzureTable.AzureTableRepositoryContext
   nameWithType: AzureTableRepositoryContext
-- uid: Ease.Repository.AzureTable.AzureTableRepositoryContext.#ctor(Ease.Repository.AzureTable.IAzureTableRepositoryConfig)
-  name: AzureTableRepositoryContext(IAzureTableRepositoryConfig)
-  href: api/Ease.Repository.AzureTable.AzureTableRepositoryContext.html#Ease_Repository_AzureTable_AzureTableRepositoryContext__ctor_Ease_Repository_AzureTable_IAzureTableRepositoryConfig_
-  commentId: M:Ease.Repository.AzureTable.AzureTableRepositoryContext.#ctor(Ease.Repository.AzureTable.IAzureTableRepositoryConfig)
-  fullName: Ease.Repository.AzureTable.AzureTableRepositoryContext.AzureTableRepositoryContext(Ease.Repository.AzureTable.IAzureTableRepositoryConfig)
-  nameWithType: AzureTableRepositoryContext.AzureTableRepositoryContext(IAzureTableRepositoryConfig)
+- uid: Ease.Repository.AzureTable.AzureTableRepositoryContext.#ctor(Ease.Repository.AzureTable.IAzureTableRepositoryConfig,Ease.Repository.IBestEffortUnitOfWork,Ease.Repository.AzureTable.IAzureTableStoreFactory)
+  name: AzureTableRepositoryContext(IAzureTableRepositoryConfig, IBestEffortUnitOfWork, IAzureTableStoreFactory)
+  href: api/Ease.Repository.AzureTable.AzureTableRepositoryContext.html#Ease_Repository_AzureTable_AzureTableRepositoryContext__ctor_Ease_Repository_AzureTable_IAzureTableRepositoryConfig_Ease_Repository_IBestEffortUnitOfWork_Ease_Repository_AzureTable_IAzureTableStoreFactory_
+  commentId: M:Ease.Repository.AzureTable.AzureTableRepositoryContext.#ctor(Ease.Repository.AzureTable.IAzureTableRepositoryConfig,Ease.Repository.IBestEffortUnitOfWork,Ease.Repository.AzureTable.IAzureTableStoreFactory)
+  fullName: Ease.Repository.AzureTable.AzureTableRepositoryContext.AzureTableRepositoryContext(Ease.Repository.AzureTable.IAzureTableRepositoryConfig, Ease.Repository.IBestEffortUnitOfWork, Ease.Repository.AzureTable.IAzureTableStoreFactory)
+  nameWithType: AzureTableRepositoryContext.AzureTableRepositoryContext(IAzureTableRepositoryConfig, IBestEffortUnitOfWork, IAzureTableStoreFactory)
 - uid: Ease.Repository.AzureTable.AzureTableRepositoryContext.#ctor*
   name: AzureTableRepositoryContext
   href: api/Ease.Repository.AzureTable.AzureTableRepositoryContext.html#Ease_Repository_AzureTable_AzureTableRepositoryContext__ctor_
@@ -369,37 +360,101 @@ references:
   isSpec: "True"
   fullName: Ease.Repository.AzureTable.AzureTableRepositoryContext.Config
   nameWithType: AzureTableRepositoryContext.Config
-- uid: Ease.Repository.AzureTable.AzureTableRepositoryContext.PrepareTable(System.Func{System.String})
-  name: PrepareTable(Func<String>)
-  href: api/Ease.Repository.AzureTable.AzureTableRepositoryContext.html#Ease_Repository_AzureTable_AzureTableRepositoryContext_PrepareTable_System_Func_System_String__
-  commentId: M:Ease.Repository.AzureTable.AzureTableRepositoryContext.PrepareTable(System.Func{System.String})
-  name.vb: PrepareTable(Func(Of String))
-  fullName: Ease.Repository.AzureTable.AzureTableRepositoryContext.PrepareTable(System.Func<System.String>)
-  fullName.vb: Ease.Repository.AzureTable.AzureTableRepositoryContext.PrepareTable(System.Func(Of System.String))
-  nameWithType: AzureTableRepositoryContext.PrepareTable(Func<String>)
-  nameWithType.vb: AzureTableRepositoryContext.PrepareTable(Func(Of String))
-- uid: Ease.Repository.AzureTable.AzureTableRepositoryContext.PrepareTable*
-  name: PrepareTable
-  href: api/Ease.Repository.AzureTable.AzureTableRepositoryContext.html#Ease_Repository_AzureTable_AzureTableRepositoryContext_PrepareTable_
-  commentId: Overload:Ease.Repository.AzureTable.AzureTableRepositoryContext.PrepareTable
+- uid: Ease.Repository.AzureTable.AzureTableRepositoryContext.RegisterAdd*
+  name: RegisterAdd
+  href: api/Ease.Repository.AzureTable.AzureTableRepositoryContext.html#Ease_Repository_AzureTable_AzureTableRepositoryContext_RegisterAdd_
+  commentId: Overload:Ease.Repository.AzureTable.AzureTableRepositoryContext.RegisterAdd
   isSpec: "True"
-  fullName: Ease.Repository.AzureTable.AzureTableRepositoryContext.PrepareTable
-  nameWithType: AzureTableRepositoryContext.PrepareTable
+  fullName: Ease.Repository.AzureTable.AzureTableRepositoryContext.RegisterAdd
+  nameWithType: AzureTableRepositoryContext.RegisterAdd
+- uid: Ease.Repository.AzureTable.AzureTableRepositoryContext.RegisterAdd``1(``0)
+  name: RegisterAdd<TEntity>(TEntity)
+  href: api/Ease.Repository.AzureTable.AzureTableRepositoryContext.html#Ease_Repository_AzureTable_AzureTableRepositoryContext_RegisterAdd__1___0_
+  commentId: M:Ease.Repository.AzureTable.AzureTableRepositoryContext.RegisterAdd``1(``0)
+  name.vb: RegisterAdd(Of TEntity)(TEntity)
+  fullName: Ease.Repository.AzureTable.AzureTableRepositoryContext.RegisterAdd<TEntity>(TEntity)
+  fullName.vb: Ease.Repository.AzureTable.AzureTableRepositoryContext.RegisterAdd(Of TEntity)(TEntity)
+  nameWithType: AzureTableRepositoryContext.RegisterAdd<TEntity>(TEntity)
+  nameWithType.vb: AzureTableRepositoryContext.RegisterAdd(Of TEntity)(TEntity)
+- uid: Ease.Repository.AzureTable.AzureTableRepositoryContext.RegisterDelete*
+  name: RegisterDelete
+  href: api/Ease.Repository.AzureTable.AzureTableRepositoryContext.html#Ease_Repository_AzureTable_AzureTableRepositoryContext_RegisterDelete_
+  commentId: Overload:Ease.Repository.AzureTable.AzureTableRepositoryContext.RegisterDelete
+  isSpec: "True"
+  fullName: Ease.Repository.AzureTable.AzureTableRepositoryContext.RegisterDelete
+  nameWithType: AzureTableRepositoryContext.RegisterDelete
+- uid: Ease.Repository.AzureTable.AzureTableRepositoryContext.RegisterDelete``1(``0)
+  name: RegisterDelete<TEntity>(TEntity)
+  href: api/Ease.Repository.AzureTable.AzureTableRepositoryContext.html#Ease_Repository_AzureTable_AzureTableRepositoryContext_RegisterDelete__1___0_
+  commentId: M:Ease.Repository.AzureTable.AzureTableRepositoryContext.RegisterDelete``1(``0)
+  name.vb: RegisterDelete(Of TEntity)(TEntity)
+  fullName: Ease.Repository.AzureTable.AzureTableRepositoryContext.RegisterDelete<TEntity>(TEntity)
+  fullName.vb: Ease.Repository.AzureTable.AzureTableRepositoryContext.RegisterDelete(Of TEntity)(TEntity)
+  nameWithType: AzureTableRepositoryContext.RegisterDelete<TEntity>(TEntity)
+  nameWithType.vb: AzureTableRepositoryContext.RegisterDelete(Of TEntity)(TEntity)
+- uid: Ease.Repository.AzureTable.AzureTableRepositoryContext.RegisterForUpdates*
+  name: RegisterForUpdates
+  href: api/Ease.Repository.AzureTable.AzureTableRepositoryContext.html#Ease_Repository_AzureTable_AzureTableRepositoryContext_RegisterForUpdates_
+  commentId: Overload:Ease.Repository.AzureTable.AzureTableRepositoryContext.RegisterForUpdates
+  isSpec: "True"
+  fullName: Ease.Repository.AzureTable.AzureTableRepositoryContext.RegisterForUpdates
+  nameWithType: AzureTableRepositoryContext.RegisterForUpdates
+- uid: Ease.Repository.AzureTable.AzureTableRepositoryContext.RegisterForUpdates``1(System.Collections.Generic.IEnumerable{``0})
+  name: RegisterForUpdates<TEntity>(IEnumerable<TEntity>)
+  href: api/Ease.Repository.AzureTable.AzureTableRepositoryContext.html#Ease_Repository_AzureTable_AzureTableRepositoryContext_RegisterForUpdates__1_System_Collections_Generic_IEnumerable___0__
+  commentId: M:Ease.Repository.AzureTable.AzureTableRepositoryContext.RegisterForUpdates``1(System.Collections.Generic.IEnumerable{``0})
+  name.vb: RegisterForUpdates(Of TEntity)(IEnumerable(Of TEntity))
+  fullName: Ease.Repository.AzureTable.AzureTableRepositoryContext.RegisterForUpdates<TEntity>(System.Collections.Generic.IEnumerable<TEntity>)
+  fullName.vb: Ease.Repository.AzureTable.AzureTableRepositoryContext.RegisterForUpdates(Of TEntity)(System.Collections.Generic.IEnumerable(Of TEntity))
+  nameWithType: AzureTableRepositoryContext.RegisterForUpdates<TEntity>(IEnumerable<TEntity>)
+  nameWithType.vb: AzureTableRepositoryContext.RegisterForUpdates(Of TEntity)(IEnumerable(Of TEntity))
+- uid: Ease.Repository.AzureTable.AzureTableRepositoryContext.RegisterTableForEntityType*
+  name: RegisterTableForEntityType
+  href: api/Ease.Repository.AzureTable.AzureTableRepositoryContext.html#Ease_Repository_AzureTable_AzureTableRepositoryContext_RegisterTableForEntityType_
+  commentId: Overload:Ease.Repository.AzureTable.AzureTableRepositoryContext.RegisterTableForEntityType
+  isSpec: "True"
+  fullName: Ease.Repository.AzureTable.AzureTableRepositoryContext.RegisterTableForEntityType
+  nameWithType: AzureTableRepositoryContext.RegisterTableForEntityType
+- uid: Ease.Repository.AzureTable.AzureTableRepositoryContext.RegisterTableForEntityType``1(System.Func{System.String})
+  name: RegisterTableForEntityType<TEntity>(Func<String>)
+  href: api/Ease.Repository.AzureTable.AzureTableRepositoryContext.html#Ease_Repository_AzureTable_AzureTableRepositoryContext_RegisterTableForEntityType__1_System_Func_System_String__
+  commentId: M:Ease.Repository.AzureTable.AzureTableRepositoryContext.RegisterTableForEntityType``1(System.Func{System.String})
+  name.vb: RegisterTableForEntityType(Of TEntity)(Func(Of String))
+  fullName: Ease.Repository.AzureTable.AzureTableRepositoryContext.RegisterTableForEntityType<TEntity>(System.Func<System.String>)
+  fullName.vb: Ease.Repository.AzureTable.AzureTableRepositoryContext.RegisterTableForEntityType(Of TEntity)(System.Func(Of System.String))
+  nameWithType: AzureTableRepositoryContext.RegisterTableForEntityType<TEntity>(Func<String>)
+  nameWithType.vb: AzureTableRepositoryContext.RegisterTableForEntityType(Of TEntity)(Func(Of String))
+- uid: Ease.Repository.AzureTable.AzureTableStoreFactory
+  name: AzureTableStoreFactory
+  href: api/Ease.Repository.AzureTable.AzureTableStoreFactory.html
+  commentId: T:Ease.Repository.AzureTable.AzureTableStoreFactory
+  fullName: Ease.Repository.AzureTable.AzureTableStoreFactory
+  nameWithType: AzureTableStoreFactory
+- uid: Ease.Repository.AzureTable.AzureTableStoreFactory.GetStoreWriter(Microsoft.Azure.Cosmos.Table.CloudTable)
+  name: GetStoreWriter(CloudTable)
+  href: api/Ease.Repository.AzureTable.AzureTableStoreFactory.html#Ease_Repository_AzureTable_AzureTableStoreFactory_GetStoreWriter_Microsoft_Azure_Cosmos_Table_CloudTable_
+  commentId: M:Ease.Repository.AzureTable.AzureTableStoreFactory.GetStoreWriter(Microsoft.Azure.Cosmos.Table.CloudTable)
+  fullName: Ease.Repository.AzureTable.AzureTableStoreFactory.GetStoreWriter(Microsoft.Azure.Cosmos.Table.CloudTable)
+  nameWithType: AzureTableStoreFactory.GetStoreWriter(CloudTable)
+- uid: Ease.Repository.AzureTable.AzureTableStoreFactory.GetStoreWriter*
+  name: GetStoreWriter
+  href: api/Ease.Repository.AzureTable.AzureTableStoreFactory.html#Ease_Repository_AzureTable_AzureTableStoreFactory_GetStoreWriter_
+  commentId: Overload:Ease.Repository.AzureTable.AzureTableStoreFactory.GetStoreWriter
+  isSpec: "True"
+  fullName: Ease.Repository.AzureTable.AzureTableStoreFactory.GetStoreWriter
+  nameWithType: AzureTableStoreFactory.GetStoreWriter
 - uid: Ease.Repository.AzureTable.AzureTableStoreWriter
   name: AzureTableStoreWriter
   href: api/Ease.Repository.AzureTable.AzureTableStoreWriter.html
   commentId: T:Ease.Repository.AzureTable.AzureTableStoreWriter
   fullName: Ease.Repository.AzureTable.AzureTableStoreWriter
   nameWithType: AzureTableStoreWriter
-- uid: Ease.Repository.AzureTable.AzureTableStoreWriter.#ctor(System.Lazy{Microsoft.Azure.Cosmos.Table.CloudTable})
-  name: AzureTableStoreWriter(Lazy<CloudTable>)
-  href: api/Ease.Repository.AzureTable.AzureTableStoreWriter.html#Ease_Repository_AzureTable_AzureTableStoreWriter__ctor_System_Lazy_Microsoft_Azure_Cosmos_Table_CloudTable__
-  commentId: M:Ease.Repository.AzureTable.AzureTableStoreWriter.#ctor(System.Lazy{Microsoft.Azure.Cosmos.Table.CloudTable})
-  name.vb: AzureTableStoreWriter(Lazy(Of CloudTable))
-  fullName: Ease.Repository.AzureTable.AzureTableStoreWriter.AzureTableStoreWriter(System.Lazy<Microsoft.Azure.Cosmos.Table.CloudTable>)
-  fullName.vb: Ease.Repository.AzureTable.AzureTableStoreWriter.AzureTableStoreWriter(System.Lazy(Of Microsoft.Azure.Cosmos.Table.CloudTable))
-  nameWithType: AzureTableStoreWriter.AzureTableStoreWriter(Lazy<CloudTable>)
-  nameWithType.vb: AzureTableStoreWriter.AzureTableStoreWriter(Lazy(Of CloudTable))
+- uid: Ease.Repository.AzureTable.AzureTableStoreWriter.#ctor(Microsoft.Azure.Cosmos.Table.CloudTable)
+  name: AzureTableStoreWriter(CloudTable)
+  href: api/Ease.Repository.AzureTable.AzureTableStoreWriter.html#Ease_Repository_AzureTable_AzureTableStoreWriter__ctor_Microsoft_Azure_Cosmos_Table_CloudTable_
+  commentId: M:Ease.Repository.AzureTable.AzureTableStoreWriter.#ctor(Microsoft.Azure.Cosmos.Table.CloudTable)
+  fullName: Ease.Repository.AzureTable.AzureTableStoreWriter.AzureTableStoreWriter(Microsoft.Azure.Cosmos.Table.CloudTable)
+  nameWithType: AzureTableStoreWriter.AzureTableStoreWriter(CloudTable)
 - uid: Ease.Repository.AzureTable.AzureTableStoreWriter.#ctor*
   name: AzureTableStoreWriter
   href: api/Ease.Repository.AzureTable.AzureTableStoreWriter.html#Ease_Repository_AzureTable_AzureTableStoreWriter__ctor_
@@ -590,6 +645,32 @@ references:
   isSpec: "True"
   fullName: Ease.Repository.AzureTable.AzureTableTrackableEntity.WriteEntity
   nameWithType: AzureTableTrackableEntity.WriteEntity
+- uid: Ease.Repository.AzureTable.IAzureTableRepository`1
+  name: IAzureTableRepository<TEntity>
+  href: api/Ease.Repository.AzureTable.IAzureTableRepository-1.html
+  commentId: T:Ease.Repository.AzureTable.IAzureTableRepository`1
+  name.vb: IAzureTableRepository(Of TEntity)
+  fullName: Ease.Repository.AzureTable.IAzureTableRepository<TEntity>
+  fullName.vb: Ease.Repository.AzureTable.IAzureTableRepository(Of TEntity)
+  nameWithType: IAzureTableRepository<TEntity>
+  nameWithType.vb: IAzureTableRepository(Of TEntity)
+- uid: Ease.Repository.AzureTable.IAzureTableRepository`1.List
+  name: List()
+  href: api/Ease.Repository.AzureTable.IAzureTableRepository-1.html#Ease_Repository_AzureTable_IAzureTableRepository_1_List
+  commentId: M:Ease.Repository.AzureTable.IAzureTableRepository`1.List
+  fullName: Ease.Repository.AzureTable.IAzureTableRepository<TEntity>.List()
+  fullName.vb: Ease.Repository.AzureTable.IAzureTableRepository(Of TEntity).List()
+  nameWithType: IAzureTableRepository<TEntity>.List()
+  nameWithType.vb: IAzureTableRepository(Of TEntity).List()
+- uid: Ease.Repository.AzureTable.IAzureTableRepository`1.List*
+  name: List
+  href: api/Ease.Repository.AzureTable.IAzureTableRepository-1.html#Ease_Repository_AzureTable_IAzureTableRepository_1_List_
+  commentId: Overload:Ease.Repository.AzureTable.IAzureTableRepository`1.List
+  isSpec: "True"
+  fullName: Ease.Repository.AzureTable.IAzureTableRepository<TEntity>.List
+  fullName.vb: Ease.Repository.AzureTable.IAzureTableRepository(Of TEntity).List
+  nameWithType: IAzureTableRepository<TEntity>.List
+  nameWithType.vb: IAzureTableRepository(Of TEntity).List
 - uid: Ease.Repository.AzureTable.IAzureTableRepositoryConfig
   name: IAzureTableRepositoryConfig
   href: api/Ease.Repository.AzureTable.IAzureTableRepositoryConfig.html
@@ -641,188 +722,420 @@ references:
   isSpec: "True"
   fullName: Ease.Repository.AzureTable.IAzureTableRepositoryContext.Client
   nameWithType: IAzureTableRepositoryContext.Client
-- uid: Ease.Repository.AzureTable.IAzureTableRepositoryContext.PrepareTable(System.Func{System.String})
-  name: PrepareTable(Func<String>)
-  href: api/Ease.Repository.AzureTable.IAzureTableRepositoryContext.html#Ease_Repository_AzureTable_IAzureTableRepositoryContext_PrepareTable_System_Func_System_String__
-  commentId: M:Ease.Repository.AzureTable.IAzureTableRepositoryContext.PrepareTable(System.Func{System.String})
-  name.vb: PrepareTable(Func(Of String))
-  fullName: Ease.Repository.AzureTable.IAzureTableRepositoryContext.PrepareTable(System.Func<System.String>)
-  fullName.vb: Ease.Repository.AzureTable.IAzureTableRepositoryContext.PrepareTable(System.Func(Of System.String))
-  nameWithType: IAzureTableRepositoryContext.PrepareTable(Func<String>)
-  nameWithType.vb: IAzureTableRepositoryContext.PrepareTable(Func(Of String))
-- uid: Ease.Repository.AzureTable.IAzureTableRepositoryContext.PrepareTable*
-  name: PrepareTable
-  href: api/Ease.Repository.AzureTable.IAzureTableRepositoryContext.html#Ease_Repository_AzureTable_IAzureTableRepositoryContext_PrepareTable_
-  commentId: Overload:Ease.Repository.AzureTable.IAzureTableRepositoryContext.PrepareTable
+- uid: Ease.Repository.AzureTable.IAzureTableRepositoryContext.RegisterTableForEntityType*
+  name: RegisterTableForEntityType
+  href: api/Ease.Repository.AzureTable.IAzureTableRepositoryContext.html#Ease_Repository_AzureTable_IAzureTableRepositoryContext_RegisterTableForEntityType_
+  commentId: Overload:Ease.Repository.AzureTable.IAzureTableRepositoryContext.RegisterTableForEntityType
   isSpec: "True"
-  fullName: Ease.Repository.AzureTable.IAzureTableRepositoryContext.PrepareTable
-  nameWithType: IAzureTableRepositoryContext.PrepareTable
-- uid: Ease.Repository.BestEffortUnitOfWork`1
-  name: BestEffortUnitOfWork<TContext>
-  href: api/Ease.Repository.BestEffortUnitOfWork-1.html
-  commentId: T:Ease.Repository.BestEffortUnitOfWork`1
-  name.vb: BestEffortUnitOfWork(Of TContext)
-  fullName: Ease.Repository.BestEffortUnitOfWork<TContext>
-  fullName.vb: Ease.Repository.BestEffortUnitOfWork(Of TContext)
-  nameWithType: BestEffortUnitOfWork<TContext>
-  nameWithType.vb: BestEffortUnitOfWork(Of TContext)
-- uid: Ease.Repository.BestEffortUnitOfWork`1.#ctor(`0)
-  name: BestEffortUnitOfWork(TContext)
-  href: api/Ease.Repository.BestEffortUnitOfWork-1.html#Ease_Repository_BestEffortUnitOfWork_1__ctor__0_
-  commentId: M:Ease.Repository.BestEffortUnitOfWork`1.#ctor(`0)
-  fullName: Ease.Repository.BestEffortUnitOfWork<TContext>.BestEffortUnitOfWork(TContext)
-  fullName.vb: Ease.Repository.BestEffortUnitOfWork(Of TContext).BestEffortUnitOfWork(TContext)
-  nameWithType: BestEffortUnitOfWork<TContext>.BestEffortUnitOfWork(TContext)
-  nameWithType.vb: BestEffortUnitOfWork(Of TContext).BestEffortUnitOfWork(TContext)
-- uid: Ease.Repository.BestEffortUnitOfWork`1.#ctor*
+  fullName: Ease.Repository.AzureTable.IAzureTableRepositoryContext.RegisterTableForEntityType
+  nameWithType: IAzureTableRepositoryContext.RegisterTableForEntityType
+- uid: Ease.Repository.AzureTable.IAzureTableRepositoryContext.RegisterTableForEntityType``1(System.Func{System.String})
+  name: RegisterTableForEntityType<TEntity>(Func<String>)
+  href: api/Ease.Repository.AzureTable.IAzureTableRepositoryContext.html#Ease_Repository_AzureTable_IAzureTableRepositoryContext_RegisterTableForEntityType__1_System_Func_System_String__
+  commentId: M:Ease.Repository.AzureTable.IAzureTableRepositoryContext.RegisterTableForEntityType``1(System.Func{System.String})
+  name.vb: RegisterTableForEntityType(Of TEntity)(Func(Of String))
+  fullName: Ease.Repository.AzureTable.IAzureTableRepositoryContext.RegisterTableForEntityType<TEntity>(System.Func<System.String>)
+  fullName.vb: Ease.Repository.AzureTable.IAzureTableRepositoryContext.RegisterTableForEntityType(Of TEntity)(System.Func(Of System.String))
+  nameWithType: IAzureTableRepositoryContext.RegisterTableForEntityType<TEntity>(Func<String>)
+  nameWithType.vb: IAzureTableRepositoryContext.RegisterTableForEntityType(Of TEntity)(Func(Of String))
+- uid: Ease.Repository.AzureTable.IAzureTableStoreFactory
+  name: IAzureTableStoreFactory
+  href: api/Ease.Repository.AzureTable.IAzureTableStoreFactory.html
+  commentId: T:Ease.Repository.AzureTable.IAzureTableStoreFactory
+  fullName: Ease.Repository.AzureTable.IAzureTableStoreFactory
+  nameWithType: IAzureTableStoreFactory
+- uid: Ease.Repository.AzureTable.IAzureTableStoreFactory.GetStoreWriter(Microsoft.Azure.Cosmos.Table.CloudTable)
+  name: GetStoreWriter(CloudTable)
+  href: api/Ease.Repository.AzureTable.IAzureTableStoreFactory.html#Ease_Repository_AzureTable_IAzureTableStoreFactory_GetStoreWriter_Microsoft_Azure_Cosmos_Table_CloudTable_
+  commentId: M:Ease.Repository.AzureTable.IAzureTableStoreFactory.GetStoreWriter(Microsoft.Azure.Cosmos.Table.CloudTable)
+  fullName: Ease.Repository.AzureTable.IAzureTableStoreFactory.GetStoreWriter(Microsoft.Azure.Cosmos.Table.CloudTable)
+  nameWithType: IAzureTableStoreFactory.GetStoreWriter(CloudTable)
+- uid: Ease.Repository.AzureTable.IAzureTableStoreFactory.GetStoreWriter*
+  name: GetStoreWriter
+  href: api/Ease.Repository.AzureTable.IAzureTableStoreFactory.html#Ease_Repository_AzureTable_IAzureTableStoreFactory_GetStoreWriter_
+  commentId: Overload:Ease.Repository.AzureTable.IAzureTableStoreFactory.GetStoreWriter
+  isSpec: "True"
+  fullName: Ease.Repository.AzureTable.IAzureTableStoreFactory.GetStoreWriter
+  nameWithType: IAzureTableStoreFactory.GetStoreWriter
+- uid: Ease.Repository.AzureTable.Test
+  name: Ease.Repository.AzureTable.Test
+  href: api/Ease.Repository.AzureTable.Test.html
+  commentId: N:Ease.Repository.AzureTable.Test
+  fullName: Ease.Repository.AzureTable.Test
+  nameWithType: Ease.Repository.AzureTable.Test
+- uid: Ease.Repository.AzureTable.Test.AzureTableRepositoryTests`3
+  name: AzureTableRepositoryTests<TContext, TEntity, TRepository>
+  href: api/Ease.Repository.AzureTable.Test.AzureTableRepositoryTests-3.html
+  commentId: T:Ease.Repository.AzureTable.Test.AzureTableRepositoryTests`3
+  name.vb: AzureTableRepositoryTests(Of TContext, TEntity, TRepository)
+  fullName: Ease.Repository.AzureTable.Test.AzureTableRepositoryTests<TContext, TEntity, TRepository>
+  fullName.vb: Ease.Repository.AzureTable.Test.AzureTableRepositoryTests(Of TContext, TEntity, TRepository)
+  nameWithType: AzureTableRepositoryTests<TContext, TEntity, TRepository>
+  nameWithType.vb: AzureTableRepositoryTests(Of TContext, TEntity, TRepository)
+- uid: Ease.Repository.AzureTable.Test.AzureTableRepositoryTests`3.Add_New_Entity_And_List_RoundTrip
+  name: Add_New_Entity_And_List_RoundTrip()
+  href: api/Ease.Repository.AzureTable.Test.AzureTableRepositoryTests-3.html#Ease_Repository_AzureTable_Test_AzureTableRepositoryTests_3_Add_New_Entity_And_List_RoundTrip
+  commentId: M:Ease.Repository.AzureTable.Test.AzureTableRepositoryTests`3.Add_New_Entity_And_List_RoundTrip
+  fullName: Ease.Repository.AzureTable.Test.AzureTableRepositoryTests<TContext, TEntity, TRepository>.Add_New_Entity_And_List_RoundTrip()
+  fullName.vb: Ease.Repository.AzureTable.Test.AzureTableRepositoryTests(Of TContext, TEntity, TRepository).Add_New_Entity_And_List_RoundTrip()
+  nameWithType: AzureTableRepositoryTests<TContext, TEntity, TRepository>.Add_New_Entity_And_List_RoundTrip()
+  nameWithType.vb: AzureTableRepositoryTests(Of TContext, TEntity, TRepository).Add_New_Entity_And_List_RoundTrip()
+- uid: Ease.Repository.AzureTable.Test.AzureTableRepositoryTests`3.Add_New_Entity_And_List_RoundTrip*
+  name: Add_New_Entity_And_List_RoundTrip
+  href: api/Ease.Repository.AzureTable.Test.AzureTableRepositoryTests-3.html#Ease_Repository_AzureTable_Test_AzureTableRepositoryTests_3_Add_New_Entity_And_List_RoundTrip_
+  commentId: Overload:Ease.Repository.AzureTable.Test.AzureTableRepositoryTests`3.Add_New_Entity_And_List_RoundTrip
+  isSpec: "True"
+  fullName: Ease.Repository.AzureTable.Test.AzureTableRepositoryTests<TContext, TEntity, TRepository>.Add_New_Entity_And_List_RoundTrip
+  fullName.vb: Ease.Repository.AzureTable.Test.AzureTableRepositoryTests(Of TContext, TEntity, TRepository).Add_New_Entity_And_List_RoundTrip
+  nameWithType: AzureTableRepositoryTests<TContext, TEntity, TRepository>.Add_New_Entity_And_List_RoundTrip
+  nameWithType.vb: AzureTableRepositoryTests(Of TContext, TEntity, TRepository).Add_New_Entity_And_List_RoundTrip
+- uid: Ease.Repository.AzureTable.Test.AzureTableRepositoryTests`3.Add_New_Entity_And_List_RoundTrip_Impl
+  name: Add_New_Entity_And_List_RoundTrip_Impl()
+  href: api/Ease.Repository.AzureTable.Test.AzureTableRepositoryTests-3.html#Ease_Repository_AzureTable_Test_AzureTableRepositoryTests_3_Add_New_Entity_And_List_RoundTrip_Impl
+  commentId: M:Ease.Repository.AzureTable.Test.AzureTableRepositoryTests`3.Add_New_Entity_And_List_RoundTrip_Impl
+  fullName: Ease.Repository.AzureTable.Test.AzureTableRepositoryTests<TContext, TEntity, TRepository>.Add_New_Entity_And_List_RoundTrip_Impl()
+  fullName.vb: Ease.Repository.AzureTable.Test.AzureTableRepositoryTests(Of TContext, TEntity, TRepository).Add_New_Entity_And_List_RoundTrip_Impl()
+  nameWithType: AzureTableRepositoryTests<TContext, TEntity, TRepository>.Add_New_Entity_And_List_RoundTrip_Impl()
+  nameWithType.vb: AzureTableRepositoryTests(Of TContext, TEntity, TRepository).Add_New_Entity_And_List_RoundTrip_Impl()
+- uid: Ease.Repository.AzureTable.Test.AzureTableRepositoryTests`3.Add_New_Entity_And_List_RoundTrip_Impl*
+  name: Add_New_Entity_And_List_RoundTrip_Impl
+  href: api/Ease.Repository.AzureTable.Test.AzureTableRepositoryTests-3.html#Ease_Repository_AzureTable_Test_AzureTableRepositoryTests_3_Add_New_Entity_And_List_RoundTrip_Impl_
+  commentId: Overload:Ease.Repository.AzureTable.Test.AzureTableRepositoryTests`3.Add_New_Entity_And_List_RoundTrip_Impl
+  isSpec: "True"
+  fullName: Ease.Repository.AzureTable.Test.AzureTableRepositoryTests<TContext, TEntity, TRepository>.Add_New_Entity_And_List_RoundTrip_Impl
+  fullName.vb: Ease.Repository.AzureTable.Test.AzureTableRepositoryTests(Of TContext, TEntity, TRepository).Add_New_Entity_And_List_RoundTrip_Impl
+  nameWithType: AzureTableRepositoryTests<TContext, TEntity, TRepository>.Add_New_Entity_And_List_RoundTrip_Impl
+  nameWithType.vb: AzureTableRepositoryTests(Of TContext, TEntity, TRepository).Add_New_Entity_And_List_RoundTrip_Impl
+- uid: Ease.Repository.AzureTable.Test.AzureTableRepositoryTests`3.AssertKeyFieldsNotNull(`1)
+  name: AssertKeyFieldsNotNull(TEntity)
+  href: api/Ease.Repository.AzureTable.Test.AzureTableRepositoryTests-3.html#Ease_Repository_AzureTable_Test_AzureTableRepositoryTests_3_AssertKeyFieldsNotNull__1_
+  commentId: M:Ease.Repository.AzureTable.Test.AzureTableRepositoryTests`3.AssertKeyFieldsNotNull(`1)
+  fullName: Ease.Repository.AzureTable.Test.AzureTableRepositoryTests<TContext, TEntity, TRepository>.AssertKeyFieldsNotNull(TEntity)
+  fullName.vb: Ease.Repository.AzureTable.Test.AzureTableRepositoryTests(Of TContext, TEntity, TRepository).AssertKeyFieldsNotNull(TEntity)
+  nameWithType: AzureTableRepositoryTests<TContext, TEntity, TRepository>.AssertKeyFieldsNotNull(TEntity)
+  nameWithType.vb: AzureTableRepositoryTests(Of TContext, TEntity, TRepository).AssertKeyFieldsNotNull(TEntity)
+- uid: Ease.Repository.AzureTable.Test.AzureTableRepositoryTests`3.AssertKeyFieldsNotNull*
+  name: AssertKeyFieldsNotNull
+  href: api/Ease.Repository.AzureTable.Test.AzureTableRepositoryTests-3.html#Ease_Repository_AzureTable_Test_AzureTableRepositoryTests_3_AssertKeyFieldsNotNull_
+  commentId: Overload:Ease.Repository.AzureTable.Test.AzureTableRepositoryTests`3.AssertKeyFieldsNotNull
+  isSpec: "True"
+  fullName: Ease.Repository.AzureTable.Test.AzureTableRepositoryTests<TContext, TEntity, TRepository>.AssertKeyFieldsNotNull
+  fullName.vb: Ease.Repository.AzureTable.Test.AzureTableRepositoryTests(Of TContext, TEntity, TRepository).AssertKeyFieldsNotNull
+  nameWithType: AzureTableRepositoryTests<TContext, TEntity, TRepository>.AssertKeyFieldsNotNull
+  nameWithType.vb: AzureTableRepositoryTests(Of TContext, TEntity, TRepository).AssertKeyFieldsNotNull
+- uid: Ease.Repository.AzureTable.Test.AzureTableRepositoryTests`3.AssertRepositoryHasNumEntities(System.Int32)
+  name: AssertRepositoryHasNumEntities(Int32)
+  href: api/Ease.Repository.AzureTable.Test.AzureTableRepositoryTests-3.html#Ease_Repository_AzureTable_Test_AzureTableRepositoryTests_3_AssertRepositoryHasNumEntities_System_Int32_
+  commentId: M:Ease.Repository.AzureTable.Test.AzureTableRepositoryTests`3.AssertRepositoryHasNumEntities(System.Int32)
+  fullName: Ease.Repository.AzureTable.Test.AzureTableRepositoryTests<TContext, TEntity, TRepository>.AssertRepositoryHasNumEntities(System.Int32)
+  fullName.vb: Ease.Repository.AzureTable.Test.AzureTableRepositoryTests(Of TContext, TEntity, TRepository).AssertRepositoryHasNumEntities(System.Int32)
+  nameWithType: AzureTableRepositoryTests<TContext, TEntity, TRepository>.AssertRepositoryHasNumEntities(Int32)
+  nameWithType.vb: AzureTableRepositoryTests(Of TContext, TEntity, TRepository).AssertRepositoryHasNumEntities(Int32)
+- uid: Ease.Repository.AzureTable.Test.AzureTableRepositoryTests`3.AssertRepositoryHasNumEntities*
+  name: AssertRepositoryHasNumEntities
+  href: api/Ease.Repository.AzureTable.Test.AzureTableRepositoryTests-3.html#Ease_Repository_AzureTable_Test_AzureTableRepositoryTests_3_AssertRepositoryHasNumEntities_
+  commentId: Overload:Ease.Repository.AzureTable.Test.AzureTableRepositoryTests`3.AssertRepositoryHasNumEntities
+  isSpec: "True"
+  fullName: Ease.Repository.AzureTable.Test.AzureTableRepositoryTests<TContext, TEntity, TRepository>.AssertRepositoryHasNumEntities
+  fullName.vb: Ease.Repository.AzureTable.Test.AzureTableRepositoryTests(Of TContext, TEntity, TRepository).AssertRepositoryHasNumEntities
+  nameWithType: AzureTableRepositoryTests<TContext, TEntity, TRepository>.AssertRepositoryHasNumEntities
+  nameWithType.vb: AzureTableRepositoryTests(Of TContext, TEntity, TRepository).AssertRepositoryHasNumEntities
+- uid: Ease.Repository.AzureTable.Test.AzureTableRepositoryTests`3.CompleteUnitOfWorkAsync
+  name: CompleteUnitOfWorkAsync()
+  href: api/Ease.Repository.AzureTable.Test.AzureTableRepositoryTests-3.html#Ease_Repository_AzureTable_Test_AzureTableRepositoryTests_3_CompleteUnitOfWorkAsync
+  commentId: M:Ease.Repository.AzureTable.Test.AzureTableRepositoryTests`3.CompleteUnitOfWorkAsync
+  fullName: Ease.Repository.AzureTable.Test.AzureTableRepositoryTests<TContext, TEntity, TRepository>.CompleteUnitOfWorkAsync()
+  fullName.vb: Ease.Repository.AzureTable.Test.AzureTableRepositoryTests(Of TContext, TEntity, TRepository).CompleteUnitOfWorkAsync()
+  nameWithType: AzureTableRepositoryTests<TContext, TEntity, TRepository>.CompleteUnitOfWorkAsync()
+  nameWithType.vb: AzureTableRepositoryTests(Of TContext, TEntity, TRepository).CompleteUnitOfWorkAsync()
+- uid: Ease.Repository.AzureTable.Test.AzureTableRepositoryTests`3.CompleteUnitOfWorkAsync*
+  name: CompleteUnitOfWorkAsync
+  href: api/Ease.Repository.AzureTable.Test.AzureTableRepositoryTests-3.html#Ease_Repository_AzureTable_Test_AzureTableRepositoryTests_3_CompleteUnitOfWorkAsync_
+  commentId: Overload:Ease.Repository.AzureTable.Test.AzureTableRepositoryTests`3.CompleteUnitOfWorkAsync
+  isSpec: "True"
+  fullName: Ease.Repository.AzureTable.Test.AzureTableRepositoryTests<TContext, TEntity, TRepository>.CompleteUnitOfWorkAsync
+  fullName.vb: Ease.Repository.AzureTable.Test.AzureTableRepositoryTests(Of TContext, TEntity, TRepository).CompleteUnitOfWorkAsync
+  nameWithType: AzureTableRepositoryTests<TContext, TEntity, TRepository>.CompleteUnitOfWorkAsync
+  nameWithType.vb: AzureTableRepositoryTests(Of TContext, TEntity, TRepository).CompleteUnitOfWorkAsync
+- uid: Ease.Repository.AzureTable.Test.AzureTableRepositoryTests`3.Context
+  name: Context
+  href: api/Ease.Repository.AzureTable.Test.AzureTableRepositoryTests-3.html#Ease_Repository_AzureTable_Test_AzureTableRepositoryTests_3_Context
+  commentId: P:Ease.Repository.AzureTable.Test.AzureTableRepositoryTests`3.Context
+  fullName: Ease.Repository.AzureTable.Test.AzureTableRepositoryTests<TContext, TEntity, TRepository>.Context
+  fullName.vb: Ease.Repository.AzureTable.Test.AzureTableRepositoryTests(Of TContext, TEntity, TRepository).Context
+  nameWithType: AzureTableRepositoryTests<TContext, TEntity, TRepository>.Context
+  nameWithType.vb: AzureTableRepositoryTests(Of TContext, TEntity, TRepository).Context
+- uid: Ease.Repository.AzureTable.Test.AzureTableRepositoryTests`3.Context*
+  name: Context
+  href: api/Ease.Repository.AzureTable.Test.AzureTableRepositoryTests-3.html#Ease_Repository_AzureTable_Test_AzureTableRepositoryTests_3_Context_
+  commentId: Overload:Ease.Repository.AzureTable.Test.AzureTableRepositoryTests`3.Context
+  isSpec: "True"
+  fullName: Ease.Repository.AzureTable.Test.AzureTableRepositoryTests<TContext, TEntity, TRepository>.Context
+  fullName.vb: Ease.Repository.AzureTable.Test.AzureTableRepositoryTests(Of TContext, TEntity, TRepository).Context
+  nameWithType: AzureTableRepositoryTests<TContext, TEntity, TRepository>.Context
+  nameWithType.vb: AzureTableRepositoryTests(Of TContext, TEntity, TRepository).Context
+- uid: Ease.Repository.AzureTable.Test.AzureTableRepositoryTests`3.FreezeDependencies(AutoFixture.IFixture)
+  name: FreezeDependencies(IFixture)
+  href: api/Ease.Repository.AzureTable.Test.AzureTableRepositoryTests-3.html#Ease_Repository_AzureTable_Test_AzureTableRepositoryTests_3_FreezeDependencies_AutoFixture_IFixture_
+  commentId: M:Ease.Repository.AzureTable.Test.AzureTableRepositoryTests`3.FreezeDependencies(AutoFixture.IFixture)
+  fullName: Ease.Repository.AzureTable.Test.AzureTableRepositoryTests<TContext, TEntity, TRepository>.FreezeDependencies(AutoFixture.IFixture)
+  fullName.vb: Ease.Repository.AzureTable.Test.AzureTableRepositoryTests(Of TContext, TEntity, TRepository).FreezeDependencies(AutoFixture.IFixture)
+  nameWithType: AzureTableRepositoryTests<TContext, TEntity, TRepository>.FreezeDependencies(IFixture)
+  nameWithType.vb: AzureTableRepositoryTests(Of TContext, TEntity, TRepository).FreezeDependencies(IFixture)
+- uid: Ease.Repository.AzureTable.Test.AzureTableRepositoryTests`3.FreezeDependencies*
+  name: FreezeDependencies
+  href: api/Ease.Repository.AzureTable.Test.AzureTableRepositoryTests-3.html#Ease_Repository_AzureTable_Test_AzureTableRepositoryTests_3_FreezeDependencies_
+  commentId: Overload:Ease.Repository.AzureTable.Test.AzureTableRepositoryTests`3.FreezeDependencies
+  isSpec: "True"
+  fullName: Ease.Repository.AzureTable.Test.AzureTableRepositoryTests<TContext, TEntity, TRepository>.FreezeDependencies
+  fullName.vb: Ease.Repository.AzureTable.Test.AzureTableRepositoryTests(Of TContext, TEntity, TRepository).FreezeDependencies
+  nameWithType: AzureTableRepositoryTests<TContext, TEntity, TRepository>.FreezeDependencies
+  nameWithType.vb: AzureTableRepositoryTests(Of TContext, TEntity, TRepository).FreezeDependencies
+- uid: Ease.Repository.AzureTable.Test.AzureTableRepositoryTests`3.List_Returns_Empty_For_No_Data
+  name: List_Returns_Empty_For_No_Data()
+  href: api/Ease.Repository.AzureTable.Test.AzureTableRepositoryTests-3.html#Ease_Repository_AzureTable_Test_AzureTableRepositoryTests_3_List_Returns_Empty_For_No_Data
+  commentId: M:Ease.Repository.AzureTable.Test.AzureTableRepositoryTests`3.List_Returns_Empty_For_No_Data
+  fullName: Ease.Repository.AzureTable.Test.AzureTableRepositoryTests<TContext, TEntity, TRepository>.List_Returns_Empty_For_No_Data()
+  fullName.vb: Ease.Repository.AzureTable.Test.AzureTableRepositoryTests(Of TContext, TEntity, TRepository).List_Returns_Empty_For_No_Data()
+  nameWithType: AzureTableRepositoryTests<TContext, TEntity, TRepository>.List_Returns_Empty_For_No_Data()
+  nameWithType.vb: AzureTableRepositoryTests(Of TContext, TEntity, TRepository).List_Returns_Empty_For_No_Data()
+- uid: Ease.Repository.AzureTable.Test.AzureTableRepositoryTests`3.List_Returns_Empty_For_No_Data*
+  name: List_Returns_Empty_For_No_Data
+  href: api/Ease.Repository.AzureTable.Test.AzureTableRepositoryTests-3.html#Ease_Repository_AzureTable_Test_AzureTableRepositoryTests_3_List_Returns_Empty_For_No_Data_
+  commentId: Overload:Ease.Repository.AzureTable.Test.AzureTableRepositoryTests`3.List_Returns_Empty_For_No_Data
+  isSpec: "True"
+  fullName: Ease.Repository.AzureTable.Test.AzureTableRepositoryTests<TContext, TEntity, TRepository>.List_Returns_Empty_For_No_Data
+  fullName.vb: Ease.Repository.AzureTable.Test.AzureTableRepositoryTests(Of TContext, TEntity, TRepository).List_Returns_Empty_For_No_Data
+  nameWithType: AzureTableRepositoryTests<TContext, TEntity, TRepository>.List_Returns_Empty_For_No_Data
+  nameWithType.vb: AzureTableRepositoryTests(Of TContext, TEntity, TRepository).List_Returns_Empty_For_No_Data
+- uid: Ease.Repository.AzureTable.Test.AzureTableRepositoryTests`3.List_Returns_Empty_For_No_Data_Impl
+  name: List_Returns_Empty_For_No_Data_Impl()
+  href: api/Ease.Repository.AzureTable.Test.AzureTableRepositoryTests-3.html#Ease_Repository_AzureTable_Test_AzureTableRepositoryTests_3_List_Returns_Empty_For_No_Data_Impl
+  commentId: M:Ease.Repository.AzureTable.Test.AzureTableRepositoryTests`3.List_Returns_Empty_For_No_Data_Impl
+  fullName: Ease.Repository.AzureTable.Test.AzureTableRepositoryTests<TContext, TEntity, TRepository>.List_Returns_Empty_For_No_Data_Impl()
+  fullName.vb: Ease.Repository.AzureTable.Test.AzureTableRepositoryTests(Of TContext, TEntity, TRepository).List_Returns_Empty_For_No_Data_Impl()
+  nameWithType: AzureTableRepositoryTests<TContext, TEntity, TRepository>.List_Returns_Empty_For_No_Data_Impl()
+  nameWithType.vb: AzureTableRepositoryTests(Of TContext, TEntity, TRepository).List_Returns_Empty_For_No_Data_Impl()
+- uid: Ease.Repository.AzureTable.Test.AzureTableRepositoryTests`3.List_Returns_Empty_For_No_Data_Impl*
+  name: List_Returns_Empty_For_No_Data_Impl
+  href: api/Ease.Repository.AzureTable.Test.AzureTableRepositoryTests-3.html#Ease_Repository_AzureTable_Test_AzureTableRepositoryTests_3_List_Returns_Empty_For_No_Data_Impl_
+  commentId: Overload:Ease.Repository.AzureTable.Test.AzureTableRepositoryTests`3.List_Returns_Empty_For_No_Data_Impl
+  isSpec: "True"
+  fullName: Ease.Repository.AzureTable.Test.AzureTableRepositoryTests<TContext, TEntity, TRepository>.List_Returns_Empty_For_No_Data_Impl
+  fullName.vb: Ease.Repository.AzureTable.Test.AzureTableRepositoryTests(Of TContext, TEntity, TRepository).List_Returns_Empty_For_No_Data_Impl
+  nameWithType: AzureTableRepositoryTests<TContext, TEntity, TRepository>.List_Returns_Empty_For_No_Data_Impl
+  nameWithType.vb: AzureTableRepositoryTests(Of TContext, TEntity, TRepository).List_Returns_Empty_For_No_Data_Impl
+- uid: Ease.Repository.AzureTable.Test.AzureTableRepositoryTests`3.NullifyKeyFields(`1)
+  name: NullifyKeyFields(TEntity)
+  href: api/Ease.Repository.AzureTable.Test.AzureTableRepositoryTests-3.html#Ease_Repository_AzureTable_Test_AzureTableRepositoryTests_3_NullifyKeyFields__1_
+  commentId: M:Ease.Repository.AzureTable.Test.AzureTableRepositoryTests`3.NullifyKeyFields(`1)
+  fullName: Ease.Repository.AzureTable.Test.AzureTableRepositoryTests<TContext, TEntity, TRepository>.NullifyKeyFields(TEntity)
+  fullName.vb: Ease.Repository.AzureTable.Test.AzureTableRepositoryTests(Of TContext, TEntity, TRepository).NullifyKeyFields(TEntity)
+  nameWithType: AzureTableRepositoryTests<TContext, TEntity, TRepository>.NullifyKeyFields(TEntity)
+  nameWithType.vb: AzureTableRepositoryTests(Of TContext, TEntity, TRepository).NullifyKeyFields(TEntity)
+- uid: Ease.Repository.AzureTable.Test.AzureTableRepositoryTests`3.NullifyKeyFields*
+  name: NullifyKeyFields
+  href: api/Ease.Repository.AzureTable.Test.AzureTableRepositoryTests-3.html#Ease_Repository_AzureTable_Test_AzureTableRepositoryTests_3_NullifyKeyFields_
+  commentId: Overload:Ease.Repository.AzureTable.Test.AzureTableRepositoryTests`3.NullifyKeyFields
+  isSpec: "True"
+  fullName: Ease.Repository.AzureTable.Test.AzureTableRepositoryTests<TContext, TEntity, TRepository>.NullifyKeyFields
+  fullName.vb: Ease.Repository.AzureTable.Test.AzureTableRepositoryTests(Of TContext, TEntity, TRepository).NullifyKeyFields
+  nameWithType: AzureTableRepositoryTests<TContext, TEntity, TRepository>.NullifyKeyFields
+  nameWithType.vb: AzureTableRepositoryTests(Of TContext, TEntity, TRepository).NullifyKeyFields
+- uid: Ease.Repository.AzureTable.Test.AzureTableRepositoryTests`3.PrepareDependenciesForContext(AutoFixture.IFixture)
+  name: PrepareDependenciesForContext(IFixture)
+  href: api/Ease.Repository.AzureTable.Test.AzureTableRepositoryTests-3.html#Ease_Repository_AzureTable_Test_AzureTableRepositoryTests_3_PrepareDependenciesForContext_AutoFixture_IFixture_
+  commentId: M:Ease.Repository.AzureTable.Test.AzureTableRepositoryTests`3.PrepareDependenciesForContext(AutoFixture.IFixture)
+  fullName: Ease.Repository.AzureTable.Test.AzureTableRepositoryTests<TContext, TEntity, TRepository>.PrepareDependenciesForContext(AutoFixture.IFixture)
+  fullName.vb: Ease.Repository.AzureTable.Test.AzureTableRepositoryTests(Of TContext, TEntity, TRepository).PrepareDependenciesForContext(AutoFixture.IFixture)
+  nameWithType: AzureTableRepositoryTests<TContext, TEntity, TRepository>.PrepareDependenciesForContext(IFixture)
+  nameWithType.vb: AzureTableRepositoryTests(Of TContext, TEntity, TRepository).PrepareDependenciesForContext(IFixture)
+- uid: Ease.Repository.AzureTable.Test.AzureTableRepositoryTests`3.PrepareDependenciesForContext*
+  name: PrepareDependenciesForContext
+  href: api/Ease.Repository.AzureTable.Test.AzureTableRepositoryTests-3.html#Ease_Repository_AzureTable_Test_AzureTableRepositoryTests_3_PrepareDependenciesForContext_
+  commentId: Overload:Ease.Repository.AzureTable.Test.AzureTableRepositoryTests`3.PrepareDependenciesForContext
+  isSpec: "True"
+  fullName: Ease.Repository.AzureTable.Test.AzureTableRepositoryTests<TContext, TEntity, TRepository>.PrepareDependenciesForContext
+  fullName.vb: Ease.Repository.AzureTable.Test.AzureTableRepositoryTests(Of TContext, TEntity, TRepository).PrepareDependenciesForContext
+  nameWithType: AzureTableRepositoryTests<TContext, TEntity, TRepository>.PrepareDependenciesForContext
+  nameWithType.vb: AzureTableRepositoryTests(Of TContext, TEntity, TRepository).PrepareDependenciesForContext
+- uid: Ease.Repository.AzureTable.Test.AzureTableRepositoryTests`3.TearDown
+  name: TearDown()
+  href: api/Ease.Repository.AzureTable.Test.AzureTableRepositoryTests-3.html#Ease_Repository_AzureTable_Test_AzureTableRepositoryTests_3_TearDown
+  commentId: M:Ease.Repository.AzureTable.Test.AzureTableRepositoryTests`3.TearDown
+  fullName: Ease.Repository.AzureTable.Test.AzureTableRepositoryTests<TContext, TEntity, TRepository>.TearDown()
+  fullName.vb: Ease.Repository.AzureTable.Test.AzureTableRepositoryTests(Of TContext, TEntity, TRepository).TearDown()
+  nameWithType: AzureTableRepositoryTests<TContext, TEntity, TRepository>.TearDown()
+  nameWithType.vb: AzureTableRepositoryTests(Of TContext, TEntity, TRepository).TearDown()
+- uid: Ease.Repository.AzureTable.Test.AzureTableRepositoryTests`3.TearDown*
+  name: TearDown
+  href: api/Ease.Repository.AzureTable.Test.AzureTableRepositoryTests-3.html#Ease_Repository_AzureTable_Test_AzureTableRepositoryTests_3_TearDown_
+  commentId: Overload:Ease.Repository.AzureTable.Test.AzureTableRepositoryTests`3.TearDown
+  isSpec: "True"
+  fullName: Ease.Repository.AzureTable.Test.AzureTableRepositoryTests<TContext, TEntity, TRepository>.TearDown
+  fullName.vb: Ease.Repository.AzureTable.Test.AzureTableRepositoryTests(Of TContext, TEntity, TRepository).TearDown
+  nameWithType: AzureTableRepositoryTests<TContext, TEntity, TRepository>.TearDown
+  nameWithType.vb: AzureTableRepositoryTests(Of TContext, TEntity, TRepository).TearDown
+- uid: Ease.Repository.AzureTable.Test.AzureTableRepositoryTests`3.TearDown_Impl
+  name: TearDown_Impl()
+  href: api/Ease.Repository.AzureTable.Test.AzureTableRepositoryTests-3.html#Ease_Repository_AzureTable_Test_AzureTableRepositoryTests_3_TearDown_Impl
+  commentId: M:Ease.Repository.AzureTable.Test.AzureTableRepositoryTests`3.TearDown_Impl
+  fullName: Ease.Repository.AzureTable.Test.AzureTableRepositoryTests<TContext, TEntity, TRepository>.TearDown_Impl()
+  fullName.vb: Ease.Repository.AzureTable.Test.AzureTableRepositoryTests(Of TContext, TEntity, TRepository).TearDown_Impl()
+  nameWithType: AzureTableRepositoryTests<TContext, TEntity, TRepository>.TearDown_Impl()
+  nameWithType.vb: AzureTableRepositoryTests(Of TContext, TEntity, TRepository).TearDown_Impl()
+- uid: Ease.Repository.AzureTable.Test.AzureTableRepositoryTests`3.TearDown_Impl*
+  name: TearDown_Impl
+  href: api/Ease.Repository.AzureTable.Test.AzureTableRepositoryTests-3.html#Ease_Repository_AzureTable_Test_AzureTableRepositoryTests_3_TearDown_Impl_
+  commentId: Overload:Ease.Repository.AzureTable.Test.AzureTableRepositoryTests`3.TearDown_Impl
+  isSpec: "True"
+  fullName: Ease.Repository.AzureTable.Test.AzureTableRepositoryTests<TContext, TEntity, TRepository>.TearDown_Impl
+  fullName.vb: Ease.Repository.AzureTable.Test.AzureTableRepositoryTests(Of TContext, TEntity, TRepository).TearDown_Impl
+  nameWithType: AzureTableRepositoryTests<TContext, TEntity, TRepository>.TearDown_Impl
+  nameWithType.vb: AzureTableRepositoryTests(Of TContext, TEntity, TRepository).TearDown_Impl
+- uid: Ease.Repository.AzureTable.Test.AzureTableRepositoryTests`3.TestTableNamePrefix
+  name: TestTableNamePrefix
+  href: api/Ease.Repository.AzureTable.Test.AzureTableRepositoryTests-3.html#Ease_Repository_AzureTable_Test_AzureTableRepositoryTests_3_TestTableNamePrefix
+  commentId: P:Ease.Repository.AzureTable.Test.AzureTableRepositoryTests`3.TestTableNamePrefix
+  fullName: Ease.Repository.AzureTable.Test.AzureTableRepositoryTests<TContext, TEntity, TRepository>.TestTableNamePrefix
+  fullName.vb: Ease.Repository.AzureTable.Test.AzureTableRepositoryTests(Of TContext, TEntity, TRepository).TestTableNamePrefix
+  nameWithType: AzureTableRepositoryTests<TContext, TEntity, TRepository>.TestTableNamePrefix
+  nameWithType.vb: AzureTableRepositoryTests(Of TContext, TEntity, TRepository).TestTableNamePrefix
+- uid: Ease.Repository.AzureTable.Test.AzureTableRepositoryTests`3.TestTableNamePrefix*
+  name: TestTableNamePrefix
+  href: api/Ease.Repository.AzureTable.Test.AzureTableRepositoryTests-3.html#Ease_Repository_AzureTable_Test_AzureTableRepositoryTests_3_TestTableNamePrefix_
+  commentId: Overload:Ease.Repository.AzureTable.Test.AzureTableRepositoryTests`3.TestTableNamePrefix
+  isSpec: "True"
+  fullName: Ease.Repository.AzureTable.Test.AzureTableRepositoryTests<TContext, TEntity, TRepository>.TestTableNamePrefix
+  fullName.vb: Ease.Repository.AzureTable.Test.AzureTableRepositoryTests(Of TContext, TEntity, TRepository).TestTableNamePrefix
+  nameWithType: AzureTableRepositoryTests<TContext, TEntity, TRepository>.TestTableNamePrefix
+  nameWithType.vb: AzureTableRepositoryTests(Of TContext, TEntity, TRepository).TestTableNamePrefix
+- uid: Ease.Repository.AzureTable.Test.AzureTableRepositoryTests`3.UnitOfWork
+  name: UnitOfWork
+  href: api/Ease.Repository.AzureTable.Test.AzureTableRepositoryTests-3.html#Ease_Repository_AzureTable_Test_AzureTableRepositoryTests_3_UnitOfWork
+  commentId: P:Ease.Repository.AzureTable.Test.AzureTableRepositoryTests`3.UnitOfWork
+  fullName: Ease.Repository.AzureTable.Test.AzureTableRepositoryTests<TContext, TEntity, TRepository>.UnitOfWork
+  fullName.vb: Ease.Repository.AzureTable.Test.AzureTableRepositoryTests(Of TContext, TEntity, TRepository).UnitOfWork
+  nameWithType: AzureTableRepositoryTests<TContext, TEntity, TRepository>.UnitOfWork
+  nameWithType.vb: AzureTableRepositoryTests(Of TContext, TEntity, TRepository).UnitOfWork
+- uid: Ease.Repository.AzureTable.Test.AzureTableRepositoryTests`3.UnitOfWork*
+  name: UnitOfWork
+  href: api/Ease.Repository.AzureTable.Test.AzureTableRepositoryTests-3.html#Ease_Repository_AzureTable_Test_AzureTableRepositoryTests_3_UnitOfWork_
+  commentId: Overload:Ease.Repository.AzureTable.Test.AzureTableRepositoryTests`3.UnitOfWork
+  isSpec: "True"
+  fullName: Ease.Repository.AzureTable.Test.AzureTableRepositoryTests<TContext, TEntity, TRepository>.UnitOfWork
+  fullName.vb: Ease.Repository.AzureTable.Test.AzureTableRepositoryTests(Of TContext, TEntity, TRepository).UnitOfWork
+  nameWithType: AzureTableRepositoryTests<TContext, TEntity, TRepository>.UnitOfWork
+  nameWithType.vb: AzureTableRepositoryTests(Of TContext, TEntity, TRepository).UnitOfWork
+- uid: Ease.Repository.BestEffortUnitOfWork
   name: BestEffortUnitOfWork
-  href: api/Ease.Repository.BestEffortUnitOfWork-1.html#Ease_Repository_BestEffortUnitOfWork_1__ctor_
-  commentId: Overload:Ease.Repository.BestEffortUnitOfWork`1.#ctor
-  isSpec: "True"
-  fullName: Ease.Repository.BestEffortUnitOfWork<TContext>.BestEffortUnitOfWork
-  fullName.vb: Ease.Repository.BestEffortUnitOfWork(Of TContext).BestEffortUnitOfWork
-  nameWithType: BestEffortUnitOfWork<TContext>.BestEffortUnitOfWork
-  nameWithType.vb: BestEffortUnitOfWork(Of TContext).BestEffortUnitOfWork
-- uid: Ease.Repository.BestEffortUnitOfWork`1.CompleteAsync
+  href: api/Ease.Repository.BestEffortUnitOfWork.html
+  commentId: T:Ease.Repository.BestEffortUnitOfWork
+  fullName: Ease.Repository.BestEffortUnitOfWork
+  nameWithType: BestEffortUnitOfWork
+- uid: Ease.Repository.BestEffortUnitOfWork.CompleteAsync
   name: CompleteAsync()
-  href: api/Ease.Repository.BestEffortUnitOfWork-1.html#Ease_Repository_BestEffortUnitOfWork_1_CompleteAsync
-  commentId: M:Ease.Repository.BestEffortUnitOfWork`1.CompleteAsync
-  fullName: Ease.Repository.BestEffortUnitOfWork<TContext>.CompleteAsync()
-  fullName.vb: Ease.Repository.BestEffortUnitOfWork(Of TContext).CompleteAsync()
-  nameWithType: BestEffortUnitOfWork<TContext>.CompleteAsync()
-  nameWithType.vb: BestEffortUnitOfWork(Of TContext).CompleteAsync()
-- uid: Ease.Repository.BestEffortUnitOfWork`1.CompleteAsync*
+  href: api/Ease.Repository.BestEffortUnitOfWork.html#Ease_Repository_BestEffortUnitOfWork_CompleteAsync
+  commentId: M:Ease.Repository.BestEffortUnitOfWork.CompleteAsync
+  fullName: Ease.Repository.BestEffortUnitOfWork.CompleteAsync()
+  nameWithType: BestEffortUnitOfWork.CompleteAsync()
+- uid: Ease.Repository.BestEffortUnitOfWork.CompleteAsync*
   name: CompleteAsync
-  href: api/Ease.Repository.BestEffortUnitOfWork-1.html#Ease_Repository_BestEffortUnitOfWork_1_CompleteAsync_
-  commentId: Overload:Ease.Repository.BestEffortUnitOfWork`1.CompleteAsync
+  href: api/Ease.Repository.BestEffortUnitOfWork.html#Ease_Repository_BestEffortUnitOfWork_CompleteAsync_
+  commentId: Overload:Ease.Repository.BestEffortUnitOfWork.CompleteAsync
   isSpec: "True"
-  fullName: Ease.Repository.BestEffortUnitOfWork<TContext>.CompleteAsync
-  fullName.vb: Ease.Repository.BestEffortUnitOfWork(Of TContext).CompleteAsync
-  nameWithType: BestEffortUnitOfWork<TContext>.CompleteAsync
-  nameWithType.vb: BestEffortUnitOfWork(Of TContext).CompleteAsync
-- uid: Ease.Repository.BestEffortUnitOfWork`1.Context
-  name: Context
-  href: api/Ease.Repository.BestEffortUnitOfWork-1.html#Ease_Repository_BestEffortUnitOfWork_1_Context
-  commentId: P:Ease.Repository.BestEffortUnitOfWork`1.Context
-  fullName: Ease.Repository.BestEffortUnitOfWork<TContext>.Context
-  fullName.vb: Ease.Repository.BestEffortUnitOfWork(Of TContext).Context
-  nameWithType: BestEffortUnitOfWork<TContext>.Context
-  nameWithType.vb: BestEffortUnitOfWork(Of TContext).Context
-- uid: Ease.Repository.BestEffortUnitOfWork`1.Context*
-  name: Context
-  href: api/Ease.Repository.BestEffortUnitOfWork-1.html#Ease_Repository_BestEffortUnitOfWork_1_Context_
-  commentId: Overload:Ease.Repository.BestEffortUnitOfWork`1.Context
-  isSpec: "True"
-  fullName: Ease.Repository.BestEffortUnitOfWork<TContext>.Context
-  fullName.vb: Ease.Repository.BestEffortUnitOfWork(Of TContext).Context
-  nameWithType: BestEffortUnitOfWork<TContext>.Context
-  nameWithType.vb: BestEffortUnitOfWork(Of TContext).Context
-- uid: Ease.Repository.BestEffortUnitOfWork`1.DisposeManagedObjects
+  fullName: Ease.Repository.BestEffortUnitOfWork.CompleteAsync
+  nameWithType: BestEffortUnitOfWork.CompleteAsync
+- uid: Ease.Repository.BestEffortUnitOfWork.DisposeManagedObjects
   name: DisposeManagedObjects()
-  href: api/Ease.Repository.BestEffortUnitOfWork-1.html#Ease_Repository_BestEffortUnitOfWork_1_DisposeManagedObjects
-  commentId: M:Ease.Repository.BestEffortUnitOfWork`1.DisposeManagedObjects
-  fullName: Ease.Repository.BestEffortUnitOfWork<TContext>.DisposeManagedObjects()
-  fullName.vb: Ease.Repository.BestEffortUnitOfWork(Of TContext).DisposeManagedObjects()
-  nameWithType: BestEffortUnitOfWork<TContext>.DisposeManagedObjects()
-  nameWithType.vb: BestEffortUnitOfWork(Of TContext).DisposeManagedObjects()
-- uid: Ease.Repository.BestEffortUnitOfWork`1.DisposeManagedObjects*
+  href: api/Ease.Repository.BestEffortUnitOfWork.html#Ease_Repository_BestEffortUnitOfWork_DisposeManagedObjects
+  commentId: M:Ease.Repository.BestEffortUnitOfWork.DisposeManagedObjects
+  fullName: Ease.Repository.BestEffortUnitOfWork.DisposeManagedObjects()
+  nameWithType: BestEffortUnitOfWork.DisposeManagedObjects()
+- uid: Ease.Repository.BestEffortUnitOfWork.DisposeManagedObjects*
   name: DisposeManagedObjects
-  href: api/Ease.Repository.BestEffortUnitOfWork-1.html#Ease_Repository_BestEffortUnitOfWork_1_DisposeManagedObjects_
-  commentId: Overload:Ease.Repository.BestEffortUnitOfWork`1.DisposeManagedObjects
+  href: api/Ease.Repository.BestEffortUnitOfWork.html#Ease_Repository_BestEffortUnitOfWork_DisposeManagedObjects_
+  commentId: Overload:Ease.Repository.BestEffortUnitOfWork.DisposeManagedObjects
   isSpec: "True"
-  fullName: Ease.Repository.BestEffortUnitOfWork<TContext>.DisposeManagedObjects
-  fullName.vb: Ease.Repository.BestEffortUnitOfWork(Of TContext).DisposeManagedObjects
-  nameWithType: BestEffortUnitOfWork<TContext>.DisposeManagedObjects
-  nameWithType.vb: BestEffortUnitOfWork(Of TContext).DisposeManagedObjects
-- uid: Ease.Repository.BestEffortUnitOfWork`1.NullifyLargeFields
+  fullName: Ease.Repository.BestEffortUnitOfWork.DisposeManagedObjects
+  nameWithType: BestEffortUnitOfWork.DisposeManagedObjects
+- uid: Ease.Repository.BestEffortUnitOfWork.NullifyLargeFields
   name: NullifyLargeFields()
-  href: api/Ease.Repository.BestEffortUnitOfWork-1.html#Ease_Repository_BestEffortUnitOfWork_1_NullifyLargeFields
-  commentId: M:Ease.Repository.BestEffortUnitOfWork`1.NullifyLargeFields
-  fullName: Ease.Repository.BestEffortUnitOfWork<TContext>.NullifyLargeFields()
-  fullName.vb: Ease.Repository.BestEffortUnitOfWork(Of TContext).NullifyLargeFields()
-  nameWithType: BestEffortUnitOfWork<TContext>.NullifyLargeFields()
-  nameWithType.vb: BestEffortUnitOfWork(Of TContext).NullifyLargeFields()
-- uid: Ease.Repository.BestEffortUnitOfWork`1.NullifyLargeFields*
+  href: api/Ease.Repository.BestEffortUnitOfWork.html#Ease_Repository_BestEffortUnitOfWork_NullifyLargeFields
+  commentId: M:Ease.Repository.BestEffortUnitOfWork.NullifyLargeFields
+  fullName: Ease.Repository.BestEffortUnitOfWork.NullifyLargeFields()
+  nameWithType: BestEffortUnitOfWork.NullifyLargeFields()
+- uid: Ease.Repository.BestEffortUnitOfWork.NullifyLargeFields*
   name: NullifyLargeFields
-  href: api/Ease.Repository.BestEffortUnitOfWork-1.html#Ease_Repository_BestEffortUnitOfWork_1_NullifyLargeFields_
-  commentId: Overload:Ease.Repository.BestEffortUnitOfWork`1.NullifyLargeFields
+  href: api/Ease.Repository.BestEffortUnitOfWork.html#Ease_Repository_BestEffortUnitOfWork_NullifyLargeFields_
+  commentId: Overload:Ease.Repository.BestEffortUnitOfWork.NullifyLargeFields
   isSpec: "True"
-  fullName: Ease.Repository.BestEffortUnitOfWork<TContext>.NullifyLargeFields
-  fullName.vb: Ease.Repository.BestEffortUnitOfWork(Of TContext).NullifyLargeFields
-  nameWithType: BestEffortUnitOfWork<TContext>.NullifyLargeFields
-  nameWithType.vb: BestEffortUnitOfWork(Of TContext).NullifyLargeFields
-- uid: Ease.Repository.BestEffortUnitOfWork`1.RegisterAdd*
+  fullName: Ease.Repository.BestEffortUnitOfWork.NullifyLargeFields
+  nameWithType: BestEffortUnitOfWork.NullifyLargeFields
+- uid: Ease.Repository.BestEffortUnitOfWork.RegisterAdd*
   name: RegisterAdd
-  href: api/Ease.Repository.BestEffortUnitOfWork-1.html#Ease_Repository_BestEffortUnitOfWork_1_RegisterAdd_
-  commentId: Overload:Ease.Repository.BestEffortUnitOfWork`1.RegisterAdd
+  href: api/Ease.Repository.BestEffortUnitOfWork.html#Ease_Repository_BestEffortUnitOfWork_RegisterAdd_
+  commentId: Overload:Ease.Repository.BestEffortUnitOfWork.RegisterAdd
   isSpec: "True"
-  fullName: Ease.Repository.BestEffortUnitOfWork<TContext>.RegisterAdd
-  fullName.vb: Ease.Repository.BestEffortUnitOfWork(Of TContext).RegisterAdd
-  nameWithType: BestEffortUnitOfWork<TContext>.RegisterAdd
-  nameWithType.vb: BestEffortUnitOfWork(Of TContext).RegisterAdd
-- uid: Ease.Repository.BestEffortUnitOfWork`1.RegisterAdd``1(``0)
+  fullName: Ease.Repository.BestEffortUnitOfWork.RegisterAdd
+  nameWithType: BestEffortUnitOfWork.RegisterAdd
+- uid: Ease.Repository.BestEffortUnitOfWork.RegisterAdd``1(``0)
   name: RegisterAdd<TEntity>(TEntity)
-  href: api/Ease.Repository.BestEffortUnitOfWork-1.html#Ease_Repository_BestEffortUnitOfWork_1_RegisterAdd__1___0_
-  commentId: M:Ease.Repository.BestEffortUnitOfWork`1.RegisterAdd``1(``0)
+  href: api/Ease.Repository.BestEffortUnitOfWork.html#Ease_Repository_BestEffortUnitOfWork_RegisterAdd__1___0_
+  commentId: M:Ease.Repository.BestEffortUnitOfWork.RegisterAdd``1(``0)
   name.vb: RegisterAdd(Of TEntity)(TEntity)
-  fullName: Ease.Repository.BestEffortUnitOfWork<TContext>.RegisterAdd<TEntity>(TEntity)
-  fullName.vb: Ease.Repository.BestEffortUnitOfWork(Of TContext).RegisterAdd(Of TEntity)(TEntity)
-  nameWithType: BestEffortUnitOfWork<TContext>.RegisterAdd<TEntity>(TEntity)
-  nameWithType.vb: BestEffortUnitOfWork(Of TContext).RegisterAdd(Of TEntity)(TEntity)
-- uid: Ease.Repository.BestEffortUnitOfWork`1.RegisterDelete*
+  fullName: Ease.Repository.BestEffortUnitOfWork.RegisterAdd<TEntity>(TEntity)
+  fullName.vb: Ease.Repository.BestEffortUnitOfWork.RegisterAdd(Of TEntity)(TEntity)
+  nameWithType: BestEffortUnitOfWork.RegisterAdd<TEntity>(TEntity)
+  nameWithType.vb: BestEffortUnitOfWork.RegisterAdd(Of TEntity)(TEntity)
+- uid: Ease.Repository.BestEffortUnitOfWork.RegisterDelete*
   name: RegisterDelete
-  href: api/Ease.Repository.BestEffortUnitOfWork-1.html#Ease_Repository_BestEffortUnitOfWork_1_RegisterDelete_
-  commentId: Overload:Ease.Repository.BestEffortUnitOfWork`1.RegisterDelete
+  href: api/Ease.Repository.BestEffortUnitOfWork.html#Ease_Repository_BestEffortUnitOfWork_RegisterDelete_
+  commentId: Overload:Ease.Repository.BestEffortUnitOfWork.RegisterDelete
   isSpec: "True"
-  fullName: Ease.Repository.BestEffortUnitOfWork<TContext>.RegisterDelete
-  fullName.vb: Ease.Repository.BestEffortUnitOfWork(Of TContext).RegisterDelete
-  nameWithType: BestEffortUnitOfWork<TContext>.RegisterDelete
-  nameWithType.vb: BestEffortUnitOfWork(Of TContext).RegisterDelete
-- uid: Ease.Repository.BestEffortUnitOfWork`1.RegisterDelete``1(``0)
+  fullName: Ease.Repository.BestEffortUnitOfWork.RegisterDelete
+  nameWithType: BestEffortUnitOfWork.RegisterDelete
+- uid: Ease.Repository.BestEffortUnitOfWork.RegisterDelete``1(``0)
   name: RegisterDelete<TEntity>(TEntity)
-  href: api/Ease.Repository.BestEffortUnitOfWork-1.html#Ease_Repository_BestEffortUnitOfWork_1_RegisterDelete__1___0_
-  commentId: M:Ease.Repository.BestEffortUnitOfWork`1.RegisterDelete``1(``0)
+  href: api/Ease.Repository.BestEffortUnitOfWork.html#Ease_Repository_BestEffortUnitOfWork_RegisterDelete__1___0_
+  commentId: M:Ease.Repository.BestEffortUnitOfWork.RegisterDelete``1(``0)
   name.vb: RegisterDelete(Of TEntity)(TEntity)
-  fullName: Ease.Repository.BestEffortUnitOfWork<TContext>.RegisterDelete<TEntity>(TEntity)
-  fullName.vb: Ease.Repository.BestEffortUnitOfWork(Of TContext).RegisterDelete(Of TEntity)(TEntity)
-  nameWithType: BestEffortUnitOfWork<TContext>.RegisterDelete<TEntity>(TEntity)
-  nameWithType.vb: BestEffortUnitOfWork(Of TContext).RegisterDelete(Of TEntity)(TEntity)
-- uid: Ease.Repository.BestEffortUnitOfWork`1.RegisterForUpdates*
+  fullName: Ease.Repository.BestEffortUnitOfWork.RegisterDelete<TEntity>(TEntity)
+  fullName.vb: Ease.Repository.BestEffortUnitOfWork.RegisterDelete(Of TEntity)(TEntity)
+  nameWithType: BestEffortUnitOfWork.RegisterDelete<TEntity>(TEntity)
+  nameWithType.vb: BestEffortUnitOfWork.RegisterDelete(Of TEntity)(TEntity)
+- uid: Ease.Repository.BestEffortUnitOfWork.RegisterForUpdates*
   name: RegisterForUpdates
-  href: api/Ease.Repository.BestEffortUnitOfWork-1.html#Ease_Repository_BestEffortUnitOfWork_1_RegisterForUpdates_
-  commentId: Overload:Ease.Repository.BestEffortUnitOfWork`1.RegisterForUpdates
+  href: api/Ease.Repository.BestEffortUnitOfWork.html#Ease_Repository_BestEffortUnitOfWork_RegisterForUpdates_
+  commentId: Overload:Ease.Repository.BestEffortUnitOfWork.RegisterForUpdates
   isSpec: "True"
-  fullName: Ease.Repository.BestEffortUnitOfWork<TContext>.RegisterForUpdates
-  fullName.vb: Ease.Repository.BestEffortUnitOfWork(Of TContext).RegisterForUpdates
-  nameWithType: BestEffortUnitOfWork<TContext>.RegisterForUpdates
-  nameWithType.vb: BestEffortUnitOfWork(Of TContext).RegisterForUpdates
-- uid: Ease.Repository.BestEffortUnitOfWork`1.RegisterForUpdates``1(System.Collections.Generic.IEnumerable{``0})
+  fullName: Ease.Repository.BestEffortUnitOfWork.RegisterForUpdates
+  nameWithType: BestEffortUnitOfWork.RegisterForUpdates
+- uid: Ease.Repository.BestEffortUnitOfWork.RegisterForUpdates``1(System.Collections.Generic.IEnumerable{``0})
   name: RegisterForUpdates<TEntity>(IEnumerable<TEntity>)
-  href: api/Ease.Repository.BestEffortUnitOfWork-1.html#Ease_Repository_BestEffortUnitOfWork_1_RegisterForUpdates__1_System_Collections_Generic_IEnumerable___0__
-  commentId: M:Ease.Repository.BestEffortUnitOfWork`1.RegisterForUpdates``1(System.Collections.Generic.IEnumerable{``0})
+  href: api/Ease.Repository.BestEffortUnitOfWork.html#Ease_Repository_BestEffortUnitOfWork_RegisterForUpdates__1_System_Collections_Generic_IEnumerable___0__
+  commentId: M:Ease.Repository.BestEffortUnitOfWork.RegisterForUpdates``1(System.Collections.Generic.IEnumerable{``0})
   name.vb: RegisterForUpdates(Of TEntity)(IEnumerable(Of TEntity))
-  fullName: Ease.Repository.BestEffortUnitOfWork<TContext>.RegisterForUpdates<TEntity>(System.Collections.Generic.IEnumerable<TEntity>)
-  fullName.vb: Ease.Repository.BestEffortUnitOfWork(Of TContext).RegisterForUpdates(Of TEntity)(System.Collections.Generic.IEnumerable(Of TEntity))
-  nameWithType: BestEffortUnitOfWork<TContext>.RegisterForUpdates<TEntity>(IEnumerable<TEntity>)
-  nameWithType.vb: BestEffortUnitOfWork(Of TContext).RegisterForUpdates(Of TEntity)(IEnumerable(Of TEntity))
-- uid: Ease.Repository.BestEffortUnitOfWork`1.RegisterStoreFor*
+  fullName: Ease.Repository.BestEffortUnitOfWork.RegisterForUpdates<TEntity>(System.Collections.Generic.IEnumerable<TEntity>)
+  fullName.vb: Ease.Repository.BestEffortUnitOfWork.RegisterForUpdates(Of TEntity)(System.Collections.Generic.IEnumerable(Of TEntity))
+  nameWithType: BestEffortUnitOfWork.RegisterForUpdates<TEntity>(IEnumerable<TEntity>)
+  nameWithType.vb: BestEffortUnitOfWork.RegisterForUpdates(Of TEntity)(IEnumerable(Of TEntity))
+- uid: Ease.Repository.BestEffortUnitOfWork.RegisterStoreFor*
   name: RegisterStoreFor
-  href: api/Ease.Repository.BestEffortUnitOfWork-1.html#Ease_Repository_BestEffortUnitOfWork_1_RegisterStoreFor_
-  commentId: Overload:Ease.Repository.BestEffortUnitOfWork`1.RegisterStoreFor
+  href: api/Ease.Repository.BestEffortUnitOfWork.html#Ease_Repository_BestEffortUnitOfWork_RegisterStoreFor_
+  commentId: Overload:Ease.Repository.BestEffortUnitOfWork.RegisterStoreFor
   isSpec: "True"
-  fullName: Ease.Repository.BestEffortUnitOfWork<TContext>.RegisterStoreFor
-  fullName.vb: Ease.Repository.BestEffortUnitOfWork(Of TContext).RegisterStoreFor
-  nameWithType: BestEffortUnitOfWork<TContext>.RegisterStoreFor
-  nameWithType.vb: BestEffortUnitOfWork(Of TContext).RegisterStoreFor
-- uid: Ease.Repository.BestEffortUnitOfWork`1.RegisterStoreFor``1(Ease.Repository.IStoreWriter)
+  fullName: Ease.Repository.BestEffortUnitOfWork.RegisterStoreFor
+  nameWithType: BestEffortUnitOfWork.RegisterStoreFor
+- uid: Ease.Repository.BestEffortUnitOfWork.RegisterStoreFor``1(Ease.Repository.IStoreWriter)
   name: RegisterStoreFor<TEntity>(IStoreWriter)
-  href: api/Ease.Repository.BestEffortUnitOfWork-1.html#Ease_Repository_BestEffortUnitOfWork_1_RegisterStoreFor__1_Ease_Repository_IStoreWriter_
-  commentId: M:Ease.Repository.BestEffortUnitOfWork`1.RegisterStoreFor``1(Ease.Repository.IStoreWriter)
+  href: api/Ease.Repository.BestEffortUnitOfWork.html#Ease_Repository_BestEffortUnitOfWork_RegisterStoreFor__1_Ease_Repository_IStoreWriter_
+  commentId: M:Ease.Repository.BestEffortUnitOfWork.RegisterStoreFor``1(Ease.Repository.IStoreWriter)
   name.vb: RegisterStoreFor(Of TEntity)(IStoreWriter)
-  fullName: Ease.Repository.BestEffortUnitOfWork<TContext>.RegisterStoreFor<TEntity>(Ease.Repository.IStoreWriter)
-  fullName.vb: Ease.Repository.BestEffortUnitOfWork(Of TContext).RegisterStoreFor(Of TEntity)(Ease.Repository.IStoreWriter)
-  nameWithType: BestEffortUnitOfWork<TContext>.RegisterStoreFor<TEntity>(IStoreWriter)
-  nameWithType.vb: BestEffortUnitOfWork(Of TContext).RegisterStoreFor(Of TEntity)(IStoreWriter)
+  fullName: Ease.Repository.BestEffortUnitOfWork.RegisterStoreFor<TEntity>(Ease.Repository.IStoreWriter)
+  fullName.vb: Ease.Repository.BestEffortUnitOfWork.RegisterStoreFor(Of TEntity)(Ease.Repository.IStoreWriter)
+  nameWithType: BestEffortUnitOfWork.RegisterStoreFor<TEntity>(IStoreWriter)
+  nameWithType.vb: BestEffortUnitOfWork.RegisterStoreFor(Of TEntity)(IStoreWriter)
 - uid: Ease.Repository.ChangeTrackingExtensions
   name: ChangeTrackingExtensions
   href: api/Ease.Repository.ChangeTrackingExtensions.html
@@ -851,54 +1164,6 @@ references:
   commentId: T:Ease.Repository.IBestEffortUnitOfWork
   fullName: Ease.Repository.IBestEffortUnitOfWork
   nameWithType: IBestEffortUnitOfWork
-- uid: Ease.Repository.IBestEffortUnitOfWork.RegisterAdd*
-  name: RegisterAdd
-  href: api/Ease.Repository.IBestEffortUnitOfWork.html#Ease_Repository_IBestEffortUnitOfWork_RegisterAdd_
-  commentId: Overload:Ease.Repository.IBestEffortUnitOfWork.RegisterAdd
-  isSpec: "True"
-  fullName: Ease.Repository.IBestEffortUnitOfWork.RegisterAdd
-  nameWithType: IBestEffortUnitOfWork.RegisterAdd
-- uid: Ease.Repository.IBestEffortUnitOfWork.RegisterAdd``1(``0)
-  name: RegisterAdd<TEntity>(TEntity)
-  href: api/Ease.Repository.IBestEffortUnitOfWork.html#Ease_Repository_IBestEffortUnitOfWork_RegisterAdd__1___0_
-  commentId: M:Ease.Repository.IBestEffortUnitOfWork.RegisterAdd``1(``0)
-  name.vb: RegisterAdd(Of TEntity)(TEntity)
-  fullName: Ease.Repository.IBestEffortUnitOfWork.RegisterAdd<TEntity>(TEntity)
-  fullName.vb: Ease.Repository.IBestEffortUnitOfWork.RegisterAdd(Of TEntity)(TEntity)
-  nameWithType: IBestEffortUnitOfWork.RegisterAdd<TEntity>(TEntity)
-  nameWithType.vb: IBestEffortUnitOfWork.RegisterAdd(Of TEntity)(TEntity)
-- uid: Ease.Repository.IBestEffortUnitOfWork.RegisterDelete*
-  name: RegisterDelete
-  href: api/Ease.Repository.IBestEffortUnitOfWork.html#Ease_Repository_IBestEffortUnitOfWork_RegisterDelete_
-  commentId: Overload:Ease.Repository.IBestEffortUnitOfWork.RegisterDelete
-  isSpec: "True"
-  fullName: Ease.Repository.IBestEffortUnitOfWork.RegisterDelete
-  nameWithType: IBestEffortUnitOfWork.RegisterDelete
-- uid: Ease.Repository.IBestEffortUnitOfWork.RegisterDelete``1(``0)
-  name: RegisterDelete<TEntity>(TEntity)
-  href: api/Ease.Repository.IBestEffortUnitOfWork.html#Ease_Repository_IBestEffortUnitOfWork_RegisterDelete__1___0_
-  commentId: M:Ease.Repository.IBestEffortUnitOfWork.RegisterDelete``1(``0)
-  name.vb: RegisterDelete(Of TEntity)(TEntity)
-  fullName: Ease.Repository.IBestEffortUnitOfWork.RegisterDelete<TEntity>(TEntity)
-  fullName.vb: Ease.Repository.IBestEffortUnitOfWork.RegisterDelete(Of TEntity)(TEntity)
-  nameWithType: IBestEffortUnitOfWork.RegisterDelete<TEntity>(TEntity)
-  nameWithType.vb: IBestEffortUnitOfWork.RegisterDelete(Of TEntity)(TEntity)
-- uid: Ease.Repository.IBestEffortUnitOfWork.RegisterForUpdates*
-  name: RegisterForUpdates
-  href: api/Ease.Repository.IBestEffortUnitOfWork.html#Ease_Repository_IBestEffortUnitOfWork_RegisterForUpdates_
-  commentId: Overload:Ease.Repository.IBestEffortUnitOfWork.RegisterForUpdates
-  isSpec: "True"
-  fullName: Ease.Repository.IBestEffortUnitOfWork.RegisterForUpdates
-  nameWithType: IBestEffortUnitOfWork.RegisterForUpdates
-- uid: Ease.Repository.IBestEffortUnitOfWork.RegisterForUpdates``1(System.Collections.Generic.IEnumerable{``0})
-  name: RegisterForUpdates<TEntity>(IEnumerable<TEntity>)
-  href: api/Ease.Repository.IBestEffortUnitOfWork.html#Ease_Repository_IBestEffortUnitOfWork_RegisterForUpdates__1_System_Collections_Generic_IEnumerable___0__
-  commentId: M:Ease.Repository.IBestEffortUnitOfWork.RegisterForUpdates``1(System.Collections.Generic.IEnumerable{``0})
-  name.vb: RegisterForUpdates(Of TEntity)(IEnumerable(Of TEntity))
-  fullName: Ease.Repository.IBestEffortUnitOfWork.RegisterForUpdates<TEntity>(System.Collections.Generic.IEnumerable<TEntity>)
-  fullName.vb: Ease.Repository.IBestEffortUnitOfWork.RegisterForUpdates(Of TEntity)(System.Collections.Generic.IEnumerable(Of TEntity))
-  nameWithType: IBestEffortUnitOfWork.RegisterForUpdates<TEntity>(IEnumerable<TEntity>)
-  nameWithType.vb: IBestEffortUnitOfWork.RegisterForUpdates(Of TEntity)(IEnumerable(Of TEntity))
 - uid: Ease.Repository.IBestEffortUnitOfWork.RegisterStoreFor*
   name: RegisterStoreFor
   href: api/Ease.Repository.IBestEffortUnitOfWork.html#Ease_Repository_IBestEffortUnitOfWork_RegisterStoreFor_
@@ -915,6 +1180,60 @@ references:
   fullName.vb: Ease.Repository.IBestEffortUnitOfWork.RegisterStoreFor(Of TEntity)(Ease.Repository.IStoreWriter)
   nameWithType: IBestEffortUnitOfWork.RegisterStoreFor<TEntity>(IStoreWriter)
   nameWithType.vb: IBestEffortUnitOfWork.RegisterStoreFor(Of TEntity)(IStoreWriter)
+- uid: Ease.Repository.IRegisterEntities
+  name: IRegisterEntities
+  href: api/Ease.Repository.IRegisterEntities.html
+  commentId: T:Ease.Repository.IRegisterEntities
+  fullName: Ease.Repository.IRegisterEntities
+  nameWithType: IRegisterEntities
+- uid: Ease.Repository.IRegisterEntities.RegisterAdd*
+  name: RegisterAdd
+  href: api/Ease.Repository.IRegisterEntities.html#Ease_Repository_IRegisterEntities_RegisterAdd_
+  commentId: Overload:Ease.Repository.IRegisterEntities.RegisterAdd
+  isSpec: "True"
+  fullName: Ease.Repository.IRegisterEntities.RegisterAdd
+  nameWithType: IRegisterEntities.RegisterAdd
+- uid: Ease.Repository.IRegisterEntities.RegisterAdd``1(``0)
+  name: RegisterAdd<TEntity>(TEntity)
+  href: api/Ease.Repository.IRegisterEntities.html#Ease_Repository_IRegisterEntities_RegisterAdd__1___0_
+  commentId: M:Ease.Repository.IRegisterEntities.RegisterAdd``1(``0)
+  name.vb: RegisterAdd(Of TEntity)(TEntity)
+  fullName: Ease.Repository.IRegisterEntities.RegisterAdd<TEntity>(TEntity)
+  fullName.vb: Ease.Repository.IRegisterEntities.RegisterAdd(Of TEntity)(TEntity)
+  nameWithType: IRegisterEntities.RegisterAdd<TEntity>(TEntity)
+  nameWithType.vb: IRegisterEntities.RegisterAdd(Of TEntity)(TEntity)
+- uid: Ease.Repository.IRegisterEntities.RegisterDelete*
+  name: RegisterDelete
+  href: api/Ease.Repository.IRegisterEntities.html#Ease_Repository_IRegisterEntities_RegisterDelete_
+  commentId: Overload:Ease.Repository.IRegisterEntities.RegisterDelete
+  isSpec: "True"
+  fullName: Ease.Repository.IRegisterEntities.RegisterDelete
+  nameWithType: IRegisterEntities.RegisterDelete
+- uid: Ease.Repository.IRegisterEntities.RegisterDelete``1(``0)
+  name: RegisterDelete<TEntity>(TEntity)
+  href: api/Ease.Repository.IRegisterEntities.html#Ease_Repository_IRegisterEntities_RegisterDelete__1___0_
+  commentId: M:Ease.Repository.IRegisterEntities.RegisterDelete``1(``0)
+  name.vb: RegisterDelete(Of TEntity)(TEntity)
+  fullName: Ease.Repository.IRegisterEntities.RegisterDelete<TEntity>(TEntity)
+  fullName.vb: Ease.Repository.IRegisterEntities.RegisterDelete(Of TEntity)(TEntity)
+  nameWithType: IRegisterEntities.RegisterDelete<TEntity>(TEntity)
+  nameWithType.vb: IRegisterEntities.RegisterDelete(Of TEntity)(TEntity)
+- uid: Ease.Repository.IRegisterEntities.RegisterForUpdates*
+  name: RegisterForUpdates
+  href: api/Ease.Repository.IRegisterEntities.html#Ease_Repository_IRegisterEntities_RegisterForUpdates_
+  commentId: Overload:Ease.Repository.IRegisterEntities.RegisterForUpdates
+  isSpec: "True"
+  fullName: Ease.Repository.IRegisterEntities.RegisterForUpdates
+  nameWithType: IRegisterEntities.RegisterForUpdates
+- uid: Ease.Repository.IRegisterEntities.RegisterForUpdates``1(System.Collections.Generic.IEnumerable{``0})
+  name: RegisterForUpdates<TEntity>(IEnumerable<TEntity>)
+  href: api/Ease.Repository.IRegisterEntities.html#Ease_Repository_IRegisterEntities_RegisterForUpdates__1_System_Collections_Generic_IEnumerable___0__
+  commentId: M:Ease.Repository.IRegisterEntities.RegisterForUpdates``1(System.Collections.Generic.IEnumerable{``0})
+  name.vb: RegisterForUpdates(Of TEntity)(IEnumerable(Of TEntity))
+  fullName: Ease.Repository.IRegisterEntities.RegisterForUpdates<TEntity>(System.Collections.Generic.IEnumerable<TEntity>)
+  fullName.vb: Ease.Repository.IRegisterEntities.RegisterForUpdates(Of TEntity)(System.Collections.Generic.IEnumerable(Of TEntity))
+  nameWithType: IRegisterEntities.RegisterForUpdates<TEntity>(IEnumerable<TEntity>)
+  nameWithType.vb: IRegisterEntities.RegisterForUpdates(Of TEntity)(IEnumerable(Of TEntity))
 - uid: Ease.Repository.IRepository`2
   name: IRepository<TKey, TEntity>
   href: api/Ease.Repository.IRepository-2.html

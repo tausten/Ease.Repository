@@ -66,13 +66,25 @@
 <p>Concrete implementations may be expanded over time, but will start with AzureTable, Redis, EntityFramework, and NHibernate (in that order).</p>
 <p>Ease.Repository targets .NET Standard 2.0+ (<a href="https://docs.microsoft.com/en-us/dotnet/standard/net-standard#net-implementation-support">coverage</a>: .NET Framework 4.6.1, .NET Core 2.0+, and later Mono, Xamarin and UWP targets).</p>
 <h1 id="installing-via-nuget">Installing via NuGet</h1>
+<p>The baseline abstractions - if you need or want to develop your own concrete implementations:</p>
 <p><code>Install-Package Ease.Repository</code></p>
 <p><a href="https://www.nuget.org/packages/Ease.Repository/"><img src="https://img.shields.io/nuget/v/Ease.Repository.svg" alt="Nuget"></a></p>
+<p>Off-the-shelf concrete implementations (these would be what you'd typically integrate with, rather than the baseline):</p>
+<p><a href="https://www.nuget.org/packages/Ease.Repository.AzureTable/"><code>Install-Package Ease.Repository.AzureTable</code></a></p>
+<p><a href="https://www.nuget.org/packages/Ease.Repository.Redis/"><code>[Coming Soon] Install-Package Ease.Repository.Redis [Coming Soon]</code></a></p>
+<p><a href="https://www.nuget.org/packages/Ease.Repository.EntityFramework/"><code>[Coming Soon] Install-Package Ease.Repository.EntityFramework [Coming Soon]</code></a></p>
+<p><a href="https://www.nuget.org/packages/Ease.Repository.NHibernate/"><code>[Coming Soon] Install-Package Ease.Repository.NHibernate [Coming Soon]</code></a></p>
+<p>And integration test base class support providing default sets of CRUD verification:</p>
+<p><a href="https://www.nuget.org/packages/Ease.Repository.Test/"><code>Install-Package Ease.Repository.Test</code></a></p>
+<p><a href="https://www.nuget.org/packages/Ease.Repository.AzureTable.Test/"><code>Install-Package Ease.Repository.AzureTable.Test</code></a></p>
+<p><a href="https://www.nuget.org/packages/Ease.Repository.Redis.Test/"><code>[Coming Soon] Install-Package Ease.Repository.Redis.Test [Coming Soon]</code></a></p>
+<p><a href="https://www.nuget.org/packages/Ease.Repository.EntityFramework.Test/"><code>[Coming Soon] Install-Package Ease.Repository.EntityFramework.Test [Coming Soon]</code></a></p>
+<p><a href="https://www.nuget.org/packages/Ease.Repository.NHibernate.Test/"><code>[Coming Soon] Install-Package Ease.Repository.NHibernate.Test [Coming Soon]</code></a></p>
 <h2 id="release-notes">Release notes</h2>
 <table>
 <thead>
 <tr>
-<th><strong>Latest Tagged Build Tests</strong></th>
+<th><strong>Latest Versioned Build Tests</strong></th>
 <th><strong>Latest PR Build Tests</strong></th>
 </tr>
 </thead>
@@ -91,12 +103,16 @@
 <h1 id="using-easerepository">Using Ease.Repository</h1>
 <p>Quick-start information will be in the <a href="articles/intro.html">Articles</a>, and full <a href="api/index.html">API documentation is found here</a>.</p>
 <h1 id="3rd-party-libraries-and-contributions">3rd Party Libraries and Contributions</h1>
+<p>A special thank you to the authors and maintainers of these libraries that helped to make Ease.Repository* possible:</p>
 <ul>
-<li>TODO - reference the various mock framework projects here (and any other libs, but aim to keep lib deps light)</li>
+<li><a href="https://www.nuget.org/packages/ChangeTracking/">ChangeTracking</a> - for the BestEffortUnitOfWork entity update tracking</li>
+<li><a href="https://www.nuget.org/packages/AutoFixture">AutoFixture</a> - excellent test fixture management</li>
+<li><a href="https://www.nuget.org/packages/FakeItEasy/">FakeItEasy</a> - wonderful mocking framework</li>
+<li><a href="https://www.nuget.org/packages/AutoFixture.AutoFakeItEasy/">AutoFixture.FakeItEasy</a> - a perfect marriage, providing a very elegant auto-mocking pattern implementation</li>
 </ul>
 <h1 id="acknowledgements">Acknowledgements</h1>
 <ul>
-<li>TODO - add acknowledgements here</li>
+<li>TODO - add helper acknowledgements here</li>
 </ul>
 <h1 id="license">License</h1>
 <p>Licensed under the terms of the <a href="https://github.com/tausten/Ease.Repository/blob/master/LICENSE">MIT License</a></p>
@@ -108,7 +124,7 @@
               <div class="contribution">
                 <ul class="nav">
                   <li>
-                    <a href="https://github.com/tausten/Ease.Repository/blob/develop/docfx_project/index.md/#L1" class="contribution-link">Improve this Doc</a>
+                    <a href="https://github.com/tausten/Ease.Repository/blob/master/docfx_project/index.md/#L1" class="contribution-link">Improve this Doc</a>
                   </li>
                 </ul>
               </div>
