@@ -1,0 +1,107 @@
+# Pipeline for building versioned artifacts
+trigger:
+  batch: true
+  branches:
+    include:
+    - master
+    - develop
+
+# Work around the default PR trigger on everything... :facepalm:
+pr: 
+  branches:
+    exclude:
+    - '*'
+
+pool:
+  vmImage: 'windows-latest'
+
+variables:
+  solution: '**/*.sln'
+  buildPlatform: 'Any CPU'
+  buildConfiguration: 'Release'
+  releaseNotesFlattened: 'Miscellaneous updates.'
+
+steps:
+- task: GitVersion@5
+  displayName: 'Extract version number details'
+  inputs:
+    runtime: 'core'
+
+- task: PowerShell@2
+  displayName: 'Reading CHANGELOG.md for package release notes'
+  inputs:
+    targetType: 'inline'
+    script: 'Write-Host (''##vso[task.setvariable variable=releaseNotesFlattened]'' + ((gc CHANGELOG.md) -join '' |''))'
+    pwsh: true
+
+- task: Assembly-Info-NetCore@2
+  displayName: 'Update Version Stamps'
+  inputs:
+    Path: '$(Build.SourcesDirectory)'
+    FileNames: '**/Ease.Repository*.csproj'
+    InsertAttributes: true
+    GeneratePackageOnBuild: true
+    PackageReleaseNotes: $(releaseNotesFlattened)
+    VersionNumber: '$(GitVersion.AssemblySemVer)'
+    FileVersionNumber: '$(GitVersion.AssemblySemFileVer)'
+    InformationalVersion: '$(GitVersion.InformationalVersion)'
+    PackageVersion: '$(GitVersion.FullSemVer)'
+
+- task: NuGetToolInstaller@1
+  displayName: 'Use NuGet'
+
+- task: NuGetCommand@2
+  displayName: 'NuGet Restore'
+  inputs:
+    restoreSolution: '$(solution)'
+
+- task: VSBuild@1
+  displayName: 'Build solution'
+  inputs:
+    solution: '$(solution)'
+    platform: '$(buildPlatform)'
+    configuration: '$(buildConfiguration)'
+
+- task: CmdLine@2
+  displayName: 'Launch Azure Storage Emulator'
+  inputs:
+    script: |
+      sqllocaldb create MSSQLLocalDB
+      sqllocaldb start MSSQLLocalDB
+      sqllocaldb info MSSQLLocalDB
+      "C:\Program Files (x86)\Microsoft SDKs\Azure\Storage Emulator\AzureStorageEmulator.exe" start
+
+- task: DotNetCoreCLI@2
+  displayName: 'Run Tests'
+  inputs:
+    command: 'test'
+    projects: '**/*.Tests.csproj'
+    testRunTitle: 'Test solution'
+
+- task: CopyFiles@2
+  displayName: 'Copy Files to: $(build.artifactstagingdirectory)'
+  inputs:
+    SourceFolder: '$(system.defaultworkingdirectory)'
+    Contents: '**\bin\$(BuildConfiguration)\**\*.nupkg'
+    TargetFolder: '$(build.artifactstagingdirectory)'
+  condition: succeededOrFailed()
+
+# DocFx building
+- task: DocFxTask@0
+  displayName: 'Generate DocFx Documentation'
+  inputs:
+    solution: 'docfx_project/docfx.json'
+
+- task: CopyFiles@2
+  displayName: 'Copy DocFx output to: $(build.artifactstagingdirectory)'
+  inputs:
+    SourceFolder: '$(system.defaultworkingdirectory)'
+    Contents: '**\docfx_project\_site\**'
+    TargetFolder: '$(build.artifactstagingdirectory)'
+  condition: succeededOrFailed()
+
+- task: PublishBuildArtifacts@1
+  displayName: 'Publish Artifact: drop'
+  inputs:
+    PathtoPublish: '$(build.artifactstagingdirectory)'
+  condition: succeededOrFailed()

@@ -1,0 +1,33 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
+    <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+    <Version>0.0.0</Version>
+    <Authors>Tyler Austen</Authors>
+    <Description>C#/.Net building blocks supporting implementation of the repository and unit of work patterns for Azure Table.</Description>
+    <PackageLicenseFile>LICENSE</PackageLicenseFile>
+    <PackageProjectUrl>https://github.com/tausten/Ease.Repository</PackageProjectUrl>
+    <RepositoryUrl>https://github.com/tausten/Ease.Repository</RepositoryUrl>
+    <PackageTags>csharp, dotnet, repository, azure, table, nosql</PackageTags>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Ease.Repository\Ease.Repository.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="..\LICENSE">
+      <Pack>True</Pack>
+      <PackagePath></PackagePath>
+    </None>
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="ChangeTracking" Version="2.2.13" />
+    <PackageReference Include="Ease.Util" Version="0.3.0" />
+    <PackageReference Include="Microsoft.Azure.Cosmos.Table" Version="1.0.4" />
+    <PackageReference Include="Microsoft.Extensions.Configuration.Abstractions" Version="2.2.0" />
+  </ItemGroup>
+
+</Project>
