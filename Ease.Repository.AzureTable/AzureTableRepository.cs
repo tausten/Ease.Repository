@@ -36,9 +36,20 @@ namespace Ease.Repository.AzureTable
         #endregion
     }
 
+    /// <summary>
+    /// AzureTable-backed repository classes should define their own interfaces in terms of this simplified interface.
+    /// </summary>
+    /// <typeparam name="TEntity"></typeparam>
     public interface IAzureTableRepository<TEntity> : IRepository<ITableEntity, TEntity>
         where TEntity : class, ITableEntity, new()
     {
+        /// <summary>
+        /// Return the entities from the store. If such an unbounded query operation is not sensible for the 
+        /// <typeparamref name="TEntity"/>, then the concrete repository should implement other queries that 
+        /// provide sufficiently narrow scope, and should override this method to either gracefully fail, or 
+        /// throw an `InvalidOperationException`.
+        /// </summary>
+        /// <returns></returns>
         IEnumerable<TEntity> List();
     }
 

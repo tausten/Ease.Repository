@@ -1,4 +1,8 @@
-﻿using System;
+﻿//
+// Copyright (c) 2019 Tyler Austen. See LICENSE file at top of repository for details.
+//
+
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;

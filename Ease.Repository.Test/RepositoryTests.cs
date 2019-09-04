@@ -10,7 +10,7 @@ using System.Threading.Tasks;
 namespace Ease.Repository.Test
 {
     /// <summary>
-    /// Baseline set of tests for any <see cref="Impl.Data.IRepository"/>. This test base class does not impost a particular test 
+    /// Baseline set of tests for any <seealso cref="IRepository{TKey, TEntity}"/>. This test base class does not impost a particular test 
     /// framework (eg. MSTest, NUnit, etc..). Instead, you inherit from this class, then implement the abstract methods as just 
     /// delegate calls to the corresponding `base.*_Impl()` methods (unless you wish to provide your own alternative implementation
     /// for the corresponding baseline test). Don't forget to decorate the implemented test methods with your framework's 
