@@ -12,6 +12,14 @@ using Microsoft.Azure.Cosmos.Table;
 
 namespace Ease.Repository.AzureTable.Test
 {
+    /// <summary>
+    /// Base class for providing a baseline set of tests covering operations common to all AzureTable-backed
+    /// repositories, along with infrastructure to build additional special-purpose tests to cover any extended
+    /// repository-specific additions.
+    /// </summary>
+    /// <typeparam name="TContext">The `IAzureTableRepositoryContext` wanted by the repository</typeparam>
+    /// <typeparam name="TEntity">The entity Type managed by the repository</typeparam>
+    /// <typeparam name="TRepository">The repository Type</typeparam>
     public abstract class AzureTableRepositoryTests<TContext, TEntity, TRepository>
         : RepositoryTests<ITableEntity, TEntity, TRepository>
         where TContext : class, IAzureTableRepositoryContext

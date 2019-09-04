@@ -1,4 +1,8 @@
-﻿using System;
+﻿//
+// Copyright (c) 2019 Tyler Austen. See LICENSE file at top of repository for details.
+//
+
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -53,7 +57,7 @@ namespace SampleCoreWebApp
             // Register our repositories (again, "Scoped")
             services.AddScoped<ICustomerAzureTableRepository, CustomerAzureTableRepository>();
             services.AddScoped<IProductAzureTableRepository, ProductAzureTableRepository>();
-            #endregion // Repository pattern
+            #endregion Repository pattern
 
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
         }

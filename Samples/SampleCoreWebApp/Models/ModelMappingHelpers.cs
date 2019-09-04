@@ -1,4 +1,8 @@
-﻿using Ease.Repository.AzureTable;
+﻿//
+// Copyright (c) 2019 Tyler Austen. See LICENSE file at top of repository for details.
+//
+
+using Ease.Repository.AzureTable;
 using System;
 using System.Collections.Generic;
 using System.Linq;
